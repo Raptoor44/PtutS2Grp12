@@ -1,0 +1,7 @@
+.texte{
+	-fx-background-color : #393351;
+}
+
+.texte:hover{
+	-fx-background-color : #524A7B ;
+}
