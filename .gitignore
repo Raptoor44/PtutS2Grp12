@@ -55,3 +55,7 @@ nb-configuration.xml
 release.properties
 pom.xml.releaseBackup
 pom.xml.tag
+
+# .jdk et .scene Builder
+!.jdk/
+!JavaFXSceneBuilder/
