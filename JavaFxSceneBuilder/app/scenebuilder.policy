@@ -1,0 +1,11 @@
+grant codeBase "file:${java.library.path}/../-" {
+permission java.security.AllPermission;
+};
+
+grant {
+permission java.util.PropertyPermission "*", "read";
+permission java.lang.RuntimePermission "accessDeclaredMembers";
+permission java.lang.reflect.ReflectPermission "suppressAccessChecks";
+permission java.lang.RuntimePermission "accessClassInPackage.com.sun.javafx.*";
+};
+
