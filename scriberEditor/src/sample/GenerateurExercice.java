@@ -5,6 +5,7 @@ import exercice.Exercice;
 
 
 import java.io.*;
+import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
 import java.util.zip.ZipEntry;
@@ -13,10 +14,17 @@ import java.util.zip.ZipOutputStream;
 public class GenerateurExercice {
 
 
+    public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriberEditor");
+
 
 
     public GenerateurExercice() {
-
+        try {
+            if(!savedir.exists())
+                Files.createDirectory(savedir.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
 
     }
 
@@ -39,7 +47,7 @@ public class GenerateurExercice {
         //on sérialize l'exercice
         final FileOutputStream fichier;
         try {
-            fichier = new FileOutputStream("../.exerSample/newFichierExercice.exera");
+            fichier = new FileOutputStream(savedir  + "/exerciceInfo.exera");
             oos = new ObjectOutputStream(fichier);
             oos.writeObject(exercice);
             oos.flush();
@@ -59,7 +67,7 @@ public class GenerateurExercice {
         }
 
         //on créer le fichier exercice avec l'objet exercice et le media
-        mergeFile("../.exerSample/newFichierExercice.exera", "../.exerSample/video.mp4");
+        mergeFile(savedir  + "/exerciceInfo.exera" , ressourceFilePath);
 
     }
 
@@ -74,7 +82,7 @@ public class GenerateurExercice {
 
 
         //on créer le fichier exercice avec l'objet exercice et le media
-        mergeFile("../.exerSample/newFichierExercice.exera", "../.exerSample/video.mp4");
+        mergeFile(savedir  + "/exerciceInfo.exera", ressourceFilePath );
 
     }
 
@@ -82,7 +90,7 @@ public class GenerateurExercice {
         List<String> srcFiles = Arrays.asList(pathExercice, pathVideo);
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream("../fichierExercice/exercice.exer");
+            fos = new FileOutputStream(savedir + "/exerciceInfo.exer");
 
             ZipOutputStream zipOut = new ZipOutputStream(fos);
             for (String srcFile : srcFiles) {

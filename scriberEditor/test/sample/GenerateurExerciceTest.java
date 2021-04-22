@@ -13,7 +13,7 @@ class GenerateurExerciceTest {
     void nouveauFichierEvaluation() {
 
         GenerateurExercice generateurExercice = new GenerateurExercice();
-        generateurExercice.nouveauFichierEvaluation("bob");
+        generateurExercice.nouveauFichierEvaluation("../.exerSample/video.mp4");
 
 
     }

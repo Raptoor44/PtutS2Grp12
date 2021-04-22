@@ -9,12 +9,16 @@ class ExerciceLoaderTest {
 
         ExerciceLoader exerciceLoader = new ExerciceLoader();
 
-        exerciceLoader.chargerUnExercice("../.exerSample/newFichierExercice.exer");
+        exerciceLoader.chargerUnExercice("../.exerSample/exercice.exer");
 
 
     }
 
     @org.junit.jupiter.api.Test
     void chargerMediaDepuisExercice() {
+
+
+
+
     }
 }
