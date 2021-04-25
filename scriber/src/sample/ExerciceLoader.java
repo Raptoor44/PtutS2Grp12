@@ -25,6 +25,49 @@ public class ExerciceLoader {
 
     public Exercice chargerUnExercice(String pathToFile){
 
+        unzipExerciceFile(pathToFile);
+
+        // ouverture d'un flux sur un fichier
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream(savedir + "/fichierExerciceInput/exerciceInfo.exera"));
+
+            // désérialization de l'objet
+            Evaluation m = (Evaluation)ois.readObject() ;
+            System.out.println(m) ;
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
+
+
+        return null;
+    }
+
+    public String chargerMediaDepuisExercice(String pathToFile){
+
+        unzipExerciceFile(pathToFile);
+
+        return savedir + "/fichierExerciceInput/video.mp4";
+
+
+    }
+
+
+    public static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+        File destFile = new File(destinationDir, zipEntry.getName());
+
+        String destDirPath = destinationDir.getCanonicalPath();
+        String destFilePath = destFile.getCanonicalPath();
+
+        if (!destFilePath.startsWith(destDirPath + File.separator)) {
+            throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
+        }
+
+        return destFile;
+    }
+
+    private void unzipExerciceFile(String pathToFile){
         File destDir = new File(savedir + "/fichierExerciceInput/");
         byte[] buffer = new byte[1024];
         ZipInputStream zis = null;
@@ -64,44 +107,8 @@ public class ExerciceLoader {
         } catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
-        // ouverture d'un flux sur un fichier
-        ObjectInputStream ois = null;
-        try {
-            ois = new ObjectInputStream(new FileInputStream(savedir + "/fichierExerciceInput/exerciceInfo.exera"));
-
-            // désérialization de l'objet
-            Evaluation m = (Evaluation)ois.readObject() ;
-            System.out.println(m) ;
-
-        } catch (IOException | ClassNotFoundException e) {
-            e.printStackTrace();
-        }
-
-
-        return null;
     }
 
-    public static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
-        File destFile = new File(destinationDir, zipEntry.getName());
 
-        String destDirPath = destinationDir.getCanonicalPath();
-        String destFilePath = destFile.getCanonicalPath();
-
-        if (!destFilePath.startsWith(destDirPath + File.separator)) {
-            throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
-        }
-
-        return destFile;
-    }
-
-    public String chargerMediaDepuisExercice(String pathToFile){
-
-
-
-        return null;
-    }
 
 }
