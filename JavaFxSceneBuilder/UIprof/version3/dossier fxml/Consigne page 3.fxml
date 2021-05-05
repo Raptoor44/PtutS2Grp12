@@ -33,20 +33,16 @@
 -->
 
 <?import com.gluonhq.charm.glisten.control.ProgressBar?>
-<?import javafx.scene.Cursor?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
-<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.control.TextArea?>
-<?import javafx.scene.effect.Blend?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.paint.Color?>
-<?import javafx.scene.paint.LinearGradient?>
-<?import javafx.scene.paint.Stop?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
@@ -106,43 +102,13 @@
                </font>
             </Text>
             <TextArea layoutX="235.0" layoutY="179.0" prefHeight="48.0" prefWidth="190.0" />
-            <ProgressIndicator layoutX="235.0" layoutY="80.0" progress="0.0" />
-            <ProgressIndicator layoutX="359.0" layoutY="80.0" progress="0.0" />
-            <ProgressIndicator layoutX="479.0" layoutY="80.0" progress="0.0" />
-            <ProgressIndicator layoutX="601.0" layoutY="80.0" progress="0.0" />
             <ProgressBar layoutX="219.0" layoutY="148.0" prefHeight="0.0" prefWidth="412.0" progress="0.0" />
-            <Text fontSmoothingType="LCD" layoutX="433.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="1" textAlignment="CENTER" wrappingWidth="31.13671875">
-               <font>
-                  <Font size="36.0" />
-               </font>
-               <cursor>
-                  <Cursor fx:constant="DEFAULT" />
-               </cursor>
-               <effect>
-                  <Blend />
-               </effect>
-               <stroke>
-                  <LinearGradient endX="1.0" endY="1.0">
-                     <stops>
-                        <Stop>
-                           <color>
-                              <Color red="0.3157285451889038" green="0.3157285451889038" blue="0.9605262875556946" />
-                           </color>
-                        </Stop>
-                        <Stop offset="1.0">
-                           <color>
-                              <Color red="1.0" green="1.0" blue="1.0" />
-                           </color>
-                        </Stop>
-                     </stops>
-                  </LinearGradient>
-               </stroke>
-            </Text>
-            <Text layoutX="427.0" layoutY="66.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Exercice" />
+            <ImageView fitHeight="184.0" fitWidth="512.0" layoutX="190.0" layoutY="14.0">
+               <image>
+                  <Image url="@../images/page%203/1.PNG" />
+               </image>
+            </ImageView>
       </children>
-         <effect>
-            <Blend />
-         </effect>
     </AnchorPane>
   </children>
 </VBox>
