@@ -35,6 +35,7 @@ public class ExerciceLoader {
             // désérialization de l'objet
             Evaluation m = (Evaluation)ois.readObject() ;
             System.out.println(m) ;
+            return m;
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
