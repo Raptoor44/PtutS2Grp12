@@ -93,10 +93,10 @@
             <CheckBox disable="true" layoutX="223.0" layoutY="323.0" mnemonicParsing="false" text="Evaluation" />
             <Text layoutX="497.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caractère d'occultation : " />
             <TextArea layoutX="699.0" layoutY="277.0" prefHeight="26.0" prefWidth="7.0" promptText="#" />
-            <Text layoutX="487.0" layoutY="375.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limite de temps (min) :" />
+            <Text layoutX="497.0" layoutY="374.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limite de temps (min) :" />
             <TextArea layoutX="700.0" layoutY="348.0" prefHeight="44.0" prefWidth="64.0" text="10:00" />
             <Button layoutX="394.0" layoutY="571.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="137.0" text="Exporter" />
-            <ImageView fitHeight="248.0" fitWidth="592.0" layoutX="144.0" layoutY="9.0">
+            <ImageView fitHeight="256.0" fitWidth="592.0" layoutX="144.0" layoutY="9.0">
                <image>
                   <Image url="@../images/page%204/1.PNG" />
                </image>

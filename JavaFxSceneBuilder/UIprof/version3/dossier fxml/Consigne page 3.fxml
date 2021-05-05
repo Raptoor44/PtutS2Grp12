@@ -103,7 +103,7 @@
             </Text>
             <TextArea layoutX="235.0" layoutY="179.0" prefHeight="48.0" prefWidth="190.0" />
             <ProgressBar layoutX="219.0" layoutY="148.0" prefHeight="0.0" prefWidth="412.0" progress="0.0" />
-            <ImageView fitHeight="166.0" fitWidth="519.0" layoutX="190.0" layoutY="14.0">
+            <ImageView fitHeight="184.0" fitWidth="512.0" layoutX="190.0" layoutY="14.0">
                <image>
                   <Image url="@../images/page%203/1.PNG" />
                </image>

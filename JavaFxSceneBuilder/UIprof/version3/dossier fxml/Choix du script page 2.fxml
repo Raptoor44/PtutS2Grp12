@@ -88,14 +88,14 @@
     </MenuBar>
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="572.0" prefWidth="830.0" VBox.vgrow="ALWAYS">
       <children>
-            <Text layoutX="121.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrer le script :" wrappingWidth="134.13671875" />
-            <TextArea layoutX="98.0" layoutY="301.0" prefHeight="179.0" prefWidth="695.0" />
+            <Text layoutX="113.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrer le script :" wrappingWidth="134.13671875" />
+            <TextArea layoutX="98.0" layoutY="244.0" prefHeight="236.0" prefWidth="695.0" />
             <Button defaultButton="true" layoutX="360.0" layoutY="489.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="170.0" text="Valider" textFill="WHITE">
                <font>
                   <Font size="24.0" />
                </font>
             </Button>
-            <ImageView fitHeight="234.0" fitWidth="503.0" layoutX="180.0" layoutY="14.0">
+            <ImageView fitHeight="185.0" fitWidth="520.0" layoutX="180.0" layoutY="14.0">
                <image>
                   <Image url="@../images/page%202/1.PNG" />
                </image>
