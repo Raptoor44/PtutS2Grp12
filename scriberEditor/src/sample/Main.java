@@ -5,17 +5,27 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ressources.Controller;
 
 public class Main extends Application {
 
+    public static Parent parent;
+    public static Scene scene;
+    public static Controller controller;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-        primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 300, 275));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/page1.fxml"));
+        parent = loader.load();
+        primaryStage.setTitle("Scriber Editor");
+        scene = new Scene(parent, 800, 600);
+        primaryStage.setScene(scene);
         primaryStage.show();
 
-        
+        controller = (Controller) loader.getController();
+
+        System.out.println(controller.button);
+
     }
 
 

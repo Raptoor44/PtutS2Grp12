@@ -1,17 +1,62 @@
 package sample;
 
-import exercice.Evaluation;
+
 import exercice.Exercice;
+import javafx.scene.image.Image;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
+
+import org.apache.tika.exception.TikaException;
+import org.apache.tika.metadata.Metadata;
+import org.apache.tika.parser.ParseContext;
+import org.apache.tika.parser.Parser;
+import org.apache.tika.parser.mp3.Mp3Parser;
+import org.xml.sax.ContentHandler;
+import org.xml.sax.SAXException;
+import org.xml.sax.helpers.DefaultHandler;
+
 public class ExerciceLoader {
 
 
     public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriber");
+
+    private static boolean estUneVideo;     // a true si le dernier exercice chargé possede une video sinon a false si le dernier exercice charge possede de l'audio
+    public static String actualUnzipedExercice;
+
+
+    //metada tu dernier exercice charger
+    private String artist;
+    private int year;
+    private String album;
+    private String genre;
+    private String title;
+
+    public boolean isFinish;
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getAlbum() {
+        return album;
+    }
+
+    public String getArtist() {
+        return artist;
+    }
+
+    public String getGenre() {
+        return genre;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
 
     public ExerciceLoader() {
         try {
@@ -25,48 +70,74 @@ public class ExerciceLoader {
 
     public Exercice chargerUnExercice(String pathToFile){
 
-        unzipExerciceFile(pathToFile);
-
+        if(actualUnzipedExercice != null && !actualUnzipedExercice.equals(pathToFile)){
+            unzipExerciceFile(pathToFile);
+            actualUnzipedExercice = pathToFile;
+        }
         // ouverture d'un flux sur un fichier
         ObjectInputStream ois = null;
         try {
             ois = new ObjectInputStream(new FileInputStream(savedir + "/fichierExerciceInput/exerciceInfo.exera"));
 
             // désérialization de l'objet
-            Evaluation m = (Evaluation)ois.readObject() ;
-            System.out.println(m) ;
-            return m;
+            Exercice exercice = (Exercice) ois.readObject();
+            System.out.println(exercice) ;
+            return exercice;
 
         } catch (IOException | ClassNotFoundException e) {
             e.printStackTrace();
         }
-
-
         return null;
     }
 
-    public String chargerMediaDepuisExercice(String pathToFile){
+    public File chargerMediaDepuisExercice(String pathToFile){
 
-        unzipExerciceFile(pathToFile);
-
-        return savedir + "/fichierExerciceInput/video.mp4";
-
-
-    }
-
-
-    public static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
-        File destFile = new File(destinationDir, zipEntry.getName());
-
-        String destDirPath = destinationDir.getCanonicalPath();
-        String destFilePath = destFile.getCanonicalPath();
-
-        if (!destFilePath.startsWith(destDirPath + File.separator)) {
-            throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
+        if(actualUnzipedExercice != null && !actualUnzipedExercice.equals(pathToFile)){
+            unzipExerciceFile(pathToFile);
+            actualUnzipedExercice = pathToFile;
         }
 
-        return destFile;
+        if(estUneVideo)
+            return new File(savedir + "/fichierExerciceInput/video.mp4");
+        if(!estUneVideo)
+            return new File(savedir + "/fichierExerciceInput/audio.mp3");
+        return null;
     }
+
+
+
+    public void loadMediaData(File media){
+        try {
+
+            InputStream input = new FileInputStream(media);
+            ContentHandler handler = new DefaultHandler();
+            Metadata metadata = new Metadata();
+            Parser parser = new Mp3Parser();
+            ParseContext parseCtx = new ParseContext();
+            parser.parse(input,handler, metadata, parseCtx);
+            input.close();
+
+            // Retrieve the necessary info from metadata
+            // Names - title, xmpDM:artist etc. - mentioned below may differ based
+            title = metadata.get("title");
+            artist = metadata.get("xmpDM:artist");
+            genre =metadata.get("xmpDM:genre");
+            album = metadata.get("xmpDM:album");
+            year =  Integer.valueOf(metadata.get("xmpDM:releaseDate"));
+
+
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } catch (SAXException e) {
+            e.printStackTrace();
+        } catch (TikaException e) {
+            e.printStackTrace();
+        }
+    }
+
+
 
     private void unzipExerciceFile(String pathToFile){
         File destDir = new File(savedir + "/fichierExerciceInput/");
@@ -110,6 +181,27 @@ public class ExerciceLoader {
         }
     }
 
+    private static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+        File destFile = new File(destinationDir, zipEntry.getName());
+
+        String destDirPath = destinationDir.getCanonicalPath();
+        String destFilePath = destFile.getCanonicalPath();
+
+        if (!destFilePath.startsWith(destDirPath + File.separator)) {
+            throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
+        }
+
+        if(zipEntry.getName() == "audio.mp3"){
+            estUneVideo = false;
+        }
+
+        if(zipEntry.getName() == "video.mp4"){
+            estUneVideo = true;
+        }
+
+
+        return destFile;
+    }
 
 
 }
