@@ -15,6 +15,7 @@ public class Main extends Application {
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
     private static final String INDEXPATH = "../ressources/Index.fxml";
     private static final String PAG1PATH = "../ressources/page1.fxml";
 
@@ -26,6 +27,11 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
         FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/page1.fxml"));
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
+=======
+    @Override
+    public void start(Stage primaryStage) throws Exception{
+        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/page1.fxml"));
+>>>>>>> parent of d8208eb (d)
 =======
     @Override
     public void start(Stage primaryStage) throws Exception{
