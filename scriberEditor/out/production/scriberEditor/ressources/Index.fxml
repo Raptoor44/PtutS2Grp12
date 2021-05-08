@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import java.lang.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
+   <children>
+      <MenuBar layoutY="2.0" prefHeight="25.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="Tutorial">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="Delete" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane fx:id="anchorPane" layoutY="25.0" prefHeight="376.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="24.0">
+         <children>
+            <Label layoutX="50.0" layoutY="40.0" prefHeight="51.0" prefWidth="114.0" text="Bienvenue" />
+            <Button fx:id="button" layoutX="171.0" layoutY="286.0" mnemonicParsing="false" onAction="#onNextButton" prefHeight="25.0" prefWidth="289.0" text="Get Started" AnchorPane.bottomAnchor="65.0" AnchorPane.leftAnchor="171.0" AnchorPane.rightAnchor="140.0" />
+            <Label layoutX="50.0" layoutY="82.0" prefHeight="51.0" prefWidth="114.0" text="sur Scriber Editor" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
