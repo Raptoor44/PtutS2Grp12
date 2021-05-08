@@ -43,6 +43,7 @@
 
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <VBox prefHeight="648.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
   <children>
       <AnchorPane mouseTransparent="true" prefHeight="622.0" prefWidth="897.0">
@@ -56,6 +57,8 @@
                <image>
                   <Image url="@UIprof/version4/images/partie%202/2.PNG" />
 =======
+=======
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
 <VBox prefHeight="648.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
   <children>
     <MenuBar VBox.vgrow="NEVER">
@@ -102,6 +105,9 @@
             <ImageView fitHeight="210.0" fitWidth="580.0" layoutX="189.0" layoutY="42.0">
                <image>
                   <Image url="@../images/partie%202/2.PNG" />
+<<<<<<< HEAD
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
+=======
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
                </image>
             </ImageView>
@@ -115,7 +121,11 @@
             <ImageView layoutX="77.0" layoutY="42.0">
                <image>
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <Image url="@UIprof/version4/images/Capture.PNG" />
+=======
+                  <Image url="@../images/Capture.PNG" />
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
 =======
                   <Image url="@../images/Capture.PNG" />
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
@@ -128,6 +138,7 @@
   </children>
 </VBox>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
 <AnchorPane mouseTransparent="true" prefHeight="622.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
    <children>
@@ -139,5 +150,7 @@
    </children>
 </AnchorPane>
 >>>>>>> cb7a57d94e142b91e3e02be9533a7fea9c05dfed
+=======
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
 =======
 >>>>>>> parent of cb7a57d (loading multiple fxml file)

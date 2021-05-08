@@ -35,11 +35,17 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.CheckBox?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
 <?import javafx.scene.control.SeparatorMenuItem?>
+<<<<<<< HEAD
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
+=======
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
@@ -51,7 +57,10 @@
 <VBox prefHeight="667.0" prefWidth="878.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <children>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
     <MenuBar VBox.vgrow="NEVER">
       <menus>
         <Menu mnemonicParsing="false" text="File">
@@ -91,13 +100,20 @@
         </Menu>
       </menus>
     </MenuBar>
+<<<<<<< HEAD
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
+=======
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="488.0" prefWidth="755.0" VBox.vgrow="ALWAYS">
          <children>
             <ImageView fitHeight="642.0" fitWidth="878.0" layoutX="-1.0">
                <image>
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <Image url="@UIprof/version4/images/Sans%20titre.png" />
+=======
+                  <Image url="@../images/Sans%20titre.png" />
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
 =======
                   <Image url="@../images/Sans%20titre.png" />
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
@@ -113,7 +129,11 @@
             <ImageView fitHeight="210.0" fitWidth="580.0" layoutX="173.0" layoutY="41.0">
                <image>
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <Image url="@UIprof/version4/images/partie%204/Capture.PNG" />
+=======
+                  <Image url="@../images/partie%204/Capture.PNG" />
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
 =======
                   <Image url="@../images/partie%204/Capture.PNG" />
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
@@ -122,17 +142,23 @@
             <ImageView layoutX="57.0" layoutY="41.0">
                <image>
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <Image url="@UIprof/version4/images/Capture.PNG" />
                </image>
             </ImageView>
             <Button layoutX="394.0" layoutY="571.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="137.0" text="Exporter" />
             <Button layoutX="63.0" layoutY="50.0" mnemonicParsing="false" opacity="0.0" prefHeight="44.0" prefWidth="48.0" text="retour" />
 =======
+=======
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
                   <Image url="@../images/Capture.PNG" />
                </image>
             </ImageView>
             <Button layoutX="394.0" layoutY="571.0" mnemonicParsing="false" prefHeight="48.0" prefWidth="137.0" text="Exporter" />
             <Button layoutX="63.0" layoutY="50.0" mnemonicParsing="false" prefHeight="44.0" prefWidth="48.0" text="retour" />
+<<<<<<< HEAD
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
+=======
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
          </children>
     </AnchorPane>
