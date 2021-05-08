@@ -33,6 +33,13 @@
 -->
 
 <?import javafx.scene.control.Button?>
+<<<<<<< HEAD
+=======
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
@@ -43,17 +50,67 @@
 
 <VBox prefHeight="584.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <children>
+<<<<<<< HEAD
+=======
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
     <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="572.0" prefWidth="830.0" VBox.vgrow="ALWAYS">
       <children>
             <ImageView fitHeight="559.0" fitWidth="894.0">
                <image>
+<<<<<<< HEAD
                   <Image url="@UIprof/version4/images/Sans%20titre.png" />
+=======
+                  <Image url="@../images/Sans%20titre.png" />
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
                </image>
             </ImageView>
             <Text layoutX="113.0" layoutY="228.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrer le script :" wrappingWidth="134.13671875" />
             <ImageView fitHeight="210.0" fitWidth="580.0" layoutX="157.0" layoutY="5.0">
                <image>
+<<<<<<< HEAD
                   <Image url="@UIprof/version4/images/partie%203/Capture.PNG" />
+=======
+                  <Image url="@../images/partie%203/Capture.PNG" />
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
                </image>
             </ImageView>
             <TextArea layoutX="98.0" layoutY="244.0" prefHeight="236.0" prefWidth="695.0" />
@@ -64,10 +121,17 @@
             </Button>
             <ImageView fitHeight="66.0" fitWidth="67.0" layoutX="39.0" layoutY="37.0">
                <image>
+<<<<<<< HEAD
                   <Image url="@UIprof/version4/images/Capture.PNG" />
                </image>
             </ImageView>
             <Button layoutX="48.0" layoutY="43.0" mnemonicParsing="false" opacity="0.0" prefHeight="54.0" prefWidth="49.0" text="retour" />
+=======
+                  <Image url="@../images/Capture.PNG" />
+               </image>
+            </ImageView>
+            <Button layoutX="39.0" layoutY="43.0" mnemonicParsing="false" opacity="0.0" prefHeight="54.0" prefWidth="49.0" text="retour" />
+>>>>>>> parent of cb7a57d (loading multiple fxml file)
       </children>
     </AnchorPane>
   </children>

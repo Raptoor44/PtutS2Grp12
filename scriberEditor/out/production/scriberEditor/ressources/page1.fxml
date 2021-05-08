@@ -52,12 +52,69 @@
 <?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane mouseTransparent="true" prefHeight="622.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
-   <children>
-      <Label layoutX="78.0" layoutY="259.0" prefHeight="25.0" prefWidth="61.0" text="Titre :" />
-      <Label layoutX="78.0" layoutY="311.0" prefHeight="35.0" prefWidth="177.0" text="consigne :" />
-      <TextField layoutX="139.0" layoutY="259.0" prefHeight="25.0" prefWidth="518.0" />
-      <TextArea layoutX="167.0" layoutY="318.0" prefHeight="194.0" prefWidth="518.0" />
-      <Label layoutX="421.0" layoutY="168.0" text="Exercice" />
-   </children>
-</AnchorPane>
+<VBox prefHeight="648.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
+  <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
+      <AnchorPane mouseTransparent="true" prefHeight="622.0" prefWidth="897.0">
+         <children>
+            <ImageView fitHeight="210.0" fitWidth="580.0" layoutX="189.0" layoutY="42.0">
+               <image>
+                  <Image url="@../images/partie%202/2.PNG" />
+               </image>
+            </ImageView>
+            <Button fx:id="button" layoutX="352.0" layoutY="547.0" mnemonicParsing="false" onAction="#onNextButton" onContextMenuRequested="#onNextButton" onMouseClicked="#onNextButton" onMouseDragged="#onNextButton" onMouseEntered="#onNextButton" onMouseExited="#onNextButton" onMouseMoved="#onNextButton" onMousePressed="#onNextButton" onMouseReleased="#onNextButton" prefHeight="48.0" prefWidth="200.0" text="Button" />
+            <MediaView fitHeight="200.0" fitWidth="200.0" layoutX="352.0" layoutY="337.0" />
+            <Line endX="100.0" layoutX="452.0" layoutY="537.0" startX="-100.0" />
+            <Line endX="-110.0" endY="190.0" layoutX="463.0" layoutY="347.0" startX="-110.0" startY="-10.0" />
+            <Line endX="-110.0" endY="190.0" layoutX="662.0" layoutY="347.0" startX="-110.0" startY="-10.0" />
+            <Line endX="100.0" layoutX="451.0" layoutY="336.0" startX="-100.0" />
+            <Text layoutX="189.0" layoutY="303.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisir votre fichier :" wrappingWidth="146.544921875" />
+            <ImageView layoutX="77.0" layoutY="42.0">
+               <image>
+                  <Image url="@../images/Capture.PNG" />
+               </image>
+            </ImageView>
+            <Button layoutX="353.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="importer votre ressource" />
+            <Button layoutX="83.0" layoutY="47.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="49.0" text="retour" />
+         </children>
+      </AnchorPane>
+  </children>
+</VBox>
