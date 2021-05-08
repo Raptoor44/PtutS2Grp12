@@ -135,6 +135,7 @@ public class ExerciceLoader {
         } catch (TikaException e) {
             e.printStackTrace();
         }
+
     }
 
 
