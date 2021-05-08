@@ -32,7 +32,18 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.image.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.media.*?>
+<?import javafx.scene.shape.*?>
+<?import javafx.scene.text.*?>
 <?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.SeparatorMenuItem?>
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
@@ -45,17 +56,56 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 <VBox prefHeight="648.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
+=======
+<VBox prefHeight="648.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
+>>>>>>> parent of d4985a7 (mise à jour de la version 4)
   <children>
+    <MenuBar VBox.vgrow="NEVER">
+      <menus>
+        <Menu mnemonicParsing="false" text="File">
+          <items>
+            <MenuItem mnemonicParsing="false" text="New" />
+            <MenuItem mnemonicParsing="false" text="Open…" />
+            <Menu mnemonicParsing="false" text="Open Recent" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Close" />
+            <MenuItem mnemonicParsing="false" text="Save" />
+            <MenuItem mnemonicParsing="false" text="Save As…" />
+            <MenuItem mnemonicParsing="false" text="Revert" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Preferences…" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Quit" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Edit">
+          <items>
+            <MenuItem mnemonicParsing="false" text="Undo" />
+            <MenuItem mnemonicParsing="false" text="Redo" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Cut" />
+            <MenuItem mnemonicParsing="false" text="Copy" />
+            <MenuItem mnemonicParsing="false" text="Paste" />
+            <MenuItem mnemonicParsing="false" text="Delete" />
+            <SeparatorMenuItem mnemonicParsing="false" />
+            <MenuItem mnemonicParsing="false" text="Select All" />
+            <MenuItem mnemonicParsing="false" text="Unselect All" />
+          </items>
+        </Menu>
+        <Menu mnemonicParsing="false" text="Help">
+          <items>
+            <MenuItem mnemonicParsing="false" text="About MyHelloApp" />
+          </items>
+        </Menu>
+      </menus>
+    </MenuBar>
       <AnchorPane mouseTransparent="true" prefHeight="622.0" prefWidth="897.0">
          <children>
-            <ImageView fitHeight="622.0" fitWidth="897.0">
-               <image>
-                  <Image url="@UIprof/version4/images/Sans%20titre.png" />
-               </image>
-            </ImageView>
             <ImageView fitHeight="210.0" fitWidth="580.0" layoutX="189.0" layoutY="42.0">
                <image>
+<<<<<<< HEAD
                   <Image url="@UIprof/version4/images/partie%202/2.PNG" />
 =======
 =======
@@ -115,6 +165,9 @@
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
 =======
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
+=======
+                  <Image url="@../images/partie%202/2.PNG" />
+>>>>>>> parent of d4985a7 (mise à jour de la version 4)
                </image>
             </ImageView>
             <Button fx:id="button" layoutX="352.0" layoutY="547.0" mnemonicParsing="false" onAction="#onNextButton" onContextMenuRequested="#onNextButton" onMouseClicked="#onNextButton" onMouseDragged="#onNextButton" onMouseEntered="#onNextButton" onMouseExited="#onNextButton" onMouseMoved="#onNextButton" onMousePressed="#onNextButton" onMouseReleased="#onNextButton" prefHeight="48.0" prefWidth="200.0" text="Button" />
@@ -129,6 +182,7 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
                   <Image url="@UIprof/version4/images/Capture.PNG" />
 =======
                   <Image url="@../images/Capture.PNG" />
@@ -139,6 +193,9 @@
 =======
                   <Image url="@../images/Capture.PNG" />
 >>>>>>> parent of cb7a57d (loading multiple fxml file)
+=======
+                  <Image url="@../images/Capture.PNG" />
+>>>>>>> parent of d4985a7 (mise à jour de la version 4)
                </image>
             </ImageView>
             <Button layoutX="353.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="importer votre ressource" />
