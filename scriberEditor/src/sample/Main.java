@@ -14,12 +14,12 @@ public class Main extends Application {
     public static Scene scene;
     public static Controller controller;
 
-    private static final String SAMPLEPATH = "../ressources/Index.fxml";
+    private static final String INDEXPATH = "../ressources/Index.fxml";
     private static final String PAG1PATH = "../ressources/page1.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource("../ressources/Index.fxml"));
+        FXMLLoader loader = new FXMLLoader(getClass().getResource(INDEXPATH));
         parent = loader.load();
         primaryStage.setTitle("Scriber Editor");
         scene = new Scene(parent, 800, 600);
