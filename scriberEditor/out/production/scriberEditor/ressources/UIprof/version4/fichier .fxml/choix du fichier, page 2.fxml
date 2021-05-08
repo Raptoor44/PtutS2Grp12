@@ -110,7 +110,7 @@
                   <Image url="@../images/Capture.PNG" />
                </image>
             </ImageView>
-            <Button layoutX="353.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="200.0" text="importer votre ressource" />
+            <Button layoutX="353.0" layoutY="286.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="147.0" text="importer votre ressource" />
             <Button layoutX="83.0" layoutY="47.0" mnemonicParsing="false" opacity="0.0" prefHeight="48.0" prefWidth="49.0" text="retour" />
          </children>
       </AnchorPane>
