@@ -7,6 +7,7 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ressources.Controller;
+import ressources.FXMLoader;
 
 import java.io.File;
 
@@ -21,16 +22,13 @@ public class Main extends Application {
     public void start(Stage primaryStage) throws Exception{
 
         exerciceLoader = new ExerciceLoader();
-
-
-        FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("../ressources/sample.fxml"));
-        parent = fxmlLoader.load();
+        FXMLoader fxmLoader = new FXMLoader();
+        parent = fxmLoader.load("sample.fxml");
         primaryStage.setTitle("Hello World");
         scene = new Scene(parent);
         primaryStage.setScene(scene);
 
-        controller = fxmlLoader.getController();
-
+        controller = fxmLoader.getController();
 
 
         if(path != null){

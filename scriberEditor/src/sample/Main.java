@@ -7,6 +7,7 @@ import javafx.scene.Scene;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import ressources.Controller;
+import ressources.FXMLoader;
 
 public class Main extends Application {
 
@@ -20,14 +21,12 @@ public class Main extends Application {
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLLoader loader = new FXMLLoader(getClass().getResource(INDEXPATH));
-        parent = loader.load();
+        parent = new FXMLoader().load("Index.fxml");
         primaryStage.setTitle("Scriber Editor");
         scene = new Scene(parent, 800, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        controller = (Controller) loader.getController();
 
     }
 
