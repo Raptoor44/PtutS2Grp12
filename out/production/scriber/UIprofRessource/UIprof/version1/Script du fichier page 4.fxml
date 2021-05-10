@@ -32,21 +32,20 @@
   OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
 -->
 
+<?import com.gluonhq.charm.glisten.control.ProgressBar?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Menu?>
 <?import javafx.scene.control.MenuBar?>
 <?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.ProgressIndicator?>
 <?import javafx.scene.control.SeparatorMenuItem?>
-<?import javafx.scene.image.Image?>
-<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.VBox?>
-<?import javafx.scene.media.MediaView?>
-<?import javafx.scene.shape.Line?>
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<VBox prefHeight="648.0" prefWidth="897.0" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1">
+<VBox prefHeight="584.0" prefWidth="862.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1">
   <children>
     <MenuBar VBox.vgrow="NEVER">
       <menus>
@@ -87,31 +86,27 @@
         </Menu>
       </menus>
     </MenuBar>
-    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="581.0" prefWidth="772.0" style="-fx-background-color: #FFFFFF;" VBox.vgrow="ALWAYS">
-         <children>
-            <Text layoutX="181.0" layoutY="298.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Choisir votre fichier :" wrappingWidth="155.9830722808838" />
-            <Button layoutX="345.0" layoutY="273.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="207.0" text="Importer votre ressource" textFill="#7c7272">
+    <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="572.0" prefWidth="830.0" VBox.vgrow="ALWAYS">
+      <children>
+            <Text layoutX="421.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3">
                <font>
-                  <Font name="System Bold" size="12.0" />
+                  <Font size="36.0" />
+               </font>
+            </Text>
+            <Text layoutX="398.0" layoutY="114.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Script du fichier" wrappingWidth="141.13671875" />
+            <ProgressIndicator layoutX="197.0" layoutY="154.0" progress="0.0" />
+            <ProgressBar layoutX="194.0" layoutY="224.0" prefHeight="48.0" prefWidth="493.0" progress="0.0" />
+            <ProgressIndicator layoutX="320.0" layoutY="154.0" progress="0.0" />
+            <ProgressIndicator layoutX="441.0" layoutY="154.0" progress="0.0" />
+            <ProgressIndicator layoutX="618.0" layoutY="154.0" progress="0.0" />
+            <Text layoutX="121.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Entrer le script :" wrappingWidth="134.13671875" />
+            <TextArea layoutX="98.0" layoutY="301.0" prefHeight="179.0" prefWidth="695.0" />
+            <Button defaultButton="true" layoutX="360.0" layoutY="489.0" mnemonicParsing="false" prefHeight="54.0" prefWidth="170.0" text="Valider" textFill="WHITE">
+               <font>
+                  <Font size="24.0" />
                </font>
             </Button>
-            <Button layoutX="347.0" layoutY="556.0" mnemonicParsing="false" prefHeight="41.0" prefWidth="207.0" text="Valider" />
-            <MediaView fitHeight="200.0" fitWidth="200.0" layoutX="352.0" layoutY="323.0" />
-            <Line endX="100.0" layoutX="448.0" layoutY="522.0" startX="-100.0" />
-            <Line endX="-110.0" endY="-209.0" layoutX="458.0" layoutY="532.0" startX="-110.5" startY="-10.0" />
-            <Line endX="-110.0" endY="-209.0" layoutX="658.0" layoutY="532.0" startX="-110.5" startY="-10.0" />
-            <Line endX="100.0" layoutX="450.0" layoutY="324.0" startX="-100.0" />
-            <ImageView fitHeight="77.0" fitWidth="596.0" layoutX="154.0" layoutY="147.0">
-               <image>
-                  <Image url="@../images/page%201/1.PNG" />
-               </image>
-            </ImageView>
-            <ImageView fitHeight="147.0" fitWidth="193.0" layoutX="355.0">
-               <image>
-                  <Image url="@../images/page%201/2.PNG" />
-               </image>
-            </ImageView>
-         </children>
+      </children>
     </AnchorPane>
   </children>
 </VBox>
