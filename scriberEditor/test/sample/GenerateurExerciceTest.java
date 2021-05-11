@@ -13,13 +13,18 @@ class GenerateurExerciceTest {
     void nouveauFichierEvaluation() {
 
         GenerateurExercice generateurExercice = new GenerateurExercice();
-        generateurExercice.nouveauFichierEvaluation("../.exerSample/video.mp4");
+        generateurExercice.nouveauFichierEvaluation("evaluation1","../.exerSample/video.mp4");
+        generateurExercice.nouveauFichierEvaluation("superEvaluation","../.exerSample/audio.mp3");
 
 
     }
 
     @org.junit.jupiter.api.Test
     void nouveauFichierEntrainement() {
+
+        GenerateurExercice generateurExercice = new GenerateurExercice();
+        generateurExercice.nouveauFichierEntrainement("entrainement1","../.exerSample/audio.mp3");
+        generateurExercice.nouveauFichierEntrainement("superEntrainement","../.exerSample/audio.mp3");
 
 
     }

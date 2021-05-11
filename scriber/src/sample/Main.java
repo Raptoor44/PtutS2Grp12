@@ -1,39 +1,54 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
+import ressources.Controller;
+import ressources.FXMLoader;
 
 import java.io.File;
 
 public class Main extends Application {
 
+    public static ExerciceLoader exerciceLoader;
+    public static Parent parent;
+    public static Scene scene;
+    public static Controller controller;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+
+        exerciceLoader = new ExerciceLoader();
+        FXMLoader fxmLoader = new FXMLoader();
+        parent = fxmLoader.load("sample.fxml");
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1200, 800));
-        primaryStage.show();
+        scene = new Scene(parent);
+        primaryStage.setScene(scene);
+
+        controller = fxmLoader.getController();
+
 
         if(path != null){
 
-            ExerciceLoader exerciceLoader = new ExerciceLoader();
-            exerciceLoader.chargerUnExercice(path);
-
+            File exerciceFile = new File(path);
+            controller.displayFile(exerciceFile);
         }
+
+        primaryStage.show();
+
+
+
+
     }
 
     private static String path;
 
     public static void main(String[] args) {
-        for (String elem :
-                args) {
-            System.out.println("args : " + elem);
 
-        }
-
+        //TODO faire une verif que le premier argument est bien un chemin vers un exercice genre il finit par .exer
         if (args.length > 0) {
 
             path = args[0];

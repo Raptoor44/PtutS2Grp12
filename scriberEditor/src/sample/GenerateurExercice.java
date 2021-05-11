@@ -1,5 +1,6 @@
 package sample;
 
+import exercice.Entrainement;
 import exercice.Evaluation;
 import exercice.Exercice;
 
@@ -28,20 +29,51 @@ public class GenerateurExercice {
 
     }
 
-    public void nouveauFichierEvaluation(String ressourceFilePath){
+    public void nouveauFichierEvaluation(String exerciceName, String ressourceFilePath){
 
         //on récupère toutes les paramètre(titre, consigne...)
 
 
-        //on créer un entrainement
+        //on créer une Evaluation
         Exercice exercice = new Evaluation(
                 "titre1",
-                "./pathToFile",
                 "consigne1",
                 true,
                 true,
                 30.f);
 
+
+        //on sérialize l'objet  Entrainement
+        serializeFile(exercice);
+
+        //on créer le fichier exercice avec l'objet exercice et le media
+        mergeFile(exerciceName, savedir  + "/exerciceInfo.exera" , ressourceFilePath);
+
+    }
+
+    public void nouveauFichierEntrainement(String exerciceName, String ressourceFilePath){
+
+        //on récupère toutes les paramètre(titre, consigne...)
+
+
+        //on créer un entrainement
+        Exercice exercice = new Entrainement(
+                "titre de l'entrainement",
+                "consigne de l'entrainement",
+                true,
+                true,
+                true
+        );
+
+        //on sérialize l'objet  Entrainement
+        serializeFile(exercice);
+
+        //on créer le fichier exercice avec l'objet exercice et le media
+        mergeFile(exerciceName, savedir  + "/exerciceInfo.exera", ressourceFilePath );
+
+    }
+
+    private void serializeFile(Exercice exercice){
         ObjectOutputStream oos = null;
 
         //on sérialize l'exercice
@@ -65,32 +97,14 @@ public class GenerateurExercice {
                 ex.printStackTrace();
             }
         }
-
-        //on créer le fichier exercice avec l'objet exercice et le media
-        mergeFile(savedir  + "/exerciceInfo.exera" , ressourceFilePath);
-
     }
 
-    public void nouveauFichierEntrainement(String ressourceFilePath){
 
-        //on récupère toutes les paramètre(titre, consigne...)
-
-
-        //on créer un entrainement
-
-        //on sérialize l'objet  Entrainement
-
-
-        //on créer le fichier exercice avec l'objet exercice et le media
-        mergeFile(savedir  + "/exerciceInfo.exera", ressourceFilePath );
-
-    }
-
-    private void mergeFile(String pathExercice, String pathVideo){
+    private void mergeFile(String exerciceName, String pathExercice, String pathVideo){
         List<String> srcFiles = Arrays.asList(pathExercice, pathVideo);
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream(savedir + "/exerciceInfo.exer");
+            fos = new FileOutputStream(savedir + "/" + exerciceName + ".exer");
 
             ZipOutputStream zipOut = new ZipOutputStream(fos);
             for (String srcFile : srcFiles) {
