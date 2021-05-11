@@ -1,5 +1,9 @@
 package sample;
 
+import exercice.Evaluation;
+import exercice.Exercice;
+import org.junit.jupiter.api.Test;
+
 import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.io.IOException;
@@ -23,9 +27,36 @@ class GenerateurExerciceTest {
     void nouveauFichierEntrainement() {
 
         GenerateurExercice generateurExercice = new GenerateurExercice();
-        generateurExercice.nouveauFichierEntrainement("entrainement1","../.exerSample/audio.mp3");
+        generateurExercice.nouveauFichierEntrainement("entrainement1","../.exerSample/video.mp4");
         generateurExercice.nouveauFichierEntrainement("superEntrainement","../.exerSample/audio.mp3");
 
 
+    }
+
+    @Test
+    void testSerialisation(){
+        ObjectOutputStream oos = null;
+
+        //on sérialize l'exercice
+        final FileOutputStream fichier;
+        try {
+            fichier = new FileOutputStream("../exerciceInfo.exera");
+            oos = new ObjectOutputStream(fichier);
+            oos.writeObject((Exercice) new Evaluation("no", "lo", "efe", true, true, 0.5f));
+            oos.flush();
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        } finally {
+            try {
+                if (oos != null) {
+                    oos.flush();
+                    oos.close();
+                }
+            } catch (final IOException ex) {
+                ex.printStackTrace();
+            }
+        }
     }
 }

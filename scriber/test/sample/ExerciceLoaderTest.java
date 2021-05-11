@@ -1,10 +1,13 @@
 package sample;
 
+import exercice.Exercice;
 import org.junit.jupiter.api.Test;
 
 import java.awt.*;
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -54,6 +57,21 @@ class ExerciceLoaderTest {
         System.out.println("genre " + exerciceLoader.getGenre());
         System.out.println("Year " + exerciceLoader.getYear());
 
+    }
+
+    @Test
+    void testSerialisation(){
+        ObjectInputStream ois = null;
+        try {
+            ois = new ObjectInputStream(new FileInputStream("../exerciceInfo.exera"));
+
+            // désérialization de l'objet
+            Exercice exercice = (Exercice) ois.readObject();
+            System.out.println(exercice) ;
+
+        } catch (IOException | ClassNotFoundException e) {
+            e.printStackTrace();
+        }
     }
 
 

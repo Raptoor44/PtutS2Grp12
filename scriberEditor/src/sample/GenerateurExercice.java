@@ -9,6 +9,7 @@ import java.io.*;
 import java.nio.file.Files;
 import java.util.Arrays;
 import java.util.List;
+import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -38,6 +39,7 @@ public class GenerateurExercice {
         Exercice exercice = new Evaluation(
                 "titre1",
                 "consigne1",
+                "efe",
                 true,
                 true,
                 30.f);
@@ -47,7 +49,7 @@ public class GenerateurExercice {
         serializeFile(exercice);
 
         //on créer le fichier exercice avec l'objet exercice et le media
-        mergeFile(exerciceName, savedir  + "/exerciceInfo.exera" , ressourceFilePath);
+        mergeFile(exerciceName,  ressourceFilePath, savedir  + "/exerciceInfo.exera");
 
     }
 
@@ -60,6 +62,7 @@ public class GenerateurExercice {
         Exercice exercice = new Entrainement(
                 "titre de l'entrainement",
                 "consigne de l'entrainement",
+                "efe",
                 true,
                 true,
                 true
@@ -107,6 +110,8 @@ public class GenerateurExercice {
             fos = new FileOutputStream(savedir + "/" + exerciceName + ".exer");
 
             ZipOutputStream zipOut = new ZipOutputStream(fos);
+            //zipOut.setLevel(Deflater.NO_COMPRESSION);
+
             for (String srcFile : srcFiles) {
                 File fileToZip = new File(srcFile);
                 FileInputStream fis = new FileInputStream(fileToZip);

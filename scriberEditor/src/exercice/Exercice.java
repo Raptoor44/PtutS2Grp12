@@ -7,13 +7,15 @@ public abstract class Exercice implements Serializable {
 
     private String titre;
     private String consigne;
+    private String script;
     private Boolean remplacementPartielEstAutoriser;
     private Boolean sensibiliterCaseEstActiver;
 
 
-    public Exercice(String titre, String consigne, Boolean remplacementPartielEstAutoriser, Boolean sensibiliterCaseEstActiver) {
+    public Exercice(String titre, String consigne, String script, Boolean remplacementPartielEstAutoriser, Boolean sensibiliterCaseEstActiver) {
         this.titre = titre;
         this.consigne = consigne;
+        this.script = script;
         this.remplacementPartielEstAutoriser = remplacementPartielEstAutoriser;
         this.sensibiliterCaseEstActiver = sensibiliterCaseEstActiver;
     }
@@ -23,6 +25,7 @@ public abstract class Exercice implements Serializable {
         return "Exercice{" +
                 "titre='" + titre + '\'' +
                 ", consigne='" + consigne + '\'' +
+                ", script='" + script + '\'' +
                 ", remplacementPartielEstAutoriser=" + remplacementPartielEstAutoriser +
                 ", sensibiliterCaseEstActiver=" + sensibiliterCaseEstActiver +
                 '}';

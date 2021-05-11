@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -59,6 +60,7 @@ public class ExerciceLoader {
 
 
     public ExerciceLoader() {
+        actualUnzipedExercice = "nullfinpasnulltacapté";
         try {
             if(!savedir.exists())
                 Files.createDirectory(savedir.toPath());
@@ -109,22 +111,39 @@ public class ExerciceLoader {
     public void loadMediaData(File media){
         try {
 
-            InputStream input = new FileInputStream(media);
-            ContentHandler handler = new DefaultHandler();
-            Metadata metadata = new Metadata();
-            Parser parser = new Mp3Parser();
-            ParseContext parseCtx = new ParseContext();
-            parser.parse(input,handler, metadata, parseCtx);
-            input.close();
 
-            // Retrieve the necessary info from metadata
-            // Names - title, xmpDM:artist etc. - mentioned below may differ based
-            title = metadata.get("title");
-            artist = metadata.get("xmpDM:artist");
-            genre =metadata.get("xmpDM:genre");
-            album = metadata.get("xmpDM:album");
-            year =  Integer.valueOf(metadata.get("xmpDM:releaseDate"));
 
+            if(estUneVideo){
+
+
+                title = "video";
+                artist = "artist";
+                genre = "genre";
+                album = "album";
+                year =  0;
+
+
+            }else{
+
+                // Retrieve the necessary info from metadata
+                // Names - title, xmpDM:artist etc. - mentioned below may differ based
+
+
+                InputStream input = new FileInputStream(media);
+                ContentHandler handler = new DefaultHandler();
+                Metadata metadata = new Metadata();
+                Parser parser = new Mp3Parser();
+                ParseContext parseCtx = new ParseContext();
+                parser.parse(input,handler, metadata, parseCtx);
+                input.close();
+
+                title = metadata.get("title");
+                artist = metadata.get("xmpDM:artist");
+                genre =metadata.get("xmpDM:genre");
+                album = metadata.get("xmpDM:album");
+                year =  Integer.valueOf(metadata.get("xmpDM:releaseDate"));
+
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -146,7 +165,6 @@ public class ExerciceLoader {
         ZipInputStream zis = null;
         try {
             zis = new ZipInputStream(new FileInputStream(pathToFile));
-
             ZipEntry zipEntry = zis.getNextEntry();
             while (zipEntry != null) {
                 File newFile = newFile(destDir, zipEntry);
@@ -192,11 +210,11 @@ public class ExerciceLoader {
             throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
         }
 
-        if(zipEntry.getName() == "audio.mp3"){
+        if(zipEntry.getName().equals("audio.mp3")){
             estUneVideo = false;
         }
 
-        if(zipEntry.getName() == "video.mp4"){
+        if(zipEntry.getName().equals("video.mp4")){
             estUneVideo = true;
         }
 
