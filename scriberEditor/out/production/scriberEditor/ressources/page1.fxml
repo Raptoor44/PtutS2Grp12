@@ -59,5 +59,6 @@
       <TextField layoutX="139.0" layoutY="259.0" prefHeight="25.0" prefWidth="518.0" />
       <TextArea layoutX="167.0" layoutY="318.0" prefHeight="194.0" prefWidth="518.0" />
       <Label layoutX="421.0" layoutY="168.0" text="Exercice" />
+      <Button layoutX="400.0" layoutY="560.0" mnemonicParsing="false" onAction="#OnCreateExerciceClick" text="Button" />
    </children>
 </AnchorPane>

@@ -9,5 +9,10 @@ public class Evaluation extends Exercice {
         this.tempAlouer = tempAlouer;
     }
 
-
+    @Override
+    public String toString() {
+        return super.toString() +
+                "tempAlouer=" + tempAlouer +
+                '}';
+    }
 }

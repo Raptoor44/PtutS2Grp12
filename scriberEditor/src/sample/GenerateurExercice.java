@@ -3,6 +3,7 @@ package sample;
 import exercice.Entrainement;
 import exercice.Evaluation;
 import exercice.Exercice;
+import ressources.Controller;
 
 
 import java.io.*;
@@ -32,17 +33,17 @@ public class GenerateurExercice {
 
     public void nouveauFichierEvaluation(String exerciceName, String ressourceFilePath){
 
+
         //on récupère toutes les paramètre(titre, consigne...)
-
-
         //on créer une Evaluation
+        Controller  controller = Main.controller;
         Exercice exercice = new Evaluation(
-                "titre1",
-                "consigne1",
-                "efe",
-                true,
-                true,
-                30.f);
+                controller.TitreExerciceTextField.getText(),
+                controller.ConsigneTextArea.getText(),
+                controller.ScriptTextArea.getText(),
+                controller.isRemplacementPartiel(),
+                controller.isSensibiliterALaCaseActiver(),
+                controller.gettempAlouer());
 
 
         //on sérialize l'objet  Entrainement

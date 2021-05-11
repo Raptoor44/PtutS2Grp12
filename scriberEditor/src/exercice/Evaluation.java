@@ -10,4 +10,11 @@ public class Evaluation extends Exercice {
     }
 
 
+    @Override
+    public String toString() {
+        return super.toString() +
+                "tempAlouer=" + tempAlouer +
+                '}';
+    }
+
 }
