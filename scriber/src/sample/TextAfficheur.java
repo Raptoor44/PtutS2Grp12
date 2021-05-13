@@ -2,23 +2,26 @@ package sample;
 
 import java.util.*;
 
-public class Exercise {
+public class TextAfficheur {
+    private String occultationChar;
     private List<Word> words;
     private String score;
     private String script;
     private String occultedString;
 
-    public Exercise(String script){
+    public TextAfficheur(String script, String occultationChar){
         words = new ArrayList<>();
         score = "";
         this.script = script;
         initialize();
-        occultedString = script.replaceAll("[A-Za-z0-9]", "#");
+        this.occultationChar = occultationChar.substring(0, 1);
+        occultedString = script.replaceAll("[A-Za-z0-9]", this.occultationChar);
     }
 
     public List<Word> getWords() {
         return words;
     }
+
 
     private void initialize() {
         String script2 = format(script);
@@ -34,18 +37,21 @@ public class Exercise {
         }
     }
 
-    private void discoverWord(int nbLettres, String str) {
-        if (str.length() < nbLettres) {
+    public void discoverWord(String str, int numLett){
+        if(str.length() < numLett){
             return;
-        }
-
-        for (Word word : words) {
-            if (word.getValue().startsWith(str)) {
-                word.setDiscovered();
+        } else {
+            for(Word w : words){
+                if(w.getValue().startsWith(str) && w.getLength() >= 4){
+                    if(str.length() == w.getLength()){
+                        w.setDiscovered();
+                    } else {
+                        w.setPartialLength(str.length());
+                        w.setPartiallyDiscovered();
+                    }
+                }
             }
         }
-
-        updateScore();
     }
 
     public void discoverWord(String str) {
@@ -98,21 +104,20 @@ public class Exercise {
     }
 
     public String buildOccultedScript(){
-        StringBuffer discoverWord = new StringBuffer(occultedString);
+        StringBuffer discoveredWord = new StringBuffer(occultedString);
 
         for(Word w : words){
             if(w.isDiscovered()){
                 for(int i = 0; i < w.getLength(); i++){
-                    discoverWord.setCharAt(w.getIndex() + i, w.getValue().charAt(i));
+                    discoveredWord.setCharAt(w.getIndex() + i, w.getValue().charAt(i));
+                }
+            } else if(w.isPartiallyDiscovered()){
+                    for(int i = 0; i < w.getPartialLength(); i++){
+                        discoveredWord.setCharAt(w.getIndex() + i, w.getValue().charAt(i));
+                    }
                 }
             }
-        }
 
-        return discoverWord.toString();
+        return discoveredWord.toString();
     }
-
-    public String getScript() {
-        return script;
-    }
-
 }

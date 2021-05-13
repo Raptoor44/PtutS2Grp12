@@ -17,7 +17,7 @@ public class Test {
                 "And one museum in the US now wants to put these two breakthroughs side-by-side, displaying the whitest possible white alongside the blackest black.\n";
 
         String mot = "";
-        Exercise exo = new Exercise(script);
+        TextAfficheur exo = new TextAfficheur(script, "#");
 
         System.out.println(exo.getOccultedString());
 
@@ -25,7 +25,7 @@ public class Test {
         for(int i = 0; i < 15; i++) {
             System.out.println("Entrez un mot du script");
             mot = sc.nextLine();
-            exo.discoverWord(mot);
+            exo.discoverWord(mot, 3);
             for (Word w : exo.getWords()) {
                 if (w.isDiscovered()) {
                     System.out.println(w.getValue());
