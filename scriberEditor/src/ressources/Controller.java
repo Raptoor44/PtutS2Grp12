@@ -4,16 +4,17 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.fxml.Initializable;
-import javafx.scene.Parent;
 import javafx.scene.control.Button;
 import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import sample.GenerateurExercice;
 
+import java.io.File;
 import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -22,28 +23,43 @@ import java.util.ResourceBundle;
 public class Controller  implements Initializable {
 
     @FXML
-    public Button button;
+    Button button;
 
     @FXML
-    public AnchorPane anchorPane;
+    AnchorPane anchorPane;
 
     @FXML
-    public TextField TitreExerciceTextField, tempsAlouerTextField;
+    TextField titreExerciceTextField;
 
     @FXML
-    public TextArea ScriptTextArea, ConsigneTextArea;
+    TextField tempsAlouerTextField;
 
     @FXML
-    public CheckBox remplacementPartielCheckBox, modeEvaluationCheckBox, modeEntrainementCheckBox, sensibiliterALaCaseActiverCheckBox;
+    TextArea scriptTextArea;
 
-    public String mediaFilePath, imageFilePath;
+    @FXML
+    TextArea consigneTextArea;
+
+    @FXML
+    CheckBox remplacementPartielCheckBox;
+
+    @FXML
+    CheckBox modeEvaluationCheckBox;
+
+    @FXML
+    CheckBox modeEntrainementCheckBox;
+
+    @FXML
+    CheckBox sensibiliterALaCaseActiverCheckBox;
+
+    private String mediaFilePath, imageFilePath, script, titre, consigne;
 
     private boolean estUneEvaluation,isRemplacementPartiel,isSensibiliterALaCaseActiver;
     private float tempAlouer;
 
-      //TODO mettre une  valeur par défault et cocher un des deux mode sur l'interface par défault
+    private static final boolean DEFAULTESTUNEEVALUATIONVALUE = true;
+
     public boolean estUneEvaluation(){
-            //TODO prévenir que on a un probleme et force pour qu'il y est au moins une check box de cocher
         return estUneEvaluation;
     }
 
@@ -51,6 +67,28 @@ public class Controller  implements Initializable {
         return isRemplacementPartiel;
 
     }
+
+    public String getMediaFilePath() {
+        return mediaFilePath;
+    }
+
+    public String getImageFilePath() {
+        return imageFilePath;
+    }
+
+    public String getTitre() {
+        return titre;
+    }
+
+    public String getScript() {
+        return script;
+    }
+
+    public String getConsigne() {
+        return consigne;
+    }
+
+
 
     public boolean isSensibiliterALaCaseActiver(){
         return isSensibiliterALaCaseActiver;
@@ -64,7 +102,12 @@ public class Controller  implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        estUneEvaluation = DEFAULTESTUNEEVALUATIONVALUE;
+        if(DEFAULTESTUNEEVALUATIONVALUE){
+            modeEvaluationCheckBox.setSelected(true);
+        }else{
+            modeEntrainementCheckBox.setSelected(true);
+        }
     }
 
     @FXML
@@ -83,14 +126,14 @@ public class Controller  implements Initializable {
     @FXML
     void OnImportMediaClick(ActionEvent event){
         FileChooser chooser = new FileChooser();
-        mediaFilePath = chooser.showOpenDialog(null).getPath();
+        mediaFilePath = chooser.showOpenDialog(null).getAbsolutePath();
         //TODO indiquer que le media est bien charger sur l'interface  et faire une vérif que le chemin obtenue est pas null
     }
 
     @FXML
     void OnImportImageClick(ActionEvent event){
         FileChooser chooser = new FileChooser();
-        imageFilePath = chooser.showOpenDialog(null).getPath();
+        imageFilePath = chooser.showOpenDialog(null).getAbsolutePath();
         //TODO indiquer que le media est bien charger sur l'interface  et faire une vérif que le chemin obtenue est pas null
     }
 
@@ -100,18 +143,32 @@ public class Controller  implements Initializable {
     void OnModeExerciceClick(ActionEvent event){
         if(!modeEntrainementCheckBox.isSelected() && !modeEvaluationCheckBox.isSelected()){
             //TODO sélectionner une checkbox par défault
+            if(estUneEvaluation){
+                estUneEvaluation = false;
+                modeEntrainementCheckBox.setSelected(true);
+            }else{
+                estUneEvaluation = true;
+                modeEvaluationCheckBox.setSelected(true);
+            }
         }else{
 
             if(!modeEvaluationCheckBox.isSelected()){
                 estUneEvaluation = false;
             }
 
+            if(modeEvaluationCheckBox.isSelected() && modeEntrainementCheckBox.isSelected() && !estUneEvaluation){
+                estUneEvaluation = true;
+                modeEntrainementCheckBox.setSelected(false);
+            }else{
+                estUneEvaluation = false;
+                modeEvaluationCheckBox.setSelected(false);
+
+            }
+
             if(!modeEntrainementCheckBox.isSelected()){
                 estUneEvaluation = true;
             }
-            if(modeEvaluationCheckBox.isSelected() && modeEntrainementCheckBox.isSelected()){
-                modeEntrainementCheckBox.setSelected(false);
-            }
+
         }
 
 
@@ -119,9 +176,16 @@ public class Controller  implements Initializable {
     }
 
     @FXML
-    void OnTempAlouerEvent(ActionEvent event){
-        tempAlouer = Float.valueOf(tempsAlouerTextField.getText());
+    void OnTempAlouerEvent(KeyEvent event){
+        if(!tempsAlouerTextField.getText().isEmpty())
+            tempAlouer = Float.valueOf(tempsAlouerTextField.getText());
     }
+
+    @FXML
+    void OnTitreEvent(KeyEvent event){
+        titre = titreExerciceTextField.getText();
+    }
+
 
     @FXML
     void OnRemplacementPartielClick(ActionEvent event){
@@ -134,11 +198,76 @@ public class Controller  implements Initializable {
     }
 
     @FXML
-    void OnCreateExerciceClick(ActionEvent event){
-        FileChooser chooser = new FileChooser();
-        String filePAth = chooser.showOpenDialog(null).getPath();
-        GenerateurExercice generateurExercice = new GenerateurExercice();
-        generateurExercice.nouveauFichierEvaluation("evalSwag", filePAth);
+    void OnScriptEvent(KeyEvent event){
+        script = scriptTextArea.getText();
+    }
+    @FXML
+    void OnConsigneEvent(KeyEvent event){
+        consigne = consigneTextArea.getText();
     }
 
+
+    @FXML
+    void OnCreateExerciceClick(ActionEvent event){
+        FileChooser fileChooser = new FileChooser();
+
+        FileChooser.ExtensionFilter extentionFilter = new FileChooser.ExtensionFilter("All Files", "*.*");
+        fileChooser.getExtensionFilters().add(extentionFilter);
+
+        fileChooser.setTitle("Enregistrer un" + ((estUneEvaluation)?"e évaluation":" entrainement"));
+
+
+        String userDirectoryString = System.getProperty("user.home");
+        File userDirectory = new File(userDirectoryString);
+        if(!userDirectory.canRead()) {
+            userDirectory = new File("c:/");
+        }
+        fileChooser.setInitialDirectory(userDirectory);
+
+        //on recupère le fichier choisi
+        File chosenFile = fileChooser.showSaveDialog(null);
+        //on verif que le fichier est pas nul
+        String path;
+        if(chosenFile != null) {
+            path = chosenFile.getPath();
+        } else {
+            //default return value
+            path = null;
+        }
+
+        GenerateurExercice generateurExercice = new GenerateurExercice();
+        if(estUneEvaluation){
+
+            generateurExercice.nouveauFichierEvaluation(chosenFile.getPath());
+
+        }else {
+            generateurExercice.nouveauFichierEntrainement(chosenFile.getPath());
+
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "Controller{" +
+                "button=" + button +
+                ", anchorPane=" + anchorPane +
+                ", TitreExerciceTextField=" + titreExerciceTextField +
+                ", tempsAlouerTextField=" + tempsAlouerTextField +
+                ", ScriptTextArea=" + scriptTextArea +
+                ", ConsigneTextArea=" + consigneTextArea +
+                ", remplacementPartielCheckBox=" + remplacementPartielCheckBox +
+                ", modeEvaluationCheckBox=" + modeEvaluationCheckBox +
+                ", modeEntrainementCheckBox=" + modeEntrainementCheckBox +
+                ", sensibiliterALaCaseActiverCheckBox=" + sensibiliterALaCaseActiverCheckBox +
+                ", mediaFilePath='" + mediaFilePath + '\'' +
+                ", imageFilePath='" + imageFilePath + '\'' +
+                ", script='" + script + '\'' +
+                ", titre='" + titre + '\'' +
+                ", consigne='" + consigne + '\'' +
+                ", estUneEvaluation=" + estUneEvaluation +
+                ", isRemplacementPartiel=" + isRemplacementPartiel +
+                ", isSensibiliterALaCaseActiver=" + isSensibiliterALaCaseActiver +
+                ", tempAlouer=" + tempAlouer +
+                '}';
+    }
 }

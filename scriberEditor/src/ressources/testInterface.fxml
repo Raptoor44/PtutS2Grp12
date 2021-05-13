@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import java.lang.*?>
+<?import java.util.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<AnchorPane prefHeight="637.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
+   <children>
+      <Label layoutX="259.0" layoutY="37.0" text="Interface de test" />
+      <Button layoutX="428.0" layoutY="546.0" mnemonicParsing="false" onAction="#OnCreateExerciceClick" text="Créer l'exercice" />
+      <Label layoutX="48.0" layoutY="70.0" text="Titre Exercice " />
+      <TextField fx:id="titreExerciceTextField" layoutX="142.0" layoutY="66.0" onKeyTyped="#OnTitreEvent" />
+      <TextField fx:id="tempsAlouerTextField" layoutX="141.0" layoutY="107.0" onKeyTyped="#OnTempAlouerEvent" />
+      <Label layoutX="47.0" layoutY="111.0" text="Temp Alouer" />
+      <TextArea fx:id="scriptTextArea" layoutX="141.0" layoutY="169.0" onKeyTyped="#OnScriptEvent" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="50.0" layoutY="182.0" text="Script" />
+      <TextArea fx:id="consigneTextArea" layoutX="451.0" layoutY="168.0" onKeyTyped="#OnConsigneEvent" prefHeight="200.0" prefWidth="200.0" />
+      <Label layoutX="360.0" layoutY="181.0" text="Consigne" />
+      <CheckBox fx:id="modeEntrainementCheckBox" layoutX="468.0" layoutY="58.0" mnemonicParsing="false" onAction="#OnModeExerciceClick" text="Mode Entrainement" />
+      <CheckBox fx:id="modeEvaluationCheckBox" layoutX="469.0" layoutY="111.0" mnemonicParsing="false" onAction="#OnModeExerciceClick" text="Mode Evaluation" />
+      <CheckBox fx:id="remplacementPartielCheckBox" layoutX="639.0" layoutY="59.0" mnemonicParsing="false" onAction="#OnRemplacementPartielClick" text="Remplacement Partiel" />
+      <CheckBox fx:id="sensibiliterALaCaseActiverCheckBox" layoutX="640.0" layoutY="112.0" mnemonicParsing="false" onAction="#OnSensibiliterALaCaseClick" text="Sensibiliter A la case" />
+      <Button layoutX="231.0" layoutY="438.0" mnemonicParsing="false" onAction="#OnImportMediaClick" text="Importer Un media" />
+      <Button layoutX="484.0" layoutY="438.0" mnemonicParsing="false" onAction="#OnImportImageClick" text="Importer Une Image" />
+   </children>
+</AnchorPane>

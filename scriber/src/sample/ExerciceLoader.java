@@ -6,6 +6,7 @@ import javafx.scene.image.Image;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.Optional;
 import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
@@ -25,20 +26,19 @@ public class ExerciceLoader {
 
     public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriber");
 
-    private static boolean estUneVideo;     // a true si le dernier exercice chargé possede une video sinon a false si le dernier exercice charge possede de l'audio
     public static String actualUnzipedExercice;
-
+    private String mediaPath, imagePath;
 
     //metada tu dernier exercice charger
     private String artist;
-    private int year;
+    private float year;
     private String album;
     private String genre;
     private String title;
 
     public boolean isFinish;
 
-    public int getYear() {
+    public float getYear() {
         return year;
     }
 
@@ -57,6 +57,7 @@ public class ExerciceLoader {
     public String getTitle() {
         return title;
     }
+
 
 
     public ExerciceLoader() {
@@ -99,24 +100,28 @@ public class ExerciceLoader {
             actualUnzipedExercice = pathToFile;
         }
 
-        if(estUneVideo)
-            return new File(savedir + "/fichierExerciceInput/video.mp4");
-        if(!estUneVideo)
-            return new File(savedir + "/fichierExerciceInput/audio.mp3");
-        return null;
+        return new File(mediaPath);
     }
 
+    public File chagerImageDepuisExercice(String pathToFile){
+        if(actualUnzipedExercice != null && !actualUnzipedExercice.equals(pathToFile)){
+            unzipExerciceFile(pathToFile);
+            actualUnzipedExercice = pathToFile;
+        }
 
+        return new File(mediaPath);
+
+    }
 
     public void loadMediaData(File media){
         try {
 
 
 
-            if(estUneVideo){
+            if(!getExtensionByStringHandling(mediaPath).equals(".mp3")){
 
 
-                title = "video";
+                title = "titre ";
                 artist = "artist";
                 genre = "genre";
                 album = "album";
@@ -137,11 +142,17 @@ public class ExerciceLoader {
                 parser.parse(input,handler, metadata, parseCtx);
                 input.close();
 
-                title = metadata.get("title");
-                artist = metadata.get("xmpDM:artist");
-                genre =metadata.get("xmpDM:genre");
-                album = metadata.get("xmpDM:album");
-                year =  Integer.valueOf(metadata.get("xmpDM:releaseDate"));
+
+                if(metadata.get("title") != null)
+                    title = metadata.get("title");
+                if(metadata.get("xmpDM:artist") != null)
+                    artist = metadata.get("xmpDM:artist");
+                if(metadata.get("xmpDM:genre") != null)
+                    genre =metadata.get("xmpDM:genre");
+                if(metadata.get("xmpDM:album") != null)
+                    album = metadata.get("xmpDM:album");
+                if(metadata.get("xmpDM:releaseDate") != null)
+                    year =  Float.valueOf(metadata.get("xmpDM:releaseDate"));
 
             }
 
@@ -200,7 +211,7 @@ public class ExerciceLoader {
         }
     }
 
-    private static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+    private File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
         File destFile = new File(destinationDir, zipEntry.getName());
 
         String destDirPath = destinationDir.getCanonicalPath();
@@ -210,17 +221,21 @@ public class ExerciceLoader {
             throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
         }
 
-        if(zipEntry.getName().equals("audio.mp3")){
-            estUneVideo = false;
+
+        if(destFile.getName().replace(getExtensionByStringHandling(destFilePath), "").equals("media")){
+            mediaPath = destFilePath;
         }
 
-        if(zipEntry.getName().equals("video.mp4")){
-            estUneVideo = true;
+        if(destFile.getName().replace(getExtensionByStringHandling(destFilePath), "").equals("image")){
+            imagePath = destFilePath;
         }
-
-
         return destFile;
     }
 
 
+    private String getExtensionByStringHandling(String filename) {
+        return "." + Optional.ofNullable(filename)
+                .filter(f -> f.contains("."))
+                .map(f -> f.substring(filename.lastIndexOf(".") + 1)).get();
+    }
 }

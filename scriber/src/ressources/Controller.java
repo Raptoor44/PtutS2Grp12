@@ -68,7 +68,7 @@ public class Controller implements Initializable {
         exerciceLoader.loadMediaData(exerciceLoader.chargerMediaDepuisExercice(ExerciceFile.getPath()));
         titreMedia.setText(exerciceLoader.getTitle());
         albumMedia.setText(exerciceLoader.getAlbum());
-        annerMedia.setText( ((Integer) exerciceLoader.getYear()).toString());
+        annerMedia.setText( ((Float) exerciceLoader.getYear()).toString());
     }
 
 }
