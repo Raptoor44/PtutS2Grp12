@@ -19,13 +19,14 @@ public class Main extends Application {
     public static Controller controller;
 
 
-    private static final String INDEXPATH = "../ressources/Index.fxml";
-    private static final String PAG1PATH = "../ressources/page1.fxml";
+    private static final String INDEXPATH = "Index.fxml";
+    private static final String PAG1PATH = "page1.fxml";
+    private static final String INTERFACEDETEST = "testInterface.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLoader fxmLoader = new FXMLoader();
-        parent = fxmLoader.load("testInterface.fxml");
+        parent = fxmLoader.load(INDEXPATH);
         primaryStage.setTitle("Scriber Editor");
         scene = new Scene(parent, 800, 600);
         primaryStage.setScene(scene);

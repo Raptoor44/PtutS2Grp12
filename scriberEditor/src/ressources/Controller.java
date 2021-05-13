@@ -103,11 +103,14 @@ public class Controller  implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         estUneEvaluation = DEFAULTESTUNEEVALUATIONVALUE;
-        if(DEFAULTESTUNEEVALUATIONVALUE){
-            modeEvaluationCheckBox.setSelected(true);
-        }else{
-            modeEntrainementCheckBox.setSelected(true);
+        if(modeEvaluationCheckBox != null  && modeEntrainementCheckBox != null){
+            if(DEFAULTESTUNEEVALUATIONVALUE){
+                modeEvaluationCheckBox.setSelected(true);
+            }else{
+                modeEntrainementCheckBox.setSelected(true);
+            }
         }
+
     }
 
     @FXML
