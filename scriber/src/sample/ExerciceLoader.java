@@ -26,6 +26,13 @@ public class ExerciceLoader {
 
     public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriber");
 
+    //TODO rajouter les extension supporter par vlcj
+    private static final String[] MEDIAEXTENSIONSUPPORTE = {".mp3",".mp4",".avi",".wav"};
+    //TODO rajouter les extension supporter par ImageView
+    private static final String[] IMAGEEXTENSIONSUPPORTE = {".jpg",".png",".bmp"};
+
+
+
     public static String actualUnzipedExercice;
     private String mediaPath, imagePath;
 
@@ -222,14 +229,18 @@ public class ExerciceLoader {
             throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
         }
 
-
-        if(destFile.getName().replace(getExtensionByStringHandling(destFilePath), "").equals("media")){
-            mediaPath = destFilePath;
+        for (String extension : MEDIAEXTENSIONSUPPORTE) {
+            if(getExtensionByStringHandling(destFilePath).equals(extension)){
+                mediaPath = destFilePath;
+            }
+        }
+        for (String extension : IMAGEEXTENSIONSUPPORTE) {
+            if(getExtensionByStringHandling(destFilePath).equals(extension)){
+                imagePath = destFilePath;
+            }
         }
 
-        if(destFile.getName().replace(getExtensionByStringHandling(destFilePath), "").equals("image")){
-            imagePath = destFilePath;
-        }
+
         return destFile;
     }
 
