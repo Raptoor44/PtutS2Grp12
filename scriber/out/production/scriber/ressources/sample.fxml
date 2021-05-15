@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.image.*?>
 <?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.layout.*?>
@@ -18,7 +19,7 @@
       <Button layoutX="164.0" layoutY="73.0" mnemonicParsing="false" onAction="#OnLoadExerciceButtonCLick" text="charger" />
       <Label layoutX="21.0" layoutY="77.0" prefHeight="17.0" prefWidth="115.0" text="charger un exercice" />
       <Label layoutX="50.0" layoutY="129.0" prefHeight="17.0" prefWidth="71.0" text="Exercice : " />
-      <Label fx:id="exerciceInfo" layoutX="158.0" layoutY="129.0" text="Label" />
+      <Label fx:id="exerciceInfo" layoutX="158.0" layoutY="129.0" prefHeight="25.0" prefWidth="28.0" text="Label" />
       <Button layoutX="193.0" layoutY="200.0" mnemonicParsing="false" onAction="#OnOpenMediaClick" text="Ouvrir le media" />
       <Label layoutX="36.0" layoutY="247.0" prefHeight="17.0" prefWidth="115.0" text="Info Media" />
       <Label layoutX="65.0" layoutY="282.0" prefHeight="25.0" prefWidth="65.0" text="Titre" />
@@ -27,5 +28,6 @@
       <Label fx:id="albumMedia" layoutX="180.0" layoutY="314.0" text="Label" />
       <Label layoutX="65.0" layoutY="333.0" prefHeight="25.0" prefWidth="65.0" text="Anné" />
       <Label fx:id="annerMedia" layoutX="179.0" layoutY="337.0" text="Label" />
+      <ImageView fx:id="imageView" fitHeight="220.0" fitWidth="272.0" layoutX="304.0" layoutY="164.0" pickOnBounds="true" preserveRatio="true" />
    </children>
 </AnchorPane>

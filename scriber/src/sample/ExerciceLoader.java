@@ -103,14 +103,15 @@ public class ExerciceLoader {
         return new File(mediaPath);
     }
 
-    public File chagerImageDepuisExercice(String pathToFile){
+    public Image chagerImageDepuisExercice(String pathToFile){
         if(actualUnzipedExercice != null && !actualUnzipedExercice.equals(pathToFile)){
             unzipExerciceFile(pathToFile);
             actualUnzipedExercice = pathToFile;
         }
 
-        return new File(mediaPath);
+        Image image = new Image(new File(imagePath).toURI().toString());
 
+        return image;
     }
 
     public void loadMediaData(File media){

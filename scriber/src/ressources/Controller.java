@@ -5,6 +5,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
 import sample.Main;
@@ -25,6 +27,8 @@ public class Controller implements Initializable {
     public Label albumMedia;
     @FXML
     public Label annerMedia;
+    @FXML
+    public ImageView imageView;
 
 
     private ExerciceLoader exerciceLoader;
@@ -69,6 +73,10 @@ public class Controller implements Initializable {
         titreMedia.setText(exerciceLoader.getTitle());
         albumMedia.setText(exerciceLoader.getAlbum());
         annerMedia.setText( ((Float) exerciceLoader.getYear()).toString());
+        if(exerciceLoader.chagerImageDepuisExercice(ExerciceFile.getPath()) != null){
+            imageView.setImage(exerciceLoader.chagerImageDepuisExercice(ExerciceFile.getPath()) );
+        }
+
     }
 
 }
