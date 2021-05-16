@@ -5,6 +5,10 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Label;
+import javafx.scene.image.Image;
+import javafx.scene.image.ImageView;
+import javafx.scene.text.Text;
+import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
 import sample.Main;
@@ -18,13 +22,15 @@ import java.util.ResourceBundle;
 public class Controller implements Initializable {
 
     @FXML
-    public Label exerciceInfo;
+    public TextFlow exerciceInfo;
     @FXML
     public Label titreMedia;
     @FXML
     public Label albumMedia;
     @FXML
     public Label annerMedia;
+    @FXML
+    public ImageView imageView;
 
 
     private ExerciceLoader exerciceLoader;
@@ -64,11 +70,16 @@ public class Controller implements Initializable {
 
     public void displayFile(File ExerciceFile){
         Exercice exercice =  exerciceLoader.chargerUnExercice(ExerciceFile.getPath());
-        exerciceInfo.setText(exercice.toString());
+        exerciceInfo.getChildren().clear();
+        exerciceInfo.getChildren().add(new Text(exercice.toString()));
         exerciceLoader.loadMediaData(exerciceLoader.chargerMediaDepuisExercice(ExerciceFile.getPath()));
         titreMedia.setText(exerciceLoader.getTitle());
         albumMedia.setText(exerciceLoader.getAlbum());
-        annerMedia.setText( ((Integer) exerciceLoader.getYear()).toString());
+        annerMedia.setText( ((Float) exerciceLoader.getYear()).toString());
+        if(exerciceLoader.chagerImageDepuisExercice(ExerciceFile.getPath()) != null){
+            imageView.setImage(exerciceLoader.chagerImageDepuisExercice(ExerciceFile.getPath()) );
+        }
+
     }
 
 }

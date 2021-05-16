@@ -19,42 +19,20 @@ public class Main extends Application {
     public static Controller controller;
 
 
-    private static final String INDEXPATH = "../ressources/Index.fxml";
-    private static final String PAG1PATH = "../ressources/page1.fxml";
+    private static final String INDEXPATH = "Index.fxml";
+    private static final String PAG1PATH = "page1.fxml";
+    private static final String INTERFACEDETEST = "testInterface.fxml";
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLoader fxmLoader = new FXMLoader();
-        parent = fxmLoader.load("Index.fxml");
+        parent = fxmLoader.load(INDEXPATH);
         primaryStage.setTitle("Scriber Editor");
         scene = new Scene(parent, 800, 600);
         primaryStage.setScene(scene);
         primaryStage.show();
 
         controller = fxmLoader.getController();
-
-
-        //je set les value du controller pour le test
-        CheckBox checkBox = new CheckBox();
-        checkBox.setSelected(true);
-        controller.modeEntrainementCheckBox = checkBox;
-        CheckBox checkBox2 = new CheckBox();
-        checkBox.setSelected(false);
-        controller.modeEvaluationCheckBox = checkBox2;
-        controller.remplacementPartielCheckBox = checkBox;
-        controller.sensibiliterALaCaseActiverCheckBox = checkBox;
-        TextField textField34 = new TextField();
-        textField34.setText("34");
-        controller.tempsAlouerTextField = textField34;
-        TextField textField = new TextField();
-        textField.setText("le texte du titre");
-        controller.TitreExerciceTextField = textField;
-        TextArea textArea = new TextArea();
-        textArea.setText("le texte d'un TextArea");
-        controller.ConsigneTextArea = textArea;
-        controller.ScriptTextArea = textArea;
-
-
 
 
 
