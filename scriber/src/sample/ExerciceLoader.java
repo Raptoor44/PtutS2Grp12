@@ -110,7 +110,7 @@ public class ExerciceLoader {
         return new File(mediaPath);
     }
 
-    public Image chagerImageDepuisExercice(String pathToFile){
+    public Image chargerImageDepuisExercice(String pathToFile){
         if(actualUnzipedExercice != null && !actualUnzipedExercice.equals(pathToFile)){
             unzipExerciceFile(pathToFile);
             actualUnzipedExercice = pathToFile;

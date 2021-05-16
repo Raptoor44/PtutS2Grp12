@@ -42,7 +42,6 @@ public class Controller implements Initializable {
         exerciceLoader = Main.exerciceLoader;
         if(exerciceLoader == null) System.err.println("wtf dude");
 
-
     }
 
     @FXML
@@ -76,8 +75,8 @@ public class Controller implements Initializable {
         titreMedia.setText(exerciceLoader.getTitle());
         albumMedia.setText(exerciceLoader.getAlbum());
         annerMedia.setText( ((Float) exerciceLoader.getYear()).toString());
-        if(exerciceLoader.chagerImageDepuisExercice(ExerciceFile.getPath()) != null){
-            imageView.setImage(exerciceLoader.chagerImageDepuisExercice(ExerciceFile.getPath()) );
+        if(exerciceLoader.chargerImageDepuisExercice(ExerciceFile.getPath()) != null){
+            imageView.setImage(exerciceLoader.chargerImageDepuisExercice(ExerciceFile.getPath()) );
         }
 
     }

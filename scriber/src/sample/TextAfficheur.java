@@ -22,7 +22,6 @@ public class TextAfficheur {
         return words;
     }
 
-
     private void initialize() {
         String script2 = format(script);
         int index = 0;
