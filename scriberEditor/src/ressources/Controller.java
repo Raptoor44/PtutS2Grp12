@@ -9,7 +9,6 @@ import javafx.scene.control.CheckBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import sample.GenerateurExercice;
@@ -32,7 +31,7 @@ public class Controller  implements Initializable {
     TextField titreExerciceTextField;
 
     @FXML
-    TextField tempsAlouerTextField;
+    TextField tempsAloueTextField;
 
     @FXML
     TextArea scriptTextArea;
@@ -50,14 +49,14 @@ public class Controller  implements Initializable {
     CheckBox modeEntrainementCheckBox;
 
     @FXML
-    CheckBox sensibiliterALaCaseActiverCheckBox;
+    CheckBox sensibiliteALaCaseActiveeCheckBox;
 
     private String mediaFilePath, imageFilePath, script, titre, consigne;
 
     private boolean estUneEvaluation,isRemplacementPartiel,isSensibiliterALaCaseActiver;
     private float tempAlouer;
 
-    private static final boolean DEFAULTESTUNEEVALUATIONVALUE = true;
+    private static final boolean DEFAULT_EST_UNE_EVALUATION_VALUE = true;
 
     private static final String[] PAGEPATHS = {
             "page1.fxml",
@@ -106,16 +105,19 @@ public class Controller  implements Initializable {
 
     //TODO vérifier que le textField est pas nul et mettre de base une valeur par défault ou bloquer si la valeur est null
     public float gettempAlouer(){
+        if(tempAlouer <= 0){
+            return -1;
+        }
         return tempAlouer;
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        estUneEvaluation = DEFAULTESTUNEEVALUATIONVALUE;
+        estUneEvaluation = DEFAULT_EST_UNE_EVALUATION_VALUE;
         pageIndex = 0;
         if(modeEvaluationCheckBox != null  && modeEntrainementCheckBox != null){
-            if(DEFAULTESTUNEEVALUATIONVALUE){
+            if(DEFAULT_EST_UNE_EVALUATION_VALUE){
                 modeEvaluationCheckBox.setSelected(true);
             }else{
                 modeEntrainementCheckBox.setSelected(true);
@@ -193,8 +195,8 @@ public class Controller  implements Initializable {
 
     @FXML
     void OnTempAlouerEvent(KeyEvent event){
-        if(!tempsAlouerTextField.getText().isEmpty())
-            tempAlouer = Float.valueOf(tempsAlouerTextField.getText());
+        if(!tempsAloueTextField.getText().isEmpty())
+            tempAlouer = Float.valueOf(tempsAloueTextField.getText());
     }
 
     @FXML
@@ -210,7 +212,7 @@ public class Controller  implements Initializable {
 
     @FXML
     void OnSensibiliterALaCaseClick(ActionEvent event){
-        isSensibiliterALaCaseActiver = sensibiliterALaCaseActiverCheckBox.isSelected();
+        isSensibiliterALaCaseActiver = sensibiliteALaCaseActiveeCheckBox.isSelected();
     }
 
     @FXML
@@ -268,13 +270,13 @@ public class Controller  implements Initializable {
                 "button=" + button +
                 ", anchorPane=" + anchorPane +
                 ", TitreExerciceTextField=" + titreExerciceTextField +
-                ", tempsAlouerTextField=" + tempsAlouerTextField +
+                ", tempsAlouerTextField=" + tempsAloueTextField +
                 ", ScriptTextArea=" + scriptTextArea +
                 ", ConsigneTextArea=" + consigneTextArea +
                 ", remplacementPartielCheckBox=" + remplacementPartielCheckBox +
                 ", modeEvaluationCheckBox=" + modeEvaluationCheckBox +
                 ", modeEntrainementCheckBox=" + modeEntrainementCheckBox +
-                ", sensibiliterALaCaseActiverCheckBox=" + sensibiliterALaCaseActiverCheckBox +
+                ", sensibiliterALaCaseActiverCheckBox=" + sensibiliteALaCaseActiveeCheckBox +
                 ", mediaFilePath='" + mediaFilePath + '\'' +
                 ", imageFilePath='" + imageFilePath + '\'' +
                 ", script='" + script + '\'' +
