@@ -26,7 +26,7 @@ public class Main extends Application {
     @Override
     public void start(Stage primaryStage) throws Exception{
         FXMLoader fxmLoader = new FXMLoader();
-        parent = fxmLoader.load(INTERFACEDETEST);
+        parent = fxmLoader.load(INDEXPATH);
         primaryStage.setTitle("Scriber Editor");
         scene = new Scene(parent, 800, 600);
         primaryStage.setScene(scene);

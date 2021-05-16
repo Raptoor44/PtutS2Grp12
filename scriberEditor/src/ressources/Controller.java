@@ -59,6 +59,18 @@ public class Controller  implements Initializable {
 
     private static final boolean DEFAULTESTUNEEVALUATIONVALUE = true;
 
+    private static final String[] PAGEPATHS = {
+            "page1.fxml",
+            "page2.fxml",
+            "page3.fxml",
+            "page4.fxml"
+    };
+
+    private int pageIndex;
+
+
+
+    //getter setter
     public boolean estUneEvaluation(){
         return estUneEvaluation;
     }
@@ -88,8 +100,6 @@ public class Controller  implements Initializable {
         return consigne;
     }
 
-
-
     public boolean isSensibiliterALaCaseActiver(){
         return isSensibiliterALaCaseActiver;
     }
@@ -103,6 +113,7 @@ public class Controller  implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         estUneEvaluation = DEFAULTESTUNEEVALUATIONVALUE;
+        pageIndex = 0;
         if(modeEvaluationCheckBox != null  && modeEntrainementCheckBox != null){
             if(DEFAULTESTUNEEVALUATIONVALUE){
                 modeEvaluationCheckBox.setSelected(true);
@@ -113,16 +124,17 @@ public class Controller  implements Initializable {
 
     }
 
+    //Todo sa va pas les nouvelles page chargé créer leur propre instance de Controller avec anchorPane = null ducoup créer une class controller pour chaque page et centrailiser le chargement des page dans la class FXMLoader
     @FXML
-    private void onNextButton(ActionEvent event) throws IOException{
-        System.out.println("salut");
-        AnchorPane pane = FXMLLoader.load(getClass().getResource("page1.fxml"));
-        anchorPane.getChildren().setAll(pane);
-    }
-
-    @FXML
-    void onNextButton(MouseEvent event){
-        System.out.println("salut toi");
+    private void onNextButton(ActionEvent event) {
+        try {
+            AnchorPane pane = null;
+            pane = FXMLLoader.load(getClass().getResource(PAGEPATHS[pageIndex]));
+            pageIndex++;
+            anchorPane.getChildren().setAll(pane);
+       } catch (IOException e) {
+            e.printStackTrace();
+        }
     }
 
 
@@ -144,6 +156,7 @@ public class Controller  implements Initializable {
     //lorsqu'on clique sur une des check box mode exercice appeler cette événement
     @FXML
     void OnModeExerciceClick(ActionEvent event){
+        //série de if et else pour s'asurer que une des checkbox est toujours coché
         if(!modeEntrainementCheckBox.isSelected() && !modeEvaluationCheckBox.isSelected()){
             //TODO sélectionner une checkbox par défault
             if(estUneEvaluation){
