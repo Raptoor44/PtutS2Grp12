@@ -7,6 +7,7 @@ public abstract class Exercice implements Serializable {
     private String titre;
     private String consigne;
     private String script;
+    //TODO mettre remplacementPartiel dans Entrainement
     private Boolean remplacementPartielEstAutoriser;
     private Boolean sensibiliterCaseEstActiver;
 

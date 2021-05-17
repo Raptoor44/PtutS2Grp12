@@ -7,8 +7,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.TextField;
-import javafx.scene.text.Text;
+import javafx.scene.image.ImageView;
+import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
 import sample.Main;
@@ -20,7 +20,7 @@ import java.util.ResourceBundle;
 
 public class EntrainementOuvertController extends Controller implements Initializable {
     @FXML
-    Text exerciseName;
+    Label exerciseName;
 
     @FXML
     Label exerciseTitle;
@@ -46,6 +46,18 @@ public class EntrainementOuvertController extends Controller implements Initiali
     @FXML
     Label exerciseWords;
 
+    @FXML
+    ImageView imageView;
+
+    @FXML
+    Label title;
+
+    @FXML
+    Label album;
+
+    @FXML
+    Label annee;
+
     private ExerciceLoader exerciceLoader;
     private File fileExercice;
 
@@ -68,25 +80,37 @@ public class EntrainementOuvertController extends Controller implements Initiali
 
     @Override
     public void displayFile(File exercise){
-        Entrainement exercice = (Entrainement) exerciceLoader.chargerUnExercice(exercise.getPath());
+        Exercice exercice = exerciceLoader.chargerUnExercice(exercise.getPath());
 
         //exerciceInfo.getChildren().clear();
         //exerciceInfo.getChildren().add(new Text(exercice.toString()));
 
         exerciceLoader.loadMediaData(exerciceLoader.chargerMediaDepuisExercice(exercise.getPath()));
-        //exerciseName.setText(exerciceLoader.getTitle());
-        //mediaAlbum.setText(exerciceLoader.getAlbum());
-        //exerciseYear.setText( ((Float) exerciceLoader.getYear()).toString());
-
-        if(exercice != null){
-            TextAfficheur textAfficheur = new TextAfficheur(exercice.getScript(), "#");
-            exerciseWords.setText(String.valueOf(textAfficheur.getWords().size()));
+        if(exerciceLoader.getAlbum() == null && exerciceLoader.getAlbum() == null && ((Float) exerciceLoader.getYear()).toString() == null){
+            title.setText("");
+            album.setText("");
+            annee.setText("");
+        } else {
+            if(exerciceLoader.getTitle() != null){
+                exerciseName.setText(exerciceLoader.getTitle());
+            }
+            if(exerciceLoader.getAlbum() != null){
+                mediaAlbum.setText(exerciceLoader.getAlbum());
+            }
+            if(((Float) exerciceLoader.getYear()).toString() != null) {
+                exerciseYear.setText(((Float) exerciceLoader.getYear()).toString());
+            }
         }
 
-        exerciseInstruction.setText(exercice.getConsigne());
-        exerciseTitle.setText(exercice.getTitre());
-        partialDiscoveringEnable.setText(exercice.getRemplacementPartielEstAutoriser() ? "Oui" : "Non");
-        caseSensitive.setText(exercice.getSensibiliterCaseEstActiver() ? "Activé" : "Désactivé");
+        if(exercice != null){
+            //TextAfficheur textAfficheur = new TextAfficheur(exercice.getScript(), "#");
+            //exerciseWords.setText(String.valueOf(textAfficheur.getWords().size()));
+        }
+
+        //exerciseInstruction.setText(exercice.getConsigne());
+        //exerciseTitle.setText(exercice.getTitre());
+        //partialDiscoveringEnable.setText(exercice.getRemplacementPartielEstAutoriser() ? "Oui" : "Non");
+        //caseSensitive.setText(exercice.getSensibiliterCaseEstActiver() ? "Activé" : "Désactivé");
 
         if(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()) != null){
             imageView.setImage(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()));
