@@ -1,6 +1,7 @@
 package ressources;
 
 import exercice.Entrainement;
+import exercice.Evaluation;
 import exercice.Exercice;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -35,7 +36,13 @@ public class EntrainementOuvertController extends Controller implements Initiali
     Button openFile;
 
     @FXML
-    Label partialDiscoveringEnable;
+    Label partialDiscoveringEnableOrTime;
+
+    @FXML
+    Label timeOrPartial;
+
+    @FXML
+    Label helpEnable;
 
     @FXML
     Label exerciseYear;
@@ -50,6 +57,9 @@ public class EntrainementOuvertController extends Controller implements Initiali
     ImageView imageView;
 
     @FXML
+    Label image;
+
+    @FXML
     Label title;
 
     @FXML
@@ -58,6 +68,12 @@ public class EntrainementOuvertController extends Controller implements Initiali
     @FXML
     Label annee;
 
+    @FXML
+    Label help;
+
+    @FXML
+    Button startExercise;
+
     private ExerciceLoader exerciceLoader;
     private File fileExercice;
 
@@ -65,6 +81,7 @@ public class EntrainementOuvertController extends Controller implements Initiali
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         exerciceLoader = Main.exerciceLoader;
+
         if(exerciceLoader == null) System.err.println("wtf dude");
 
     }
@@ -82,38 +99,71 @@ public class EntrainementOuvertController extends Controller implements Initiali
     public void displayFile(File exercise){
         Exercice exercice = exerciceLoader.chargerUnExercice(exercise.getPath());
 
-        //exerciceInfo.getChildren().clear();
-        //exerciceInfo.getChildren().add(new Text(exercice.toString()));
-
         exerciceLoader.loadMediaData(exerciceLoader.chargerMediaDepuisExercice(exercise.getPath()));
-        if(exerciceLoader.getAlbum() == null && exerciceLoader.getAlbum() == null && ((Float) exerciceLoader.getYear()).toString() == null){
-            title.setText("");
-            album.setText("");
-            annee.setText("");
+        //TODO passer les metadata en null au lieu d'une valeur par défaut.
+        if(exerciceLoader.getTitle() == null){
+            title.setVisible(false);
+            exerciseName.setVisible(false);
+            exerciseYear.setLayoutY(exerciseYear.getLayoutY() - 60);
+            annee.setLayoutY(annee.getLayoutY() - 60);
+            albumMedia.setLayoutY(albumMedia.getLayoutY() - 60);
+            album.setLayoutY(album.getLayoutY() - 60);
         } else {
-            if(exerciceLoader.getTitle() != null){
-                exerciseName.setText(exerciceLoader.getTitle());
-            }
-            if(exerciceLoader.getAlbum() != null){
-                mediaAlbum.setText(exerciceLoader.getAlbum());
-            }
-            if(((Float) exerciceLoader.getYear()).toString() != null) {
-                exerciseYear.setText(((Float) exerciceLoader.getYear()).toString());
-            }
+            exerciseName.setText(exerciceLoader.getTitle());
         }
+
+        if(((Float) exerciceLoader.getYear()).toString() == null){
+            exerciseYear.setVisible(false);
+            annee.setVisible(false);
+            albumMedia.setLayoutY(albumMedia.getLayoutY() - 60);
+            album.setLayoutY(album.getLayoutY() - 60);
+        } else {
+            exerciseYear.setText(((Float) exerciceLoader.getYear()).toString());
+        }
+
+        if(exerciceLoader.getAlbum() == null){
+            mediaAlbum.setVisible(false);
+            album.setVisible(false);
+        } else {
+            mediaAlbum.setText(exerciceLoader.getAlbum());
+        }
+
 
         if(exercice != null){
-            //TextAfficheur textAfficheur = new TextAfficheur(exercice.getScript(), "#");
-            //exerciseWords.setText(String.valueOf(textAfficheur.getWords().size()));
+            TextAfficheur textAfficheur = new TextAfficheur(exercice.getScript(), "#");
+            exerciseWords.setText(String.valueOf(textAfficheur.getWords().size()));
         }
 
-        //exerciseInstruction.setText(exercice.getConsigne());
-        //exerciseTitle.setText(exercice.getTitre());
-        //partialDiscoveringEnable.setText(exercice.getRemplacementPartielEstAutoriser() ? "Oui" : "Non");
-        //caseSensitive.setText(exercice.getSensibiliterCaseEstActiver() ? "Activé" : "Désactivé");
+        exerciseInstruction.setText(exercice.getConsigne());
+        exerciseTitle.setText(exercice.getTitre());
+        caseSensitive.setText(exercice.isSensibiliterCaseEstActiver() ? "Activé" : "Désactivé");
+
+        if(exercice instanceof Entrainement){
+            Entrainement entrainement = (Entrainement) exercice;
+            startExercise.setText("Débuter l'exercice d'entrainement");
+            timeOrPartial.setText("Remplacement partiel :");
+            partialDiscoveringEnableOrTime.setText(entrainement.isRemplacementPartielEstAutoriser() ? "Oui" : "Non");
+            help.setText("Aide :");
+            helpEnable.setText(entrainement.isAideEstAutoriser() ? "Activé" : "Désactivé");
+
+        } else if(exercice instanceof Evaluation){
+            Evaluation evaluation = (Evaluation) exercice;
+            timeOrPartial.setText("Temps :");
+            startExercise.setText("Débuter l'exercice évalué");
+            partialDiscoveringEnableOrTime.setText(((Float) evaluation.getTempAlouer()).toString());
+            help.setVisible(false);
+            helpEnable.setVisible(false);
+            title.setLayoutY(title.getLayoutY() - 60);
+            annee.setLayoutY(annee.getLayoutY() - 60);
+            album.setLayoutY(album.getLayoutY() - 60);
+            exerciseName.setLayoutY(exerciseName.getLayoutY() - 60);
+            exerciseYear.setLayoutY(exerciseYear.getLayoutY() - 60);
+            mediaAlbum.setLayoutY(mediaAlbum.getLayoutY() - 60);
+        }
 
         if(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()) != null){
-            imageView.setImage(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()));
+                imageView.setImage(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()));
+                image.setText("Image :");
         }
 
     }

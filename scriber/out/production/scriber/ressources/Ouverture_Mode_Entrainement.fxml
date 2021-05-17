@@ -36,7 +36,7 @@
       </ToolBar>
       <AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="-1.0" prefWidth="-1.0" style="-fx-background-color: #FFFFFF;" VBox.vgrow="ALWAYS">
          <children>
-            <Button alignment="CENTER" mnemonicParsing="false" prefHeight="110.0" prefWidth="626.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32; -fx-font-size: 32;" text="Débuter l'exercice d'entrainement" textFill="WHITE" AnchorPane.leftAnchor="407.0" AnchorPane.topAnchor="803.0">
+            <Button fx:id="startExercise" alignment="CENTER" mnemonicParsing="false" prefHeight="110.0" prefWidth="626.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32; -fx-font-size: 32;" textFill="WHITE" AnchorPane.leftAnchor="407.0" AnchorPane.topAnchor="803.0">
                <font>
                   <Font size="36.0" />
                </font>
@@ -46,7 +46,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="742.0" layoutY="278.0" prefHeight="27.0" prefWidth="186.0" text="Remplacement partiel :">
+            <Label fx:id="timeOrPartial" alignment="CENTER_RIGHT" layoutX="742.0" layoutY="278.0" prefHeight="27.0" prefWidth="186.0">
                <font>
                   <Font size="18.0" />
                </font>
@@ -61,7 +61,7 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="partialDiscoveringEnable" alignment="TOP_CENTER" layoutX="940.0" layoutY="274.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
+            <Label fx:id="partialDiscoveringEnableOrTime" alignment="TOP_CENTER" layoutX="940.0" layoutY="274.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
                <font>
                   <Font size="18.0" />
                </font>
@@ -81,42 +81,57 @@
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="exerciseTitle" alignment="CENTER" layoutY="40.0" prefHeight="18.0" prefWidth="1441.0">
+            <Label fx:id="exerciseTitle" alignment="CENTER" layoutX="170.0" layoutY="30.0" prefHeight="70.0" prefWidth="1100.0" style="-fx-border-radius: 32; -fx-border-color: #5CA4DA; -fx-border-width: 1.5px;">
                <font>
                   <Font size="48.0" />
                </font>
             </Label>
-            <Label fx:id="exerciseName" alignment="TOP_CENTER" layoutX="222.0" layoutY="490.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
+            <Label fx:id="exerciseName" alignment="TOP_CENTER" layoutX="940.0" layoutY="514.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="exerciseYear" alignment="TOP_CENTER" layoutX="222.0" layoutY="550.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
+            <Label fx:id="exerciseYear" alignment="TOP_CENTER" layoutX="940.0" layoutY="574.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label fx:id="mediaAlbum" alignment="TOP_CENTER" layoutX="222.0" layoutY="610.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
+            <Label fx:id="mediaAlbum" alignment="TOP_CENTER" layoutX="940.0" layoutY="634.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="164.0" layoutY="494.0" prefHeight="27.0" prefWidth="48.0" text="Titre :">
+            <Label fx:id="title" layoutX="863.0" layoutY="518.0" prefHeight="27.0" prefWidth="55.0" text="Titre :">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="148.0" layoutY="554.0" prefHeight="27.0" prefWidth="64.0" text="Année :">
+            <Label fx:id="annee" layoutX="854.0" layoutY="578.0" prefHeight="27.0" prefWidth="64.0" text="Année :">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <Label layoutX="148.0" layoutY="614.0" prefHeight="27.0" prefWidth="64.0" text="Album :">
+            <Label fx:id="album" layoutX="854.0" layoutY="638.0" prefHeight="27.0" prefWidth="64.0" text="Album :">
                <font>
                   <Font size="18.0" />
                </font>
             </Label>
-            <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" layoutX="778.0" layoutY="478.0" pickOnBounds="true" preserveRatio="true" />
+            <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" layoutX="257.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true" />
+            <Label fx:id="help" layoutX="873.0" layoutY="458.0" prefHeight="27.0" prefWidth="55.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="helpEnable" alignment="TOP_CENTER" layoutX="940.0" layoutY="454.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
+            <Label fx:id="image" layoutX="144.0" layoutY="490.0" prefHeight="27.0" prefWidth="64.0">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Label>
          </children>
       </AnchorPane>
    </children>
