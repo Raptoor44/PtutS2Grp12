@@ -43,7 +43,6 @@ public class GenerateurExercice {
                 controller.getTitre(),
                 controller.getConsigne(),
                 controller.getScript(),
-                controller.isRemplacementPartiel(),
                 controller.isSensibiliterALaCaseActiver(),
                 controller.gettempAlouer());
 

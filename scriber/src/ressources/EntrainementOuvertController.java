@@ -85,8 +85,8 @@ public class EntrainementOuvertController extends Controller implements Initiali
 
         exerciseInstruction.setText(exercice.getConsigne());
         exerciseTitle.setText(exercice.getTitre());
-        partialDiscoveringEnable.setText(exercice.getRemplacementPartielEstAutoriser() ? "Oui" : "Non");
-        caseSensitive.setText(exercice.getSensibiliterCaseEstActiver() ? "Activé" : "Désactivé");
+       // partialDiscoveringEnable.setText(exercice.getRemplacementPartielEstAutoriser() ? "Oui" : "Non");
+        //caseSensitive.setText(exercice.getSensibiliterCaseEstActiver() ? "Activé" : "Désactivé");
 
         if(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()) != null){
             imageView.setImage(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()));
