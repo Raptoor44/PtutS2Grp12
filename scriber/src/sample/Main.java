@@ -7,7 +7,9 @@ import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
 import ressources.Controller;
+import ressources.EntrainementOuvertController;
 import ressources.FXMLoader;
+import ressources.OuvertureController;
 
 import java.io.File;
 
@@ -17,18 +19,19 @@ public class Main extends Application {
     public static Parent parent;
     public static Scene scene;
     public static Controller controller;
+    public static EntrainementOuvertController ouvertureController;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
 
         exerciceLoader = new ExerciceLoader();
         FXMLoader fxmLoader = new FXMLoader();
-        parent = fxmLoader.load("sample.fxml");
+        parent = fxmLoader.load("Ouverture_Mode_Entrainement.fxml");
         primaryStage.setTitle("Hello World");
         scene = new Scene(parent);
         primaryStage.setScene(scene);
 
-        controller = fxmLoader.getController();
+        ouvertureController = (EntrainementOuvertController) fxmLoader.getController();
 
 
         if(path != null){

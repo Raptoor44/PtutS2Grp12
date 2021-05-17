@@ -5,16 +5,31 @@ import java.io.Serializable;
 
 public abstract class Exercice implements Serializable {
 
-    private String titre;
-    private String consigne;
-    private Boolean remplacementPartielEstAutoriser;
-    private Boolean sensibiliterCaseEstActiver;
+    protected String titre;
+    protected String consigne;
+    protected String script;
+    protected boolean sensibiliterCaseEstActiver;
 
+    public String getTitre() {
+        return titre;
+    }
 
-    public Exercice(String titre, String consigne, Boolean remplacementPartielEstAutoriser, Boolean sensibiliterCaseEstActiver) {
+    public String getConsigne() {
+        return consigne;
+    }
+
+    public String getScript() {
+        return script;
+    }
+
+    public boolean isSensibiliterCaseEstActiver() {
+        return sensibiliterCaseEstActiver;
+    }
+
+    public Exercice(String titre, String consigne, String script, boolean sensibiliterCaseEstActiver) {
         this.titre = titre;
         this.consigne = consigne;
-        this.remplacementPartielEstAutoriser = remplacementPartielEstAutoriser;
+        this.script = script;
         this.sensibiliterCaseEstActiver = sensibiliterCaseEstActiver;
     }
 
@@ -23,7 +38,7 @@ public abstract class Exercice implements Serializable {
         return "Exercice{" +
                 "titre='" + titre + '\'' +
                 ", consigne='" + consigne + '\'' +
-                ", remplacementPartielEstAutoriser=" + remplacementPartielEstAutoriser +
+                ", script='" + script + '\'' +
                 ", sensibiliterCaseEstActiver=" + sensibiliterCaseEstActiver +
                 '}';
     }

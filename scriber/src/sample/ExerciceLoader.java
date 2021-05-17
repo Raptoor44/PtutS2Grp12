@@ -6,6 +6,8 @@ import javafx.scene.image.Image;
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.Optional;
+import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
 
@@ -24,20 +26,26 @@ public class ExerciceLoader {
 
     public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriber");
 
-    private static boolean estUneVideo;     // a true si le dernier exercice chargé possede une video sinon a false si le dernier exercice charge possede de l'audio
-    public static String actualUnzipedExercice;
+    //TODO rajouter les extension supporter par vlcj
+    private static final String[] MEDIAEXTENSIONSUPPORTE = {".mp3",".mp4",".avi",".wav"};
+    //TODO rajouter les extension supporter par ImageView
+    private static final String[] IMAGEEXTENSIONSUPPORTE = {".jpg",".png",".bmp"};
 
+
+
+    public static String actualUnzipedExercice;
+    private String mediaPath, imagePath;
 
     //metada tu dernier exercice charger
     private String artist;
-    private int year;
+    private float year;
     private String album;
     private String genre;
     private String title;
 
     public boolean isFinish;
 
-    public int getYear() {
+    public float getYear() {
         return year;
     }
 
@@ -58,7 +66,9 @@ public class ExerciceLoader {
     }
 
 
+
     public ExerciceLoader() {
+        actualUnzipedExercice = "nullfinpasnulltacapté";
         try {
             if(!savedir.exists())
                 Files.createDirectory(savedir.toPath());
@@ -97,34 +107,62 @@ public class ExerciceLoader {
             actualUnzipedExercice = pathToFile;
         }
 
-        if(estUneVideo)
-            return new File(savedir + "/fichierExerciceInput/video.mp4");
-        if(!estUneVideo)
-            return new File(savedir + "/fichierExerciceInput/audio.mp3");
-        return null;
+        return new File(mediaPath);
     }
 
+    public Image chargerImageDepuisExercice(String pathToFile){
+        if(actualUnzipedExercice != null && !actualUnzipedExercice.equals(pathToFile)){
+            unzipExerciceFile(pathToFile);
+            actualUnzipedExercice = pathToFile;
+        }
 
+        Image image = new Image(new File(imagePath).toURI().toString());
+
+        return image;
+    }
 
     public void loadMediaData(File media){
         try {
 
-            InputStream input = new FileInputStream(media);
-            ContentHandler handler = new DefaultHandler();
-            Metadata metadata = new Metadata();
-            Parser parser = new Mp3Parser();
-            ParseContext parseCtx = new ParseContext();
-            parser.parse(input,handler, metadata, parseCtx);
-            input.close();
 
-            // Retrieve the necessary info from metadata
-            // Names - title, xmpDM:artist etc. - mentioned below may differ based
-            title = metadata.get("title");
-            artist = metadata.get("xmpDM:artist");
-            genre =metadata.get("xmpDM:genre");
-            album = metadata.get("xmpDM:album");
-            year =  Integer.valueOf(metadata.get("xmpDM:releaseDate"));
 
+            if(!getExtensionByStringHandling(mediaPath).equals(".mp3")){
+
+
+                title = "titre ";
+                artist = "artist";
+                genre = "genre";
+                album = "album";
+                year =  0;
+
+
+            }else{
+
+                // Retrieve the necessary info from metadata
+                // Names - title, xmpDM:artist etc. - mentioned below may differ based
+
+
+                InputStream input = new FileInputStream(media);
+                ContentHandler handler = new DefaultHandler();
+                Metadata metadata = new Metadata();
+                Parser parser = new Mp3Parser();
+                ParseContext parseCtx = new ParseContext();
+                parser.parse(input,handler, metadata, parseCtx);
+                input.close();
+
+
+                if(metadata.get("title") != null)
+                    title = metadata.get("title");
+                if(metadata.get("xmpDM:artist") != null)
+                    artist = metadata.get("xmpDM:artist");
+                if(metadata.get("xmpDM:genre") != null)
+                    genre =metadata.get("xmpDM:genre");
+                if(metadata.get("xmpDM:album") != null)
+                    album = metadata.get("xmpDM:album");
+                if(metadata.get("xmpDM:releaseDate") != null)
+                    year =  Float.valueOf(metadata.get("xmpDM:releaseDate"));
+
+            }
 
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -146,7 +184,6 @@ public class ExerciceLoader {
         ZipInputStream zis = null;
         try {
             zis = new ZipInputStream(new FileInputStream(pathToFile));
-
             ZipEntry zipEntry = zis.getNextEntry();
             while (zipEntry != null) {
                 File newFile = newFile(destDir, zipEntry);
@@ -182,7 +219,7 @@ public class ExerciceLoader {
         }
     }
 
-    private static File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
+    private File newFile(File destinationDir, ZipEntry zipEntry) throws IOException {
         File destFile = new File(destinationDir, zipEntry.getName());
 
         String destDirPath = destinationDir.getCanonicalPath();
@@ -192,12 +229,15 @@ public class ExerciceLoader {
             throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
         }
 
-        if(zipEntry.getName() == "audio.mp3"){
-            estUneVideo = false;
+        for (String extension : MEDIAEXTENSIONSUPPORTE) {
+            if(getExtensionByStringHandling(destFilePath).equals(extension)){
+                mediaPath = destFilePath;
+            }
         }
-
-        if(zipEntry.getName() == "video.mp4"){
-            estUneVideo = true;
+        for (String extension : IMAGEEXTENSIONSUPPORTE) {
+            if(getExtensionByStringHandling(destFilePath).equals(extension)){
+                imagePath = destFilePath;
+            }
         }
 
 
@@ -205,4 +245,9 @@ public class ExerciceLoader {
     }
 
 
+    private String getExtensionByStringHandling(String filename) {
+        return "." + Optional.ofNullable(filename)
+                .filter(f -> f.contains("."))
+                .map(f -> f.substring(filename.lastIndexOf(".") + 1)).get();
+    }
 }

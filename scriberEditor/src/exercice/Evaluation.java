@@ -4,10 +4,22 @@ public class Evaluation extends Exercice {
 
     private float tempAlouer;
 
-    public Evaluation(String titre, String consigne, Boolean remplacementPartielEstAutoriser, Boolean sensibiliterCaseEstActiver, float tempAlouer) {
-        super(titre, consigne, remplacementPartielEstAutoriser, sensibiliterCaseEstActiver);
-        this.tempAlouer = tempAlouer;
+    public float getTempAlouer() {
+        return tempAlouer;
     }
 
+    public Evaluation(String titre, String consigne, String script, Boolean sensibiliterCaseEstActiver, float tempAlouer) {
+        super(titre, consigne, script, sensibiliterCaseEstActiver);
+        this.tempAlouer = tempAlouer;
+
+    }
+
+
+    @Override
+    public String toString() {
+        return super.toString() +
+                "tempAlouer=" + tempAlouer +
+                '}';
+    }
 
 }
