@@ -9,7 +9,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
-import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
 import sample.Main;
@@ -104,10 +103,12 @@ public class EntrainementOuvertController extends Controller implements Initiali
         if(exerciceLoader.getTitle() == null){
             title.setVisible(false);
             exerciseName.setVisible(false);
+
             exerciseYear.setLayoutY(exerciseYear.getLayoutY() - 60);
             annee.setLayoutY(annee.getLayoutY() - 60);
             albumMedia.setLayoutY(albumMedia.getLayoutY() - 60);
             album.setLayoutY(album.getLayoutY() - 60);
+
         } else {
             exerciseName.setText(exerciceLoader.getTitle());
         }
@@ -136,21 +137,21 @@ public class EntrainementOuvertController extends Controller implements Initiali
 
         exerciseInstruction.setText(exercice.getConsigne());
         exerciseTitle.setText(exercice.getTitre());
-        caseSensitive.setText(exercice.isSensibiliterCaseEstActiver() ? "Activé" : "Désactivé");
+        caseSensitive.setText(exercice.isCaseSensitive() ? "Activé" : "Désactivé");
 
         if(exercice instanceof Entrainement){
             Entrainement entrainement = (Entrainement) exercice;
             startExercise.setText("Débuter l'exercice d'entrainement");
             timeOrPartial.setText("Remplacement partiel :");
-            partialDiscoveringEnableOrTime.setText(entrainement.isRemplacementPartielEstAutoriser() ? "Oui" : "Non");
+            partialDiscoveringEnableOrTime.setText(entrainement.isReplacementAllowed() ? "Oui" : "Non");
             help.setText("Aide :");
-            helpEnable.setText(entrainement.isAideEstAutoriser() ? "Activé" : "Désactivé");
+            helpEnable.setText(entrainement.isHelpAllowed() ? "Activé" : "Désactivé");
 
         } else if(exercice instanceof Evaluation){
             Evaluation evaluation = (Evaluation) exercice;
             timeOrPartial.setText("Temps :");
             startExercise.setText("Débuter l'exercice évalué");
-            partialDiscoveringEnableOrTime.setText(((Float) evaluation.getTempAlouer()).toString());
+            partialDiscoveringEnableOrTime.setText(((Float) evaluation.getTemps()).toString());
             help.setVisible(false);
             helpEnable.setVisible(false);
             title.setLayoutY(title.getLayoutY() - 60);

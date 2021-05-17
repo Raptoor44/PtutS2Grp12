@@ -8,7 +8,14 @@ public abstract class Exercice implements Serializable {
     protected String titre;
     protected String consigne;
     protected String script;
-    protected boolean sensibiliterCaseEstActiver;
+    protected boolean caseSensitivity;
+
+    public Exercice(String titre, String consigne, String script, boolean caseSensitivity) {
+        this.titre = titre;
+        this.consigne = consigne;
+        this.script = script;
+        this.caseSensitivity = caseSensitivity;
+    }
 
     public String getTitre() {
         return titre;
@@ -22,15 +29,8 @@ public abstract class Exercice implements Serializable {
         return script;
     }
 
-    public boolean isSensibiliterCaseEstActiver() {
-        return sensibiliterCaseEstActiver;
-    }
-
-    public Exercice(String titre, String consigne, String script, boolean sensibiliterCaseEstActiver) {
-        this.titre = titre;
-        this.consigne = consigne;
-        this.script = script;
-        this.sensibiliterCaseEstActiver = sensibiliterCaseEstActiver;
+    public boolean isCaseSensitive() {
+        return caseSensitivity;
     }
 
     @Override
@@ -39,7 +39,7 @@ public abstract class Exercice implements Serializable {
                 "titre='" + titre + '\'' +
                 ", consigne='" + consigne + '\'' +
                 ", script='" + script + '\'' +
-                ", sensibiliterCaseEstActiver=" + sensibiliterCaseEstActiver +
+                ", caseSensitivity=" + caseSensitivity +
                 '}';
     }
 }

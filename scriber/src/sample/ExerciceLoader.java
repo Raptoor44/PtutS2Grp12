@@ -1,16 +1,14 @@
 package sample;
 
-
+import com.sun.glass.ui.delegate.MenuDelegate;
 import exercice.Exercice;
 import javafx.scene.image.Image;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.util.Optional;
-import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipInputStream;
-
 
 import org.apache.tika.exception.TikaException;
 import org.apache.tika.metadata.Metadata;
@@ -24,12 +22,12 @@ import org.xml.sax.helpers.DefaultHandler;
 public class ExerciceLoader {
 
 
-    public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriber");
+    public static final File saveDir = new File(new File(System.getProperty("user.home")), ".scriber");
 
     //TODO rajouter les extension supporter par vlcj
-    private static final String[] MEDIAEXTENSIONSUPPORTE = {".mp3",".mp4",".avi",".wav"};
+    private static final String[] MEDIA_EXTENSION_SUPPORTE = {".mp3",".mp4",".avi",".wav"};
     //TODO rajouter les extension supporter par ImageView
-    private static final String[] IMAGEEXTENSIONSUPPORTE = {".jpg",".png",".bmp"};
+    private static final String[] IMAGE_EXTENSION_SUPPORTE = {".jpg",".png",".bmp"};
 
 
 
@@ -44,6 +42,17 @@ public class ExerciceLoader {
     private String title;
 
     public boolean isFinish;
+
+    public ExerciceLoader() {
+        actualUnzipedExercice = "nullfinpasnulltacapté";
+        try {
+            if(!saveDir.exists())
+                Files.createDirectory(saveDir.toPath());
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+
+    }
 
     public float getYear() {
         return year;
@@ -65,19 +74,6 @@ public class ExerciceLoader {
         return title;
     }
 
-
-
-    public ExerciceLoader() {
-        actualUnzipedExercice = "nullfinpasnulltacapté";
-        try {
-            if(!savedir.exists())
-                Files.createDirectory(savedir.toPath());
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-
-    }
-
     public Exercice chargerUnExercice(String pathToFile){
 
         if(actualUnzipedExercice != null && !actualUnzipedExercice.equals(pathToFile)){
@@ -87,7 +83,7 @@ public class ExerciceLoader {
         // ouverture d'un flux sur un fichier
         ObjectInputStream ois = null;
         try {
-            ois = new ObjectInputStream(new FileInputStream(savedir + "/fichierExerciceInput/exerciceInfo.exera"));
+            ois = new ObjectInputStream(new FileInputStream(saveDir + "/fichierExerciceInput/exerciceInfo.exera"));
 
             // désérialization de l'objet
             Exercice exercice = (Exercice) ois.readObject();
@@ -121,6 +117,9 @@ public class ExerciceLoader {
         return image;
     }
 
+
+    // TODO Pas besoin je pense (c sur meme)
+
     public void loadMediaData(File media){
         try {
 
@@ -128,6 +127,7 @@ public class ExerciceLoader {
 
             if(!getExtensionByStringHandling(mediaPath).equals(".mp3")){
 
+                // TODO Pas besoin je pense
 
                 title = "titre ";
                 artist = "artist";
@@ -149,6 +149,8 @@ public class ExerciceLoader {
                 ParseContext parseCtx = new ParseContext();
                 parser.parse(input,handler, metadata, parseCtx);
                 input.close();
+
+                // TODO  : ne sert pas à grand chose
 
 
                 if(metadata.get("title") != null)
@@ -179,7 +181,7 @@ public class ExerciceLoader {
 
 
     private void unzipExerciceFile(String pathToFile){
-        File destDir = new File(savedir + "/fichierExerciceInput/");
+        File destDir = new File(saveDir + "/fichierExerciceInput/");
         byte[] buffer = new byte[1024];
         ZipInputStream zis = null;
         try {
@@ -229,12 +231,12 @@ public class ExerciceLoader {
             throw new IOException("Entry is outside of the target dir: " + zipEntry.getName());
         }
 
-        for (String extension : MEDIAEXTENSIONSUPPORTE) {
+        for (String extension : MEDIA_EXTENSION_SUPPORTE) {
             if(getExtensionByStringHandling(destFilePath).equals(extension)){
                 mediaPath = destFilePath;
             }
         }
-        for (String extension : IMAGEEXTENSIONSUPPORTE) {
+        for (String extension : IMAGE_EXTENSION_SUPPORTE) {
             if(getExtensionByStringHandling(destFilePath).equals(extension)){
                 imagePath = destFilePath;
             }

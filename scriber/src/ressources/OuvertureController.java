@@ -31,8 +31,6 @@ public class OuvertureController extends Controller implements Initializable {
     private void OnLoadExerciceButtonCLick(ActionEvent event){
         FileChooser chooser = new FileChooser();
         fileExercice = chooser.showOpenDialog(null);
-
-
     }
 
 

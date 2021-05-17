@@ -2,32 +2,32 @@ package exercice;
 
 public class Entrainement extends Exercice {
 
-    private boolean aideEstAutoriser;
-    private boolean remplacementPartielEstAutoriser;
+    private boolean allowHelp;
+    private boolean allowReplacement;
 
-    public boolean isRemplacementPartielEstAutoriser() {
-        return remplacementPartielEstAutoriser;
+    public Entrainement(String titre, String consigne, String script, boolean caseSensitivity, boolean allowHelp, boolean allowReplacement) {
+        super(titre, consigne, script, caseSensitivity);
+        this.allowHelp = allowHelp;
+        this.allowReplacement =  allowReplacement;
     }
 
-    public boolean isAideEstAutoriser() {
-        return aideEstAutoriser;
+    public boolean isReplacementAllowed() {
+        return allowReplacement;
     }
 
-    public Entrainement(String titre, String consigne, String script, boolean remplacementPartielEstAutoriser, Boolean sensibiliterCaseEstActiver, boolean aideEstAutoriser) {
-        super(titre, consigne, script, sensibiliterCaseEstActiver);
-        this.aideEstAutoriser = aideEstAutoriser;
-        this.remplacementPartielEstAutoriser =  remplacementPartielEstAutoriser;
+    public boolean isHelpAllowed() {
+        return allowHelp;
     }
 
     @Override
     public String toString() {
         return "Entrainement{" +
-                "aideEstAutoriser=" + aideEstAutoriser +
-                ", remplacementPartielEstAutoriser=" + remplacementPartielEstAutoriser +
+                "allowHelp=" + allowHelp +
+                ", allowReplacement=" + allowReplacement +
                 ", titre='" + titre + '\'' +
                 ", consigne='" + consigne + '\'' +
                 ", script='" + script + '\'' +
-                ", sensibiliterCaseEstActiver=" + sensibiliterCaseEstActiver +
+                ", caseSensitivity=" + caseSensitivity +
                 '}';
     }
 }
