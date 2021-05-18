@@ -107,7 +107,7 @@ public class EntrainementOuvertController extends Controller implements Initiali
         Evaluation evaluation = (Evaluation) exercice;
         timeOrPartial.setText("Temps :");
         startExercise.setText("Débuter l'exercice évalué");
-        partialDiscoveringEnableOrTime.setText(((Float) evaluation.getTemps()).toString());
+        partialDiscoveringEnableOrTime.setText(((Integer) evaluation.getTemps()).toString());
         help.setVisible(false);
         helpEnable.setVisible(false);
     }

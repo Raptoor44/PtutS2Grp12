@@ -54,7 +54,7 @@ public class Controller  implements Initializable {
     private String mediaFilePath, imageFilePath, script, titre, consigne;
 
     private boolean estUneEvaluation,isRemplacementPartiel,isSensibiliterALaCaseActiver;
-    private float tempAlouer;
+    private int tempAlouer;
 
     private static final boolean DEFAULT_EST_UNE_EVALUATION_VALUE = true;
 
@@ -104,7 +104,7 @@ public class Controller  implements Initializable {
     }
 
     //TODO vérifier que le textField est pas nul et mettre de base une valeur par défault ou bloquer si la valeur est null
-    public float gettempAlouer(){
+    public int gettempAlouer(){
         if(tempAlouer <= 0){
             return -1;
         }
@@ -196,7 +196,7 @@ public class Controller  implements Initializable {
     @FXML
     void OnTempAlouerEvent(KeyEvent event){
         if(!tempsAloueTextField.getText().isEmpty())
-            tempAlouer = Float.valueOf(tempsAloueTextField.getText());
+            tempAlouer = Integer.valueOf(tempsAloueTextField.getText());
     }
 
     @FXML

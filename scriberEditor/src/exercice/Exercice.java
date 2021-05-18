@@ -10,6 +10,13 @@ public abstract class Exercice implements Serializable {
     protected String script;
     protected boolean caseSensitivity;
 
+    public Exercice(String titre, String consigne, String script, boolean caseSensitivity) {
+        this.titre = titre;
+        this.consigne = consigne;
+        this.script = script;
+        this.caseSensitivity = caseSensitivity;
+    }
+
     public String getTitre() {
         return titre;
     }
@@ -22,15 +29,8 @@ public abstract class Exercice implements Serializable {
         return script;
     }
 
-    public boolean isCaseSensitivite() {
+    public boolean isCaseSensitive() {
         return caseSensitivity;
-    }
-
-    public Exercice(String titre, String consigne, String script, boolean caseSensitivity) {
-        this.titre = titre;
-        this.consigne = consigne;
-        this.script = script;
-        this.caseSensitivity = caseSensitivity;
     }
 
     @Override

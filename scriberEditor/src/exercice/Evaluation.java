@@ -2,16 +2,15 @@ package exercice;
 
 public class Evaluation extends Exercice {
 
-    // TODO temps en secondes -> int
-    private float temps;
+    private int temps;
 
-    public Evaluation(String titre, String consigne, String script, boolean caseSensitivity, float temps) {
+    public Evaluation(String titre, String consigne, String script, boolean caseSensitivity, int temps) {
         super(titre, consigne, script, caseSensitivity);
         this.temps = temps;
 
     }
 
-    public float getTemps() {
+    public int getTemps() {
         return temps;
     }
 
