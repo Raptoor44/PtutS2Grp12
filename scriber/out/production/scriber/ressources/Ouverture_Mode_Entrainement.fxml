@@ -86,36 +86,6 @@
                   <Font size="48.0" />
                </font>
             </Label>
-            <Label fx:id="exerciseName" alignment="TOP_CENTER" layoutX="940.0" layoutY="514.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="exerciseYear" alignment="TOP_CENTER" layoutX="940.0" layoutY="574.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="mediaAlbum" alignment="TOP_CENTER" layoutX="940.0" layoutY="634.0" prefHeight="35.0" prefWidth="148.0" style="-fx-background-color: F6F6F6; -fx-border-radius: 32; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-style: solid;">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="title" layoutX="863.0" layoutY="518.0" prefHeight="27.0" prefWidth="55.0" text="Titre :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="annee" layoutX="854.0" layoutY="578.0" prefHeight="27.0" prefWidth="64.0" text="Année :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
-            <Label fx:id="album" layoutX="854.0" layoutY="638.0" prefHeight="27.0" prefWidth="64.0" text="Album :">
-               <font>
-                  <Font size="18.0" />
-               </font>
-            </Label>
             <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" layoutX="257.0" layoutY="472.0" pickOnBounds="true" preserveRatio="true" />
             <Label fx:id="help" layoutX="873.0" layoutY="458.0" prefHeight="27.0" prefWidth="55.0">
                <font>

@@ -19,17 +19,12 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EntrainementOuvertController extends Controller implements Initializable {
-    @FXML
-    Label exerciseName;
 
     @FXML
     Label exerciseTitle;
 
     @FXML
     Label exerciseInstruction;
-
-    @FXML
-    Label mediaAlbum;
 
     @FXML
     Button openFile;
@@ -44,9 +39,6 @@ public class EntrainementOuvertController extends Controller implements Initiali
     Label helpEnable;
 
     @FXML
-    Label exerciseYear;
-
-    @FXML
     Label caseSensitive;
 
     @FXML
@@ -57,15 +49,6 @@ public class EntrainementOuvertController extends Controller implements Initiali
 
     @FXML
     Label image;
-
-    @FXML
-    Label title;
-
-    @FXML
-    Label album;
-
-    @FXML
-    Label annee;
 
     @FXML
     Label help;
@@ -98,38 +81,6 @@ public class EntrainementOuvertController extends Controller implements Initiali
     public void displayFile(File exercise){
         Exercice exercice = exerciceLoader.chargerUnExercice(exercise.getPath());
 
-        exerciceLoader.loadMediaData(exerciceLoader.chargerMediaDepuisExercice(exercise.getPath()));
-        //TODO passer les metadata en null au lieu d'une valeur par défaut.
-        if(exerciceLoader.getTitle() == null){
-            title.setVisible(false);
-            exerciseName.setVisible(false);
-
-            exerciseYear.setLayoutY(exerciseYear.getLayoutY() - 60);
-            annee.setLayoutY(annee.getLayoutY() - 60);
-            albumMedia.setLayoutY(albumMedia.getLayoutY() - 60);
-            album.setLayoutY(album.getLayoutY() - 60);
-
-        } else {
-            exerciseName.setText(exerciceLoader.getTitle());
-        }
-
-        if(((Float) exerciceLoader.getYear()).toString() == null){
-            exerciseYear.setVisible(false);
-            annee.setVisible(false);
-            albumMedia.setLayoutY(albumMedia.getLayoutY() - 60);
-            album.setLayoutY(album.getLayoutY() - 60);
-        } else {
-            exerciseYear.setText(((Float) exerciceLoader.getYear()).toString());
-        }
-
-        if(exerciceLoader.getAlbum() == null){
-            mediaAlbum.setVisible(false);
-            album.setVisible(false);
-        } else {
-            mediaAlbum.setText(exerciceLoader.getAlbum());
-        }
-
-
         if(exercice != null){
             TextAfficheur textAfficheur = new TextAfficheur(exercice.getScript(), "#");
             exerciseWords.setText(String.valueOf(textAfficheur.getWords().size()));
@@ -140,26 +91,9 @@ public class EntrainementOuvertController extends Controller implements Initiali
         caseSensitive.setText(exercice.isCaseSensitive() ? "Activé" : "Désactivé");
 
         if(exercice instanceof Entrainement){
-            Entrainement entrainement = (Entrainement) exercice;
-            startExercise.setText("Débuter l'exercice d'entrainement");
-            timeOrPartial.setText("Remplacement partiel :");
-            partialDiscoveringEnableOrTime.setText(entrainement.isReplacementAllowed() ? "Oui" : "Non");
-            help.setText("Aide :");
-            helpEnable.setText(entrainement.isHelpAllowed() ? "Activé" : "Désactivé");
-
+            displayTraining(exercice);
         } else if(exercice instanceof Evaluation){
-            Evaluation evaluation = (Evaluation) exercice;
-            timeOrPartial.setText("Temps :");
-            startExercise.setText("Débuter l'exercice évalué");
-            partialDiscoveringEnableOrTime.setText(((Float) evaluation.getTemps()).toString());
-            help.setVisible(false);
-            helpEnable.setVisible(false);
-            title.setLayoutY(title.getLayoutY() - 60);
-            annee.setLayoutY(annee.getLayoutY() - 60);
-            album.setLayoutY(album.getLayoutY() - 60);
-            exerciseName.setLayoutY(exerciseName.getLayoutY() - 60);
-            exerciseYear.setLayoutY(exerciseYear.getLayoutY() - 60);
-            mediaAlbum.setLayoutY(mediaAlbum.getLayoutY() - 60);
+            displayTest(exercice);
         }
 
         if(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()) != null){
@@ -169,6 +103,22 @@ public class EntrainementOuvertController extends Controller implements Initiali
 
     }
 
+    private void displayTest(Exercice exercice){
+        Evaluation evaluation = (Evaluation) exercice;
+        timeOrPartial.setText("Temps :");
+        startExercise.setText("Débuter l'exercice évalué");
+        partialDiscoveringEnableOrTime.setText(((Float) evaluation.getTemps()).toString());
+        help.setVisible(false);
+        helpEnable.setVisible(false);
+    }
 
+    private void displayTraining(Exercice exercice){
+        Entrainement entrainement = (Entrainement) exercice;
+        startExercise.setText("Débuter l'exercice d'entrainement");
+        timeOrPartial.setText("Remplacement partiel :");
+        partialDiscoveringEnableOrTime.setText(entrainement.isReplacementAllowed() ? "Oui" : "Non");
+        help.setText("Aide :");
+        helpEnable.setText(entrainement.isHelpAllowed() ? "Activé" : "Désactivé");
+    }
 
 }
