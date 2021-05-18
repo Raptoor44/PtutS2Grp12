@@ -56,7 +56,6 @@ public class Controller implements Initializable {
     @FXML
     private void OnOpenMediaClick(ActionEvent event){
 
-
         File mediaFile = exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath());
 
         try {

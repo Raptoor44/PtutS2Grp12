@@ -3,7 +3,7 @@ package sample;
 import java.util.Scanner;
 
 public class Test {
-
+/*
     public static void main(String args[]) {
         String script = "Cool, heat-reflecting white rooms are already an urban climate solution that's been embraced in cities around the world.\n" +
                 "In New York, more than 10 million square feet [929,000 square metres] of rooves have been coated with white heat-reflecting paint.\n" +
@@ -38,4 +38,5 @@ public class Test {
         }
         sc.close();
     }
+    */
 }

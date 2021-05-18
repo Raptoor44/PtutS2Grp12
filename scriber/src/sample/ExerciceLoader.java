@@ -2,6 +2,7 @@ package sample;
 
 import exercice.Exercice;
 import javafx.scene.image.Image;
+import javafx.scene.media.Media;
 
 import java.io.*;
 import java.nio.file.Files;
@@ -68,6 +69,19 @@ public class ExerciceLoader {
         }
 
         return new File(mediaPath);
+    }
+
+    //TODO Voir s'il y a une autre façon de faire (duplication de code)
+    public Media chargerMediaDepuisExerciceMEDIA(String pathToFile){
+
+        if(actualUnzipedExercice != null && !actualUnzipedExercice.equals(pathToFile)){
+            unzipExerciceFile(pathToFile);
+            actualUnzipedExercice = pathToFile;
+        }
+
+        Media media = new Media(new File(mediaPath).toURI().toString());
+
+        return media;
     }
 
     public Image chargerImageDepuisExercice(String pathToFile){

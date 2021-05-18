@@ -6,10 +6,7 @@ import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.stage.Stage;
-import ressources.Controller;
-import ressources.EntrainementOuvertController;
-import ressources.FXMLoader;
-import ressources.OuvertureController;
+import ressources.*;
 
 import java.io.File;
 
@@ -20,18 +17,19 @@ public class Main extends Application {
     public static Scene scene;
     public static Controller controller;
     public static EntrainementOuvertController ouvertureController;
+    public static ExerciseController exerciseController;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
 
         exerciceLoader = new ExerciceLoader();
         FXMLoader fxmLoader = new FXMLoader();
-        parent = fxmLoader.load("Ouverture_Mode_Entrainement.fxml");
+        parent = fxmLoader.load("Exercise.fxml");
         primaryStage.setTitle("Hello World");
         scene = new Scene(parent);
         primaryStage.setScene(scene);
 
-        ouvertureController = (EntrainementOuvertController) fxmLoader.getController();
+        exerciseController = (ExerciseController) fxmLoader.getController();
 
 
         if(path != null){

@@ -1,5 +1,7 @@
 package sample;
 
+import exercice.Exercice;
+
 import java.util.*;
 
 public class TextAfficheur {
@@ -9,10 +11,10 @@ public class TextAfficheur {
     private String script;
     private String occultedString;
 
-    public TextAfficheur(String script, String occultationChar){
+    public TextAfficheur(Exercice exercice, String occultationChar){
         words = new ArrayList<>();
         score = "";
-        this.script = script;
+        this.script = exercice.getScript();
         initialize();
         this.occultationChar = occultationChar.substring(0, 1);
         occultedString = script.replaceAll("[A-Za-z0-9]", this.occultationChar);

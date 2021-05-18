@@ -65,7 +65,7 @@ public class EntrainementOuvertController extends Controller implements Initiali
         exerciceLoader = Main.exerciceLoader;
 
         if(exerciceLoader == null) System.err.println("wtf dude");
-
+        // TODO displayFile(fileExercice);
     }
 
     @FXML
@@ -82,7 +82,7 @@ public class EntrainementOuvertController extends Controller implements Initiali
         Exercice exercice = exerciceLoader.chargerUnExercice(exercise.getPath());
 
         if(exercice != null){
-            TextAfficheur textAfficheur = new TextAfficheur(exercice.getScript(), "#");
+            TextAfficheur textAfficheur = new TextAfficheur(exercice, "#");
             exerciseWords.setText(String.valueOf(textAfficheur.getWords().size()));
         }
 
