@@ -2,7 +2,6 @@ package exercice;
 
 public class Evaluation extends Exercice {
 
-    // TODO temps en secondes -> int
     private int temps;
 
     public Evaluation(String titre, String consigne, String script, boolean caseSensitivity, int temps) {

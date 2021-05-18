@@ -71,10 +71,6 @@ public class Controller implements Initializable {
         Exercice exercice =  exerciceLoader.chargerUnExercice(ExerciceFile.getPath());
         exerciceInfo.getChildren().clear();
         exerciceInfo.getChildren().add(new Text(exercice.toString()));
-        exerciceLoader.loadMediaData(exerciceLoader.chargerMediaDepuisExercice(ExerciceFile.getPath()));
-        titreMedia.setText(exerciceLoader.getTitle());
-        albumMedia.setText(exerciceLoader.getAlbum());
-        annerMedia.setText( ((Float) exerciceLoader.getYear()).toString());
         if(exerciceLoader.chargerImageDepuisExercice(ExerciceFile.getPath()) != null){
             imageView.setImage(exerciceLoader.chargerImageDepuisExercice(ExerciceFile.getPath()) );
         }

@@ -45,21 +45,6 @@ class ExerciceLoaderTest {
     }
 
     @Test
-    void chargerLesMetaData(){
-        ExerciceLoader exerciceLoader = new ExerciceLoader();
-
-        //exerciceLoader.getMediaData(exerciceLoader.chargerMediaDepuisExercice(PATHTOEXERFILE));
-
-
-        System.out.println("title " + exerciceLoader.getTitle());
-        System.out.println("album " + exerciceLoader.getAlbum());
-        System.out.println("Artist " + exerciceLoader.getArtist());
-        System.out.println("genre " + exerciceLoader.getGenre());
-        System.out.println("Year " + exerciceLoader.getYear());
-
-    }
-
-    @Test
     void testSerialisation(){
         ObjectInputStream ois = null;
         try {
