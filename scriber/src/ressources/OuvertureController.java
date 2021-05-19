@@ -24,7 +24,6 @@ public class OuvertureController extends Controller implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
         exerciceLoader = Main.exerciceLoader;
         if(exerciceLoader == null) System.err.println("wtf dude");
-
     }
 
     @FXML

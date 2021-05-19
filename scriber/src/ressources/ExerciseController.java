@@ -8,16 +8,18 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
-import javafx.scene.image.ImageView;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
+import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
 import sample.Main;
 import sample.TextAfficheur;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
 import java.net.URL;
 import java.util.ResourceBundle;
 
@@ -61,7 +63,6 @@ public class ExerciseController extends Controller implements Initializable {
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         exerciceLoader = Main.exerciceLoader;
-        //initializeMedia();
         if(exerciceLoader == null) System.err.println("wtf dude");
     }
 
@@ -80,16 +81,21 @@ public class ExerciseController extends Controller implements Initializable {
 
     }
 
-    private void initializeMedia(File fileExercice){
-        if(exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()) == null){
-            media = exerciceLoader.chargerMediaDepuisExerciceMEDIA(fileExercice.getPath());
+    private void initializeMediaVideo(File fileExercice){
+       if(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()) != null){
+            media = new Media(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
-            mediaView = new MediaView(mediaPlayer);
+            mediaPlayer.setAutoPlay(true);
+            mediaView.setMediaPlayer(mediaPlayer);
+        }
+    }
 
-        } else if(exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()) != null){
-            media = exerciceLoader.chargerMediaDepuisExerciceMEDIA(fileExercice.getPath());
+    private void initializeMediaAudio(File fileExercice){
+        if(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()) != null && exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()) != null){
+            media = new Media(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
-            mediaView = new MediaView(mediaPlayer);
+            mediaPlayer.setAutoPlay(true);
+            mediaView.setMediaPlayer(mediaPlayer);
 
         }
     }
@@ -112,6 +118,16 @@ public class ExerciseController extends Controller implements Initializable {
                 mediaPlayer.play();
             }
         });
+    }
+
+    @FXML
+    private void OnLoadExerciceButtonCLick(ActionEvent event){
+        FileChooser chooser = new FileChooser();
+        fileExercice = chooser.showOpenDialog(null);
+
+        displayFile(fileExercice);
+        initializeMediaVideo(fileExercice);
+        initializeMediaAudio(fileExercice);
     }
 
 }
