@@ -13,17 +13,22 @@ public class PageLoader {
     //Todo une méthode chargé la page principales Index cette méthode va devoir set les élément principal par exemple l'anchorPane qui sert a chargé les sous page
 
     private static final String INDEXPATH = "Index.fxml";
-    private static final String PAG1PATH = "page1.fxml";
-    private static final String PAG2PATH = "page2.fxml";
-    private static final String PAG3PATH = "page3.fxml";
-    private static final String PAG4PATH = "page4.fxml";
+    public static final String PAG1PATH = "page1.fxml";
+    public static final String PAG2PATH = "page2.fxml";
+    public static final String PAG3PATH = "page3.fxml";
+    public static final String PAG4PATH = "page4.fxml";
     private static final String INTERFACEDETEST = "testInterface.fxml";
 
+    private AnchorPane anchorPane;
+
+    public void setAnchorPane(AnchorPane anchorPane) {
+        this.anchorPane = anchorPane;
+    }
 
 
     private FXMLLoader fxmlLoader;
 
-    public Controller getController() {
+    public Object getController() {
         return fxmlLoader.getController();
     }
 
@@ -39,6 +44,16 @@ public class PageLoader {
 
     public Parent loadIndex(){
         return load(INDEXPATH);
+    }
+
+    public void loadSubPage(String subPagePath){
+
+        AnchorPane pane = null;
+        pane = (AnchorPane) load(subPagePath);
+        anchorPane.getChildren().setAll(pane);
+
+
+
     }
 
 

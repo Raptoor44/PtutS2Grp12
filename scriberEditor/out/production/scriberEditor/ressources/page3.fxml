@@ -50,14 +50,14 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="488.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
+<AnchorPane maxHeight="-1.0" maxWidth="-1.0" prefHeight="488.0" prefWidth="755.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage3">
    <children>
       <Text layoutX="166.0" layoutY="305.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode :" />
       <CheckBox layoutX="223.0" layoutY="287.0" mnemonicParsing="false" text="Exercice" />
       <CheckBox disable="true" layoutX="223.0" layoutY="323.0" mnemonicParsing="false" text="Evaluation" />
       <Text layoutX="497.0" layoutY="304.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caractère d'occultation : " />
       <TextArea layoutX="699.0" layoutY="277.0" prefHeight="26.0" prefWidth="7.0" promptText="#" />
-      <Button layoutX="394.0" layoutY="571.0" mnemonicParsing="false" onAction="#onNextButton" prefHeight="48.0" prefWidth="137.0" text="Exporter" />
+      <Button layoutX="394.0" layoutY="571.0" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="48.0" prefWidth="137.0" text="Exporter" />
       <Text layoutX="497.0" layoutY="345.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autoriser les mots incomplets" />
       <Text layoutX="497.0" layoutY="412.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage du nombre de mots découverts" />
       <Text layoutX="497.0" layoutY="449.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage de la solution" />
