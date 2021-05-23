@@ -29,7 +29,6 @@ public class ControllerPage1 implements Initializable {
     @FXML
     void onNextPageClick(ActionEvent event){
         pageLoader.loadSubPage(PageLoader.PAG2PATH);
-        System.out.println("salut");
 
     }
 
