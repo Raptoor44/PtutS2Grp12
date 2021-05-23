@@ -37,7 +37,7 @@ public final class Main extends Application {
 
         parent = pageLoader.loadIndex();
         primaryStage.setTitle("Scriber Editor");
-        scene = new Scene(parent, 800, 600);
+        scene = new Scene(parent, 600, 425);
         primaryStage.setScene(scene);
         primaryStage.show();
 

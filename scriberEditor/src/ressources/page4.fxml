@@ -11,36 +11,38 @@
 
 <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage4">
    <children>
-      <StackPane layoutX="277.0" layoutY="172.0" prefHeight="134.0" prefWidth="297.0">
+      <StackPane layoutX="277.0" layoutY="202.0" prefHeight="118.0" prefWidth="297.0">
          <children>
-            <AnchorPane fx:id="evaluationAnchorPane" prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="evaluationAnchorPane" disable="true" opacity="0.0" prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Text layoutX="27.0" layoutY="96.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limite de temps (min) :" />
-                  <TextField layoutX="157.0" layoutY="79.0" prefHeight="25.0" prefWidth="131.0" />
+                  <Text layoutX="27.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limite de temps (min) :" />
+                  <TextField layoutX="158.0" layoutY="22.0" prefHeight="25.0" prefWidth="131.0" />
                </children>
             </AnchorPane>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <AnchorPane fx:id="entrainementAnchorPane" prefHeight="83.0" prefWidth="297.0">
                <children>
-                  <Text layoutX="22.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caractère d'occultation : " />
-                  <TextField layoutX="162.0" layoutY="10.0" prefHeight="25.0" prefWidth="121.0" />
-               </children>
-            </AnchorPane>
-            <AnchorPane fx:id="entrainementAnchorPane" prefHeight="143.0" prefWidth="297.0">
-               <children>
-                  <Text layoutX="23.0" layoutY="46.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autoriser les mots incomplets" />
-                  <Text layoutX="23.0" layoutY="127.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage du nombre de mots découverts" />
-                  <Text layoutX="23.0" layoutY="110.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage de la solution" />
-                  <Text layoutX="23.0" layoutY="63.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage de l'aide" />
-                  <Text fill="#978787" layoutX="37.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="2 lettres minimum" />
-                  <Text fill="#978787" layoutX="37.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" text="3 lettres minimum" />
+                  <Text layoutX="57.0" layoutY="22.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autoriser le remplacement partiel" />
+                  <Text layoutX="56.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage du nombre de mots découverts" />
+                  <Text layoutX="57.0" layoutY="58.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activer la sensibilité à la case" />
+                  <Text layoutX="57.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autoriser l'aide" />
+                  <CheckBox fx:id="allowHelpCheckBox" layoutX="31.0" layoutY="26.0" mnemonicParsing="false" />
+                  <CheckBox fx:id="sensibiliterCaseCheckBox" layoutX="31.0" layoutY="43.0" mnemonicParsing="false" />
+                  <CheckBox layoutX="31.0" layoutY="60.0" mnemonicParsing="false" />
+                  <CheckBox fx:id="remplacementPartielCheckBox" layoutX="31.0" layoutY="9.0" mnemonicParsing="false" />
                </children>
             </AnchorPane>
          </children>
       </StackPane>
       <Text layoutX="57.0" layoutY="194.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode :" />
       <CheckBox fx:id="modeEntrainementCheckBox" layoutX="135.0" layoutY="182.0" mnemonicParsing="false" onAction="#OnModeExerciceClick" text="Exercice" />
-      <CheckBox fx:id="modeEvaluationCheckBox" disable="true" layoutX="135.0" layoutY="216.0" mnemonicParsing="false" onAction="#OnModeExerciceClick" text="Evaluation" />
+      <CheckBox fx:id="modeEvaluationCheckBox" layoutX="135.0" layoutY="216.0" mnemonicParsing="false" onAction="#OnModeExerciceClick" text="Evaluation" />
       <Button layoutX="232.0" layoutY="323.0" mnemonicParsing="false" onAction="#OnCreateExerciceClick" prefHeight="48.0" prefWidth="137.0" text="Exporter" />
       <Label layoutX="277.0" layoutY="73.0" text="Exercice" />
+      <AnchorPane layoutX="284.0" layoutY="170.0" prefHeight="41.0" prefWidth="283.0">
+         <children>
+            <Text layoutX="22.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caractère d'occultation : " />
+            <TextField layoutX="162.0" layoutY="10.0" prefHeight="25.0" prefWidth="121.0" />
+         </children>
+      </AnchorPane>
    </children>
 </AnchorPane>

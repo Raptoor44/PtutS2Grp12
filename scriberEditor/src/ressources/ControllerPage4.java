@@ -4,6 +4,8 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextField;
+import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import sample.GenerateurExercice;
@@ -27,12 +29,31 @@ public class ControllerPage4 implements Initializable {
     @FXML
     private CheckBox modeEvaluationCheckBox;
 
+    @FXML
+    private TextField characterTextFied;
+
+
+    @FXML
+    private TextField tempAlouer;
+
+
+    @FXML
+    private CheckBox allowHelpCheckBox;
+
+    @FXML
+    private CheckBox sensibiliterCaseCheckBox;
+
+    @FXML
+    private CheckBox remplacementPartielCheckBox;
+
+
     private static final boolean DEFAULT_EST_UNE_EVALUATION_VALUE = false;
 
     private Main main;
     private PageLoader pageLoader;
     private GenerateurExercice generateurExercice;
     private boolean estUneEvaluation;
+
 
 
     public ControllerPage4(){
@@ -122,7 +143,16 @@ public class ControllerPage4 implements Initializable {
     }
 
 
-        @FXML
+    @FXML
+    void OnTempAlouerEvent(KeyEvent event){
+        if(!tempAlouer.getText().isEmpty())
+            generateurExercice.setTempAlouer(
+                    Integer.valueOf(tempAlouer.getText())
+            );
+    }
+
+
+    @FXML
     void OnCreateExerciceClick(ActionEvent event){
         //TOdo verifié que c une eval ou un entrainement
         FileChooser fileChooser = new FileChooser();
@@ -151,11 +181,14 @@ public class ControllerPage4 implements Initializable {
             path = null;
         }
 
+
+
         if(estUneEvaluation){
-
             generateurExercice.nouveauFichierEvaluation(chosenFile.getPath());
-
         }else {
+            generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());
+            generateurExercice.setAideAccepter(allowHelpCheckBox.isSelected());
+            generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());
             generateurExercice.nouveauFichierEntrainement(chosenFile.getPath());
 
         }
