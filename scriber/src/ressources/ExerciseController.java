@@ -25,11 +25,6 @@ import java.util.ResourceBundle;
 
 public class ExerciseController extends Controller implements Initializable {
 
-    private ExerciceLoader exerciceLoader;
-    private File fileExercice;
-    private Media media;
-    private MediaPlayer mediaPlayer;
-
     @FXML
     Label exerciseName;
 
@@ -60,10 +55,24 @@ public class ExerciseController extends Controller implements Initializable {
     @FXML
     TextField enterWords;
 
+
+    private ExerciceLoader exerciceLoader;
+    private File fileExercice;
+    private Media media;
+    private MediaPlayer mediaPlayer;
+    private Main main;
+
+    public ExerciseController(){
+        main = Main.getInstance();
+        exerciceLoader = main.exerciceLoader;
+        if(exerciceLoader == null) System.err.println("wtf dude");
+        main.exerciseController = this;
+    }
+
+
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        exerciceLoader = Main.exerciceLoader;
-        if(exerciceLoader == null) System.err.println("wtf dude");
+
     }
 
 

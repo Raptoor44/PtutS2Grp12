@@ -35,12 +35,18 @@ public class Controller implements Initializable {
 
     private ExerciceLoader exerciceLoader;
     private File fileExercice;
+    private Main main;
 
+    public Controller(){
+        main = Main.getInstance();
+        exerciceLoader = main.exerciceLoader;
+        if(exerciceLoader == null) System.err.println("wtf dude");
+
+
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        exerciceLoader = Main.exerciceLoader;
-        if(exerciceLoader == null) System.err.println("wtf dude");
 
     }
 
