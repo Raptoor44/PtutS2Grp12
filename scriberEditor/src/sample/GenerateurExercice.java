@@ -21,9 +21,12 @@ public class GenerateurExercice {
 
     public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriberEditor");
 
-
+    private Main main;
 
     public GenerateurExercice() {
+
+        main = Main.getInstance();
+
         try {
             if(!savedir.exists())
                 Files.createDirectory(savedir.toPath());
@@ -38,7 +41,7 @@ public class GenerateurExercice {
 
         //on récupère toutes les paramètre(titre, consigne...)
         //on créer une Evaluation
-        Controller  controller = Main.controller;
+        Controller  controller = main.controller;
         Exercice exercice = new Evaluation(
                 controller.getTitre(),
                 controller.getConsigne(),
@@ -74,7 +77,7 @@ public class GenerateurExercice {
     public void nouveauFichierEntrainement(String cheminEnregistrement){
 
         //on récupère toutes les paramètre(titre, consigne...)
-        Controller  controller = Main.controller;
+        Controller  controller = main.controller;
         //on créer un entrainement
         Exercice exercice = new Entrainement(
                 controller.getTitre(),
@@ -131,7 +134,7 @@ public class GenerateurExercice {
 
 
     private void mergeFile(String cheminEnregistrement, List<String> elements){
-        Controller controller = Main.controller;
+        Controller controller = main.controller;
 
         List<String> srcFiles = elements;
         FileOutputStream fos = null;
