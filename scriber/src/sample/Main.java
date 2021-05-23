@@ -25,12 +25,15 @@ public final class Main extends Application {
     public EntrainementOuvertController ouvertureController;
     public ExerciseController exerciseController;
     public PageLoader pageLoader;
+    public MediaAfficheur mediaAfficheur;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         instance = this;
         pageLoader = new PageLoader();
         exerciceLoader = new ExerciceLoader();
+        mediaAfficheur = new MediaAfficheur();
+
         parent = pageLoader.loadIndex();
         primaryStage.setTitle("Scriber");
         scene = new Scene(parent);

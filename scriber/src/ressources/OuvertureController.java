@@ -8,6 +8,7 @@ import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
 import sample.Main;
+import sample.MediaAfficheur;
 
 import java.io.File;
 import java.net.URL;
@@ -25,12 +26,14 @@ public class OuvertureController extends Controller implements Initializable {
     private File fileExercice;
     private Main main;
     private PageLoader pageLoader;
+    private MediaAfficheur mediaAfficheur;
 
     public OuvertureController(){
         main = Main.getInstance();
         exerciceLoader = main.exerciceLoader;
         if(exerciceLoader == null) System.err.println("wtf dude");
         pageLoader = main.pageLoader;
+        mediaAfficheur = main.mediaAfficheur;
     }
 
     @Override
@@ -44,23 +47,16 @@ public class OuvertureController extends Controller implements Initializable {
         FileChooser chooser = new FileChooser();
         fileExercice = chooser.showOpenDialog(null);
 
-        //Todo enregistrer quelque par fileExercice
-
         pageLoader.loadSubPage(PageLoader.PAG1PATH);
 
-    }
-    /* Defined in Ouverture COntroller
-    @FXML
-    private void OnLoadExerciceButtonCLick(ActionEvent event){
-        FileChooser chooser = new FileChooser();
-        fileExercice = chooser.showOpenDialog(null);
+        mediaAfficheur.initializeMediaVideo(fileExercice);
+        mediaAfficheur.initializeMediaAudio(fileExercice);
 
-        displayFile(fileExercice);
-        //initializeMediaVideo(fileExercice);
-        //initializeMediaAudio(fileExercice);
+        main.exerciseController.displayFile(fileExercice);
+
+
     }
 
-     */
 
 
 

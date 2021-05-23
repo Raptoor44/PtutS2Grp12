@@ -15,6 +15,7 @@ import javafx.scene.text.Text;
 import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
 import sample.Main;
+import sample.MediaAfficheur;
 import sample.TextAfficheur;
 
 import java.awt.*;
@@ -61,18 +62,20 @@ public class ExerciseController extends Controller implements Initializable {
     private Media media;
     private MediaPlayer mediaPlayer;
     private Main main;
+    private MediaAfficheur mediaAfficheur;
 
     public ExerciseController(){
         main = Main.getInstance();
         exerciceLoader = main.exerciceLoader;
         if(exerciceLoader == null) System.err.println("wtf dude");
         main.exerciseController = this;
+        mediaAfficheur = main.mediaAfficheur;
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        mediaAfficheur.setMediaView(mediaView);
     }
 
 
@@ -90,24 +93,6 @@ public class ExerciseController extends Controller implements Initializable {
 
     }
 
-    private void initializeMediaVideo(File fileExercice){
-       if(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()) != null){
-            media = new Media(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()).toURI().toString());
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setAutoPlay(true);
-            mediaView.setMediaPlayer(mediaPlayer);
-        }
-    }
-
-    private void initializeMediaAudio(File fileExercice){
-        if(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()) != null && exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()) != null){
-            media = new Media(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()).toURI().toString());
-            mediaPlayer = new MediaPlayer(media);
-            mediaPlayer.setAutoPlay(true);
-            mediaView.setMediaPlayer(mediaPlayer);
-
-        }
-    }
 
     @FXML
     private void pause(){
@@ -128,6 +113,7 @@ public class ExerciseController extends Controller implements Initializable {
             }
         });
     }
+    /* Defined in Ouverture COntroller
 
     @FXML
     private void OnLoadExerciceButtonCLick(ActionEvent event){
@@ -138,5 +124,6 @@ public class ExerciseController extends Controller implements Initializable {
         initializeMediaVideo(fileExercice);
         initializeMediaAudio(fileExercice);
     }
+     */
 
 }

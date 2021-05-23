@@ -18,12 +18,11 @@ public class PageLoader {
 
     private AnchorPane anchorPane;
 
+    private FXMLLoader fxmlLoader;
+
     public void setAnchorPane(AnchorPane anchorPane) {
         this.anchorPane = anchorPane;
     }
-
-
-    private FXMLLoader fxmlLoader;
 
     public Object getController() {
         return fxmlLoader.getController();
