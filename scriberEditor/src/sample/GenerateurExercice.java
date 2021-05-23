@@ -111,6 +111,13 @@ public class GenerateurExercice {
 
         }
         mergeFile(cheminEnregistrement,paths);
+
+
+        System.out.println(exercice);
+        System.out.println("est créer a l'emplacement ");
+        System.out.println(cheminEnregistrement);
+
+
     }
 
 
@@ -149,6 +156,10 @@ public class GenerateurExercice {
         }
         mergeFile(cheminEnregistrement,paths);
 
+
+        System.out.println(exercice);
+        System.out.println("est créer a l'emplacement ");
+        System.out.println(cheminEnregistrement);
     }
 
     private void serializeFile(Exercice exercice){
