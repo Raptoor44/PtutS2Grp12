@@ -27,11 +27,13 @@ public final class Main extends Application {
     public  Scene scene;
     public ControllerIndex controller;
     public PageLoader pageLoader;
+    public GenerateurExercice generateurExercice;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
         instance = this;
         pageLoader = new PageLoader();
+        generateurExercice = new GenerateurExercice();
 
         parent = pageLoader.loadIndex();
         primaryStage.setTitle("Scriber Editor");
