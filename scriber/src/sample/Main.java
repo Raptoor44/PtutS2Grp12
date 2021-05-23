@@ -1,42 +1,44 @@
 package sample;
 
 import javafx.application.Application;
+import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.media.Media;
 import javafx.stage.Stage;
+import ressources.*;
 
 import java.io.File;
 
 public class Main extends Application {
 
+    public static ExerciceLoader exerciceLoader;
+    public static Parent parent;
+    public static Scene scene;
+    public static Controller controller;
+    public static EntrainementOuvertController ouvertureController;
+    public static ExerciseController exerciseController;
+
     @Override
     public void start(Stage primaryStage) throws Exception{
-        Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
+
+        exerciceLoader = new ExerciceLoader();
+        FXMLoader fxmLoader = new FXMLoader();
+        parent = fxmLoader.load("Exercise.fxml");
         primaryStage.setTitle("Hello World");
-        primaryStage.setScene(new Scene(root, 1200, 800));
-        primaryStage.show();
+        scene = new Scene(parent);
+        primaryStage.setScene(scene);
 
-
-        ExerciceLoader exerciceLoader = new ExerciceLoader();
+        exerciseController = (ExerciseController) fxmLoader.getController();
 
 
         if(path != null){
 
-             exerciceLoader = new ExerciceLoader();
-            exerciceLoader.chargerUnExercice(path);
-            exerciceLoader.loadMediaData(exerciceLoader.chargerMediaDepuisExercice(path));
-
-            System.out.println("title " + exerciceLoader.getTitle());
-            System.out.println("album " + exerciceLoader.getAlbum());
-            System.out.println("Artist " + exerciceLoader.getArtist());
-            System.out.println("genre " + exerciceLoader.getGenre());
-            System.out.println("Year " + exerciceLoader.getYear());
-
-
+            File exerciceFile = new File(path);
+            controller.displayFile(exerciceFile);
         }
 
+        primaryStage.show();
 
 
 

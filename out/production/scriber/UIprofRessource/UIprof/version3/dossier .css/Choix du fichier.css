@@ -1,0 +1,817 @@
+/* ENS - Accueil / 1ère étape */
+
+position: relative;
+width: 1440px;
+height: 1024px;
+
+background: #FFFFFF;
+
+
+/* Group 6 */
+
+position: absolute;
+width: 839.88px;
+height: 100.01px;
+left: 300px;
+top: 332px;
+
+
+
+/* Group 2 */
+
+position: absolute;
+width: 99.88px;
+height: 99.01px;
+left: 1040px;
+top: 332px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 74.54%;
+right: 21.69%;
+top: 39.89%;
+bottom: 56.97%;
+
+background: #5CA4DA;
+transform: rotate(-90deg);
+
+
+/* Vector */
+
+position: absolute;
+left: 72.22%;
+right: 20.84%;
+top: 32.42%;
+bottom: 57.91%;
+
+background: #D9D9D9;
+
+
+/* Rectangle 2 */
+
+position: absolute;
+width: 128.85px;
+height: 1.98px;
+left: 408.87px;
+top: 381.5px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 3 */
+
+position: absolute;
+width: 128.85px;
+height: 1.98px;
+left: 655.58px;
+top: 380.51px;
+
+background: #D9D9D9;
+
+
+/* Rectangle 4 */
+
+position: absolute;
+width: 128.85px;
+height: 1.98px;
+left: 902px;
+top: 381px;
+
+background: #D9D9D9;
+
+
+/* Group 1 */
+
+position: absolute;
+width: 99.88px;
+height: 99.01px;
+left: 546.71px;
+top: 332px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 39.53%;
+right: 56.67%;
+top: 36.07%;
+bottom: 60.81%;
+
+background: #5CA4DA;
+
+
+/* Vector */
+
+position: absolute;
+left: 37.97%;
+right: 55.1%;
+top: 32.42%;
+bottom: 57.91%;
+
+background: #D9D9D9;
+
+
+/* Group 4 */
+
+position: absolute;
+width: 99.88px;
+height: 99.01px;
+left: 300px;
+top: 333px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 22.4%;
+right: 73.8%;
+top: 36.17%;
+bottom: 60.72%;
+
+background: #5CA4DA;
+
+
+/* Vector */
+
+position: absolute;
+left: 20.83%;
+right: 72.23%;
+top: 32.52%;
+bottom: 57.81%;
+
+background: #5CA4DA;
+
+
+/* Group 3 */
+
+position: absolute;
+width: 99.88px;
+height: 99.01px;
+left: 793.41px;
+top: 332px;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 56.66%;
+right: 39.53%;
+top: 36.07%;
+bottom: 60.81%;
+
+background: #5CA4DA;
+
+
+/* Vector */
+
+position: absolute;
+left: 55.1%;
+right: 37.97%;
+top: 32.42%;
+bottom: 57.91%;
+
+background: #D9D9D9;
+
+
+/* one 1 */
+
+position: absolute;
+width: 163.15px;
+height: 160px;
+left: 638px;
+top: 86px;
+
+background: url(one.png);
+
+
+/* Group 8 */
+
+position: absolute;
+width: 1440px;
+height: 40px;
+left: 0px;
+top: 0px;
+
+
+
+/* Rectangle 1 */
+
+position: absolute;
+width: 1440px;
+height: 40px;
+left: 0px;
+top: 0px;
+
+background: #EAEAEA;
+
+
+/* Help */
+
+position: absolute;
+width: 37px;
+height: 21px;
+left: 99px;
+top: 10px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 21px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* Tutorial */
+
+position: absolute;
+width: 61px;
+height: 21px;
+left: 10px;
+top: 10px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 18px;
+line-height: 21px;
+/* identical to box height */
+
+color: #000000;
+
+
+
+/* Group 9 */
+
+position: absolute;
+width: 448px;
+height: 48px;
+left: 52px;
+top: 625px;
+
+
+
+/* Rectangle 5 */
+
+position: absolute;
+width: 349px;
+height: 48px;
+left: 151px;
+top: 625px;
+
+background: #F7F7F7;
+border: 1px solid #848484;
+box-sizing: border-box;
+
+
+/* Titre : */
+
+position: absolute;
+width: 83px;
+height: 35px;
+left: 52px;
+top: 631px;
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.02em;
+
+color: #424242;
+
+
+
+/* Entrez votre titre... */
+
+position: absolute;
+width: 271px;
+height: 31px;
+left: 162px;
+top: 635px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: #9D9D9D;
+
+
+
+/* Choix du fichier */
+
+position: absolute;
+width: 284px;
+height: 42px;
+left: 578px;
+top: 268px;
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: 500;
+font-size: 36px;
+line-height: 42px;
+letter-spacing: -0.02em;
+
+color: #424242;
+
+
+
+/* Size=XL, Type=Fill, Icon=No Icon, Corner radius=Corners-Max, State=Regular, Stretch=True */
+
+/* Auto Layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 16px 72px;
+
+position: absolute;
+width: 295px;
+height: 56px;
+left: 573px;
+top: 920px;
+
+background: #5CA4DA;
+border-radius: 32px;
+
+
+/* Label */
+
+position: static;
+width: 151px;
+height: 24px;
+left: calc(50% - 151px/2);
+top: calc(50% - 24px/2);
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 34px;
+line-height: 24px;
+/* identical to box height, or 71% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.02em;
+
+/* Text/White */
+color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 16px;
+
+
+/* Group 15 */
+
+position: absolute;
+width: 650px;
+height: 56px;
+left: 52px;
+top: 534px;
+
+
+
+/* Choisir votre fichier : */
+
+position: absolute;
+width: 293px;
+height: 35px;
+left: 52px;
+top: 544px;
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.02em;
+
+color: #424242;
+
+
+
+/* Group 12 */
+
+position: absolute;
+width: 344px;
+height: 56px;
+left: 358px;
+top: 534px;
+
+
+
+/* Size=XL, Type=Fill, Icon=No Icon, Corner radius=Corners-Max, State=Regular, Stretch=True */
+
+/* Auto Layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 16px 72px;
+
+position: absolute;
+width: 344px;
+height: 56px;
+left: 358px;
+top: 534px;
+
+background: #F6F6F6;
+border: 1px solid #848484;
+box-sizing: border-box;
+border-radius: 32px;
+
+
+/* Label */
+
+position: static;
+display: none;
+width: 151px;
+height: 24px;
+left: calc(50% - 151px/2 - 24.5px);
+top: calc(50% - 24px/2);
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 34px;
+line-height: 24px;
+/* identical to box height, or 71% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.02em;
+
+/* Text/White */
+color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 16px;
+
+
+/* Importer votre ressource */
+
+position: absolute;
+width: 264px;
+height: 32px;
+left: 420px;
+top: 548px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: rgba(81, 81, 81, 0.75);
+
+
+
+/* upload (1) 1 */
+
+position: absolute;
+width: 35px;
+height: 35px;
+left: 376px;
+top: 546px;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 3.66%;
+bottom: 3.66%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 3.66%;
+bottom: 3.66%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 3.66%;
+bottom: 3.66%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 48.42%;
+bottom: 3.66%;
+
+background: #5CA4DA;
+
+
+/* Vector */
+
+position: absolute;
+left: 28.93%;
+right: 28.93%;
+top: 3.66%;
+bottom: 25.56%;
+
+background: #5CA4DA;
+
+
+/* Mode : */
+
+position: absolute;
+width: 96px;
+height: 35px;
+left: 52px;
+top: 708px;
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.02em;
+
+color: #424242;
+
+
+
+/* Exercice */
+
+position: absolute;
+width: 119px;
+height: 35px;
+left: 229px;
+top: 708px;
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.02em;
+
+color: #424242;
+
+
+
+/* Evaluation */
+
+position: absolute;
+width: 147px;
+height: 35px;
+left: 227px;
+top: 769px;
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.02em;
+
+color: #424242;
+
+
+
+/* Group 14 */
+
+position: absolute;
+width: 589px;
+height: 111px;
+left: 796px;
+top: 615px;
+
+
+
+/* Choisir une image : */
+
+position: absolute;
+width: 271px;
+height: 35px;
+left: 796px;
+top: 677px;
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.02em;
+
+color: #424242;
+
+
+
+/* Pour les ressources audios (optionnel) : */
+
+position: absolute;
+width: 581px;
+height: 34px;
+left: 796px;
+top: 615px;
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 30px;
+line-height: 35px;
+letter-spacing: -0.02em;
+
+color: #424242;
+
+
+
+/* Group 13 */
+
+position: absolute;
+width: 306px;
+height: 56px;
+left: 1079px;
+top: 670px;
+
+
+
+/* Size=XL, Type=Fill, Icon=No Icon, Corner radius=Corners-Max, State=Regular, Stretch=True */
+
+/* Auto Layout */
+display: flex;
+flex-direction: row;
+align-items: center;
+padding: 16px 72px;
+
+position: absolute;
+width: 306px;
+height: 56px;
+left: 1079px;
+top: 670px;
+
+background: #F6F6F6;
+border: 1px solid #848484;
+box-sizing: border-box;
+border-radius: 32px;
+
+
+/* Label */
+
+position: static;
+display: none;
+width: 151px;
+height: 24px;
+left: calc(50% - 151px/2 - 5.5px);
+top: calc(50% - 24px/2);
+
+font-family: Work Sans;
+font-style: normal;
+font-weight: normal;
+font-size: 34px;
+line-height: 24px;
+/* identical to box height, or 71% */
+display: flex;
+align-items: center;
+text-align: center;
+letter-spacing: -0.02em;
+
+/* Text/White */
+color: #FFFFFF;
+
+
+/* Inside Auto Layout */
+flex: none;
+order: 0;
+flex-grow: 0;
+margin: 0px 16px;
+
+
+/* Importer votre image */
+
+position: absolute;
+width: 226px;
+height: 32px;
+left: 1141px;
+top: 684px;
+
+font-family: Roboto;
+font-style: normal;
+font-weight: normal;
+font-size: 24px;
+line-height: 28px;
+
+color: rgba(81, 81, 81, 0.75);
+
+
+
+/* upload (1) 1 */
+
+position: absolute;
+width: 35px;
+height: 35px;
+left: 1097px;
+top: 682px;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 3.66%;
+bottom: 3.66%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 3.66%;
+bottom: 3.66%;
+
+
+
+/* Group */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 3.66%;
+bottom: 3.66%;
+
+
+
+/* Vector */
+
+position: absolute;
+left: 0%;
+right: 0%;
+top: 48.42%;
+bottom: 3.66%;
+
+background: #5CA4DA;
+
+
+/* Vector */
+
+position: absolute;
+left: 28.93%;
+right: 28.93%;
+top: 3.66%;
+bottom: 25.56%;
+
+background: #5CA4DA;
+
+
+/* Ellipse 3 */
+
+position: absolute;
+left: 11.94%;
+right: 86.23%;
+top: 69.63%;
+bottom: 27.81%;
+
+background: #D6D6D6;
+border: 1px solid #9D9D9D;
+box-sizing: border-box;
+
+
+/* Ellipse 4 */
+
+position: absolute;
+left: 11.94%;
+right: 86.23%;
+top: 75.59%;
+bottom: 21.85%;
+
+border: 1px solid #9D9D9D;
+box-sizing: border-box;

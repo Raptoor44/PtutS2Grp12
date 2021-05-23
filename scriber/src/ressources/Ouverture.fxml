@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1024.0" prefWidth="1440.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/15.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.OuvertureController">
+   <children>
+      <MenuBar prefWidth="1440.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+                  <MenuItem mnemonicParsing="false" text="Open an exercise" />
+              <MenuItem mnemonicParsing="false" text="Close the exercise" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem mnemonicParsing="false" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text layoutX="40.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="55.9375">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <Text layoutX="100.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sur" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.9375">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <Text fill="#5ca4da" layoutX="195.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scriber" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="134.9375">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <Button fx:id="openFile" alignment="CENTER" mnemonicParsing="false" onAction="#OnLoadExerciceButtonCLick" prefHeight="168.0" prefWidth="775.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Importer ou ouvrir votre exercice" textFill="WHITE" AnchorPane.leftAnchor="322.0" AnchorPane.topAnchor="428.0">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>

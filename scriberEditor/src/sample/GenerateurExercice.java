@@ -3,12 +3,16 @@ package sample;
 import exercice.Entrainement;
 import exercice.Evaluation;
 import exercice.Exercice;
+import ressources.Controller;
 
 
 import java.io.*;
 import java.nio.file.Files;
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.Optional;
+import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 
@@ -29,39 +33,55 @@ public class GenerateurExercice {
 
     }
 
-    public void nouveauFichierEvaluation(String exerciceName, String ressourceFilePath){
+    public void nouveauFichierEvaluation(String cheminEnregistrement){
+
 
         //on récupère toutes les paramètre(titre, consigne...)
-
-
         //on créer une Evaluation
+        Controller  controller = Main.controller;
         Exercice exercice = new Evaluation(
-                "titre1",
-                "consigne1",
-                true,
-                true,
-                30.f);
+                controller.getTitre(),
+                controller.getConsigne(),
+                controller.getScript(),
+                controller.isSensibiliterALaCaseActiver(),
+                controller.gettempAlouer());
 
+        System.out.println(controller);
+
+        System.out.println(exercice);
 
         //on sérialize l'objet  Entrainement
         serializeFile(exercice);
 
-        //on créer le fichier exercice avec l'objet exercice et le media
-        mergeFile(exerciceName, savedir  + "/exerciceInfo.exera" , ressourceFilePath);
+        List<String> paths = new ArrayList<>();
+        paths.add(savedir  + "/exerciceInfo.exera");
+        if(controller.getMediaFilePath() != null && !controller.getMediaFilePath().isEmpty()){
+            paths.add(controller.getMediaFilePath());
+        }
+        if(controller.getImageFilePath() != null && !controller.getImageFilePath().isEmpty()){
+            paths.add(controller.getImageFilePath());
 
+        }
+        mergeFile(cheminEnregistrement,paths);
     }
 
-    public void nouveauFichierEntrainement(String exerciceName, String ressourceFilePath){
+
+    private String getExtensionByStringHandling(String filename) {
+        return "." + Optional.ofNullable(filename)
+                .filter(f -> f.contains("."))
+                .map(f -> f.substring(filename.lastIndexOf(".") + 1)).get();
+    }
+    public void nouveauFichierEntrainement(String cheminEnregistrement){
 
         //on récupère toutes les paramètre(titre, consigne...)
-
-
+        Controller  controller = Main.controller;
         //on créer un entrainement
         Exercice exercice = new Entrainement(
-                "titre de l'entrainement",
-                "consigne de l'entrainement",
-                true,
-                true,
+                controller.getTitre(),
+                controller.getConsigne(),
+                controller.getScript(),
+                controller.isRemplacementPartiel(),
+                controller.isSensibiliterALaCaseActiver(),
                 true
         );
 
@@ -69,7 +89,17 @@ public class GenerateurExercice {
         serializeFile(exercice);
 
         //on créer le fichier exercice avec l'objet exercice et le media
-        mergeFile(exerciceName, savedir  + "/exerciceInfo.exera", ressourceFilePath );
+
+        List<String> paths = new ArrayList<>();
+        paths.add(savedir  + "/exerciceInfo.exera");
+        if(controller.getMediaFilePath() != null && !controller.getMediaFilePath().isEmpty()){
+            paths.add(controller.getMediaFilePath());
+        }
+        if(controller.getImageFilePath() != null && !controller.getImageFilePath().isEmpty()){
+            paths.add(controller.getImageFilePath());
+
+        }
+        mergeFile(cheminEnregistrement,paths);
 
     }
 
@@ -100,17 +130,31 @@ public class GenerateurExercice {
     }
 
 
-    private void mergeFile(String exerciceName, String pathExercice, String pathVideo){
-        List<String> srcFiles = Arrays.asList(pathExercice, pathVideo);
+    private void mergeFile(String cheminEnregistrement, List<String> elements){
+        Controller controller = Main.controller;
+
+        List<String> srcFiles = elements;
         FileOutputStream fos = null;
         try {
-            fos = new FileOutputStream(savedir + "/" + exerciceName + ".exer");
+            fos = new FileOutputStream(cheminEnregistrement + ".exer");
 
             ZipOutputStream zipOut = new ZipOutputStream(fos);
+            //zipOut.setLevel(Deflater.NO_COMPRESSION);
+
             for (String srcFile : srcFiles) {
+
+
+
                 File fileToZip = new File(srcFile);
                 FileInputStream fis = new FileInputStream(fileToZip);
-                ZipEntry zipEntry = new ZipEntry(fileToZip.getName());
+                String nameOfFile = fileToZip.getName();
+                if(controller.getMediaFilePath() != null &&  fileToZip.getAbsolutePath().equals(controller.getMediaFilePath())){
+                    nameOfFile = "media" + getExtensionByStringHandling(fileToZip.getPath()) ;
+                }
+                if(controller.getImageFilePath() != null &&  fileToZip.getAbsolutePath().equals(controller.getImageFilePath())){
+                    nameOfFile = "image" + getExtensionByStringHandling(fileToZip.getPath());
+                }
+                ZipEntry zipEntry = new ZipEntry(nameOfFile);
                 zipOut.putNextEntry(zipEntry);
 
                 byte[] bytes = new byte[1024];
