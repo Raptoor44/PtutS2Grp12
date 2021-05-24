@@ -4,11 +4,13 @@ public class Entrainement extends Exercice {
 
     private boolean allowHelp;
     private boolean allowReplacement;
+    private String aideText;
 
-    public Entrainement(String titre, String consigne, String script, boolean caseSensitivity, boolean allowHelp, boolean allowReplacement) {
-        super(titre, consigne, script, caseSensitivity);
+    public Entrainement(String titre, String consigne, String script, String aideText, char occultationCharacter, boolean caseSensitivity, boolean allowHelp, boolean allowReplacement) {
+        super(titre, consigne, script, occultationCharacter, caseSensitivity);
         this.allowHelp = allowHelp;
         this.allowReplacement =  allowReplacement;
+        this.aideText = aideText;
     }
 
     public boolean isReplacementAllowed() {
@@ -17,6 +19,10 @@ public class Entrainement extends Exercice {
 
     public boolean isHelpAllowed() {
         return allowHelp;
+    }
+
+    public String getAideText() {
+        return aideText;
     }
 
     @Override
@@ -28,6 +34,10 @@ public class Entrainement extends Exercice {
                 ", consigne='" + consigne + '\'' +
                 ", script='" + script + '\'' +
                 ", caseSensitivity=" + caseSensitivity +
+                ", help text =" + aideText +
+                ", occultation character =" + occultationCharacter +
+
                 '}';
     }
+
 }

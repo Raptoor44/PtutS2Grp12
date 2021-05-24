@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.layout.AnchorPane;
@@ -32,6 +33,8 @@ public class ControllerPage4 implements Initializable {
     @FXML
     private TextField characterTextFied;
 
+    @FXML
+    private TextArea aideTextArea;
 
     @FXML
     private TextField tempAlouer;
@@ -151,6 +154,14 @@ public class ControllerPage4 implements Initializable {
             );
     }
 
+    @FXML
+    void onCharacterOcultationSet(ActionEvent event){
+        if(characterTextFied.getText() != null && !characterTextFied.getText().isEmpty()){
+            characterTextFied.setText(characterTextFied.getText().charAt(0) + "");
+            generateurExercice.setOccultationCharacter(characterTextFied.getText().charAt(0));
+        }
+    }
+
 
     @FXML
     void OnCreateExerciceClick(ActionEvent event){
@@ -186,6 +197,7 @@ public class ControllerPage4 implements Initializable {
         if(estUneEvaluation){
             generateurExercice.nouveauFichierEvaluation(chosenFile.getPath());
         }else {
+            generateurExercice.setAideText(aideTextArea.getText());
             generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());
             generateurExercice.setAideAccepter(allowHelpCheckBox.isSelected());
             generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());

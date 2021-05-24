@@ -21,8 +21,9 @@ public class GenerateurExercice {
 
     public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriberEditor");
 
+    private static final char DEFAULTOCULTATIONCHARACTER = '#';
+    private static final String DEFAULTAIDETEXT = "texte d'aide par défault";
 
-    //TODO au lieu que generateur va chercher les info c'est au controller de set les info et de vérif quelle sont bonnes
     private Main main;
     private String mediaFilePath;
     private String imageFilePath;
@@ -32,7 +33,9 @@ public class GenerateurExercice {
     private boolean sensibiliterAlaCaseActiver;
     private boolean remplacementPartiel;
     private boolean aideAccepter;
+    private String aideText;
     private int tempAlouer;
+    private char occultationCharacter;
 
     public void setTitreExercice(String titreExercice) {
         this.titreExercice = titreExercice;
@@ -70,6 +73,14 @@ public class GenerateurExercice {
         this.aideAccepter = aideAccepter;
     }
 
+    public void setAideText(String aideText) {
+        this.aideText = aideText;
+    }
+
+    public void setOccultationCharacter(char occultationCharacter) {
+        this.occultationCharacter = occultationCharacter;
+    }
+
     public GenerateurExercice() {
 
         main = Main.getInstance();
@@ -80,6 +91,10 @@ public class GenerateurExercice {
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        occultationCharacter = DEFAULTOCULTATIONCHARACTER;
+        aideText = DEFAULTAIDETEXT;
 
     }
 
@@ -92,6 +107,7 @@ public class GenerateurExercice {
                 titreExercice,
                 consigneExercice,
                 scriptExercice,
+                occultationCharacter,
                 sensibiliterAlaCaseActiver,
                 tempAlouer);
 
@@ -134,10 +150,11 @@ public class GenerateurExercice {
                 titreExercice,
                 consigneExercice,
                 scriptExercice,
+                aideText,
+                occultationCharacter,
                 sensibiliterAlaCaseActiver,
                 aideAccepter,
                 remplacementPartiel
-
         );
 
         //on sérialize l'objet  Entrainement
