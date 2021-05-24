@@ -24,13 +24,13 @@ public class Main extends Application {
 
         exerciceLoader = new ExerciceLoader();
         FXMLoader fxmLoader = new FXMLoader();
-        parent = fxmLoader.load("Exercise.fxml");
+        parent = fxmLoader.load("DescriptionOuverture.fxml");
         primaryStage.setTitle("Hello World");
         scene = new Scene(parent);
         primaryStage.setScene(scene);
 
-        exerciseController = (ExerciseController) fxmLoader.getController();
-
+        //exerciseController = (ExerciseController) fxmLoader.getController();
+        ouvertureController = (EntrainementOuvertController) fxmLoader.getController();
 
         if(path != null){
 

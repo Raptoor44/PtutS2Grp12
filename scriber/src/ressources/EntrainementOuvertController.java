@@ -13,7 +13,6 @@ import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
 import sample.Main;
 import sample.TextAfficheur;
-
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;

@@ -35,7 +35,7 @@ public class Controller implements Initializable {
 
     private ExerciceLoader exerciceLoader;
     private File fileExercice;
-
+    
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
