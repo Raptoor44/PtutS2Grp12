@@ -37,6 +37,8 @@ public final class Main extends Application {
 
         parent = pageLoader.loadIndex();
         primaryStage.setTitle("Scriber Editor");
+        //primaryStage.setMaximized(true);
+        //primaryStage.setFullScreen(true);
         scene = new Scene(parent, 600, 425);
         primaryStage.setScene(scene);
         primaryStage.show();

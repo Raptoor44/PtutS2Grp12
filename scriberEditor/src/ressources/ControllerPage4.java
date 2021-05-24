@@ -19,6 +19,9 @@ import java.util.ResourceBundle;
 public class ControllerPage4 implements Initializable {
 
     @FXML
+    private AnchorPane anchorPane;
+
+    @FXML
     private AnchorPane entrainementAnchorPane;
 
     @FXML
@@ -68,6 +71,12 @@ public class ControllerPage4 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        AnchorPane.setBottomAnchor(anchorPane, 0d);
+        AnchorPane.setLeftAnchor(anchorPane, 0d);
+        AnchorPane.setRightAnchor(anchorPane, 0d);
+        AnchorPane.setTopAnchor(anchorPane, 0d);
+
+
         estUneEvaluation = DEFAULT_EST_UNE_EVALUATION_VALUE;
         if(modeEvaluationCheckBox != null  && modeEntrainementCheckBox != null){
             if(DEFAULT_EST_UNE_EVALUATION_VALUE){

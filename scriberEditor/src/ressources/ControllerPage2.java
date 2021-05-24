@@ -6,6 +6,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -20,6 +21,8 @@ import java.util.ResourceBundle;
 
 public class ControllerPage2 implements Initializable {
 
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private MediaView mediaView;
@@ -44,6 +47,10 @@ public class ControllerPage2 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        AnchorPane.setBottomAnchor(anchorPane, 0d);
+        AnchorPane.setLeftAnchor(anchorPane, 0d);
+        AnchorPane.setRightAnchor(anchorPane, 0d);
+        AnchorPane.setTopAnchor(anchorPane, 0d);
 
     }
 

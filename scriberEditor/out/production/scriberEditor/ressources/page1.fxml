@@ -6,14 +6,14 @@
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage1">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage1">
    <children>
-      <Label layoutX="272.0" layoutY="63.0" text="Exercice" />
+      <Label layoutX="272.0" layoutY="63.0" text="Exercice" AnchorPane.leftAnchor="272.0" AnchorPane.rightAnchor="285.0" AnchorPane.topAnchor="63.0" />
       <Label layoutX="97.0" layoutY="145.0" text="Titre :" />
       <Label layoutX="98.0" layoutY="192.0" text="Consigne :" />
-      <Button layoutX="266.0" layoutY="311.0" mnemonicParsing="false" onAction="#onNextPageClick" text="Valider" />
-      <TextField fx:id="titre" layoutX="172.0" layoutY="141.0" />
-      <TextArea fx:id="consigne" layoutX="172.0" layoutY="186.0" prefHeight="118.0" prefWidth="372.0" />
+      <Button layoutX="266.0" layoutY="311.0" mnemonicParsing="false" onAction="#onNextPageClick" text="Valider" AnchorPane.bottomAnchor="64.0" AnchorPane.leftAnchor="266.0" AnchorPane.rightAnchor="281.0" />
+      <TextField fx:id="titre" layoutX="172.0" layoutY="141.0" AnchorPane.leftAnchor="172.0" AnchorPane.rightAnchor="279.0" />
+      <TextArea fx:id="consigne" layoutX="172.0" layoutY="186.0" prefHeight="118.0" prefWidth="372.0" AnchorPane.bottomAnchor="96.0" AnchorPane.leftAnchor="172.0" AnchorPane.rightAnchor="56.0" AnchorPane.topAnchor="186.0" />
       <Button layoutX="52.0" layoutY="59.0" mnemonicParsing="false" onAction="#onRetourClick" text="Retour" />
    </children>
 </AnchorPane>

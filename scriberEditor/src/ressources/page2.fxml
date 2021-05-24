@@ -6,7 +6,7 @@
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage2">
+<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage2">
    <children>
       <Button layoutX="25.0" layoutY="14.0" mnemonicParsing="false" onAction="#onRetourClick" text="retour" />
       <Button layoutX="274.0" layoutY="351.0" mnemonicParsing="false" onAction="#onNextPageClick" text="valider" />

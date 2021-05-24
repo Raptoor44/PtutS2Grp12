@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.layout.AnchorPane;
 import sample.GenerateurExercice;
 import sample.Main;
 
@@ -13,6 +14,8 @@ import java.util.ResourceBundle;
 
 public class ControllerPage1 implements Initializable {
 
+    @FXML
+    private AnchorPane anchorPane;
 
     @FXML
     private TextField titre;
@@ -35,7 +38,10 @@ public class ControllerPage1 implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-
+        AnchorPane.setBottomAnchor(anchorPane, 0d);
+        AnchorPane.setLeftAnchor(anchorPane, 0d);
+        AnchorPane.setRightAnchor(anchorPane, 0d);
+        AnchorPane.setTopAnchor(anchorPane, 0d);
     }
 
     @FXML
