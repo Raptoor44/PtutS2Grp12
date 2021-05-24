@@ -21,15 +21,80 @@ public class GenerateurExercice {
 
     public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriberEditor");
 
+    private static final char DEFAULTOCULTATIONCHARACTER = '#';
+    private static final String DEFAULTAIDETEXT = "texte d'aide par défault";
 
+    private Main main;
+    private String mediaFilePath;
+    private String imageFilePath;
+    private String titreExercice;
+    private String consigneExercice;
+    private String scriptExercice;
+    private boolean sensibiliterAlaCaseActiver;
+    private boolean remplacementPartiel;
+    private boolean aideAccepter;
+    private String aideText;
+    private int tempAlouer;
+    private char occultationCharacter;
+
+    public void setTitreExercice(String titreExercice) {
+        this.titreExercice = titreExercice;
+    }
+
+    public void setTempAlouer(int tempAlouer) {
+        this.tempAlouer = tempAlouer;
+    }
+
+    public void setScriptExercice(String scriptExercice) {
+        this.scriptExercice = scriptExercice;
+    }
+
+    public void setConsigneExercice(String consigneExercice) {
+        this.consigneExercice = consigneExercice;
+    }
+
+    public void setRemplacementPartiel(boolean remplacementPartiel) {
+        this.remplacementPartiel = remplacementPartiel;
+    }
+
+    public void setSensibiliterAlaCaseActiver(boolean sensibiliterAlaCaseActiver) {
+        this.sensibiliterAlaCaseActiver = sensibiliterAlaCaseActiver;
+    }
+
+    public void setMediaFilePath(String mediaFilePath) {
+        this.mediaFilePath = mediaFilePath;
+    }
+
+    public void setImageFilePath(String imageFilePath) {
+        this.imageFilePath = imageFilePath;
+    }
+
+    public void setAideAccepter(boolean aideAccepter) {
+        this.aideAccepter = aideAccepter;
+    }
+
+    public void setAideText(String aideText) {
+        this.aideText = aideText;
+    }
+
+    public void setOccultationCharacter(char occultationCharacter) {
+        this.occultationCharacter = occultationCharacter;
+    }
 
     public GenerateurExercice() {
+
+        main = Main.getInstance();
+
         try {
             if(!savedir.exists())
                 Files.createDirectory(savedir.toPath());
         } catch (IOException e) {
             e.printStackTrace();
         }
+
+
+        occultationCharacter = DEFAULTOCULTATIONCHARACTER;
+        aideText = DEFAULTAIDETEXT;
 
     }
 
@@ -38,15 +103,14 @@ public class GenerateurExercice {
 
         //on récupère toutes les paramètre(titre, consigne...)
         //on créer une Evaluation
-        Controller  controller = Main.controller;
         Exercice exercice = new Evaluation(
-                controller.getTitre(),
-                controller.getConsigne(),
-                controller.getScript(),
-                controller.isSensibiliterALaCaseActiver(),
-                controller.gettempAlouer());
+                titreExercice,
+                consigneExercice,
+                scriptExercice,
+                occultationCharacter,
+                sensibiliterAlaCaseActiver,
+                tempAlouer);
 
-        System.out.println(controller);
 
         System.out.println(exercice);
 
@@ -55,14 +119,21 @@ public class GenerateurExercice {
 
         List<String> paths = new ArrayList<>();
         paths.add(savedir  + "/exerciceInfo.exera");
-        if(controller.getMediaFilePath() != null && !controller.getMediaFilePath().isEmpty()){
-            paths.add(controller.getMediaFilePath());
+        if(mediaFilePath != null && !mediaFilePath.isEmpty()){
+            paths.add(mediaFilePath);
         }
-        if(controller.getImageFilePath() != null && !controller.getImageFilePath().isEmpty()){
-            paths.add(controller.getImageFilePath());
+        if(imageFilePath != null && !imageFilePath.isEmpty()){
+            paths.add(imageFilePath);
 
         }
         mergeFile(cheminEnregistrement,paths);
+
+
+        System.out.println(exercice);
+        System.out.println("est créer a l'emplacement ");
+        System.out.println(cheminEnregistrement);
+
+
     }
 
 
@@ -74,15 +145,16 @@ public class GenerateurExercice {
     public void nouveauFichierEntrainement(String cheminEnregistrement){
 
         //on récupère toutes les paramètre(titre, consigne...)
-        Controller  controller = Main.controller;
         //on créer un entrainement
         Exercice exercice = new Entrainement(
-                controller.getTitre(),
-                controller.getConsigne(),
-                controller.getScript(),
-                controller.isRemplacementPartiel(),
-                controller.isSensibiliterALaCaseActiver(),
-                true
+                titreExercice,
+                consigneExercice,
+                scriptExercice,
+                aideText,
+                occultationCharacter,
+                sensibiliterAlaCaseActiver,
+                aideAccepter,
+                remplacementPartiel
         );
 
         //on sérialize l'objet  Entrainement
@@ -92,15 +164,19 @@ public class GenerateurExercice {
 
         List<String> paths = new ArrayList<>();
         paths.add(savedir  + "/exerciceInfo.exera");
-        if(controller.getMediaFilePath() != null && !controller.getMediaFilePath().isEmpty()){
-            paths.add(controller.getMediaFilePath());
+        if(mediaFilePath != null && !mediaFilePath.isEmpty()){
+            paths.add(mediaFilePath);
         }
-        if(controller.getImageFilePath() != null && !controller.getImageFilePath().isEmpty()){
-            paths.add(controller.getImageFilePath());
+        if(imageFilePath != null && !imageFilePath.isEmpty()){
+            paths.add(imageFilePath);
 
         }
         mergeFile(cheminEnregistrement,paths);
 
+
+        System.out.println(exercice);
+        System.out.println("est créer a l'emplacement ");
+        System.out.println(cheminEnregistrement);
     }
 
     private void serializeFile(Exercice exercice){
@@ -131,7 +207,6 @@ public class GenerateurExercice {
 
 
     private void mergeFile(String cheminEnregistrement, List<String> elements){
-        Controller controller = Main.controller;
 
         List<String> srcFiles = elements;
         FileOutputStream fos = null;
@@ -148,10 +223,10 @@ public class GenerateurExercice {
                 File fileToZip = new File(srcFile);
                 FileInputStream fis = new FileInputStream(fileToZip);
                 String nameOfFile = fileToZip.getName();
-                if(controller.getMediaFilePath() != null &&  fileToZip.getAbsolutePath().equals(controller.getMediaFilePath())){
+                if(mediaFilePath != null &&  fileToZip.getAbsolutePath().equals(mediaFilePath)){
                     nameOfFile = "media" + getExtensionByStringHandling(fileToZip.getPath()) ;
                 }
-                if(controller.getImageFilePath() != null &&  fileToZip.getAbsolutePath().equals(controller.getImageFilePath())){
+                if(imageFilePath != null &&  fileToZip.getAbsolutePath().equals(imageFilePath)){
                     nameOfFile = "image" + getExtensionByStringHandling(fileToZip.getPath());
                 }
                 ZipEntry zipEntry = new ZipEntry(nameOfFile);
@@ -173,9 +248,5 @@ public class GenerateurExercice {
             e.printStackTrace();
         }
     }
-
-
-
-
 
 }

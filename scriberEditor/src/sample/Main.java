@@ -10,29 +10,40 @@ import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
 import ressources.Controller;
-import ressources.FXMLoader;
+import ressources.ControllerIndex;
+import ressources.PageLoader;
 
-public class Main extends Application {
+public final class Main extends Application {
 
-    public static Parent parent;
-    public static Scene scene;
-    public static Controller controller;
+    private static Main instance;
 
 
-    private static final String INDEXPATH = "Index.fxml";
-    private static final String PAG1PATH = "page1.fxml";
-    private static final String INTERFACEDETEST = "testInterface.fxml";
+    public static Main getInstance()
+    {
+        return instance;
+    }
+
+    public Parent parent;
+    public  Scene scene;
+    public ControllerIndex controller;
+    public PageLoader pageLoader;
+    public GenerateurExercice generateurExercice;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-        FXMLoader fxmLoader = new FXMLoader();
-        parent = fxmLoader.load(INTERFACEDETEST);
+        instance = this;
+        pageLoader = new PageLoader();
+        generateurExercice = new GenerateurExercice();
+
+        parent = pageLoader.loadIndex();
         primaryStage.setTitle("Scriber Editor");
-        scene = new Scene(parent, 800, 600);
+        //primaryStage.setMaximized(true);
+        //primaryStage.setFullScreen(true);
+        scene = new Scene(parent, 600, 425);
         primaryStage.setScene(scene);
         primaryStage.show();
 
-        controller = fxmLoader.getController();
+        controller = (ControllerIndex) pageLoader.getController();
 
 
 

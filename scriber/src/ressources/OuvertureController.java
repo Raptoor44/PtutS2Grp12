@@ -4,9 +4,11 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
+import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
 import sample.Main;
+import sample.MediaAfficheur;
 
 import java.io.File;
 import java.net.URL;
@@ -17,19 +19,42 @@ public class OuvertureController extends Controller implements Initializable {
     @FXML
     Button openFile;
 
+    @FXML
+    private AnchorPane anchorPane;
+
     private ExerciceLoader exerciceLoader;
     private File fileExercice;
+    private Main main;
+    private PageLoader pageLoader;
+    private MediaAfficheur mediaAfficheur;
+
+    public OuvertureController(){
+        main = Main.getInstance();
+        exerciceLoader = main.exerciceLoader;
+        if(exerciceLoader == null) System.err.println("wtf dude");
+        pageLoader = main.pageLoader;
+        mediaAfficheur = main.mediaAfficheur;
+    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        exerciceLoader = Main.exerciceLoader;
-        if(exerciceLoader == null) System.err.println("wtf dude");
+        pageLoader.setAnchorPane(anchorPane);
     }
 
     @FXML
     private void OnLoadExerciceButtonCLick(ActionEvent event){
+
         FileChooser chooser = new FileChooser();
         fileExercice = chooser.showOpenDialog(null);
+
+        pageLoader.loadSubPage(PageLoader.PAG1PATH);
+
+        mediaAfficheur.initializeMediaVideo(fileExercice);
+        mediaAfficheur.initializeMediaAudio(fileExercice);
+
+        main.exerciseController.displayFile(fileExercice);
+
+
     }
 
 

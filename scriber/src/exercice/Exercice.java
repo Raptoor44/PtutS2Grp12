@@ -9,12 +9,14 @@ public abstract class Exercice implements Serializable {
     protected String consigne;
     protected String script;
     protected boolean caseSensitivity;
+    protected char occultationCharacter;
 
-    public Exercice(String titre, String consigne, String script, boolean caseSensitivity) {
+    public Exercice(String titre, String consigne, String script, char occultationCharacter, boolean caseSensitivity) {
         this.titre = titre;
         this.consigne = consigne;
         this.script = script;
         this.caseSensitivity = caseSensitivity;
+        this.occultationCharacter = occultationCharacter;
     }
 
     public String getTitre() {
@@ -33,6 +35,10 @@ public abstract class Exercice implements Serializable {
         return caseSensitivity;
     }
 
+    public char getOccultationCharacter() {
+        return occultationCharacter;
+    }
+
     @Override
     public String toString() {
         return "Exercice{" +
@@ -40,6 +46,7 @@ public abstract class Exercice implements Serializable {
                 ", consigne='" + consigne + '\'' +
                 ", script='" + script + '\'' +
                 ", caseSensitivity=" + caseSensitivity +
+                ", ouclation character=" + occultationCharacter +
                 '}';
     }
 }

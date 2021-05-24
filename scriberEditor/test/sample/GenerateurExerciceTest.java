@@ -23,7 +23,7 @@ class GenerateurExerciceTest {
         try {
             fichier = new FileOutputStream("../exerciceInfo.exera");
             oos = new ObjectOutputStream(fichier);
-            oos.writeObject((Exercice) new Evaluation("no", "lo", "efe", true, 10));
+            oos.writeObject((Exercice) new Evaluation("no", "lo", "efe", '&', true, 10));
             oos.flush();
         } catch (FileNotFoundException e) {
             e.printStackTrace();

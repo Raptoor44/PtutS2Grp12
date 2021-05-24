@@ -4,8 +4,8 @@ public class Evaluation extends Exercice {
 
     private int temps;
 
-    public Evaluation(String titre, String consigne, String script, boolean caseSensitivity, int temps) {
-        super(titre, consigne, script, caseSensitivity);
+    public Evaluation(String titre, String consigne, String script,char occultationCharacter, boolean caseSensitivity, int temps) {
+        super(titre, consigne, script, occultationCharacter, caseSensitivity);
         this.temps = temps;
 
     }
@@ -22,6 +22,9 @@ public class Evaluation extends Exercice {
                 ", consigne='" + consigne + '\'' +
                 ", script='" + script + '\'' +
                 ", caseSensitivity=" + caseSensitivity +
+                ", occultation character =" + occultationCharacter +
+
                 '}';
     }
+
 }

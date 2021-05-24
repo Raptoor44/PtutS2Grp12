@@ -56,6 +56,10 @@ release.properties
 pom.xml.releaseBackup
 pom.xml.tag
 
-# .jdk et .scene Builder
+# .jdketsceneBuilder
 !.jdk/
 !JavaFXSceneBuilder/
+
+# dosserOut
+scriberEditor/out/*
+scriber/out/*

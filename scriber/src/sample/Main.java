@@ -10,27 +10,34 @@ import ressources.*;
 
 import java.io.File;
 
-public class Main extends Application {
+public final class Main extends Application {
 
-    public static ExerciceLoader exerciceLoader;
-    public static Parent parent;
-    public static Scene scene;
-    public static Controller controller;
-    public static EntrainementOuvertController ouvertureController;
-    public static ExerciseController exerciseController;
+    private static Main instance;
+
+    public static Main getInstance() {
+        return instance;
+    }
+
+    public ExerciceLoader exerciceLoader;
+    public Parent parent;
+    public Scene scene;
+    public Controller controller;
+    public EntrainementOuvertController ouvertureController;
+    public ExerciseController exerciseController;
+    public PageLoader pageLoader;
+    public MediaAfficheur mediaAfficheur;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
-
+        instance = this;
+        pageLoader = new PageLoader();
         exerciceLoader = new ExerciceLoader();
-        FXMLoader fxmLoader = new FXMLoader();
-        parent = fxmLoader.load("DescriptionOuverture.fxml");
-        primaryStage.setTitle("Hello World");
+        mediaAfficheur = new MediaAfficheur();
+
+        parent = pageLoader.loadIndex();
+        primaryStage.setTitle("Scriber");
         scene = new Scene(parent);
         primaryStage.setScene(scene);
-
-        //exerciseController = (ExerciseController) fxmLoader.getController();
-        ouvertureController = (EntrainementOuvertController) fxmLoader.getController();
 
         if(path != null){
 
