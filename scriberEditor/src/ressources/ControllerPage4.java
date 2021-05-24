@@ -155,10 +155,12 @@ public class ControllerPage4 implements Initializable {
     }
 
     @FXML
-    void onCharacterOcultationSet(ActionEvent event){
+    void onCharacterOcultationSet(KeyEvent event){
         if(characterTextFied.getText() != null && !characterTextFied.getText().isEmpty()){
             characterTextFied.setText(characterTextFied.getText().charAt(0) + "");
             generateurExercice.setOccultationCharacter(characterTextFied.getText().charAt(0));
+        }else{
+            System.out.println("vide");
         }
     }
 
@@ -193,14 +195,13 @@ public class ControllerPage4 implements Initializable {
         }
 
 
-
+        generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());
         if(estUneEvaluation){
             generateurExercice.nouveauFichierEvaluation(chosenFile.getPath());
         }else {
             generateurExercice.setAideText(aideTextArea.getText());
             generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());
             generateurExercice.setAideAccepter(allowHelpCheckBox.isSelected());
-            generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());
             generateurExercice.nouveauFichierEntrainement(chosenFile.getPath());
 
         }
