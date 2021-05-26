@@ -23,12 +23,7 @@ public class Controller implements Initializable {
 
     @FXML
     public TextFlow exerciceInfo;
-    @FXML
-    public Label titreMedia;
-    @FXML
-    public Label albumMedia;
-    @FXML
-    public Label annerMedia;
+
     @FXML
     public ImageView imageView;
 

@@ -3,12 +3,11 @@ package ressources;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
+import sample.Layout;
 
 import java.io.IOException;
 
 public class PageLoader {
-
-
 
     private static final String INDEXPATH = "Ouverture.fxml";
     public static final String PAG1PATH = "Exercise.fxml";
@@ -40,17 +39,13 @@ public class PageLoader {
     }
 
     public Parent loadIndex(){
-        return load(INDEXPATH);
+        return load(Layout.OUVERTURE.getPathToFile());
     }
 
     public void loadSubPage(String subPagePath){
-
         AnchorPane pane = null;
         pane = (AnchorPane) load(subPagePath);
         anchorPane.getChildren().setAll(pane);
-
-
-
     }
 
 

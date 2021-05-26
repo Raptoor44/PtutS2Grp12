@@ -51,4 +51,12 @@ public class MediaAfficheur {
 
         }
     }
+
+    public void pauseMedia(){
+        mediaPlayer.pause();
+    }
+
+    public void playMedia(){
+        mediaPlayer.play();
+    }
 }

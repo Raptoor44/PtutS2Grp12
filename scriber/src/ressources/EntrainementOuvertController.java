@@ -10,14 +10,14 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
 import javafx.stage.FileChooser;
-import sample.ExerciceLoader;
-import sample.Main;
-import sample.TextAfficheur;
+import sample.*;
+
+import javax.print.attribute.standard.Media;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class EntrainementOuvertController extends Controller implements Initializable {
+public class EntrainementOuvertController implements Initializable {
 
     @FXML
     Label exerciseTitle;
@@ -58,10 +58,13 @@ public class EntrainementOuvertController extends Controller implements Initiali
     private ExerciceLoader exerciceLoader;
     private File fileExercice;
     private Main main;
+    private PageLoader pageLoader;
+    private MediaAfficheur mediaAfficheur;
 
     public EntrainementOuvertController(){
         main = Main.getInstance();
         exerciceLoader = main.exerciceLoader;
+        pageLoader = main.pageLoader;
         if(exerciceLoader == null) System.err.println("wtf dude");
 
     }
@@ -69,7 +72,8 @@ public class EntrainementOuvertController extends Controller implements Initiali
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        // TODO displayFile(fileExercice);
+        fileExercice = main.exerciseFile;
+        displayFile(fileExercice);
     }
 
     @FXML
@@ -81,12 +85,11 @@ public class EntrainementOuvertController extends Controller implements Initiali
 
     }
 
-    @Override
-    public void displayFile(File exercise){
-        Exercice exercice = exerciceLoader.chargerUnExercice(exercise.getPath());
+    public void displayFile(File fileExercice){
+        Exercice exercice = exerciceLoader.chargerUnExercice(fileExercice.getPath());
 
         if(exercice != null){
-            TextAfficheur textAfficheur = new TextAfficheur(exercice, "#");
+            TextAfficheur textAfficheur = new TextAfficheur(exercice, exercice.getOccultationCharacter());
             exerciseWords.setText(String.valueOf(textAfficheur.getWords().size()));
         }
 
@@ -100,8 +103,8 @@ public class EntrainementOuvertController extends Controller implements Initiali
             displayTest(exercice);
         }
 
-        if(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()) != null){
-                imageView.setImage(exerciceLoader.chargerImageDepuisExercice(exercise.getPath()));
+        if(exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()) != null){
+                imageView.setImage(exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()));
                 image.setText("Image :");
         }
 
@@ -123,6 +126,15 @@ public class EntrainementOuvertController extends Controller implements Initiali
         partialDiscoveringEnableOrTime.setText(entrainement.isReplacementAllowed() ? "Oui" : "Non");
         help.setText("Aide :");
         helpEnable.setText(entrainement.isHelpAllowed() ? "Activé" : "Désactivé");
+    }
+
+    @FXML
+    public void changePage(){
+        pageLoader.loadSubPage(Layout.REALISATION_EXERCICE.getPathToFile());
+        mediaAfficheur = main.mediaAfficheur;
+        mediaAfficheur.initializeMediaVideo(fileExercice);
+        mediaAfficheur.initializeMediaAudio(fileExercice);
+        main.exerciseController.displayFile(fileExercice);
     }
 
 }

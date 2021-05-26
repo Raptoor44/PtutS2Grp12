@@ -7,6 +7,7 @@ import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import sample.ExerciceLoader;
+import sample.Layout;
 import sample.Main;
 import sample.MediaAfficheur;
 
@@ -14,7 +15,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class OuvertureController extends Controller implements Initializable {
+public class OuvertureController implements Initializable {
 
     @FXML
     Button openFile;
@@ -46,18 +47,11 @@ public class OuvertureController extends Controller implements Initializable {
 
         FileChooser chooser = new FileChooser();
         fileExercice = chooser.showOpenDialog(null);
+        main.exerciseFile = fileExercice;
 
-        pageLoader.loadSubPage(PageLoader.PAG1PATH);
-
-        mediaAfficheur.initializeMediaVideo(fileExercice);
-        mediaAfficheur.initializeMediaAudio(fileExercice);
-
-        main.exerciseController.displayFile(fileExercice);
-
+        pageLoader.loadSubPage(Layout.DESCRIPTION_EXERCICE.getPathToFile());
 
     }
-
-
 
 
 }
