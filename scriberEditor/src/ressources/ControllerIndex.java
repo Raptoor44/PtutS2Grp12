@@ -10,19 +10,9 @@ import sample.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerIndex implements Initializable {
-
-    private Main main;
-    private PageLoader pageLoader;
+public class ControllerIndex extends SuperController implements Initializable {
 
 
-    @FXML
-    private AnchorPane anchorPane;
-
-    public ControllerIndex(){
-        main = Main.getInstance();
-        pageLoader = main.pageLoader;
-    }
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
@@ -32,8 +22,6 @@ public class ControllerIndex implements Initializable {
     @FXML
     public void onNextPageClick(ActionEvent event){
         pageLoader.loadSubPage(PageLoader.PAG1PATH);
-
-
     }
 
 

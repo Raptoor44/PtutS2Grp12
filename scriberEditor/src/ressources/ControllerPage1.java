@@ -12,10 +12,7 @@ import sample.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerPage1 implements Initializable {
-
-    @FXML
-    private AnchorPane anchorPane;
+public class ControllerPage1 extends SuperController implements Initializable {
 
     @FXML
     private TextField titre;
@@ -24,25 +21,10 @@ public class ControllerPage1 implements Initializable {
     private TextArea consigne;
 
 
-
-    private Main main;
-    private PageLoader pageLoader;
-    private GenerateurExercice generateurExercice;
-
-    public ControllerPage1(){
-        main = Main.getInstance();
-        pageLoader = main.pageLoader;
-        generateurExercice = main.generateurExercice;
-    }
+    @FXML
+    protected AnchorPane ProgressAnchorPane;
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        AnchorPane.setBottomAnchor(anchorPane, 0d);
-        AnchorPane.setLeftAnchor(anchorPane, 0d);
-        AnchorPane.setRightAnchor(anchorPane, 0d);
-        AnchorPane.setTopAnchor(anchorPane, 0d);
-    }
 
     @FXML
     void onRetourClick(ActionEvent event){

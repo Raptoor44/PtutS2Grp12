@@ -14,6 +14,7 @@ public class PageLoader {
     public static final String PAG3PATH = "page3.fxml";
     public static final String PAG4PATH = "page4.fxml";
     private static final String INTERFACEDETEST = "testInterface.fxml";
+    private static final String PROGRESSBAR = "partial/progressHeader.fxml";
 
     private AnchorPane anchorPane;
 
@@ -52,5 +53,11 @@ public class PageLoader {
 
     }
 
+    public void loadProgress(AnchorPane progressPane){
+        AnchorPane pane = null;
+        pane = (AnchorPane) load(PROGRESSBAR);
+        progressPane.getChildren().setAll(pane);
+
+    }
 
 }

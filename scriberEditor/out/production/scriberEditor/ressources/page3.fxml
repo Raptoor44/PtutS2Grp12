@@ -4,12 +4,31 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
 
 <AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage3">
    <children>
-      <Label layoutX="67.0" layoutY="138.0" text="Entrer le script" />
-      <TextArea fx:id="scriptTextArea" layoutX="155.0" layoutY="138.0" prefHeight="163.0" prefWidth="353.0" />
-      <Button layoutX="274.0" layoutY="322.0" mnemonicParsing="false" onAction="#onNextPageClick" text="Validé" />
-      <Button layoutX="43.0" layoutY="67.0" mnemonicParsing="false" onAction="#onRetourClick" text="Retour" />
+      <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="222.0" prefWidth="751.0">
+               <children>
+                  <AnchorPane prefHeight="192.0" prefWidth="788.0">
+                     <children>
+                        <AnchorPane fx:id="ProgressAnchorPane" layoutX="94.0" prefHeight="136.0" prefWidth="496.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
+                        <Button layoutX="20.0" layoutY="69.0" mnemonicParsing="false" onAction="#onRetourClick" prefHeight="17.0" prefWidth="58.0" text="Retour" />
+                     </children>
+                  </AnchorPane>
+               </children>
+            </HBox>
+            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+               <children>
+                  <Label layoutX="33.0" layoutY="6.0" text="Entrer le script" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="490.0" />
+                  <TextArea fx:id="scriptTextArea" layoutX="142.0" prefHeight="163.0" prefWidth="353.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="105.0" />
+                  <Button layoutX="294.0" layoutY="150.0" mnemonicParsing="false" onAction="#onNextPageClick" text="Validé" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="294.0" AnchorPane.rightAnchor="257.0" />
+               </children>
+            </AnchorPane>
+         </children>
+      </VBox>
    </children>
 </AnchorPane>

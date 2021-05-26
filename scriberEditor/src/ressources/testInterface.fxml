@@ -6,7 +6,7 @@
 <?import javafx.scene.control.*?>
 <?import javafx.scene.layout.*?>
 
-<AnchorPane prefHeight="637.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.Controller">
+<AnchorPane prefHeight="637.0" prefWidth="935.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.TestController">
    <children>
       <Label layoutX="259.0" layoutY="37.0" text="Interface de test" />
       <Button layoutX="428.0" layoutY="546.0" mnemonicParsing="false" onAction="#OnCreateExerciceClick" text="Créer l'exercice" />
