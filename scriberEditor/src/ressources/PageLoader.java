@@ -22,6 +22,11 @@ public class PageLoader {
         this.anchorPane = anchorPane;
     }
 
+    private String lastPagePath;
+
+    public String getLastPagePath() {
+        return lastPagePath;
+    }
 
     private FXMLLoader fxmlLoader;
 
@@ -30,6 +35,7 @@ public class PageLoader {
     }
 
     public Parent load(String fileName){
+
         try {
             fxmlLoader = new FXMLLoader(getClass().getResource(fileName));
             return fxmlLoader.load();
@@ -40,11 +46,12 @@ public class PageLoader {
     }
 
     public Parent loadIndex(){
+        lastPagePath = INDEXPATH;
         return load(INDEXPATH);
     }
 
     public void loadSubPage(String subPagePath){
-
+        lastPagePath = subPagePath;
         AnchorPane pane = null;
         pane = (AnchorPane) load(subPagePath);
         anchorPane.getChildren().setAll(pane);
