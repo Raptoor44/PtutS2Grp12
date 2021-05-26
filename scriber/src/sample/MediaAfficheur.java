@@ -29,7 +29,7 @@ public class MediaAfficheur {
 
     public MediaAfficheur(){
         main = Main.getInstance();
-        exerciceLoader = main.exerciceLoader;
+        exerciceLoader = main.getExerciceLoader();
     }
 
 
