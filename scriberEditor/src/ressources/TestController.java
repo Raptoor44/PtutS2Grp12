@@ -19,7 +19,7 @@ import java.net.URL;
 import java.util.ResourceBundle;
 
 
-public class Controller  implements Initializable {
+public class TestController implements Initializable {
 
     @FXML
     Button button;
@@ -126,7 +126,7 @@ public class Controller  implements Initializable {
 
     }
 
-    //Todo sa va pas les nouvelles page chargé créer leur propre instance de Controller avec anchorPane = null ducoup créer une class controller pour chaque page et centrailiser le chargement des page dans la class FXMLoader
+    //Todo sa va pas les nouvelles page chargé créer leur propre instance de TestController avec anchorPane = null ducoup créer une class controller pour chaque page et centrailiser le chargement des page dans la class FXMLoader
     @FXML
     private void onNextButton(ActionEvent event) {
         try {
@@ -266,7 +266,7 @@ public class Controller  implements Initializable {
 
     @Override
     public String toString() {
-        return "Controller{" +
+        return "TestController{" +
                 "button=" + button +
                 ", anchorPane=" + anchorPane +
                 ", TitreExerciceTextField=" + titreExerciceTextField +

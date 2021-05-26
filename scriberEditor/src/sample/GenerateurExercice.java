@@ -3,16 +3,13 @@ package sample;
 import exercice.Entrainement;
 import exercice.Evaluation;
 import exercice.Exercice;
-import ressources.Controller;
 
 
 import java.io.*;
 import java.nio.file.Files;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.Optional;
-import java.util.zip.Deflater;
 import java.util.zip.ZipEntry;
 import java.util.zip.ZipOutputStream;
 

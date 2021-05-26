@@ -15,6 +15,7 @@ public class PageLoader {
     public static final String PAG3PATH = "Realisation_Mode_Evaluation.fxml";
     private static final String INTERFACEDETEST = "sample.fxml";
 
+
     private AnchorPane anchorPane;
 
     private FXMLLoader fxmlLoader;
@@ -46,5 +47,7 @@ public class PageLoader {
         pane = (AnchorPane) load(subPagePath);
         anchorPane.getChildren().setAll(pane);
     }
+
+
 
 }

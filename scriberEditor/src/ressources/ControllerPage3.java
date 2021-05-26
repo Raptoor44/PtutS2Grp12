@@ -12,38 +12,11 @@ import sample.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerPage3 implements Initializable {
+public class ControllerPage3 extends  SuperController implements Initializable {
 
-    @FXML
-    private AnchorPane anchorPane;
 
     @FXML
     private TextArea scriptTextArea;
-
-
-    private Main main;
-    private PageLoader pageLoader;
-    private GenerateurExercice generateurExercice;
-
-
-
-    public ControllerPage3(){
-        main = Main.getInstance();
-        pageLoader = main.pageLoader;
-        generateurExercice = main.generateurExercice;
-
-    }
-
-
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        AnchorPane.setBottomAnchor(anchorPane, 0d);
-        AnchorPane.setLeftAnchor(anchorPane, 0d);
-        AnchorPane.setRightAnchor(anchorPane, 0d);
-        AnchorPane.setTopAnchor(anchorPane, 0d);
-
-    }
-
 
     @FXML
     void onRetourClick(ActionEvent event){

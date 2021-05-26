@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.shape.Line?>
+
+<AnchorPane prefHeight="120.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.partial.progressController">
+   <children>
+      <ImageView fitHeight="77.0" fitWidth="101.0" layoutX="250.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="249.0">
+         <image>
+            <Image url="@../../images/logoAppPen.png" />
+         </image>
+      </ImageView>
+      <HBox layoutX="40.0" layoutY="89.0" prefHeight="50.0" prefWidth="497.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="39.0">
+         <children>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/arrowFull.png" />
+               </image>
+            </ImageView>
+            <AnchorPane prefHeight="105.0" prefWidth="96.0">
+               <children>
+                  <Line endX="100.0" endY="25.0" startY="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="50.0" fitWidth="50.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/arrow.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="810.0" layoutY="10.0" prefHeight="130.0" prefWidth="46.0">
+               <children>
+                  <Line endX="100.0" endY="25.0" startY="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="50.0" fitWidth="50.0" layoutX="411.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@../../images/arrow.png" />
+               </image>
+            </ImageView>
+            <AnchorPane layoutX="456.0" layoutY="10.0" prefHeight="105.0" prefWidth="91.0">
+               <children>
+                  <Line endX="100.0" endY="25.0" startY="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
+               </children>
+            </AnchorPane>
+            <ImageView fitHeight="40.0" fitWidth="40.0" layoutX="812.0" layoutY="10.0" pickOnBounds="true" preserveRatio="true" rotate="-90.0">
+               <image>
+                  <Image url="@../../images/arrow.png" />
+               </image>
+            </ImageView>
+         </children>
+      </HBox>
+   </children>
+</AnchorPane>

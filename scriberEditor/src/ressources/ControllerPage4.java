@@ -16,10 +16,7 @@ import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerPage4 implements Initializable {
-
-    @FXML
-    private AnchorPane anchorPane;
+public class ControllerPage4 extends SuperController implements Initializable {
 
     @FXML
     private AnchorPane entrainementAnchorPane;
@@ -55,27 +52,13 @@ public class ControllerPage4 implements Initializable {
 
     private static final boolean DEFAULT_EST_UNE_EVALUATION_VALUE = false;
 
-    private Main main;
-    private PageLoader pageLoader;
-    private GenerateurExercice generateurExercice;
     private boolean estUneEvaluation;
 
 
 
-    public ControllerPage4(){
-        main = Main.getInstance();
-        pageLoader = main.pageLoader;
-        generateurExercice = main.generateurExercice;
-    }
-
-
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        AnchorPane.setBottomAnchor(anchorPane, 0d);
-        AnchorPane.setLeftAnchor(anchorPane, 0d);
-        AnchorPane.setRightAnchor(anchorPane, 0d);
-        AnchorPane.setTopAnchor(anchorPane, 0d);
-
+        super.initialize(location, resources);
 
         estUneEvaluation = DEFAULT_EST_UNE_EVALUATION_VALUE;
         if(modeEvaluationCheckBox != null  && modeEntrainementCheckBox != null){
@@ -215,6 +198,12 @@ public class ControllerPage4 implements Initializable {
 
         }
     }
+
+    @FXML
+    void onRetourClick(ActionEvent event){
+        pageLoader.loadSubPage(PageLoader.PAG3PATH);
+    }
+
 
 
 }

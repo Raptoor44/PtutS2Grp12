@@ -1,15 +1,9 @@
 package sample;
 
 import javafx.application.Application;
-import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
-import javafx.scene.control.CheckBox;
-import javafx.scene.control.TextArea;
-import javafx.scene.control.TextField;
-import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-import ressources.Controller;
 import ressources.ControllerIndex;
 import ressources.PageLoader;
 
@@ -39,7 +33,7 @@ public final class Main extends Application {
         primaryStage.setTitle("Scriber Editor");
         //primaryStage.setMaximized(true);
         //primaryStage.setFullScreen(true);
-        scene = new Scene(parent, 600, 425);
+        scene = new Scene(parent, 700, 500);
         primaryStage.setScene(scene);
         primaryStage.show();
 

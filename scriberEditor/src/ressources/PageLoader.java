@@ -14,6 +14,7 @@ public class PageLoader {
     public static final String PAG3PATH = "page3.fxml";
     public static final String PAG4PATH = "page4.fxml";
     private static final String INTERFACEDETEST = "testInterface.fxml";
+    private static final String PROGRESSBAR = "partial/progressHeader.fxml";
 
     private AnchorPane anchorPane;
 
@@ -21,6 +22,11 @@ public class PageLoader {
         this.anchorPane = anchorPane;
     }
 
+    private String lastPagePath;
+
+    public String getLastPagePath() {
+        return lastPagePath;
+    }
 
     private FXMLLoader fxmlLoader;
 
@@ -29,6 +35,7 @@ public class PageLoader {
     }
 
     public Parent load(String fileName){
+
         try {
             fxmlLoader = new FXMLLoader(getClass().getResource(fileName));
             return fxmlLoader.load();
@@ -39,11 +46,12 @@ public class PageLoader {
     }
 
     public Parent loadIndex(){
+        lastPagePath = INDEXPATH;
         return load(INDEXPATH);
     }
 
     public void loadSubPage(String subPagePath){
-
+        lastPagePath = subPagePath;
         AnchorPane pane = null;
         pane = (AnchorPane) load(subPagePath);
         anchorPane.getChildren().setAll(pane);
@@ -52,5 +60,11 @@ public class PageLoader {
 
     }
 
+    public void loadProgress(AnchorPane progressPane){
+        AnchorPane pane = null;
+        pane = (AnchorPane) load(PROGRESSBAR);
+        progressPane.getChildren().setAll(pane);
+
+    }
 
 }

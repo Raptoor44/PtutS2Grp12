@@ -19,10 +19,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ControllerPage2 implements Initializable {
-
-    @FXML
-    private AnchorPane anchorPane;
+public class ControllerPage2 extends SuperController implements Initializable {
 
     @FXML
     private MediaView mediaView;
@@ -30,29 +27,13 @@ public class ControllerPage2 implements Initializable {
     @FXML
     private ImageView imageView;
 
-
-    private Main main;
-    private PageLoader pageLoader;
-    private GenerateurExercice generateurExercice;
-
     private String mediafilePath;
     private String imagefilePath;
 
-    public ControllerPage2(){
-        main = Main.getInstance();
-        pageLoader = main.pageLoader;
-        generateurExercice = main.generateurExercice;
-    }
+    @FXML
+    protected AnchorPane ProgressAnchorPane;
 
 
-    @Override
-    public void initialize(URL location, ResourceBundle resources) {
-        AnchorPane.setBottomAnchor(anchorPane, 0d);
-        AnchorPane.setLeftAnchor(anchorPane, 0d);
-        AnchorPane.setRightAnchor(anchorPane, 0d);
-        AnchorPane.setTopAnchor(anchorPane, 0d);
-
-    }
 
     @FXML
     void onRetourClick(ActionEvent event){
