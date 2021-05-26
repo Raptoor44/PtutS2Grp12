@@ -30,14 +30,7 @@ public class Entrainement extends Exercice {
         return "Entrainement{" +
                 "allowHelp=" + allowHelp +
                 ", allowReplacement=" + allowReplacement +
-                ", titre='" + titre + '\'' +
-                ", consigne='" + consigne + '\'' +
-                ", script='" + script + '\'' +
-                ", caseSensitivity=" + caseSensitivity +
-                ", help text =" + aideText +
-                ", occultation character =" + occultationCharacter +
-
+                ", aideText='" + aideText + '\'' +
                 '}';
     }
-
 }

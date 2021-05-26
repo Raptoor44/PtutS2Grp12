@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import ressources.*;
 
@@ -26,6 +27,7 @@ public final class Main extends Application {
     public ExerciseController exerciseController;
     public PageLoader pageLoader;
     public MediaAfficheur mediaAfficheur;
+    public File exerciseFile;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -36,6 +38,7 @@ public final class Main extends Application {
 
         parent = pageLoader.loadIndex();
         primaryStage.setTitle("Scriber");
+        primaryStage.getIcons().add(new Image(new File("src/ressources/img/scriberIcon.png").toURI().toString()));
         scene = new Scene(parent);
         primaryStage.setScene(scene);
 

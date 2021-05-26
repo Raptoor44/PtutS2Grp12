@@ -5,19 +5,19 @@ import exercice.Exercice;
 import java.util.*;
 
 public class TextAfficheur {
-    private String occultationChar;
+    private char occultationChar;
     private List<Word> words;
     private String score;
     private String script;
     private String occultedString;
 
-    public TextAfficheur(Exercice exercice, String occultationChar){
+    public TextAfficheur(Exercice exercice, char occultationChar){
         words = new ArrayList<>();
         score = "";
         this.script = exercice.getScript();
         initialize();
-        this.occultationChar = occultationChar.substring(0, 1);
-        occultedString = script.replaceAll("[A-Za-z0-9]", this.occultationChar);
+        this.occultationChar = occultationChar;
+        occultedString = script.replaceAll("[A-Za-z0-9]", String.valueOf(this.occultationChar));
     }
 
     public List<Word> getWords() {
