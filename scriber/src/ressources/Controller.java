@@ -34,7 +34,7 @@ public class Controller implements Initializable {
 
     public Controller(){
         main = Main.getInstance();
-        exerciceLoader = main.exerciceLoader;
+        exerciceLoader = main.getExerciceLoader();
         if(exerciceLoader == null) System.err.println("wtf dude");
 
 

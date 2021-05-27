@@ -1,5 +1,8 @@
 package sample;
 
+import exercice.Entrainement;
+import exercice.Evaluation;
+import exercice.Exercice;
 import javafx.application.Application;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -19,15 +22,16 @@ public final class Main extends Application {
         return instance;
     }
 
-    public ExerciceLoader exerciceLoader;
-    public Parent parent;
-    public Scene scene;
-    public Controller controller;
-    public EntrainementOuvertController ouvertureController;
-    public ExerciseController exerciseController;
-    public PageLoader pageLoader;
-    public MediaAfficheur mediaAfficheur;
-    public File exerciseFile;
+    private ExerciceLoader exerciceLoader;
+    private Parent parent;
+    private Scene scene;
+    private Controller controller;
+    private EntrainementOuvertController ouvertureController;
+    private ExerciseController exerciseController;
+    private PageLoader pageLoader;
+    private MediaAfficheur mediaAfficheur;
+    private File exerciseFile;
+    private Exercice exercice;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -36,6 +40,7 @@ public final class Main extends Application {
         exerciceLoader = new ExerciceLoader();
         mediaAfficheur = new MediaAfficheur();
 
+
         parent = pageLoader.loadIndex();
         primaryStage.setTitle("Scriber");
         primaryStage.getIcons().add(new Image(new File("src/ressources/img/scriberIcon.png").toURI().toString()));
@@ -43,15 +48,11 @@ public final class Main extends Application {
         primaryStage.setScene(scene);
 
         if(path != null){
-
             File exerciceFile = new File(path);
             controller.displayFile(exerciceFile);
         }
 
         primaryStage.show();
-
-
-
 
     }
 
@@ -67,5 +68,53 @@ public final class Main extends Application {
         }
 
         launch(args);
+    }
+
+    public Controller getController() {
+        return controller;
+    }
+
+    public EntrainementOuvertController getOuvertureController() {
+        return ouvertureController;
+    }
+
+    public ExerciceLoader getExerciceLoader() {
+        return exerciceLoader;
+    }
+
+    public ExerciseController getExerciseController() {
+        return exerciseController;
+    }
+
+    public File getExerciseFile() {
+        return exerciseFile;
+    }
+
+    public MediaAfficheur getMediaAfficheur() {
+        return mediaAfficheur;
+    }
+
+    public PageLoader getPageLoader() {
+        return pageLoader;
+    }
+
+    public void setExerciseController(ExerciseController exerciseController) {
+        this.exerciseController = exerciseController;
+    }
+
+    public void setExerciseFile(File exerciseFile) {
+        this.exerciseFile = exerciseFile;
+    }
+
+    public void setExercice(Entrainement entrainement){
+        this.exercice = entrainement;
+    }
+
+    public void setExercice(Evaluation evaluation){
+        this.exercice = evaluation;
+    }
+
+    public Exercice getExercice() {
+        return exercice;
     }
 }

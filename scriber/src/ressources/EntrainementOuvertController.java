@@ -26,9 +26,6 @@ public class EntrainementOuvertController implements Initializable {
     Label exerciseInstruction;
 
     @FXML
-    Button openFile;
-
-    @FXML
     Label partialDiscoveringEnableOrTime;
 
     @FXML
@@ -60,33 +57,40 @@ public class EntrainementOuvertController implements Initializable {
     private Main main;
     private PageLoader pageLoader;
     private MediaAfficheur mediaAfficheur;
+    private Exercice exercice;
 
     public EntrainementOuvertController(){
         main = Main.getInstance();
-        exerciceLoader = main.exerciceLoader;
-        pageLoader = main.pageLoader;
+        exerciceLoader = main.getExerciceLoader();
+        pageLoader = main.getPageLoader();
+        fileExercice = main.getExerciseFile();
+        exercice = main.getExercice();
         if(exerciceLoader == null) System.err.println("wtf dude");
-
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        fileExercice = main.exerciseFile;
-        displayFile(fileExercice);
+        displayFile(exercice);
     }
 
     @FXML
     private void OnLoadExerciceButtonCLick(ActionEvent event){
         FileChooser chooser = new FileChooser();
         fileExercice = chooser.showOpenDialog(null);
+        Exercice anotherExercise = exerciceLoader.chargerUnExercice(fileExercice.getPath());
 
-        displayFile(fileExercice);
+        if(anotherExercise instanceof Entrainement){
+            main.setExercice((Entrainement) anotherExercise);
+        } else if (anotherExercise instanceof Evaluation){
+            main.setExercice((Evaluation) anotherExercise);
+        }
+
+        displayFile(exercice);
 
     }
 
-    public void displayFile(File fileExercice){
-        Exercice exercice = exerciceLoader.chargerUnExercice(fileExercice.getPath());
+    public void displayFile(Exercice exercice){
 
         if(exercice != null){
             TextAfficheur textAfficheur = new TextAfficheur(exercice, exercice.getOccultationCharacter());
@@ -131,10 +135,9 @@ public class EntrainementOuvertController implements Initializable {
     @FXML
     public void changePage(){
         pageLoader.loadSubPage(Layout.REALISATION_EXERCICE.getPathToFile());
-        mediaAfficheur = main.mediaAfficheur;
+        mediaAfficheur = main.getMediaAfficheur();
         mediaAfficheur.initializeMediaVideo(fileExercice);
         mediaAfficheur.initializeMediaAudio(fileExercice);
-        main.exerciseController.displayFile(fileExercice);
     }
 
 }

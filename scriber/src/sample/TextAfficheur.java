@@ -40,6 +40,7 @@ public class TextAfficheur {
 
     public void discoverWord(String str, int numLett){
         if(str.length() < numLett){
+            discoverWord(str);
             return;
         } else {
             for(Word w : words){

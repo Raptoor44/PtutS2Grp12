@@ -1,5 +1,8 @@
 package ressources;
 
+import exercice.Entrainement;
+import exercice.Evaluation;
+import exercice.Exercice;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -27,14 +30,12 @@ public class OuvertureController implements Initializable {
     private File fileExercice;
     private Main main;
     private PageLoader pageLoader;
-    private MediaAfficheur mediaAfficheur;
 
     public OuvertureController(){
         main = Main.getInstance();
-        exerciceLoader = main.exerciceLoader;
+        exerciceLoader = main.getExerciceLoader();
         if(exerciceLoader == null) System.err.println("wtf dude");
-        pageLoader = main.pageLoader;
-        mediaAfficheur = main.mediaAfficheur;
+        pageLoader = main.getPageLoader();
     }
 
     @Override
@@ -47,7 +48,15 @@ public class OuvertureController implements Initializable {
 
         FileChooser chooser = new FileChooser();
         fileExercice = chooser.showOpenDialog(null);
-        main.exerciseFile = fileExercice;
+        main.setExerciseFile(fileExercice);
+
+        Exercice exercice = exerciceLoader.chargerUnExercice(fileExercice.getPath());
+
+        if(exercice instanceof Entrainement){
+            main.setExercice((Entrainement) exercice);
+        } else if (exercice instanceof Evaluation){
+            main.setExercice((Evaluation) exercice);
+        }
 
         pageLoader.loadSubPage(Layout.DESCRIPTION_EXERCICE.getPathToFile());
 

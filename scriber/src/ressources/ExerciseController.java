@@ -1,5 +1,7 @@
 package ressources;
 
+import exercice.Entrainement;
+import exercice.Evaluation;
 import exercice.Exercice;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -7,6 +9,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.TextField;
+import javafx.scene.control.TextFormatter;
+import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
@@ -55,32 +59,87 @@ public class ExerciseController implements Initializable {
     private ExerciceLoader exerciceLoader;
     private Main main;
     private MediaAfficheur mediaAfficheur;
+    private Exercice exercice;
+    private TextAfficheur textAfficheur;
 
     public ExerciseController(){
         main = Main.getInstance();
-        exerciceLoader = main.exerciceLoader;
+        exerciceLoader = main.getExerciceLoader();
         if(exerciceLoader == null) System.err.println("wtf dude");
-        main.exerciseController = this;
-        mediaAfficheur = main.mediaAfficheur;
+        exercice = main.getExercice();
+        main.setExerciseController(this);
+        mediaAfficheur = main.getMediaAfficheur();
+        textAfficheur = new TextAfficheur(exercice, exercice.getOccultationCharacter());
     }
 
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         mediaAfficheur.setMediaView(mediaView);
+        displayFile(exercice);
+
+        enterWords.setTextFormatter(new TextFormatter<Object>(change -> {
+            if(change.getControlNewText().matches("|[A-za-z-_]+")){
+                return change;
+            }
+            return null;
+        }));
+
+        enterWords.addEventHandler(KeyEvent.KEY_PRESSED, keyEvent -> {
+            if(keyEvent.getCode() == KeyCode.SPACE){
+                enter(enterWords.getText());
+            }
+        });
+
     }
 
+    private void enter(String str){
+        if(enterWords.getText().isEmpty()){
+            return;
+        }
 
-    public void displayFile(File fileExercice){
-        Exercice exercice = exerciceLoader.chargerUnExercice(fileExercice.getPath());
-        //TODO ajouter une variable pour le char d'occultation
-        TextAfficheur textAfficheur = new TextAfficheur(exercice, exercice.getOccultationCharacter());
+        if(exercice instanceof Entrainement){
+            Entrainement entrainement = (Entrainement) exercice;
 
+            if(entrainement.isReplacementAllowed()){
+                textAfficheur.discoverWord(str, 4);
+                script.setText(textAfficheur.buildOccultedScript());
+                displayScore();
+
+            } else {
+                textAfficheur.discoverWord(str);
+                script.setText(textAfficheur.buildOccultedScript());
+                displayScore();
+            }
+        }
+
+        if(exercice instanceof Evaluation){
+            Evaluation evaluation = (Evaluation) exercice;
+            textAfficheur.discoverWord(str);
+            script.setText(textAfficheur.buildOccultedScript());
+            displayScore();
+        }
+
+        enterWords.setText("");
+
+    }
+
+    private void displayFile(Exercice exercice){
         consigne.setText(exercice.getConsigne());
         exerciseName.setText(exercice.getTitre());
-        score.setText(textAfficheur.getScore());
         script.setText(textAfficheur.getOccultedString());
+        displayScore();
 
+        if(exercice instanceof Evaluation){
+
+        } else if(exercice instanceof Exercice){
+
+        }
+
+    }
+
+    private void displayScore(){
+        score.setText(textAfficheur.getScore());
     }
 
     @FXML

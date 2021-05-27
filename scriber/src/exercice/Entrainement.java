@@ -13,6 +13,8 @@ public class Entrainement extends Exercice {
         this.aideText = aideText;
     }
 
+    //TODO rajouter le nombre pour le remplacement partiel
+
     public boolean isReplacementAllowed() {
         return allowReplacement;
     }
