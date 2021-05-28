@@ -99,6 +99,7 @@ public class progressController implements Initializable {
     void startAnimation(MouseEvent event){
         if(event.getSource() instanceof ImageView){
             ImageView imageView = (ImageView) event.getSource();
+            /*
             ColorAdjust monochrome = new ColorAdjust();
             monochrome.setSaturation(0.0);
 
@@ -113,7 +114,12 @@ public class progressController implements Initializable {
                             Color.RED
                     )
             );
+
             imageView.setEffect(blush);
+             */
+            ColorAdjust colorAdjust = new ColorAdjust();
+            colorAdjust.setBrightness(-0.5);
+            imageView.setEffect(colorAdjust);
             RotateTransition rt = new RotateTransition(Duration.millis(200), (Node) event.getSource());
             rt.setToAngle(-90);
             rt.setInterpolator(Interpolator.LINEAR);
