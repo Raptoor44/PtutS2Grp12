@@ -1,0 +1,21 @@
+@font-face {
+    font-family: Montserrat-Regular;
+    src: url('./font/Montserrat-Regular.ttf');
+}
+@font-face {
+    font-family: Montserrat-Black;
+    src: url('./font/Montserrat-Black.ttf');
+}
+
+
+.root{
+    -fx-font-size: 1.5em;
+    -fx-font-family: 'Montserrat-Black';
+}
+
+
+.label{
+    -fx-font-size: 1.5em;
+    -fx-font-family: 'Montserrat-Regular';
+
+}

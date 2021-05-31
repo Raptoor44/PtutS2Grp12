@@ -10,7 +10,7 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="431.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage2">
+<AnchorPane fx:id="anchorPane" prefHeight="473.0" prefWidth="875.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage2">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -19,7 +19,7 @@
                   <AnchorPane prefHeight="192.0" prefWidth="788.0">
                      <children>
                         <AnchorPane fx:id="ProgressAnchorPane" layoutX="94.0" prefHeight="136.0" prefWidth="496.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
-                        <Button layoutX="20.0" layoutY="69.0" mnemonicParsing="false" onAction="#onRetourClick" prefHeight="17.0" prefWidth="58.0" text="Retour" />
+                        <Button layoutX="5.0" layoutY="69.0" mnemonicParsing="false" onAction="#onRetourClick" prefHeight="35.0" prefWidth="73.0" text="Retour" />
                      </children>
                   </AnchorPane>
                </children>
@@ -28,7 +28,7 @@
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
-                        <Button layoutX="112.0" layoutY="2.0" mnemonicParsing="false" onAction="#OnImportMediaClick" text="importer le media" />
+                        <Button layoutX="168.0" layoutY="2.0" mnemonicParsing="false" onAction="#OnImportMediaClick" text="importer le media" />
                         <Label layoutY="6.0" text="Choisir votre fichier : " />
                         <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="200.0" layoutX="12.0" layoutY="45.0" />
                      </children>
@@ -40,7 +40,7 @@
                      <children>
                         <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
                         <Label layoutY="9.0" text="Image associée :" />
-                        <Button layoutX="100.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnImportImageClick" text="importer le media" />
+                        <Button layoutX="130.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnImportImageClick" text="importer le media" />
                      </children>
                      <FlowPane.margin>
                         <Insets left="50.0" />

@@ -130,11 +130,13 @@ public class progressController implements Initializable {
 
         if(event.getSource() instanceof ImageView){
             ImageView imageView = (ImageView) event.getSource();
+            imageView.setEffect(null);
             resetImageView();
             RotateTransition rt2 = new RotateTransition(Duration.millis(200), (Node) event.getSource());
             rt2.setToAngle(0);
             rt2.setInterpolator(Interpolator.LINEAR);
             rt2.play();
+
 
         }
 

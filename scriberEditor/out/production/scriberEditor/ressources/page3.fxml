@@ -8,7 +8,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage3">
+<AnchorPane fx:id="anchorPane" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage3">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -17,7 +17,7 @@
                   <AnchorPane prefHeight="192.0" prefWidth="788.0">
                      <children>
                         <AnchorPane fx:id="ProgressAnchorPane" layoutX="94.0" prefHeight="136.0" prefWidth="496.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
-                        <Button layoutX="20.0" layoutY="69.0" mnemonicParsing="false" onAction="#onRetourClick" prefHeight="17.0" prefWidth="58.0" text="Retour" />
+                        <Button layoutX="6.0" layoutY="68.0" mnemonicParsing="false" onAction="#onRetourClick" prefHeight="35.0" prefWidth="84.0" text="Retour" />
                      </children>
                   </AnchorPane>
                </children>
@@ -26,9 +26,9 @@
                <children>
                   <AnchorPane prefHeight="203.0" prefWidth="602.0">
                      <children>
-                        <Label layoutX="33.0" layoutY="6.0" text="Entrer le script" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="490.0" />
-                        <TextArea fx:id="scriptTextArea" layoutX="142.0" prefHeight="163.0" prefWidth="353.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="105.0" />
-                        <Button layoutX="285.0" layoutY="170.0" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="25.0" prefWidth="67.0" text="Valider" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="248.0" />
+                        <Label layoutX="33.0" layoutY="6.0" prefHeight="27.0" prefWidth="133.0" text="Entrer le script :" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="436.0" />
+                        <TextArea fx:id="scriptTextArea" layoutX="177.0" prefHeight="163.0" prefWidth="353.0" promptText="Ecrivez le script ici" AnchorPane.bottomAnchor="44.0" AnchorPane.leftAnchor="177.0" AnchorPane.rightAnchor="70.0" />
+                        <Button layoutX="285.0" layoutY="170.0" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="35.0" prefWidth="101.0" text="Valider" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="216.0" />
                      </children>
                   </AnchorPane>
                </children>

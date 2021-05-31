@@ -9,7 +9,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage1">
+<AnchorPane fx:id="anchorPane" prefHeight="478.0" prefWidth="797.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage1">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -26,11 +26,11 @@
                <children>
                   <AnchorPane prefHeight="222.0" prefWidth="559.0">
                      <children>
-                        <Label layoutX="26.0" layoutY="29.0" text="Titre :" AnchorPane.bottomAnchor="176.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="29.0" />
-                        <Label layoutX="26.0" layoutY="63.0" text="Consigne :" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="63.0" />
-                        <Button layoutX="204.0" layoutY="183.0" mnemonicParsing="false" onAction="#onNextPageClick" text="Valider" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="183.0" />
-                        <TextField fx:id="titre" layoutX="88.0" layoutY="25.0" text="  Ecrivez le titre içi" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="203.0" AnchorPane.topAnchor="25.0" />
-                        <TextArea fx:id="consigne" layoutX="88.0" layoutY="52.0" prefHeight="118.0" prefWidth="458.0" text=" Ecrivez la consinge içi" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="52.0" />
+                        <Label layoutX="14.0" layoutY="14.0" prefHeight="35.0" prefWidth="130.0" stylesheets="@style.css" text="Titre :" AnchorPane.bottomAnchor="191.0" AnchorPane.leftAnchor="14.0" AnchorPane.rightAnchor="415.0" AnchorPane.topAnchor="14.0" />
+                        <Button layoutX="204.0" layoutY="204.0" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="30.0" prefWidth="172.0" text="Valider" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="204.0" />
+                        <TextField fx:id="titre" layoutX="158.0" layoutY="10.0" prefHeight="39.0" prefWidth="254.0" promptText="  Ecrivez le titre ici" AnchorPane.bottomAnchor="195.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="147.0" AnchorPane.topAnchor="10.0" />
+                        <TextArea fx:id="consigne" layoutX="158.0" layoutY="60.0" prefHeight="141.0" prefWidth="379.0" promptText=" Ecrivez la consinge ici" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="158.0" AnchorPane.rightAnchor="22.0" AnchorPane.topAnchor="60.0" />
+                        <Label layoutX="14.0" layoutY="62.0" prefHeight="35.0" prefWidth="130.0" stylesheets="@style.css" text="Consignes :" />
                      </children>
                   </AnchorPane>
                </children>
