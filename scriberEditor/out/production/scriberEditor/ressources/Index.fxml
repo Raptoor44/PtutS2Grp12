@@ -16,14 +16,14 @@
          <children>
             <MenuBar prefHeight="25.0" prefWidth="600.0">
               <menus>
-                <Menu mnemonicParsing="false" text="Tutorial">
+                <Menu mnemonicParsing="false" text="About">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Close" />
+                    <MenuItem mnemonicParsing="false" onAction="#voirLeDepot" text="voir le dépot Github" />
                   </items>
                 </Menu>
                 <Menu mnemonicParsing="false" text="Help">
                   <items>
-                    <MenuItem mnemonicParsing="false" text="Delete" />
+                    <MenuItem mnemonicParsing="false" onAction="#voirLeTuto" text="Voir le tutoriel" />
                   </items>
                 </Menu>
               </menus>
