@@ -18,9 +18,9 @@
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <HBox alignment="CENTER" prefHeight="222.0" prefWidth="751.0">
+            <HBox alignment="CENTER" prefHeight="339.0" prefWidth="599.0" VBox.vgrow="NEVER">
                <children>
-                  <AnchorPane prefHeight="192.0" prefWidth="788.0">
+                  <AnchorPane prefHeight="192.0" prefWidth="788.0" HBox.hgrow="NEVER">
                      <children>
                         <AnchorPane fx:id="ProgressAnchorPane" layoutX="94.0" prefHeight="136.0" prefWidth="496.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
                         <Button layoutX="20.0" layoutY="69.0" mnemonicParsing="false" onAction="#onRetourClick" prefHeight="17.0" prefWidth="58.0" text="Retour" />
@@ -28,44 +28,48 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <AnchorPane prefHeight="291.0" prefWidth="563.0">
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="167.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                <children>
-                  <StackPane layoutX="256.0" layoutY="68.0" prefHeight="75.0" prefWidth="297.0">
+                  <AnchorPane prefHeight="228.0" prefWidth="563.0">
                      <children>
-                        <AnchorPane fx:id="evaluationAnchorPane" disable="true" opacity="0.0" prefHeight="200.0" prefWidth="200.0">
+                        <StackPane layoutX="256.0" layoutY="68.0" prefHeight="75.0" prefWidth="297.0">
                            <children>
-                              <Text layoutX="27.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limite de temps (min) :" />
-                              <TextField fx:id="tempAlouer" layoutX="158.0" layoutY="22.0" onKeyPressed="#OnTempAlouerEvent" onKeyReleased="#OnTempAlouerEvent" onKeyTyped="#OnTempAlouerEvent" prefHeight="25.0" prefWidth="131.0" />
+                              <AnchorPane fx:id="evaluationAnchorPane" disable="true" opacity="0.0" prefHeight="200.0" prefWidth="200.0">
+                                 <children>
+                                    <Text layoutX="27.0" layoutY="39.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Limite de temps (min) :" />
+                                    <TextField fx:id="tempAlouer" layoutX="158.0" layoutY="22.0" onKeyPressed="#OnTempAlouerEvent" onKeyReleased="#OnTempAlouerEvent" onKeyTyped="#OnTempAlouerEvent" prefHeight="25.0" prefWidth="131.0" />
+                                 </children>
+                              </AnchorPane>
+                              <AnchorPane fx:id="entrainementAnchorPane" prefHeight="83.0" prefWidth="297.0">
+                                 <children>
+                                    <Text layoutX="58.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autoriser le remplacement partiel" />
+                                    <Text layoutX="54.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage du nombre de mots découverts" />
+                                    <Text layoutX="55.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autoriser l'aide" />
+                                    <CheckBox fx:id="allowHelpCheckBox" layoutX="29.0" layoutY="23.0" mnemonicParsing="false" />
+                                    <CheckBox layoutX="29.0" layoutY="41.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="21.0" />
+                                    <CheckBox fx:id="remplacementPartielCheckBox" layoutX="29.0" layoutY="4.0" mnemonicParsing="false" />
+                                    <TextArea fx:id="aideTextArea" layoutX="21.0" layoutY="73.0" prefHeight="25.0" prefWidth="260.0" />
+                                    <Text layoutX="27.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text aide" />
+                                 </children>
+                              </AnchorPane>
+                           </children>
+                        </StackPane>
+                        <Text layoutX="35.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode :" />
+                        <CheckBox fx:id="modeEntrainementCheckBox" layoutX="100.0" layoutY="52.0" mnemonicParsing="false" onAction="#OnModeExerciceClick" text="Exercice" />
+                        <CheckBox fx:id="modeEvaluationCheckBox" layoutX="100.0" layoutY="23.0" mnemonicParsing="false" onAction="#OnModeExerciceClick" text="Evaluation" />
+                        <Button layoutX="224.0" layoutY="196.0" mnemonicParsing="false" onAction="#OnCreateExerciceClick" prefHeight="25.0" prefWidth="121.0" text="Exporter" />
+                        <AnchorPane layoutX="263.0" layoutY="3.0" prefHeight="41.0" prefWidth="283.0">
+                           <children>
+                              <Text layoutX="22.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caractère d'occultation : " />
+                              <CheckBox fx:id="sensibiliterCaseCheckBox" layoutX="22.0" layoutY="40.0" mnemonicParsing="false" />
+                              <Text layoutX="53.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activer la sensibilité à la case" />
+                              <ChoiceBox fx:id="characterChoiceBox" layoutX="166.0" layoutY="10.0" prefHeight="25.0" prefWidth="109.0" />
                            </children>
                         </AnchorPane>
-                        <AnchorPane fx:id="entrainementAnchorPane" prefHeight="83.0" prefWidth="297.0">
-                           <children>
-                              <Text layoutX="58.0" layoutY="17.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autoriser le remplacement partiel" />
-                              <Text layoutX="54.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Affichage du nombre de mots découverts" />
-                              <Text layoutX="55.0" layoutY="34.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Autoriser l'aide" />
-                              <CheckBox fx:id="allowHelpCheckBox" layoutX="29.0" layoutY="23.0" mnemonicParsing="false" />
-                              <CheckBox layoutX="29.0" layoutY="41.0" mnemonicParsing="false" prefHeight="0.0" prefWidth="21.0" />
-                              <CheckBox fx:id="remplacementPartielCheckBox" layoutX="29.0" layoutY="4.0" mnemonicParsing="false" />
-                              <TextArea fx:id="aideTextArea" layoutX="21.0" layoutY="73.0" prefHeight="25.0" prefWidth="260.0" />
-                              <Text layoutX="27.0" layoutY="70.0" strokeType="OUTSIDE" strokeWidth="0.0" text="text aide" />
-                           </children>
-                        </AnchorPane>
-                     </children>
-                  </StackPane>
-                  <Text layoutX="35.0" layoutY="36.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Mode :" />
-                  <CheckBox fx:id="modeEntrainementCheckBox" layoutX="100.0" layoutY="52.0" mnemonicParsing="false" onAction="#OnModeExerciceClick" text="Exercice" />
-                  <CheckBox fx:id="modeEvaluationCheckBox" layoutX="100.0" layoutY="23.0" mnemonicParsing="false" onAction="#OnModeExerciceClick" text="Evaluation" />
-                  <Button layoutX="224.0" layoutY="196.0" mnemonicParsing="false" onAction="#OnCreateExerciceClick" prefHeight="25.0" prefWidth="121.0" text="Exporter" />
-                  <AnchorPane layoutX="263.0" layoutY="3.0" prefHeight="41.0" prefWidth="283.0">
-                     <children>
-                        <Text layoutX="22.0" layoutY="27.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Caractère d'occultation : " />
-                        <TextField fx:id="characterTextFied" layoutX="162.0" layoutY="10.0" onKeyPressed="#onCharacterOcultationSet" onKeyReleased="#onCharacterOcultationSet" onKeyTyped="#onCharacterOcultationSet" prefHeight="25.0" prefWidth="121.0" />
-                        <CheckBox fx:id="sensibiliterCaseCheckBox" layoutX="22.0" layoutY="40.0" mnemonicParsing="false" />
-                        <Text layoutX="53.0" layoutY="53.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Activer la sensibilité à la case" />
                      </children>
                   </AnchorPane>
                </children>
-            </AnchorPane>
+            </FlowPane>
          </children>
       </VBox>
    </children>

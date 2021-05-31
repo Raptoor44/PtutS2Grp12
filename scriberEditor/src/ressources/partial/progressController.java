@@ -55,6 +55,15 @@ public class progressController implements Initializable {
     public void initialize(URL location, ResourceBundle resources) {
 
         System.out.println(new File("/images/arrowFull.png").toURI().toString());
+        resetImageView();
+
+    }
+
+    private void resetImageView(){
+        ColorAdjust colorAdjust = new ColorAdjust();
+        colorAdjust.setBrightness(-0.3);
+        colorAdjust.setHue(-3d);
+
 
         switch (pageLoader.getLastPagePath()){
             case PageLoader.PAG1PATH:
@@ -67,6 +76,7 @@ public class progressController implements Initializable {
             case PageLoader.PAG2PATH:
                 System.out.println("chargé les icone de la page2");
                 imageViewArrow1.setImage(arrowImage);
+                imageViewArrow1.setEffect(colorAdjust);
                 imageViewArrow2.setImage(arrowFullImage);
                 imageViewArrow3.setImage(arrowImage);
                 imageViewArrow4.setImage(arrowImage);
@@ -75,7 +85,9 @@ public class progressController implements Initializable {
             case PageLoader.PAG3PATH:
                 System.out.println("chargé les icone de la page3");
                 imageViewArrow1.setImage(arrowImage);
+                imageViewArrow1.setEffect(colorAdjust);
                 imageViewArrow2.setImage(arrowImage);
+                imageViewArrow2.setEffect(colorAdjust);
                 imageViewArrow3.setImage(arrowFullImage);
                 imageViewArrow4.setImage(arrowImage);
 
@@ -83,8 +95,11 @@ public class progressController implements Initializable {
             case PageLoader.PAG4PATH:
                 System.out.println("chargé les icone de la page4");
                 imageViewArrow1.setImage(arrowImage);
+                imageViewArrow1.setEffect(colorAdjust);
                 imageViewArrow2.setImage(arrowImage);
+                imageViewArrow2.setEffect(colorAdjust);
                 imageViewArrow3.setImage(arrowImage);
+                imageViewArrow3.setEffect(colorAdjust);
                 imageViewArrow4.setImage(arrowFullImage);
 
                 break;
@@ -92,31 +107,13 @@ public class progressController implements Initializable {
                 System.out.println(pageLoader.getLastPagePath());
         }
 
-
     }
+
 
     @FXML
     void startAnimation(MouseEvent event){
         if(event.getSource() instanceof ImageView){
             ImageView imageView = (ImageView) event.getSource();
-            /*
-            ColorAdjust monochrome = new ColorAdjust();
-            monochrome.setSaturation(0.0);
-
-            Blend blush = new Blend(
-                    BlendMode.MULTIPLY,
-                    monochrome,
-                    new ColorInput(
-                            0,
-                            0,
-                            50,
-                            50,
-                            Color.RED
-                    )
-            );
-
-            imageView.setEffect(blush);
-             */
             ColorAdjust colorAdjust = new ColorAdjust();
             colorAdjust.setBrightness(-0.5);
             imageView.setEffect(colorAdjust);
@@ -133,7 +130,7 @@ public class progressController implements Initializable {
 
         if(event.getSource() instanceof ImageView){
             ImageView imageView = (ImageView) event.getSource();
-            imageView.setEffect(null);
+            resetImageView();
             RotateTransition rt2 = new RotateTransition(Duration.millis(200), (Node) event.getSource());
             rt2.setToAngle(0);
             rt2.setInterpolator(Interpolator.LINEAR);

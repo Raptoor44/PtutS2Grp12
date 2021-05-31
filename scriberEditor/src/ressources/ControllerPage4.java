@@ -1,12 +1,16 @@
 package ressources;
 
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.CheckBox;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyEvent;
+import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
 import sample.GenerateurExercice;
@@ -14,6 +18,8 @@ import sample.Main;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Arrays;
+import java.util.List;
 import java.util.ResourceBundle;
 
 public class ControllerPage4 extends SuperController implements Initializable {
@@ -31,7 +37,7 @@ public class ControllerPage4 extends SuperController implements Initializable {
     private CheckBox modeEvaluationCheckBox;
 
     @FXML
-    private TextField characterTextFied;
+    private ChoiceBox characterChoiceBox;
 
     @FXML
     private TextArea aideTextArea;
@@ -51,6 +57,8 @@ public class ControllerPage4 extends SuperController implements Initializable {
 
 
     private static final boolean DEFAULT_EST_UNE_EVALUATION_VALUE = false;
+    private static final String CHARACTEROCULTATIONDISPO[] = {"&","#","|","%","=","+","¤","§","~"};
+
 
     private boolean estUneEvaluation;
 
@@ -71,6 +79,14 @@ public class ControllerPage4 extends SuperController implements Initializable {
             updateAnchorPane();
         }
 
+        ObservableList<String> caracDocultation = FXCollections.observableArrayList();
+
+        caracDocultation.addAll(Arrays.asList(CHARACTEROCULTATIONDISPO));
+
+        characterChoiceBox.setItems(caracDocultation);
+        characterChoiceBox.getSelectionModel().selectFirst();
+
+        characterChoiceBox.setOnAction(event -> onCharacterOcultationSet((ActionEvent) event));
 
     }
 
@@ -147,13 +163,9 @@ public class ControllerPage4 extends SuperController implements Initializable {
     }
 
     @FXML
-    void onCharacterOcultationSet(KeyEvent event){
-        if(characterTextFied.getText() != null && !characterTextFied.getText().isEmpty()){
-            characterTextFied.setText(characterTextFied.getText().charAt(0) + "");
-            generateurExercice.setOccultationCharacter(characterTextFied.getText().charAt(0));
-        }else{
-            System.out.println("vide");
-        }
+    void onCharacterOcultationSet(ActionEvent event){
+        if(characterChoiceBox.getSelectionModel().getSelectedItem() != null)
+            generateurExercice.setOccultationCharacter(characterChoiceBox.getSelectionModel().getSelectedItem().toString().charAt(0));
     }
 
 

@@ -75,6 +75,7 @@ public class GenerateurExercice {
     }
 
     public void setOccultationCharacter(char occultationCharacter) {
+        System.out.println("occultationCharacter = " + occultationCharacter);
         this.occultationCharacter = occultationCharacter;
     }
 

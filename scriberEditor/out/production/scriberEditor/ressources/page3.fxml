@@ -22,7 +22,7 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <FlowPane prefHeight="200.0" prefWidth="200.0">
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
                   <AnchorPane prefHeight="203.0" prefWidth="602.0">
                      <children>
