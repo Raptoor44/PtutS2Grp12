@@ -3,6 +3,8 @@ package ressources;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.Priority;
+import javafx.scene.layout.VBox;
 import sample.GenerateurExercice;
 import sample.Main;
 
@@ -34,7 +36,12 @@ public abstract class SuperController implements Initializable {
         AnchorPane.setRightAnchor(anchorPane, 0d);
         AnchorPane.setTopAnchor(anchorPane, 0d);
         pageLoader.loadProgress(ProgressAnchorPane);
+        VBox.setVgrow(anchorPane, Priority.ALWAYS);
+
     }
+
+
+
 
 
 }

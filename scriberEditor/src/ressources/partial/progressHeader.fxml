@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
+<?import javafx.scene.control.*?>
 <?import java.lang.*?>
 <?import javafx.scene.image.*?>
 <?import javafx.scene.layout.*?>
@@ -12,7 +13,7 @@
 
 <AnchorPane prefHeight="120.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.partial.progressController">
    <children>
-      <ImageView fitHeight="77.0" fitWidth="101.0" layoutX="250.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="250.0" AnchorPane.rightAnchor="249.0">
+      <ImageView fitHeight="68.0" fitWidth="50.0" layoutX="267.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="267.0" AnchorPane.rightAnchor="265.0">
          <image>
             <Image url="@../../images/logoAppPen.png" />
          </image>
@@ -56,5 +57,9 @@
             </ImageView>
          </children>
       </HBox>
+      <Label layoutX="14.0" layoutY="61.0" text="Titre et consigne " />
+      <Label layoutX="197.0" layoutY="61.0" text="Media" />
+      <Label layoutX="350.0" layoutY="61.0" text="Script" />
+      <Label layoutX="471.0" layoutY="61.0" text="Option et export" />
    </children>
 </AnchorPane>

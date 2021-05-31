@@ -5,6 +5,7 @@
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -21,19 +22,19 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <AnchorPane prefHeight="288.0" prefWidth="600.0">
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="80.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="10.0">
+                  <AnchorPane prefHeight="222.0" prefWidth="559.0">
                      <children>
                         <Label layoutX="26.0" layoutY="29.0" text="Titre :" AnchorPane.bottomAnchor="176.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="29.0" />
                         <Label layoutX="26.0" layoutY="63.0" text="Consigne :" AnchorPane.bottomAnchor="142.0" AnchorPane.leftAnchor="26.0" AnchorPane.rightAnchor="358.0" AnchorPane.topAnchor="63.0" />
                         <Button layoutX="204.0" layoutY="183.0" mnemonicParsing="false" onAction="#onNextPageClick" text="Valider" AnchorPane.bottomAnchor="14.0" AnchorPane.leftAnchor="204.0" AnchorPane.rightAnchor="183.0" AnchorPane.topAnchor="183.0" />
-                        <TextField fx:id="titre" layoutX="88.0" layoutY="25.0" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="203.0" AnchorPane.topAnchor="25.0" />
-                        <TextArea fx:id="consigne" layoutX="88.0" layoutY="52.0" prefHeight="118.0" prefWidth="372.0" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="52.0" />
+                        <TextField fx:id="titre" layoutX="88.0" layoutY="25.0" text="  Ecrivez le titre içi" AnchorPane.bottomAnchor="172.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="203.0" AnchorPane.topAnchor="25.0" />
+                        <TextArea fx:id="consigne" layoutX="88.0" layoutY="52.0" prefHeight="118.0" prefWidth="458.0" text=" Ecrivez la consinge içi" AnchorPane.bottomAnchor="52.0" AnchorPane.leftAnchor="88.0" AnchorPane.rightAnchor="80.0" AnchorPane.topAnchor="52.0" />
                      </children>
                   </AnchorPane>
                </children>
-            </AnchorPane>
+            </FlowPane>
          </children>
       </VBox>
    </children>

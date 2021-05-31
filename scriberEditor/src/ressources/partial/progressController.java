@@ -126,6 +126,7 @@ public class progressController implements Initializable {
             rt.play();
         }
     }
+
     @FXML
     void endAnimation(MouseEvent event){
 

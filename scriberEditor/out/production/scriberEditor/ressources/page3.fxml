@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 
@@ -21,13 +22,17 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <AnchorPane prefHeight="200.0" prefWidth="200.0">
+            <FlowPane prefHeight="200.0" prefWidth="200.0">
                <children>
-                  <Label layoutX="33.0" layoutY="6.0" text="Entrer le script" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="490.0" />
-                  <TextArea fx:id="scriptTextArea" layoutX="142.0" prefHeight="163.0" prefWidth="353.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="105.0" />
-                  <Button layoutX="294.0" layoutY="150.0" mnemonicParsing="false" onAction="#onNextPageClick" text="Validé" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="294.0" AnchorPane.rightAnchor="257.0" />
+                  <AnchorPane prefHeight="203.0" prefWidth="602.0">
+                     <children>
+                        <Label layoutX="33.0" layoutY="6.0" text="Entrer le script" AnchorPane.bottomAnchor="180.0" AnchorPane.leftAnchor="33.0" AnchorPane.rightAnchor="490.0" />
+                        <TextArea fx:id="scriptTextArea" layoutX="142.0" prefHeight="163.0" prefWidth="353.0" AnchorPane.bottomAnchor="40.0" AnchorPane.leftAnchor="142.0" AnchorPane.rightAnchor="105.0" />
+                        <Button layoutX="285.0" layoutY="170.0" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="25.0" prefWidth="67.0" text="Valider" AnchorPane.bottomAnchor="8.0" AnchorPane.leftAnchor="285.0" AnchorPane.rightAnchor="248.0" />
+                     </children>
+                  </AnchorPane>
                </children>
-            </AnchorPane>
+            </FlowPane>
          </children>
       </VBox>
    </children>

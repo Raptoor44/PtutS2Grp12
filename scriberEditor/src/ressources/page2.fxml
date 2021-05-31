@@ -1,21 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import javafx.geometry.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.image.*?>
-<?import javafx.scene.layout.*?>
-<?import javafx.scene.media.*?>
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="431.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage2">
+<AnchorPane fx:id="anchorPane" prefHeight="431.0" prefWidth="751.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage2">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -29,7 +24,7 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <HBox alignment="CENTER" prefHeight="100.0" prefWidth="200.0">
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
@@ -37,9 +32,9 @@
                         <Label layoutY="6.0" text="Choisir votre fichier : " />
                         <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="200.0" layoutX="12.0" layoutY="45.0" />
                      </children>
-                     <HBox.margin>
+                     <FlowPane.margin>
                         <Insets right="50.0" />
-                     </HBox.margin>
+                     </FlowPane.margin>
                   </AnchorPane>
                   <AnchorPane prefHeight="150.0" prefWidth="121.0">
                      <children>
@@ -47,13 +42,13 @@
                         <Label layoutY="9.0" text="Image associée :" />
                         <Button layoutX="100.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnImportImageClick" text="importer le media" />
                      </children>
-                     <HBox.margin>
+                     <FlowPane.margin>
                         <Insets left="50.0" />
-                     </HBox.margin>
+                     </FlowPane.margin>
                   </AnchorPane>
                </children>
-            </HBox>
-            <AnchorPane prefHeight="44.0" prefWidth="751.0">
+            </FlowPane>
+            <AnchorPane prefHeight="44.0" prefWidth="751.0" VBox.vgrow="NEVER">
                <children>
                   <Button layoutX="350.0" layoutY="9.0" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="25.0" prefWidth="58.0" text="Valider" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="350.0" AnchorPane.rightAnchor="343.0" AnchorPane.topAnchor="9.0" />
                </children>
