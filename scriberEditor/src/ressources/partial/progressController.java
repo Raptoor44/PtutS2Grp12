@@ -8,6 +8,7 @@ import javafx.event.Event;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.Node;
+import javafx.scene.control.Label;
 import javafx.scene.effect.Blend;
 import javafx.scene.effect.BlendMode;
 import javafx.scene.effect.ColorAdjust;
@@ -38,6 +39,15 @@ public class progressController implements Initializable {
 
     @FXML
     ImageView imageViewArrow4;
+
+    @FXML
+    Label labelEtap1;
+    @FXML
+    Label labelEtap2;
+    @FXML
+    Label labelEtap3;
+    @FXML
+    Label labelEtap4;
 
 
     private Main main;
@@ -72,12 +82,14 @@ public class progressController implements Initializable {
                 imageViewArrow2.setImage(arrowImage);
                 imageViewArrow3.setImage(arrowImage);
                 imageViewArrow4.setImage(arrowImage);
+                labelEtap1.setStyle("-fx-font-weight: bold");
                 break;
             case PageLoader.PAG2PATH:
                 System.out.println("chargé les icone de la page2");
                 imageViewArrow1.setImage(arrowImage);
                 imageViewArrow1.setEffect(colorAdjust);
                 imageViewArrow2.setImage(arrowFullImage);
+                labelEtap2.setStyle("-fx-font-weight: bold");
                 imageViewArrow3.setImage(arrowImage);
                 imageViewArrow4.setImage(arrowImage);
 
@@ -89,6 +101,7 @@ public class progressController implements Initializable {
                 imageViewArrow2.setImage(arrowImage);
                 imageViewArrow2.setEffect(colorAdjust);
                 imageViewArrow3.setImage(arrowFullImage);
+                labelEtap3.setStyle("-fx-font-weight: bold");
                 imageViewArrow4.setImage(arrowImage);
 
                 break;
@@ -101,7 +114,7 @@ public class progressController implements Initializable {
                 imageViewArrow3.setImage(arrowImage);
                 imageViewArrow3.setEffect(colorAdjust);
                 imageViewArrow4.setImage(arrowFullImage);
-
+                labelEtap4.setStyle("-fx-font-weight: bold");
                 break;
             default:
                 System.out.println(pageLoader.getLastPagePath());
