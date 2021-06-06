@@ -15,11 +15,11 @@
   <manifest></manifest>
   <icon>D:\Document\GitHub\PtutS2Grp12\release\logoAppPen.ico</icon>
   <jre>
-    <path></path>
+    <path>C:\Program Files\Java\jdk-16.0.1</path>
     <bundledJre64Bit>false</bundledJre64Bit>
     <bundledJreAsFallback>false</bundledJreAsFallback>
-    <minVersion>1.8</minVersion>
-    <maxVersion></maxVersion>
+    <minVersion>1.1</minVersion>
+    <maxVersion>9.9</maxVersion>
     <jdkPreference>preferJre</jdkPreference>
     <runtimeBits>64/32</runtimeBits>
     <opt>--module-path &quot;.\lib\javafx-sdk-16\lib&quot; --add-modules javafx.controls,javafx.fxml</opt>
