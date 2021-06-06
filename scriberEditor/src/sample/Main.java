@@ -3,6 +3,7 @@ package sample;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
+import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import ressources.ControllerIndex;
 import ressources.PageLoader;
@@ -35,6 +36,10 @@ public final class Main extends Application {
         //primaryStage.setFullScreen(true);
         scene = new Scene(parent, 700, 500);
         primaryStage.setScene(scene);
+
+        primaryStage.getIcons().add(
+                new Image(Main.class.getResourceAsStream( "/images/logoAppPen.png" )));
+
         primaryStage.show();
 
         controller = (ControllerIndex) pageLoader.getController();

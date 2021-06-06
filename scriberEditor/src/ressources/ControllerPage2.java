@@ -86,6 +86,18 @@ public class ControllerPage2 extends SuperController implements Initializable {
             return;
         }
 
+        if(imagefilePath == null || imagefilePath.isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Attention !!");
+
+            alert.setContentText("tu as selectionner aucune image !!");
+
+            alert.showAndWait();
+            return;
+        }
+
+
+
         generateurExercice.setMediaFilePath(mediafilePath);
         if(imagefilePath != null && !imagefilePath.isEmpty()){
             generateurExercice.setImageFilePath(imagefilePath);

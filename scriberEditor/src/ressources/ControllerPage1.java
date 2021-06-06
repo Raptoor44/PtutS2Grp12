@@ -3,6 +3,7 @@ package ressources;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
+import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
@@ -33,6 +34,31 @@ public class ControllerPage1 extends SuperController implements Initializable {
 
     @FXML
     void onNextPageClick(ActionEvent event){
+
+
+
+        if(titre.getText() == null || titre.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Attention !!");
+
+            alert.setContentText("Un titre est obligatoire !!");
+
+            alert.showAndWait();
+            return;
+        }
+        if(consigne.getText() == null || consigne.getText().isEmpty()){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Attention !!");
+
+            alert.setContentText("Une consigne est obligatoire !!");
+
+            alert.showAndWait();
+            return;
+        }
+
+
+
+
         generateurExercice.setTitreExercice(titre.getText());
         generateurExercice.setConsigneExercice(consigne.getText());
 
