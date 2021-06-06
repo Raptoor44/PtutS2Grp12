@@ -1,5 +1,7 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Scriber Editor" type="Application" factoryName="Application">
+    <option name="ALTERNATIVE_JRE_PATH" value="15" />
+    <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
     <option name="MAIN_CLASS_NAME" value="sample.Main" />
     <module name="scriberEditor" />
     <option name="VM_PARAMETERS" value="--module-path ../.jdk/javafx-sdk-16/lib --add-modules javafx.controls,javafx.fxml,javafx.media" />
