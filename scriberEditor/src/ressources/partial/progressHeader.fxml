@@ -53,7 +53,7 @@
             </ImageView>
          </children>
       </HBox>
-      <Label fx:id="labelEtap1" layoutX="14.0" layoutY="61.0" text="Titre et consigne " />
+      <Label fx:id="labelEtap1" layoutX="14.0" layoutY="61.0" text="Titre et consignes " />
       <Label fx:id="labelEtap2" layoutX="197.0" layoutY="61.0" text="Media" />
       <Label fx:id="labelEtap3" layoutX="350.0" layoutY="61.0" text="Script" />
       <Label fx:id="labelEtap4" layoutX="471.0" layoutY="61.0" text="Option et export" />

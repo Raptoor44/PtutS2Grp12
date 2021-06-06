@@ -18,12 +18,12 @@
          <children>
             <MenuBar prefHeight="25.0" prefWidth="600.0">
               <menus>
-                <Menu mnemonicParsing="false" text="About">
+                <Menu mnemonicParsing="false" text="A propos">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#voirLeDepot" text="voir le dépot Github" />
                   </items>
                 </Menu>
-                <Menu mnemonicParsing="false" text="Help">
+                <Menu mnemonicParsing="false" text="Aide">
                   <items>
                     <MenuItem mnemonicParsing="false" onAction="#voirLeTuto" text="Voir le tutoriel" />
                   </items>
@@ -54,7 +54,7 @@
                   </AnchorPane>
                   <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutY="192.0" prefHeight="200.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="198.0">
                      <children>
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="25.0" prefWidth="289.0" text="Get Started" />
+                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="25.0" prefWidth="289.0" text="Demarrer la création d'exercice" />
                      </children>
                   </FlowPane>
                </children>

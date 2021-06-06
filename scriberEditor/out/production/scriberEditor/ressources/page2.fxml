@@ -31,7 +31,7 @@
                   <AnchorPane prefHeight="200.0" prefWidth="200.0">
                      <children>
                         <Button layoutX="168.0" layoutY="2.0" mnemonicParsing="false" onAction="#OnImportMediaClick" text="importer le media" />
-                        <Label layoutY="6.0" text="Choisir votre fichier : " />
+                        <Label contentDisplay="RIGHT" layoutY="6.0" prefHeight="27.0" prefWidth="167.0" text="Media associé :" textAlignment="RIGHT" />
                         <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="200.0" layoutX="12.0" layoutY="45.0" />
                      </children>
                      <FlowPane.margin>
@@ -42,7 +42,7 @@
                      <children>
                         <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
                         <Label layoutY="9.0" text="Image associée :" />
-                        <Button layoutX="130.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnImportImageClick" text="importer le media" />
+                        <Button layoutX="130.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnImportImageClick" text="importer l'image" />
                      </children>
                      <FlowPane.margin>
                         <Insets left="50.0" />
