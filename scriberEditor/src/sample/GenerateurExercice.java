@@ -134,6 +134,20 @@ public class GenerateurExercice {
 
     }
 
+    //renvoie les élément manquant
+    public List<String> canGenerateExercice(){
+
+        List<String> stringList = new ArrayList<>();
+
+
+        if(mediaFilePath == null) stringList.add("mediaFilePath");
+        if(imageFilePath == null) stringList.add("imageFilePath");
+        if(titreExercice == null) stringList.add("titreExercice");
+        if(consigneExercice  == null) stringList.add("consigneExercice ");
+        if(scriptExercice == null) stringList.add("scriptExercice");
+
+        return stringList;
+    }
 
     private String getExtensionByStringHandling(String filename) {
         return "." + Optional.ofNullable(filename)
@@ -167,7 +181,6 @@ public class GenerateurExercice {
         }
         if(imageFilePath != null && !imageFilePath.isEmpty()){
             paths.add(imageFilePath);
-
         }
         mergeFile(cheminEnregistrement,paths);
 
