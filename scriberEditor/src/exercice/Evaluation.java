@@ -16,8 +16,10 @@ public class Evaluation extends Exercice {
 
     @Override
     public String toString() {
-        return "Evaluation{" +
+        return "Evaluation{" + super.toString() +
                 "temps=" + temps +
                 '}';
     }
+
+
 }

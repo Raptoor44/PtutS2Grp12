@@ -33,6 +33,11 @@ public class GenerateurExercice {
     private String aideText;
     private int tempAlouer;
     private char occultationCharacter;
+    private int nbLetterMinimum;
+    private boolean allowDisplayingSolution;
+    private boolean allowDisplayNbWordDiscover;
+
+
 
     public void setTitreExercice(String titreExercice) {
         this.titreExercice = titreExercice;
@@ -72,6 +77,18 @@ public class GenerateurExercice {
 
     public void setAideText(String aideText) {
         this.aideText = aideText;
+    }
+
+    public void setNbLetterMinimum(int nbLetterMinimum) {
+        this.nbLetterMinimum = nbLetterMinimum;
+    }
+
+    public void setAllowDisplayingSolution(boolean allowDisplayingSolution) {
+        this.allowDisplayingSolution = allowDisplayingSolution;
+    }
+
+    public void setAllowDisplayNbWordDiscover(boolean allowDisplayNbWordDiscover) {
+        this.allowDisplayNbWordDiscover = allowDisplayNbWordDiscover;
     }
 
     public void setOccultationCharacter(char occultationCharacter) {
@@ -166,7 +183,10 @@ public class GenerateurExercice {
                 occultationCharacter,
                 sensibiliterAlaCaseActiver,
                 aideAccepter,
-                remplacementPartiel
+                remplacementPartiel,
+                nbLetterMinimum,
+                allowDisplayingSolution,
+                allowDisplayNbWordDiscover
         );
 
         //on sérialize l'objet  Entrainement

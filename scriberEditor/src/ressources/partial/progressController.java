@@ -77,7 +77,6 @@ public class progressController implements Initializable {
 
         switch (pageLoader.getLastPagePath()){
             case PageLoader.PAG1PATH:
-                System.out.println("chargé les icone de la page1");
                 imageViewArrow1.setImage(arrowFullImage);
                 imageViewArrow2.setImage(arrowImage);
                 imageViewArrow3.setImage(arrowImage);
@@ -85,7 +84,6 @@ public class progressController implements Initializable {
                 labelEtap1.setStyle("-fx-font-weight: bold");
                 break;
             case PageLoader.PAG2PATH:
-                System.out.println("chargé les icone de la page2");
                 imageViewArrow1.setImage(arrowImage);
                 imageViewArrow1.setEffect(colorAdjust);
                 imageViewArrow2.setImage(arrowFullImage);
@@ -95,7 +93,6 @@ public class progressController implements Initializable {
 
                 break;
             case PageLoader.PAG3PATH:
-                System.out.println("chargé les icone de la page3");
                 imageViewArrow1.setImage(arrowImage);
                 imageViewArrow1.setEffect(colorAdjust);
                 imageViewArrow2.setImage(arrowImage);
@@ -106,7 +103,6 @@ public class progressController implements Initializable {
 
                 break;
             case PageLoader.PAG4PATH:
-                System.out.println("chargé les icone de la page4");
                 imageViewArrow1.setImage(arrowImage);
                 imageViewArrow1.setEffect(colorAdjust);
                 imageViewArrow2.setImage(arrowImage);

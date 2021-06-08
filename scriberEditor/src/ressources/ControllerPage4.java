@@ -22,6 +22,7 @@ import sample.Main;
 import java.awt.*;
 import java.io.File;
 import java.io.IOException;
+import java.net.Inet4Address;
 import java.net.URL;
 import java.util.Arrays;
 import java.util.List;
@@ -59,7 +60,15 @@ public class ControllerPage4 extends SuperController implements Initializable {
 
     @FXML
     private CheckBox remplacementPartielCheckBox;
+    @FXML
+    private CheckBox displayNbWordDiscoverCheckBox;
 
+
+    @FXML
+    private Spinner spinnerNbLetter;
+
+    @FXML
+    private CheckBox autoriserAffichageSolutionCheckBox;
 
     private static final boolean DEFAULT_EST_UNE_EVALUATION_VALUE = false;
     private static final String CHARACTEROCULTATIONDISPO[] = {"&","#","|","%","=","+","¤","§","~"};
@@ -92,6 +101,12 @@ public class ControllerPage4 extends SuperController implements Initializable {
         characterChoiceBox.getSelectionModel().selectFirst();
 
         characterChoiceBox.setOnAction(event -> onCharacterOcultationSet((ActionEvent) event));
+
+
+        SpinnerValueFactory<Integer> valueFactory = new SpinnerValueFactory.IntegerSpinnerValueFactory(2,3);
+        spinnerNbLetter.setValueFactory(valueFactory);
+
+
 
     }
 
@@ -208,6 +223,10 @@ public class ControllerPage4 extends SuperController implements Initializable {
         if(estUneEvaluation){
             generateurExercice.nouveauFichierEvaluation(chosenFile.getPath());
         }else {
+            generateurExercice.setRemplacementPartiel(remplacementPartielCheckBox.isSelected());
+            generateurExercice.setAllowDisplayNbWordDiscover(displayNbWordDiscoverCheckBox.isSelected());
+            generateurExercice.setAllowDisplayingSolution(autoriserAffichageSolutionCheckBox.isSelected());
+            generateurExercice.setNbLetterMinimum((Integer) spinnerNbLetter.getValue());
             generateurExercice.setAideText(aideTextArea.getText());
             generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());
             generateurExercice.setAideAccepter(allowHelpCheckBox.isSelected());

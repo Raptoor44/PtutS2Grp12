@@ -46,6 +46,7 @@ public final class Main extends Application {
         primaryStage.getIcons().add(new Image(new File("src/ressources/img/scriberIcon.png").toURI().toString()));
         scene = new Scene(parent);
         primaryStage.setScene(scene);
+        primaryStage.setMaximized(true);
 
         if(path != null){
             File exerciceFile = new File(path);

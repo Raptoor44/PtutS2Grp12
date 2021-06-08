@@ -41,8 +41,7 @@ public abstract class Exercice implements Serializable {
 
     @Override
     public String toString() {
-        return "Exercice{" +
-                "titre='" + titre + '\'' +
+        return " { titre='" + titre + '\'' +
                 ", consigne='" + consigne + '\'' +
                 ", script='" + script + '\'' +
                 ", caseSensitivity=" + caseSensitivity +
