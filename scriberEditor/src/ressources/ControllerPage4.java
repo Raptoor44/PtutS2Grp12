@@ -107,6 +107,14 @@ public class ControllerPage4 extends SuperController implements Initializable {
         spinnerNbLetter.setValueFactory(valueFactory);
 
 
+        sensibiliterCaseCheckBox.setSelected(generateurExercice.sensibiliterAlaCaseActiver);
+        remplacementPartielCheckBox.setSelected(generateurExercice.remplacementPartiel);
+        displayNbWordDiscoverCheckBox.setSelected(generateurExercice.allowDisplayNbWordDiscover);
+        autoriserAffichageSolutionCheckBox.setSelected(generateurExercice.allowDisplayingSolution);
+        if(generateurExercice.aideText != null)
+            aideTextArea.setText(generateurExercice.aideText);
+        allowHelpCheckBox.setSelected(generateurExercice.aideAccepter);
+
 
     }
 
@@ -177,15 +185,13 @@ public class ControllerPage4 extends SuperController implements Initializable {
     @FXML
     void OnTempAlouerEvent(KeyEvent event){
         if(!tempAlouer.getText().isEmpty())
-            generateurExercice.setTempAlouer(
-                    Integer.valueOf(tempAlouer.getText())
-            );
+            generateurExercice.tempAlouer = Integer.valueOf(tempAlouer.getText());
     }
 
     @FXML
     void onCharacterOcultationSet(ActionEvent event){
         if(characterChoiceBox.getSelectionModel().getSelectedItem() != null)
-            generateurExercice.setOccultationCharacter(characterChoiceBox.getSelectionModel().getSelectedItem().toString().charAt(0));
+            generateurExercice.occultationCharacter = characterChoiceBox.getSelectionModel().getSelectedItem().toString().charAt(0);
     }
 
 
@@ -243,17 +249,16 @@ public class ControllerPage4 extends SuperController implements Initializable {
         }
 
 
-        generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());
+        generateurExercice.sensibiliterAlaCaseActiver = sensibiliterCaseCheckBox.isSelected();
         if(estUneEvaluation){
             generateurExercice.nouveauFichierEvaluation(chosenFile.getPath());
         }else {
-            generateurExercice.setRemplacementPartiel(remplacementPartielCheckBox.isSelected());
-            generateurExercice.setAllowDisplayNbWordDiscover(displayNbWordDiscoverCheckBox.isSelected());
-            generateurExercice.setAllowDisplayingSolution(autoriserAffichageSolutionCheckBox.isSelected());
-            generateurExercice.setNbLetterMinimum((Integer) spinnerNbLetter.getValue());
-            generateurExercice.setAideText(aideTextArea.getText());
-            generateurExercice.setSensibiliterAlaCaseActiver(sensibiliterCaseCheckBox.isSelected());
-            generateurExercice.setAideAccepter(allowHelpCheckBox.isSelected());
+            generateurExercice.remplacementPartiel = remplacementPartielCheckBox.isSelected();
+            generateurExercice.allowDisplayNbWordDiscover = displayNbWordDiscoverCheckBox.isSelected();
+            generateurExercice.allowDisplayingSolution = autoriserAffichageSolutionCheckBox.isSelected();
+            generateurExercice.nbLetterMinimum = (Integer) spinnerNbLetter.getValue();
+            generateurExercice.aideText = aideTextArea.getText();
+            generateurExercice.aideAccepter = allowHelpCheckBox.isSelected();
             generateurExercice.nouveauFichierEntrainement(chosenFile.getPath());
 
         }

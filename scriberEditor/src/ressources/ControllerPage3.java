@@ -23,10 +23,19 @@ public class ControllerPage3 extends  SuperController implements Initializable {
         pageLoader.loadSubPage(PageLoader.PAG2PATH);
     }
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
+        if(generateurExercice.scriptExercice != null)
+            scriptTextArea.setText(generateurExercice.scriptExercice);
+
+
+    }
+
     @FXML
     void onNextPageClick(ActionEvent event){
         if(scriptTextArea.getText() != null && !scriptTextArea.getText().isEmpty() && !scriptTextArea.getText().matches(".*\\w.*")){
-            generateurExercice.setScriptExercice(scriptTextArea.getText());
+            generateurExercice.scriptExercice = scriptTextArea.getText();
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Attention !!");

@@ -1,13 +1,19 @@
 package ressources;
 
+import exercice.Entrainement;
+import exercice.Evaluation;
+import exercice.Exercice;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.FileChooser;
+import sample.ExerciceLoader;
 import sample.Main;
 
 import java.awt.*;
+import java.io.File;
 import java.io.IOException;
 import java.net.URISyntaxException;
 import java.net.URL;
@@ -49,6 +55,40 @@ public class ControllerIndex extends SuperController implements Initializable {
         } catch (URISyntaxException e) {
             e.printStackTrace();
         }
+    }
+
+    @FXML
+    public void onModifierUnExerciceClick(ActionEvent event){
+
+        ExerciceLoader exerciceLoader = new ExerciceLoader();
+
+        FileChooser chooser = new FileChooser();
+        File fileExercice = chooser.showOpenDialog(null);
+
+        Exercice exercice = exerciceLoader.chargerUnExercice(fileExercice.getPath());
+
+        generateurExercice.scriptExercice = exercice.getScript();
+        generateurExercice.occultationCharacter = exercice.getOccultationCharacter();
+        generateurExercice.consigneExercice = exercice.getConsigne();
+        generateurExercice.titreExercice = exercice.getTitre();
+
+
+        if(exercice instanceof Entrainement){
+            Entrainement entrainement = (Entrainement) exercice;
+            generateurExercice.aideText = entrainement.getAideText();
+            generateurExercice.nbLetterMinimum = entrainement.getNbLetterMinimum();
+            generateurExercice.aideAccepter = entrainement.isHelpAllowed();
+            generateurExercice.allowDisplayingSolution = entrainement.isAllowDisplayingSolution();
+            generateurExercice.remplacementPartiel = entrainement.isAllowReplacement();
+            generateurExercice.sensibiliterAlaCaseActiver = entrainement.isCaseSensitive();
+            generateurExercice.allowDisplayNbWordDiscover = entrainement.isAllowDisplayNbWordDiscover();
+
+        } else if (exercice instanceof Evaluation){
+            generateurExercice.tempAlouer = ((Evaluation) exercice).getTemps();
+
+        }
+
+        onNextPageClick(event);
     }
 
 

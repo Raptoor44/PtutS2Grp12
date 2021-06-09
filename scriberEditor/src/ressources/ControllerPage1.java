@@ -27,9 +27,15 @@ public class ControllerPage1 extends SuperController implements Initializable {
 
 
 
-    @FXML
-    void onRetourClick(ActionEvent event){
-        pageLoader.loadIndex();
+
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
+        if(generateurExercice.titreExercice != null)
+            titre.setText(generateurExercice.titreExercice);
+        if(generateurExercice.consigneExercice != null)
+            consigne.setText(generateurExercice.consigneExercice);
+
     }
 
     @FXML
@@ -59,8 +65,8 @@ public class ControllerPage1 extends SuperController implements Initializable {
 
 
 
-        generateurExercice.setTitreExercice(titre.getText());
-        generateurExercice.setConsigneExercice(consigne.getText());
+        generateurExercice.titreExercice = titre.getText();
+        generateurExercice.consigneExercice = consigne.getText();
 
         pageLoader.loadSubPage(PageLoader.PAG2PATH);
     }
