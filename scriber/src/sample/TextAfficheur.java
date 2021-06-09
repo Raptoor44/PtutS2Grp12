@@ -8,6 +8,7 @@ public class TextAfficheur {
     private char occultationChar;
     private List<Word> words;
     private String score;
+    private int points;
     private String script;
     private String occultedString;
 
@@ -15,6 +16,14 @@ public class TextAfficheur {
         words = new ArrayList<>();
         score = "";
         this.script = exercice.getScript();
+        initialize();
+        this.occultationChar = occultationChar;
+        occultedString = script.replaceAll("[A-Za-z0-9]", String.valueOf(this.occultationChar));
+    }
+
+    public TextAfficheur(String script, char occultationChar){
+        words = new ArrayList<>();
+        this.script = script;
         initialize();
         this.occultationChar = occultationChar;
         occultedString = script.replaceAll("[A-Za-z0-9]", String.valueOf(this.occultationChar));
@@ -39,21 +48,17 @@ public class TextAfficheur {
     }
 
     public void discoverWord(String str, int numLett){
-        if(str.length() < numLett){
-            discoverWord(str);
-            return;
-        } else {
-            for(Word w : words){
-                if(w.getValue().startsWith(str) && w.getLength() >= 4){
-                    if(str.length() == w.getLength()){
-                        w.setDiscovered();
-                    } else {
-                        w.setPartialLength(str.length());
-                        w.setPartiallyDiscovered();
-                    }
-                }
+        for(Word w : words){
+            if(str.length() == w.getLength()){
+                discoverWord(str);
+            }
+            if(w.getValue().startsWith(str) && w.getLength() >= 4 && str.length() > numLett){
+                    w.setPartialLength(str.length());
+                    w.setPartiallyDiscovered();
             }
         }
+
+        updateScore();
     }
 
     public void discoverWord(String str) {
@@ -90,6 +95,7 @@ public class TextAfficheur {
                 count++;
             }
         }
+        points = count;
         setScore(String.format("Score : %d / %d", count, words.size()));
     }
 
@@ -121,5 +127,9 @@ public class TextAfficheur {
             }
 
         return discoveredWord.toString();
+    }
+
+    public int getPoints() {
+        return points;
     }
 }

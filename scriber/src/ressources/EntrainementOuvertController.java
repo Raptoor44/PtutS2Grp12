@@ -135,9 +135,6 @@ public class EntrainementOuvertController implements Initializable {
     @FXML
     public void changePage(){
         pageLoader.loadSubPage(Layout.REALISATION_EXERCICE.getPathToFile());
-        mediaAfficheur = main.getMediaAfficheur();
-        mediaAfficheur.initializeMediaVideo(fileExercice);
-        mediaAfficheur.initializeMediaAudio(fileExercice);
     }
 
 }

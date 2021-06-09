@@ -1,0 +1,109 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane maxHeight="690.0" maxWidth="1024.0" minHeight="690.0" minWidth="1024.0" prefHeight="690.0" prefWidth="1024.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.EndController">
+   <children>
+      <Label alignment="CENTER" layoutX="279.0" layoutY="37.0" prefHeight="75.0" prefWidth="524.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Fin de l'exercice" textFill="WHITE">
+         <font>
+            <Font size="34.0" />
+         </font>
+      </Label>
+      <VBox layoutX="187.0" layoutY="245.0" prefHeight="200.0">
+         <children>
+            <HBox alignment="CENTER" spacing="10.0">
+               <children>
+                  <Label text="Score :">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="scoreLabel" style="-fx-background-color: #F6F6F6; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-radius: 32; -fx-border-style: solid;">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_RIGHT" prefHeight="100.0" spacing="10.0">
+               <children>
+                  <Label text="Soit">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <Label fx:id="scoreOn20" style="-fx-background-color: #F6F6F6; -fx-background-radius: 32; -fx-border-color: #848484; -fx-border-radius: 32; -fx-border-style: solid;">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <padding>
+                        <Insets bottom="10.0" left="10.0" right="10.0" top="10.0" />
+                     </padding>
+                  </Label>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <Button layoutX="368.0" layoutY="597.0" mnemonicParsing="false" onAction="#onExportClick" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Sauvegarder vos informations" textFill="WHITE">
+         <font>
+            <Font size="26.0" />
+         </font>
+      </Button>
+      <VBox layoutX="556.0" layoutY="252.0" spacing="20.0">
+         <children>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label text="Nom :">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="surname" promptText="Votre nom ici..." style="-fx-background-radius: 32; -fx-border-color: #5CA4DA; -fx-border-radius: 32;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label text="Prénom :">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="name" promptText="Votre prénom ici..." style="-fx-background-radius: 32; -fx-border-color: #5CA4DA; -fx-border-radius: 32;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER_LEFT" spacing="10.0">
+               <children>
+                  <Label text="Classe :">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Label>
+                  <TextField fx:id="group" promptText="Votre groupe ici..." style="-fx-background-radius: 32; -fx-border-color: #5CA4DA; -fx-border-radius: 32;">
+                     <font>
+                        <Font size="18.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+   </children>
+</AnchorPane>

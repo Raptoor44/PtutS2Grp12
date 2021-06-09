@@ -46,7 +46,7 @@ public class Controller implements Initializable {
     }
 
     @FXML
-    private void OnLoadExerciceButtonCLick(ActionEvent event){
+    private void onLoadExerciceButtonCLick(ActionEvent event){
         FileChooser chooser = new FileChooser();
         fileExercice = chooser.showOpenDialog(null);
 
@@ -67,12 +67,12 @@ public class Controller implements Initializable {
 
     }
 
-    public void displayFile(File ExerciceFile){
-        Exercice exercice =  exerciceLoader.chargerUnExercice(ExerciceFile.getPath());
+    public void displayFile(File exerciceFile){
+        Exercice exercice =  exerciceLoader.chargerUnExercice(exerciceFile.getPath());
         exerciceInfo.getChildren().clear();
         exerciceInfo.getChildren().add(new Text(exercice.toString()));
-        if(exerciceLoader.chargerImageDepuisExercice(ExerciceFile.getPath()) != null){
-            imageView.setImage(exerciceLoader.chargerImageDepuisExercice(ExerciceFile.getPath()) );
+        if(exerciceLoader.chargerImageDepuisExercice(exerciceFile.getPath()) != null){
+            imageView.setImage(exerciceLoader.chargerImageDepuisExercice(exerciceFile.getPath()) );
         }
 
     }

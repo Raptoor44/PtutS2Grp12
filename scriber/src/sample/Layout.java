@@ -4,7 +4,8 @@ public enum Layout {
 
     OUVERTURE("Ouverture.fxml"),
     DESCRIPTION_EXERCICE("DescriptionOuverture.fxml"),
-    REALISATION_EXERCICE("Exercise.fxml");
+    REALISATION_EXERCICE("Exercise.fxml"),
+    FIN_EXERCICE("End.fxml");
 
     private String pathToFile;
 

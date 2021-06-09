@@ -32,6 +32,7 @@ public final class Main extends Application {
     private MediaAfficheur mediaAfficheur;
     private File exerciseFile;
     private Exercice exercice;
+    private Score score;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -39,7 +40,7 @@ public final class Main extends Application {
         pageLoader = new PageLoader();
         exerciceLoader = new ExerciceLoader();
         mediaAfficheur = new MediaAfficheur();
-
+        score = new Score();
 
         parent = pageLoader.loadIndex();
         primaryStage.setTitle("Scriber");
@@ -117,5 +118,9 @@ public final class Main extends Application {
 
     public Exercice getExercice() {
         return exercice;
+    }
+
+    public Score getScore() {
+        return score;
     }
 }

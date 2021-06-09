@@ -3,6 +3,7 @@ package sample;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
+import javafx.util.Duration;
 
 import java.io.File;
 
@@ -58,5 +59,13 @@ public class MediaAfficheur {
 
     public void playMedia(){
         mediaPlayer.play();
+    }
+
+    public MediaPlayer getMediaPlayer() {
+        return mediaPlayer;
+    }
+
+    public Media getMedia() {
+        return media;
     }
 }
