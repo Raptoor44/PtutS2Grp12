@@ -14,7 +14,6 @@ import javafx.scene.control.*;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
-import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -22,7 +21,6 @@ import sample.*;
 
 import java.io.File;
 import java.net.URL;
-import java.sql.Time;
 import java.util.ResourceBundle;
 import java.util.TimerTask;
 import java.util.Timer;
@@ -74,6 +72,7 @@ public class ExerciseController implements Initializable {
     private File exerciceFile;
     private PageLoader pageLoader;
     private Score scoreEtudiant;
+    private Timer timer;
 
     public ExerciseController(){
         main = Main.getInstance();
@@ -86,8 +85,6 @@ public class ExerciseController implements Initializable {
         exerciceFile = main.getExerciseFile();
         pageLoader = main.getPageLoader();
 
-
-        //Todo créer un Score Etudiant autre par
         scoreEtudiant = main.getScore();
         scoreEtudiant.startExercice();
     }
@@ -154,7 +151,7 @@ public class ExerciseController implements Initializable {
         });
 
         //update du timer
-        Timer timer = new Timer();
+        timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
@@ -182,7 +179,7 @@ public class ExerciseController implements Initializable {
     public void timeEnd(long l){
         if(exercice instanceof Evaluation){
             Evaluation evaluation = (Evaluation) exercice;
-            if (l == TimeUnit.SECONDS.toMillis(evaluation.getTemps())){
+            if (l >= evaluation.getTemps() * 1000L){
                 end();
             }
         }
@@ -197,7 +194,7 @@ public class ExerciseController implements Initializable {
             Entrainement entrainement = (Entrainement) exercice;
 
             if(entrainement.isReplacementAllowed()){
-                textAfficheur.discoverWord(enterWords.getText(), 4);
+                textAfficheur.discoverWord(enterWords.getText(), entrainement.getNbLetterMinimum());
                 script.setText(textAfficheur.buildOccultedScript());
 
             } else {
@@ -293,14 +290,15 @@ public class ExerciseController implements Initializable {
         mediaAfficheur.playMedia();
     }
 
-
-
     @FXML
     private void endButton(ActionEvent actionEvent){
         end();
     }
 
     private void end(){
+        timer.cancel();
+        scoreEtudiant.stopTime();
+        main.getMediaAfficheur().closeMedia();
         main.getScore().setPoints(textAfficheur.getPoints());
         main.getScore().setNbWords(textAfficheur.getWords().size());
         pageLoader.loadSubPage(Layout.FIN_EXERCICE.getPathToFile());

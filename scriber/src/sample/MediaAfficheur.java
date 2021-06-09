@@ -70,4 +70,8 @@ public class MediaAfficheur {
     public Media getMedia() {
         return media;
     }
+
+    public void closeMedia(){
+        mediaPlayer.stop();
+    }
 }

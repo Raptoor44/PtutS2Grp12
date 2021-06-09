@@ -14,11 +14,12 @@ public class TextAfficheur {
 
     public TextAfficheur(Exercice exercice, char occultationChar){
         words = new ArrayList<>();
-        score = "0";
         this.script = exercice.getScript();
         initialize();
         this.occultationChar = occultationChar;
         occultedString = script.replaceAll("[A-Za-z0-9]", String.valueOf(this.occultationChar));
+        updateScore();
+        score = getScore();
     }
 
     public TextAfficheur(String script, char occultationChar){

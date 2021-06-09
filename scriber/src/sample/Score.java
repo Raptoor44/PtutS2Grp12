@@ -6,11 +6,11 @@ public class Score {
     private int points;
     private int nbWords;
     private long startTime;
+    private long totalTimePased;
 
 
     public void startExercice(){
         startTime = System.currentTimeMillis();
-
     }
 
     public String getNom() {
@@ -23,6 +23,14 @@ public class Score {
 
     public int getPoints() {
         return points;
+    }
+
+    public void stopTime(){
+        totalTimePased = getTimePassed();
+    }
+
+    public long getTotalTimePased() {
+        return totalTimePased;
     }
 
     public int getNbWords() {
