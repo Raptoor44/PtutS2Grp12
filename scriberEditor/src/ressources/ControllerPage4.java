@@ -191,7 +191,31 @@ public class ControllerPage4 extends SuperController implements Initializable {
 
     @FXML
     void OnCreateExerciceClick(ActionEvent event){
-        //TOdo verifié que c une eval ou un entrainement
+        // vérifier que on a tous les élément
+        if(!generateurExercice.canGenerateExercice().isEmpty()){
+
+            StringBuilder stringBuilder = new StringBuilder();
+
+            stringBuilder.append("il manque les élément suivant : ");
+
+            for (String string: generateurExercice.canGenerateExercice()
+                 ) {
+                stringBuilder.append( string + " , ");
+            }
+
+
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Attention !!");
+
+            alert.setContentText(stringBuilder.toString());
+
+            alert.showAndWait();
+            return;
+
+
+
+        }
+
         FileChooser fileChooser = new FileChooser();
 
         FileChooser.ExtensionFilter extentionFilter = new FileChooser.ExtensionFilter("All Files", "*.*");

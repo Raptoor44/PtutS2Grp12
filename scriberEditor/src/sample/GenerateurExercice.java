@@ -151,17 +151,16 @@ public class GenerateurExercice {
 
     }
 
-    //renvoie les élément manquant
+    //renvoie les élément manquant si c'est empty il manque rien
     public List<String> canGenerateExercice(){
 
         List<String> stringList = new ArrayList<>();
 
-
-        if(mediaFilePath == null) stringList.add("mediaFilePath");
-        if(imageFilePath == null) stringList.add("imageFilePath");
-        if(titreExercice == null) stringList.add("titreExercice");
-        if(consigneExercice  == null) stringList.add("consigneExercice ");
-        if(scriptExercice == null) stringList.add("scriptExercice");
+        if(mediaFilePath == null || mediaFilePath.isEmpty() || !mediaFilePath.matches(".*\\w.*")) stringList.add("un media");
+        if(imageFilePath == null || imageFilePath.isEmpty() || !imageFilePath.matches(".*\\w.*")) stringList.add("une image");
+        if(titreExercice == null || titreExercice.isEmpty() || !titreExercice.matches(".*\\w.*") ) stringList.add("un titre pour l'exercice");
+        if(consigneExercice  == null || consigneExercice.isEmpty() || !consigneExercice.matches(".*\\w.*")) stringList.add("un consigne");
+        if(scriptExercice == null || scriptExercice.isEmpty() || !scriptExercice.matches(".*\\w.*")) stringList.add("un script");
 
         return stringList;
     }
