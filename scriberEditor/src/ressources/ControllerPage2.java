@@ -41,6 +41,26 @@ public class ControllerPage2 extends SuperController implements Initializable {
     }
 
 
+    @Override
+    public void initialize(URL location, ResourceBundle resources) {
+        super.initialize(location, resources);
+        if(generateurExercice.mediaFilePath != null){
+            mediafilePath = generateurExercice.mediaFilePath;
+            Media media = new Media(new File(mediafilePath).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+            mediaView.setMediaPlayer(mediaPlayer);
+
+        }
+        if(generateurExercice.imageFilePath != null) {
+            imagefilePath = generateurExercice.imageFilePath;
+            imageView.setImage(new Image(new File(imagefilePath).toURI().toString()));
+
+
+        }
+
+    }
+
     @FXML
     void OnImportMediaClick(ActionEvent event){
         FileChooser chooser = new FileChooser();
@@ -98,9 +118,9 @@ public class ControllerPage2 extends SuperController implements Initializable {
 
 
 
-        generateurExercice.setMediaFilePath(mediafilePath);
+        generateurExercice.mediaFilePath  = mediafilePath;
         if(imagefilePath != null && !imagefilePath.isEmpty()){
-            generateurExercice.setImageFilePath(imagefilePath);
+            generateurExercice.imageFilePath =  imagefilePath;
         }
 
         pageLoader.loadSubPage(PageLoader.PAG3PATH);

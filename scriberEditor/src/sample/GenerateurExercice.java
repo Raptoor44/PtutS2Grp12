@@ -22,79 +22,23 @@ public class GenerateurExercice {
     private static final String DEFAULTAIDETEXT = "texte d'aide par défault";
 
     private Main main;
-    private String mediaFilePath;
-    private String imageFilePath;
-    private String titreExercice;
-    private String consigneExercice;
-    private String scriptExercice;
-    private boolean sensibiliterAlaCaseActiver;
-    private boolean remplacementPartiel;
-    private boolean aideAccepter;
-    private String aideText;
-    private int tempAlouer;
-    private char occultationCharacter;
-    private int nbLetterMinimum;
-    private boolean allowDisplayingSolution;
-    private boolean allowDisplayNbWordDiscover;
+    public String mediaFilePath;
+    public String imageFilePath;
+    public String titreExercice;
+    public  String consigneExercice;
+    public  String scriptExercice;
+    public boolean sensibiliterAlaCaseActiver;
+    public boolean remplacementPartiel;
+    public boolean aideAccepter;
+    public String aideText;
+    public int tempAlouer;
+    public char occultationCharacter;
+    public int nbLetterMinimum;
+    public boolean allowDisplayingSolution;
+    public boolean allowDisplayNbWordDiscover;
 
 
 
-    public void setTitreExercice(String titreExercice) {
-        this.titreExercice = titreExercice;
-    }
-
-    public void setTempAlouer(int tempAlouer) {
-        this.tempAlouer = tempAlouer;
-    }
-
-    public void setScriptExercice(String scriptExercice) {
-        this.scriptExercice = scriptExercice;
-    }
-
-    public void setConsigneExercice(String consigneExercice) {
-        this.consigneExercice = consigneExercice;
-    }
-
-    public void setRemplacementPartiel(boolean remplacementPartiel) {
-        this.remplacementPartiel = remplacementPartiel;
-    }
-
-    public void setSensibiliterAlaCaseActiver(boolean sensibiliterAlaCaseActiver) {
-        this.sensibiliterAlaCaseActiver = sensibiliterAlaCaseActiver;
-    }
-
-    public void setMediaFilePath(String mediaFilePath) {
-        this.mediaFilePath = mediaFilePath;
-    }
-
-    public void setImageFilePath(String imageFilePath) {
-        this.imageFilePath = imageFilePath;
-    }
-
-    public void setAideAccepter(boolean aideAccepter) {
-        this.aideAccepter = aideAccepter;
-    }
-
-    public void setAideText(String aideText) {
-        this.aideText = aideText;
-    }
-
-    public void setNbLetterMinimum(int nbLetterMinimum) {
-        this.nbLetterMinimum = nbLetterMinimum;
-    }
-
-    public void setAllowDisplayingSolution(boolean allowDisplayingSolution) {
-        this.allowDisplayingSolution = allowDisplayingSolution;
-    }
-
-    public void setAllowDisplayNbWordDiscover(boolean allowDisplayNbWordDiscover) {
-        this.allowDisplayNbWordDiscover = allowDisplayNbWordDiscover;
-    }
-
-    public void setOccultationCharacter(char occultationCharacter) {
-        System.out.println("occultationCharacter = " + occultationCharacter);
-        this.occultationCharacter = occultationCharacter;
-    }
 
     public GenerateurExercice() {
 

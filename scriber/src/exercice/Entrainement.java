@@ -19,8 +19,8 @@ public class Entrainement extends Exercice {
         this.allowDisplayNbWordDiscover = allowDisplayNbWordDiscover;
     }
 
-    public boolean isReplacementAllowed() {
-        return allowReplacement;
+    public boolean isAllowDisplayNbWordDiscover() {
+        return allowDisplayNbWordDiscover;
     }
 
     public boolean isHelpAllowed() {
