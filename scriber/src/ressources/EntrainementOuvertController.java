@@ -127,7 +127,7 @@ public class EntrainementOuvertController implements Initializable {
         Entrainement entrainement = (Entrainement) exercice;
         startExercise.setText("Débuter l'exercice d'entrainement");
         timeOrPartial.setText("Remplacement partiel :");
-        partialDiscoveringEnableOrTime.setText(entrainement.isReplacementAllowed() ? "Oui" : "Non");
+        partialDiscoveringEnableOrTime.setText(entrainement.isAllowReplacement() ? "Oui" : "Non");
         help.setText("Aide :");
         helpEnable.setText(entrainement.isHelpAllowed() ? "Activé" : "Désactivé");
     }

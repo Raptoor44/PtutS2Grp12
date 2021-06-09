@@ -42,7 +42,7 @@ public class ExerciseController implements Initializable {
     Text score;
 
     @FXML
-    Label script;
+    TextArea script;
 
     @FXML
     MediaView mediaView;
@@ -64,6 +64,9 @@ public class ExerciseController implements Initializable {
 
     @FXML
     Slider timeSlider;
+
+    @FXML
+    Button end;
 
     private ExerciceLoader exerciceLoader;
     private Main main;
@@ -98,6 +101,8 @@ public class ExerciseController implements Initializable {
 
         mediaAfficheur.initializeMediaAudio(exerciceFile);
         mediaAfficheur.initializeMediaVideo(exerciceFile);
+
+        script.setEditable(false);
 
         enterWords.setTextFormatter(new TextFormatter<Object>(change -> {
             if(change.getControlNewText().matches("|[A-za-z-_]+")){
@@ -166,6 +171,10 @@ public class ExerciseController implements Initializable {
             }
         }, 0, 50);
 
+        if(exercice instanceof Entrainement){
+            end.setText("Solution");
+        }
+
     }
 
 
@@ -200,7 +209,7 @@ public class ExerciseController implements Initializable {
         if(exercice instanceof Entrainement){
             Entrainement entrainement = (Entrainement) exercice;
 
-            if(entrainement.isReplacementAllowed()){
+            if(entrainement.isAllowReplacement()){
                 textAfficheur.discoverWord(word, entrainement.getNbLetterMinimum());
                 script.setText(textAfficheur.buildOccultedScript());
 
@@ -308,6 +317,7 @@ public class ExerciseController implements Initializable {
         main.getMediaAfficheur().closeMedia();
         main.getScore().setPoints(textAfficheur.getPoints());
         main.getScore().setNbWords(textAfficheur.getWords().size());
+        main.getScore().setAnswer(textAfficheur.buildOccultedScript());
         pageLoader.loadSubPage(Layout.FIN_EXERCICE.getPathToFile());
     }
 }

@@ -2,19 +2,15 @@ package sample;
 
 public class Score {
 
-    private String nom;
     private int points;
     private int nbWords;
     private long startTime;
     private long totalTimePased;
+    private String answer;
 
 
     public void startExercice(){
         startTime = System.currentTimeMillis();
-    }
-
-    public String getNom() {
-        return nom;
     }
 
     public long getTimePassed(){
@@ -37,15 +33,19 @@ public class Score {
         return nbWords;
     }
 
-    public void setNom(String nom) {
-        this.nom = nom;
-    }
-
     public void setPoints(int points) {
         this.points = points;
     }
 
     public void setNbWords(int nbWords) {
         this.nbWords = nbWords;
+    }
+
+    public void setAnswer(String answer) {
+        this.answer = answer;
+    }
+
+    public String getAnswer() {
+        return answer;
     }
 }
