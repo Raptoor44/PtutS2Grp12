@@ -160,7 +160,7 @@ public class GenerateurExercice {
         if(imageFilePath == null || imageFilePath.isEmpty() || !imageFilePath.matches(".*\\w.*")) stringList.add("une image");
         if(titreExercice == null || titreExercice.isEmpty() || !titreExercice.matches(".*\\w.*") ) stringList.add("un titre pour l'exercice");
         if(consigneExercice  == null || consigneExercice.isEmpty() || !consigneExercice.matches(".*\\w.*")) stringList.add("un consigne");
-        if(scriptExercice == null || scriptExercice.isEmpty() || !scriptExercice.matches(".*\\w.*")) stringList.add("un script");
+        if(scriptExercice == null || scriptExercice.isEmpty()) stringList.add("un script");
 
         return stringList;
     }
