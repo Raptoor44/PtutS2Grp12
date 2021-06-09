@@ -21,6 +21,7 @@ import sample.*;
 
 import java.io.File;
 import java.net.URL;
+import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.TimerTask;
 import java.util.Timer;
@@ -190,22 +191,28 @@ public class ExerciseController implements Initializable {
             return;
         }
 
+        String word = enterWords.getText();
+
+        if(!exercice.isCaseSensitive()){
+            word = word.toLowerCase();
+        }
+
         if(exercice instanceof Entrainement){
             Entrainement entrainement = (Entrainement) exercice;
 
             if(entrainement.isReplacementAllowed()){
-                textAfficheur.discoverWord(enterWords.getText(), entrainement.getNbLetterMinimum());
+                textAfficheur.discoverWord(word, entrainement.getNbLetterMinimum());
                 script.setText(textAfficheur.buildOccultedScript());
 
             } else {
-                textAfficheur.discoverWord(enterWords.getText());
+                textAfficheur.discoverWord(word);
                 script.setText(textAfficheur.buildOccultedScript());
             }
         }
 
         if(exercice instanceof Evaluation){
             Evaluation evaluation = (Evaluation) exercice;
-            textAfficheur.discoverWord(enterWords.getText());
+            textAfficheur.discoverWord(word);
             script.setText(textAfficheur.buildOccultedScript());
         }
 

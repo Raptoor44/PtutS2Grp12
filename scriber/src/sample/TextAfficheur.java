@@ -11,23 +11,17 @@ public class TextAfficheur {
     private int points;
     private String script;
     private String occultedString;
+    private Exercice exercice;
 
     public TextAfficheur(Exercice exercice, char occultationChar){
         words = new ArrayList<>();
+        this.exercice = exercice;
         this.script = exercice.getScript();
         initialize();
         this.occultationChar = occultationChar;
         occultedString = script.replaceAll("[A-Za-z0-9]", String.valueOf(this.occultationChar));
         updateScore();
         score = getScore();
-    }
-
-    public TextAfficheur(String script, char occultationChar){
-        words = new ArrayList<>();
-        this.script = script;
-        initialize();
-        this.occultationChar = occultationChar;
-        occultedString = script.replaceAll("[A-Za-z0-9]", String.valueOf(this.occultationChar));
     }
 
     public List<Word> getWords() {
@@ -40,6 +34,9 @@ public class TextAfficheur {
 
         for (String str : script2.split("\\s+")) {
             index = script2.indexOf(str, index);
+            if(!exercice.isCaseSensitive()){
+                str = str.toLowerCase();
+            }
             words.add(new Word(str, index));
         }
 
