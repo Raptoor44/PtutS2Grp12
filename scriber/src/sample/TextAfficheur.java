@@ -14,7 +14,7 @@ public class TextAfficheur {
 
     public TextAfficheur(Exercice exercice, char occultationChar){
         words = new ArrayList<>();
-        score = "";
+        score = "0";
         this.script = exercice.getScript();
         initialize();
         this.occultationChar = occultationChar;

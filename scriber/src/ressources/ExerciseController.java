@@ -170,6 +170,24 @@ public class ExerciseController implements Initializable {
 
     }
 
+
+    public void updateLabel(){
+        time.setText(String.format("%d:%d",
+                TimeUnit.MILLISECONDS.toMinutes(scoreEtudiant.getTimePassed()),
+                TimeUnit.MILLISECONDS.toSeconds(scoreEtudiant.getTimePassed()) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(scoreEtudiant.getTimePassed()))
+        ));
+    }
+
+    public void timeEnd(long l){
+        if(exercice instanceof Evaluation){
+            Evaluation evaluation = (Evaluation) exercice;
+            if (l == TimeUnit.SECONDS.toMillis(evaluation.getTemps())){
+                end();
+            }
+        }
+    }
+
     private void enter(){
         if(enterWords.getText().isEmpty()){
             return;

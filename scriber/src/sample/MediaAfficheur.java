@@ -39,6 +39,7 @@ public class MediaAfficheur {
             media = new Media(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
             mediaPlayer.setAutoPlay(true);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaView.setMediaPlayer(mediaPlayer);
         }
     }
@@ -48,6 +49,7 @@ public class MediaAfficheur {
             media = new Media(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()).toURI().toString());
             mediaPlayer = new MediaPlayer(media);
             mediaPlayer.setAutoPlay(true);
+            mediaPlayer.setCycleCount(MediaPlayer.INDEFINITE);
             mediaView.setMediaPlayer(mediaPlayer);
 
         }
