@@ -49,13 +49,13 @@
             <Font size="16.0" />
          </font>
       </Button>
-      <TextField fx:id="enterWords" alignment="CENTER" layoutX="713.0" layoutY="604.0" prefHeight="39.0" prefWidth="157.0" style="-fx-background-radius: 32; -fx-border-color: #5CA4DA; -fx-border-style: solid; -fx-border-radius: 32;">
+      <TextField fx:id="enterWords" alignment="CENTER" layoutX="713.0" layoutY="604.0" prefHeight="39.0" prefWidth="157.0" promptText="Votre mot ici" style="-fx-background-radius: 32; -fx-border-color: #5CA4DA; -fx-border-style: solid; -fx-border-radius: 32;">
          <cursor>
             <Cursor fx:constant="TEXT" />
          </cursor></TextField>
       <Button fx:id="pause" layoutX="54.0" layoutY="528.0" mnemonicParsing="false" onAction="#pause" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Pause" />
       <Button fx:id="start" layoutX="114.0" layoutY="528.0" mnemonicParsing="false" onAction="#start" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Start" />
-      <ImageView fitHeight="225.0" fitWidth="400.0" layoutX="141.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
+      <ImageView fx:id="imageView" fitHeight="225.0" fitWidth="400.0" layoutX="141.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
       <MediaView fx:id="mediaView" fitHeight="225.0" fitWidth="400.0" layoutX="141.0" layoutY="303.0" />
       <Slider fx:id="timeSlider" layoutX="177.0" layoutY="534.0" prefHeight="14.0" prefWidth="400.0" />
       <Label fx:id="mediaTime" layoutX="590.0" layoutY="533.0">

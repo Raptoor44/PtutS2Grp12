@@ -65,6 +65,7 @@ public class EntrainementOuvertController implements Initializable {
         pageLoader = main.getPageLoader();
         fileExercice = main.getExerciseFile();
         exercice = main.getExercice();
+        mediaAfficheur = main.getMediaAfficheur();
         if(exerciceLoader == null) System.err.println("wtf dude");
     }
 
@@ -107,9 +108,11 @@ public class EntrainementOuvertController implements Initializable {
             displayTest(exercice);
         }
 
-        if(exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()) != null){
-                imageView.setImage(exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()));
-                image.setText("Image :");
+        if(mediaAfficheur.isAudio(fileExercice)){
+            imageView.setImage(exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()));
+        } else {
+            imageView.setDisable(true);
+            imageView.setVisible(false);
         }
 
     }

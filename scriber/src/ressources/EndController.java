@@ -77,6 +77,7 @@ public class EndController implements Initializable {
             area.setText(main.getExercice().getScript());
             area.setEditable(false);
         } else {
+            area.setDisable(true);
             area.setVisible(false);
         }
     }
@@ -133,7 +134,7 @@ public class EndController implements Initializable {
             Alert alert = new Alert(Alert.AlertType.INFORMATION);
             alert.setTitle("Export d'un score");
             alert.setHeaderText("Resultat :");
-            alert.setContentText("Le score a été créé avec succès !!");
+            alert.setContentText("Vos informations ont été enregistrées avec succès.");
             alert.showAndWait();
 
 

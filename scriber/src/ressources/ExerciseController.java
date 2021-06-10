@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
@@ -21,7 +22,6 @@ import sample.*;
 
 import java.io.File;
 import java.net.URL;
-import java.util.Locale;
 import java.util.ResourceBundle;
 import java.util.TimerTask;
 import java.util.Timer;
@@ -68,6 +68,9 @@ public class ExerciseController implements Initializable {
     @FXML
     Button end;
 
+    @FXML
+    ImageView imageView;
+
     private ExerciceLoader exerciceLoader;
     private Main main;
     private MediaAfficheur mediaAfficheur;
@@ -99,8 +102,13 @@ public class ExerciseController implements Initializable {
         mediaAfficheur.setMediaView(mediaView);
         displayFile(exercice);
 
-        mediaAfficheur.initializeMediaAudio(exerciceFile);
-        mediaAfficheur.initializeMediaVideo(exerciceFile);
+        if(mediaAfficheur.isAudio(exerciceFile)){
+            mediaAfficheur.initializeMediaAudio(exerciceFile);
+            imageView.setImage(mediaAfficheur.getImage());
+        } else if (mediaAfficheur.isVideo(exerciceFile)) {
+            mediaAfficheur.initializeMediaVideo(exerciceFile);
+        }
+
 
         script.setEditable(false);
 
@@ -123,70 +131,61 @@ public class ExerciseController implements Initializable {
             }
         });
 
-        timeSlider.valueProperty().addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable observable) {
-                if(timeSlider.isValueChanging()){
-                    mediaAfficheur.getMediaPlayer().seek(mediaAfficheur.getMedia().getDuration().multiply(timeSlider.getValue() / 100));
-                }
+        timeSlider.valueProperty().addListener(observable -> {
+            if(timeSlider.isValueChanging()){
+                mediaAfficheur.getMediaPlayer().seek(mediaAfficheur.getMedia().getDuration().multiply(timeSlider.getValue() / 100));
             }
         });
 
-        timeSlider.setOnMouseClicked(new EventHandler<MouseEvent>() {
-            @Override
-            public void handle(MouseEvent event) {
-                timeSlider.setValueChanging(true);
-                double value =(event.getX()/timeSlider.getWidth()*timeSlider.getMax());
-                timeSlider.setValue(value);
-                timeSlider.setValueChanging(false);
-            }
+        timeSlider.setOnMouseClicked(event -> {
+            timeSlider.setValueChanging(true);
+            double value =(event.getX()/timeSlider.getWidth()*timeSlider.getMax());
+            timeSlider.setValue(value);
+            timeSlider.setValueChanging(false);
         });
 
-        mediaAfficheur.getMediaPlayer().currentTimeProperty().addListener(new InvalidationListener() {
-            @Override
-            public void invalidated(Observable observable) {
-                updateValues();
-            }
-        });
+        mediaAfficheur.getMediaPlayer().currentTimeProperty().addListener(observable -> updateValues());
 
-        mediaAfficheur.getMediaPlayer().setOnReady(new Runnable() {
-            @Override
-            public void run() {
-                updateValues();
-            }
-        });
+        mediaAfficheur.getMediaPlayer().setOnReady(this::updateValues);
 
         //update du timer
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
             public void run() {
-                Platform.runLater(new Runnable() {
-                    @Override
-                    public void run() {
-                        Main.getInstance().getExerciseController().updateLabel();
-                        Main.getInstance().getExerciseController().timeEnd(scoreEtudiant.getTimePassed());
-                    }
+                Platform.runLater(() -> {
+                    Main.getInstance().getExerciseController().updateLabel();
+                    Main.getInstance().getExerciseController().timeEnd(scoreEtudiant.getTimePassed());
                 });
             }
         }, 0, 50);
 
         if(exercice instanceof Entrainement){
-            end.setText("Solution");
+            Entrainement entrainement = (Entrainement) exercice;
+            if(entrainement.isAllowDisplayingSolution()){
+                end.setText("Solution");
+            } else {
+                end.setDisable(true);
+                end.setVisible(false);
+            }
+
+            if (!entrainement.isAllowDisplayNbWordDiscover()){
+                score.setVisible(false);
+            }
         }
 
     }
 
 
-    public void updateLabel(){
-        time.setText(String.format("%d:%d",
+    private void updateLabel(){
+        time.setText(String.format("%d min, %d sec",
                 TimeUnit.MILLISECONDS.toMinutes(scoreEtudiant.getTimePassed()),
                 TimeUnit.MILLISECONDS.toSeconds(scoreEtudiant.getTimePassed()) -
                         TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(scoreEtudiant.getTimePassed()))
         ));
     }
 
-    public void timeEnd(long l){
+    private void timeEnd(long l){
         if(exercice instanceof Evaluation){
             Evaluation evaluation = (Evaluation) exercice;
             if (l >= evaluation.getTemps() * 1000L){

@@ -19,7 +19,17 @@ public class TextAfficheur {
         this.script = exercice.getScript();
         initialize();
         this.occultationChar = occultationChar;
-        occultedString = script.replaceAll("[A-Za-z0-9]", String.valueOf(this.occultationChar));
+        occultedString = script.replaceAll("[a-zA-Z0-9]", String.valueOf(this.occultationChar));
+        updateScore();
+        score = getScore();
+    }
+
+    public TextAfficheur(String script, char occultationChar){
+        words = new ArrayList<>();
+        this.script = script;
+        initialize();
+        this.occultationChar = occultationChar;
+        occultedString = script.replaceAll("[a-zA-Z0-9]", String.valueOf(this.occultationChar));
         updateScore();
         score = getScore();
     }
@@ -31,26 +41,24 @@ public class TextAfficheur {
     private void initialize() {
         String script2 = format(script);
         int index = 0;
+        int sizeBef = 0;
 
         for (String str : script2.split("\\s+")) {
-            index = script2.indexOf(str, index);
-            if(!exercice.isCaseSensitive()){
+            index = script2.indexOf(str, index + sizeBef);
+            /*if(!exercice.isCaseSensitive()){
                 str = str.toLowerCase();
-            }
+            }*/
+            sizeBef = str.length();
             words.add(new Word(str, index));
-        }
-
-        for (Word word : words) {
-            System.out.println(word.getValue());
         }
     }
 
     public void discoverWord(String str, int numLett){
         for(Word w : words){
             if(str.length() == w.getLength()){
+                System.out.println("Here");
                 discoverWord(str);
-            }
-            if(w.getValue().startsWith(str) && w.getLength() >= 4 && str.length() > numLett){
+            } else if(w.getValue().startsWith(str) && w.getLength() >= 4 && str.length() > numLett){
                     w.setPartialLength(str.length());
                     w.setPartiallyDiscovered();
             }
@@ -63,6 +71,8 @@ public class TextAfficheur {
         for(Word w : words){
             if(w.getValue().equals(str)){
                 w.setDiscovered();
+                System.out.println(w.getValue() + "  " + w.getIndex() + "  " + w.isDiscovered());
+                System.out.println(str);
             }
         }
         updateScore();
@@ -71,6 +81,7 @@ public class TextAfficheur {
 
     private String format(String str) {
         str = str.replaceAll("\n", " ");
+        str = str.replaceAll("/", " ");
         str = str.replaceAll("\\.", " ");
         str = str.replaceAll(",", " ");
         str = str.replaceAll("\\?", " ");
@@ -115,6 +126,7 @@ public class TextAfficheur {
         for(Word w : words){
             if(w.isDiscovered()){
                 for(int i = 0; i < w.getLength(); i++){
+                    System.out.println(w.getIndex() + i + "  " + w.getValue().charAt(i));
                     discoveredWord.setCharAt(w.getIndex() + i, w.getValue().charAt(i));
                 }
             } else if(w.isPartiallyDiscovered()){
