@@ -34,7 +34,7 @@ public class ControllerPage3 extends  SuperController implements Initializable {
 
     @FXML
     void onNextPageClick(ActionEvent event){
-        if(scriptTextArea.getText() != null && !scriptTextArea.getText().isEmpty() && !scriptTextArea.getText().matches(".*\\w.*")){
+        if(scriptTextArea.getText() != null && !scriptTextArea.getText().isEmpty() && !scriptTextArea.getText().matches(" +")){
             generateurExercice.scriptExercice = scriptTextArea.getText();
         }else{
             Alert alert = new Alert(Alert.AlertType.WARNING);

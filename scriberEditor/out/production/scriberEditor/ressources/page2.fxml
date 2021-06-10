@@ -10,8 +10,9 @@
 <?import javafx.scene.layout.Pane?>
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.media.MediaView?>
+<?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="473.0" prefWidth="875.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage2">
+<AnchorPane fx:id="anchorPane" prefHeight="788.0" prefWidth="1239.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerPage2">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -28,21 +29,31 @@
             <Pane prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS" />
             <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="NEVER">
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="200.0">
+                  <AnchorPane prefHeight="250.0" prefWidth="400.0">
                      <children>
                         <Button layoutX="168.0" layoutY="2.0" mnemonicParsing="false" onAction="#OnImportMediaClick" text="importer le media" />
                         <Label contentDisplay="RIGHT" layoutY="6.0" prefHeight="27.0" prefWidth="167.0" text="Media associé :" textAlignment="RIGHT" />
-                        <MediaView fx:id="mediaView" fitHeight="150.0" fitWidth="200.0" layoutX="12.0" layoutY="45.0" />
+                        <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="300.0" layoutX="46.0" layoutY="37.0" />
+                        <Label fx:id="mediaSucessLabel" layoutX="175.0" layoutY="238.0" prefWidth="380.0" textAlignment="CENTER" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
                      </children>
                      <FlowPane.margin>
                         <Insets right="50.0" />
                      </FlowPane.margin>
                   </AnchorPane>
-                  <AnchorPane prefHeight="150.0" prefWidth="121.0">
+                  <AnchorPane prefHeight="250.0" prefWidth="400.0">
                      <children>
-                        <ImageView fx:id="imageView" fitHeight="150.0" fitWidth="200.0" layoutX="6.0" layoutY="45.0" pickOnBounds="true" preserveRatio="true" />
+                        <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="300.0" layoutX="50.0" layoutY="40.0" pickOnBounds="true" preserveRatio="true" />
                         <Label layoutY="9.0" text="Image associée :" />
                         <Button layoutX="130.0" layoutY="5.0" mnemonicParsing="false" onAction="#OnImportImageClick" text="importer l'image" />
+                        <Label fx:id="imageSucessLabel" alignment="CENTER" layoutX="203.0" layoutY="248.0" wrapText="true" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0">
+                           <font>
+                              <Font size="10.0" />
+                           </font>
+                        </Label>
                      </children>
                      <FlowPane.margin>
                         <Insets left="50.0" />

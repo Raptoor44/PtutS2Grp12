@@ -1,5 +1,7 @@
 package sample;
 
+import com.sun.xml.internal.stream.StaxErrorReporter;
+import exercice.Exercice;
 import javafx.application.Application;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -7,6 +9,8 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import ressources.ControllerIndex;
 import ressources.PageLoader;
+
+import java.io.File;
 
 public final class Main extends Application {
 
@@ -23,6 +27,7 @@ public final class Main extends Application {
     public ControllerIndex controller;
     public PageLoader pageLoader;
     public GenerateurExercice generateurExercice;
+    private static String path;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -40,6 +45,14 @@ public final class Main extends Application {
         primaryStage.getIcons().add(
                 new Image(Main.class.getResourceAsStream( "/images/logoAppPen.png" )));
 
+        if(path != null){
+            ExerciceLoader exerciceLoader = new ExerciceLoader();
+            Exercice exercice = exerciceLoader.chargerUnExercice(path);
+            generateurExercice.loadInfoFromExercice(exercice);
+
+        }
+
+
         primaryStage.show();
 
         controller = (ControllerIndex) pageLoader.getController();
@@ -50,6 +63,11 @@ public final class Main extends Application {
 
 
     public static void main(String[] args) {
+        if (args.length > 0) {
+
+            path = args[0];
+            System.out.println(path);
+        }
         launch(args);
     }
 

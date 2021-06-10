@@ -266,7 +266,7 @@ public class ControllerPage4 extends SuperController implements Initializable {
         Alert alert = new Alert(Alert.AlertType.INFORMATION);
         alert.setTitle("Export d'un exercice");
         alert.setHeaderText("Resultat :");
-        alert.setContentText("L'" + ((estUneEvaluation)?"evaluation":"entrainement") + " a été créer avec succès !!");
+        alert.setContentText("L'" + ((estUneEvaluation)?"evaluation":"entrainement") + " a été créé avec succès !!");
         alert.showAndWait();
 
         try {
