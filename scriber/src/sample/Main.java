@@ -4,6 +4,7 @@ import exercice.Entrainement;
 import exercice.Evaluation;
 import exercice.Exercice;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.application.Platform;
 import javafx.event.EventHandler;
 import javafx.fxml.FXML;
@@ -15,7 +16,11 @@ import javafx.stage.Stage;
 import javafx.stage.WindowEvent;
 import ressources.*;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public final class Main extends Application {
 
