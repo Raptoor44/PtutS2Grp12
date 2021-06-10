@@ -71,6 +71,11 @@ public class ExerciseController implements Initializable {
     @FXML
     ImageView imageView;
 
+    @FXML
+    Button help;
+
+
+
     private ExerciceLoader exerciceLoader;
     private Main main;
     private MediaAfficheur mediaAfficheur;
@@ -149,6 +154,8 @@ public class ExerciseController implements Initializable {
         mediaAfficheur.getMediaPlayer().setOnReady(this::updateValues);
 
         //update du timer
+
+
         timer = new Timer();
         timer.scheduleAtFixedRate(new TimerTask() {
             @Override
@@ -169,20 +176,44 @@ public class ExerciseController implements Initializable {
                 end.setVisible(false);
             }
 
+            if(!entrainement.isHelpAllowed()){
+                help.setVisible(false);
+                help.setDisable(true);
+            }
+
             if (!entrainement.isAllowDisplayNbWordDiscover()){
                 score.setVisible(false);
             }
         }
 
+        if (exercice instanceof Evaluation){
+            help.setVisible(false);
+            help.setDisable(true);
+        }
+
+
+
     }
 
 
     private void updateLabel(){
-        time.setText(String.format("%d min, %d sec",
-                TimeUnit.MILLISECONDS.toMinutes(scoreEtudiant.getTimePassed()),
-                TimeUnit.MILLISECONDS.toSeconds(scoreEtudiant.getTimePassed()) -
-                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(scoreEtudiant.getTimePassed()))
-        ));
+        if(exercice instanceof Entrainement){
+
+            time.setText(String.format("%d min, %d sec",
+                    TimeUnit.MILLISECONDS.toMinutes(scoreEtudiant.getTimePassed()),
+                    TimeUnit.MILLISECONDS.toSeconds(scoreEtudiant.getTimePassed()) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(scoreEtudiant.getTimePassed()))
+            ));
+        }
+        if(exercice instanceof Evaluation){
+            long tempAlouerEnms = TimeUnit.SECONDS.toMillis(((Evaluation) exercice).getTemps());
+            time.setText(String.format("%d min, %d sec",
+                    TimeUnit.MILLISECONDS.toMinutes(tempAlouerEnms - scoreEtudiant.getTimePassed()),
+                    TimeUnit.MILLISECONDS.toSeconds( tempAlouerEnms - scoreEtudiant.getTimePassed()) -
+                            TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(tempAlouerEnms - scoreEtudiant.getTimePassed()))
+            ));
+
+        }
     }
 
     private void timeEnd(long l){
@@ -318,5 +349,17 @@ public class ExerciseController implements Initializable {
         main.getScore().setNbWords(textAfficheur.getWords().size());
         main.getScore().setAnswer(textAfficheur.buildOccultedScript());
         pageLoader.loadSubPage(Layout.FIN_EXERCICE.getPathToFile());
+    }
+
+
+    @FXML
+    void onButtonAideClick(ActionEvent event){
+        if(((Entrainement) exercice).isHelpAllowed()){
+            Alert alert = new Alert(Alert.AlertType.INFORMATION);
+            alert.setTitle("Aide");
+            alert.setHeaderText("Aide");
+            alert.setContentText(((Entrainement) exercice).getAideText());
+            alert.showAndWait();
+        }
     }
 }

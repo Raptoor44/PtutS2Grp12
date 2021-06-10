@@ -4,12 +4,15 @@ import exercice.Entrainement;
 import exercice.Evaluation;
 import exercice.Exercice;
 import javafx.application.Application;
+import javafx.application.Platform;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
 import javafx.scene.image.Image;
 import javafx.stage.Stage;
+import javafx.stage.WindowEvent;
 import ressources.*;
 
 import java.io.File;
@@ -53,6 +56,11 @@ public final class Main extends Application {
             File exerciceFile = new File(path);
             controller.displayFile(exerciceFile);
         }
+
+        primaryStage.setOnCloseRequest(event -> {
+            Platform.exit();
+            System.exit(0);
+        });
 
         primaryStage.show();
 
