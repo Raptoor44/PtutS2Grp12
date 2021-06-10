@@ -11,7 +11,7 @@
 
 <VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="840.0" prefWidth="1335.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.OuvertureController">
    <children>
-      <MenuBar>
+      <MenuBar prefWidth="1335.0">
         <menus>
           <Menu mnemonicParsing="false" text="Fichier">
             <items>
@@ -20,12 +20,12 @@
           </Menu>
           <Menu mnemonicParsing="false" text="Aide">
             <items>
-              <MenuItem mnemonicParsing="false" text="ouvrir le tutoriel" />
+              <MenuItem mnemonicParsing="false" onAction="#voirLeTuto" text="ouvrir le tutoriel" />
             </items>
           </Menu>
           <Menu mnemonicParsing="false" text="About">
             <items>
-              <MenuItem mnemonicParsing="false" text="voir la page du projet" />
+              <MenuItem mnemonicParsing="false" onAction="#voirLeDepot" text="voir la page du projet" />
             </items>
           </Menu>
         </menus>
