@@ -98,14 +98,17 @@ public class TextAfficheur {
 
 
     private void updateScore() {
+        Set<Word> set = new HashSet<>(words);
+        List<Word> wordList = new ArrayList<>(set);
+
         int count = 0;
-        for(Word w : words){
+        for(Word w : wordList){
             if(w.isDiscovered()){
                 count++;
             }
         }
         points = count;
-        setScore(String.format("Score : %d / %d", count, words.size()));
+        setScore(String.format("Score : %d / %d", count, wordList.size()));
     }
 
     public void setScore(String score) {

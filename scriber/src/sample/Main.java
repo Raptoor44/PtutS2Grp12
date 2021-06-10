@@ -36,6 +36,7 @@ public final class Main extends Application {
     private File exerciseFile;
     private Exercice exercice;
     private Score score;
+    private TextAfficheur textAfficheur;
 
     @Override
     public void start(Stage primaryStage) throws Exception{
@@ -130,5 +131,13 @@ public final class Main extends Application {
 
     public Score getScore() {
         return score;
+    }
+
+    public void setTextAfficheur(TextAfficheur textAfficheur) {
+        this.textAfficheur = textAfficheur;
+    }
+
+    public TextAfficheur getTextAfficheur() {
+        return textAfficheur;
     }
 }

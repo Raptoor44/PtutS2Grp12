@@ -345,6 +345,7 @@ public class ExerciseController implements Initializable {
         timer.cancel();
         scoreEtudiant.stopTime();
         main.getMediaAfficheur().closeMedia();
+        main.setTextAfficheur(textAfficheur);
         main.getScore().setPoints(textAfficheur.getPoints());
         main.getScore().setNbWords(textAfficheur.getWords().size());
         main.getScore().setAnswer(textAfficheur.buildOccultedScript());
