@@ -4,6 +4,7 @@ import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
+import javafx.scene.control.Label;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -33,6 +34,11 @@ public class ControllerPage2 extends SuperController implements Initializable {
     @FXML
     protected AnchorPane ProgressAnchorPane;
 
+    @FXML
+    private Label mediaSucessLabel;
+
+    @FXML
+    private Label imageSucessLabel;
 
 
     @FXML
@@ -50,12 +56,13 @@ public class ControllerPage2 extends SuperController implements Initializable {
             MediaPlayer mediaPlayer = new MediaPlayer(media);
 
             mediaView.setMediaPlayer(mediaPlayer);
+            mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " à été chargé avec succès");
 
         }
         if(generateurExercice.imageFilePath != null) {
             imagefilePath = generateurExercice.imageFilePath;
             imageView.setImage(new Image(new File(imagefilePath).toURI().toString()));
-
+            imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " à été chargé avec succès");
 
         }
 
@@ -71,6 +78,7 @@ public class ControllerPage2 extends SuperController implements Initializable {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
 
         mediaView.setMediaPlayer(mediaPlayer);
+        mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " à été chargé avec succès");
 
          List list =  media.getTracks();
         for (Object objet : list
@@ -90,6 +98,7 @@ public class ControllerPage2 extends SuperController implements Initializable {
         //TODO indiquer que le media est bien charger sur l'interface  et faire une vérif que le chemin obtenue est pas null
 
         imageView.setImage(new Image(new File(imagefilePath).toURI().toString()));
+        imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " à été chargé avec succès");
 
     }
 

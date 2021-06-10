@@ -100,11 +100,11 @@ public class GenerateurExercice {
 
         List<String> stringList = new ArrayList<>();
 
-        if(mediaFilePath == null || mediaFilePath.isEmpty() || !mediaFilePath.matches(".*\\w.*")) stringList.add("un media");
-        if(imageFilePath == null || imageFilePath.isEmpty() || !imageFilePath.matches(".*\\w.*")) stringList.add("une image");
-        if(titreExercice == null || titreExercice.isEmpty() || !titreExercice.matches(".*\\w.*") ) stringList.add("un titre pour l'exercice");
-        if(consigneExercice  == null || consigneExercice.isEmpty() || !consigneExercice.matches(".*\\w.*")) stringList.add("un consigne");
-        if(scriptExercice == null || scriptExercice.isEmpty()) stringList.add("un script");
+        if(mediaFilePath == null || mediaFilePath.isEmpty() || mediaFilePath.matches(" +")) stringList.add("un media");
+        if(imageFilePath == null || imageFilePath.isEmpty() || imageFilePath.matches(" +")) stringList.add("une image");
+        if(titreExercice == null || titreExercice.isEmpty() || titreExercice.matches(" +") ) stringList.add("un titre pour l'exercice");
+        if(consigneExercice  == null || consigneExercice.isEmpty() || consigneExercice.matches(" +")) stringList.add("un consigne");
+        if(scriptExercice == null || scriptExercice.isEmpty() || scriptExercice.matches(" +")) stringList.add("un script");
 
         return stringList;
     }
@@ -220,6 +220,30 @@ public class GenerateurExercice {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
+        }
+    }
+
+
+    public void loadInfoFromExercice(Exercice exercice){
+        scriptExercice = exercice.getScript();
+        occultationCharacter = exercice.getOccultationCharacter();
+        consigneExercice = exercice.getConsigne();
+        titreExercice = exercice.getTitre();
+
+
+        if(exercice instanceof Entrainement){
+            Entrainement entrainement = (Entrainement) exercice;
+            aideText = entrainement.getAideText();
+            nbLetterMinimum = entrainement.getNbLetterMinimum();
+            aideAccepter = entrainement.isHelpAllowed();
+            allowDisplayingSolution = entrainement.isAllowDisplayingSolution();
+            remplacementPartiel = entrainement.isAllowReplacement();
+            sensibiliterAlaCaseActiver = entrainement.isCaseSensitive();
+            allowDisplayNbWordDiscover = entrainement.isAllowDisplayNbWordDiscover();
+
+        } else if (exercice instanceof Evaluation){
+            tempAlouer = ((Evaluation) exercice).getTemps();
+
         }
     }
 

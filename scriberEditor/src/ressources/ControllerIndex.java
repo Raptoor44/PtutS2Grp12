@@ -67,26 +67,7 @@ public class ControllerIndex extends SuperController implements Initializable {
 
         Exercice exercice = exerciceLoader.chargerUnExercice(fileExercice.getPath());
 
-        generateurExercice.scriptExercice = exercice.getScript();
-        generateurExercice.occultationCharacter = exercice.getOccultationCharacter();
-        generateurExercice.consigneExercice = exercice.getConsigne();
-        generateurExercice.titreExercice = exercice.getTitre();
-
-
-        if(exercice instanceof Entrainement){
-            Entrainement entrainement = (Entrainement) exercice;
-            generateurExercice.aideText = entrainement.getAideText();
-            generateurExercice.nbLetterMinimum = entrainement.getNbLetterMinimum();
-            generateurExercice.aideAccepter = entrainement.isHelpAllowed();
-            generateurExercice.allowDisplayingSolution = entrainement.isAllowDisplayingSolution();
-            generateurExercice.remplacementPartiel = entrainement.isAllowReplacement();
-            generateurExercice.sensibiliterAlaCaseActiver = entrainement.isCaseSensitive();
-            generateurExercice.allowDisplayNbWordDiscover = entrainement.isAllowDisplayNbWordDiscover();
-
-        } else if (exercice instanceof Evaluation){
-            generateurExercice.tempAlouer = ((Evaluation) exercice).getTemps();
-
-        }
+        generateurExercice.loadInfoFromExercice(exercice);
 
         onNextPageClick(event);
     }

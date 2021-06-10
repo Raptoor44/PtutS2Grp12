@@ -43,7 +43,7 @@ public class ControllerPage1 extends SuperController implements Initializable {
 
 
 
-        if(titre.getText() == null || titre.getText().isEmpty() || !titre.getText().matches(".*\\w.*")){
+        if(titre.getText() == null || titre.getText().isEmpty() || titre.getText().matches(" +")){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Attention !!");
 
@@ -52,7 +52,7 @@ public class ControllerPage1 extends SuperController implements Initializable {
             alert.showAndWait();
             return;
         }
-        if(consigne.getText() == null || consigne.getText().isEmpty() || !consigne.getText().matches(".*\\w.*")){
+        if(consigne.getText() == null || consigne.getText().isEmpty() || consigne.getText().matches(" +")){
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Attention !!");
 
