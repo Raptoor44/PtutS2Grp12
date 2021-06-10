@@ -4,6 +4,7 @@
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.layout.VBox?>
@@ -16,7 +17,7 @@
             <Font size="34.0" />
          </font>
       </Label>
-      <VBox layoutX="187.0" layoutY="245.0" prefHeight="200.0">
+      <VBox layoutX="163.0" layoutY="245.0" prefHeight="200.0">
          <children>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
@@ -59,6 +60,61 @@
             <Font size="26.0" />
          </font>
       </Button>
-      <TextArea fx:id="area" layoutX="479.0" layoutY="139.0" prefHeight="389.0" prefWidth="493.0" />
+      <VBox layoutX="563.0" layoutY="245.0" spacing="18.0">
+         <children>
+            <HBox>
+               <children>
+                  <Label text="Nom :">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="surname">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Prénom :">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="name">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+            <HBox>
+               <children>
+                  <Label text="Classe :">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                     <HBox.margin>
+                        <Insets right="10.0" />
+                     </HBox.margin>
+                  </Label>
+                  <TextField fx:id="group">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </TextField>
+               </children>
+            </HBox>
+         </children>
+      </VBox>
+      <TextArea fx:id="area" layoutX="498.0" layoutY="151.0" prefHeight="389.0" prefWidth="493.0" />
    </children>
 </AnchorPane>
