@@ -56,13 +56,13 @@ public class ControllerPage2 extends SuperController implements Initializable {
             MediaPlayer mediaPlayer = new MediaPlayer(media);
 
             mediaView.setMediaPlayer(mediaPlayer);
-            mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " à été chargé avec succès");
+            mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " a été chargé avec succès");
 
         }
         if(generateurExercice.imageFilePath != null) {
             imagefilePath = generateurExercice.imageFilePath;
             imageView.setImage(new Image(new File(imagefilePath).toURI().toString()));
-            imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " à été chargé avec succès");
+            imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " a été chargé avec succès");
 
         }
 
@@ -78,7 +78,7 @@ public class ControllerPage2 extends SuperController implements Initializable {
         MediaPlayer mediaPlayer = new MediaPlayer(media);
 
         mediaView.setMediaPlayer(mediaPlayer);
-        mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " à été chargé avec succès");
+        mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " a été chargé avec succès");
 
          List list =  media.getTracks();
         for (Object objet : list
@@ -98,7 +98,7 @@ public class ControllerPage2 extends SuperController implements Initializable {
         //TODO indiquer que le media est bien charger sur l'interface  et faire une vérif que le chemin obtenue est pas null
 
         imageView.setImage(new Image(new File(imagefilePath).toURI().toString()));
-        imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " à été chargé avec succès");
+        imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " a été chargé avec succès");
 
     }
 
