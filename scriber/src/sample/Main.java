@@ -4,6 +4,7 @@ import exercice.Entrainement;
 import exercice.Evaluation;
 import exercice.Exercice;
 import javafx.application.Application;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -12,7 +13,11 @@ import javafx.scene.image.Image;
 import javafx.stage.Stage;
 import ressources.*;
 
+import java.awt.*;
 import java.io.File;
+import java.io.IOException;
+import java.net.URISyntaxException;
+import java.net.URL;
 
 public final class Main extends Application {
 
@@ -123,4 +128,7 @@ public final class Main extends Application {
     public Score getScore() {
         return score;
     }
+
+
+
 }
