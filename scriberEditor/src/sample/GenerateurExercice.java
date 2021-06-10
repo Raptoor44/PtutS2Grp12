@@ -101,7 +101,6 @@ public class GenerateurExercice {
         List<String> stringList = new ArrayList<>();
 
         if(mediaFilePath == null || mediaFilePath.isEmpty() || mediaFilePath.matches(" +")) stringList.add("un media");
-        if(imageFilePath == null || imageFilePath.isEmpty() || imageFilePath.matches(" +")) stringList.add("une image");
         if(titreExercice == null || titreExercice.isEmpty() || titreExercice.matches(" +") ) stringList.add("un titre pour l'exercice");
         if(consigneExercice  == null || consigneExercice.isEmpty() || consigneExercice.matches(" +")) stringList.add("un consigne");
         if(scriptExercice == null || scriptExercice.isEmpty() || scriptExercice.matches(" +")) stringList.add("un script");
