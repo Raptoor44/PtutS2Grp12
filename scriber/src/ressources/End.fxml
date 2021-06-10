@@ -3,7 +3,6 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
-<?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.HBox?>
@@ -12,12 +11,12 @@
 
 <AnchorPane maxHeight="690.0" maxWidth="1024.0" minHeight="690.0" minWidth="1024.0" prefHeight="690.0" prefWidth="1024.0" style="-fx-background-color: FFFFFF;" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.EndController">
    <children>
-      <Label alignment="CENTER" layoutX="279.0" layoutY="37.0" prefHeight="75.0" prefWidth="524.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Fin de l'exercice" textFill="WHITE">
+      <Label alignment="CENTER" layoutX="279.0" layoutY="37.0" prefHeight="75.0" prefWidth="524.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Fin de l'exercice" textFill="WHITE" AnchorPane.bottomAnchor="578.0" AnchorPane.leftAnchor="279.0" AnchorPane.rightAnchor="221.0" AnchorPane.topAnchor="37.0">
          <font>
             <Font size="34.0" />
          </font>
       </Label>
-      <VBox layoutX="163.0" layoutY="245.0" prefHeight="200.0">
+      <VBox layoutX="163.0" layoutY="245.0" prefHeight="200.0" AnchorPane.bottomAnchor="245.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="752.0" AnchorPane.topAnchor="245.0">
          <children>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
@@ -55,13 +54,12 @@
             </HBox>
          </children>
       </VBox>
-      <Button fx:id="save" layoutX="368.0" layoutY="597.0" mnemonicParsing="false" onAction="#onExportClick" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Sauvegarder vos informations" textFill="WHITE">
+      <Button fx:id="save" layoutX="368.0" layoutY="597.0" mnemonicParsing="false" onAction="#onExportClick" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Sauvegarder vos informations" textFill="WHITE" AnchorPane.bottomAnchor="37.0" AnchorPane.leftAnchor="368.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="597.0">
          <font>
             <Font size="26.0" />
          </font>
       </Button>
-      <TextArea fx:id="area" layoutX="498.0" layoutY="151.0" prefHeight="389.0" prefWidth="493.0" />
-      <VBox layoutX="563.0" layoutY="245.0" spacing="18.0">
+      <VBox fx:id="vb" layoutX="563.0" layoutY="245.0" spacing="18.0" AnchorPane.bottomAnchor="265.0" AnchorPane.leftAnchor="563.0" AnchorPane.rightAnchor="73.0" AnchorPane.topAnchor="245.0">
          <children>
             <HBox>
                <children>
@@ -116,5 +114,6 @@
             </HBox>
          </children>
       </VBox>
+      <AnchorPane fx:id="pane" layoutX="498.0" layoutY="151.0" prefHeight="389.0" prefWidth="493.0" AnchorPane.bottomAnchor="150.0" AnchorPane.leftAnchor="498.0" AnchorPane.rightAnchor="33.0" AnchorPane.topAnchor="151.0" />
    </children>
 </AnchorPane>

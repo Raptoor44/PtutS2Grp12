@@ -347,7 +347,6 @@ public class ExerciseController implements Initializable {
         main.getMediaAfficheur().closeMedia();
         main.setTextAfficheur(textAfficheur);
         main.getScore().setPoints(textAfficheur.getPoints());
-        main.getScore().setNbWords(textAfficheur.getWords().size());
         main.getScore().setAnswer(textAfficheur.buildOccultedScript());
         pageLoader.loadSubPage(Layout.FIN_EXERCICE.getPathToFile());
     }

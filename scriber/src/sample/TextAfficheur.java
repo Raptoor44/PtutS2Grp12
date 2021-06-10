@@ -9,6 +9,7 @@ public class TextAfficheur {
     private List<Word> words;
     private String score;
     private int points;
+    private int pointsMax;
     private String script;
     private String occultedString;
     private Exercice exercice;
@@ -24,20 +25,6 @@ public class TextAfficheur {
         score = getScore();
     }
 
-    public TextAfficheur(String script, char occultationChar){
-        words = new ArrayList<>();
-        this.script = script;
-        initialize();
-        this.occultationChar = occultationChar;
-        occultedString = script.replaceAll("[a-zA-Z0-9]", String.valueOf(this.occultationChar));
-        updateScore();
-        score = getScore();
-    }
-
-    public List<Word> getWords() {
-        return words;
-    }
-
     private void initialize() {
         String script2 = format(script);
         int index = 0;
@@ -45,9 +32,9 @@ public class TextAfficheur {
 
         for (String str : script2.split("\\s+")) {
             index = script2.indexOf(str, index + sizeBef);
-            /*if(!exercice.isCaseSensitive()){
+            if(!exercice.isCaseSensitive()){
                 str = str.toLowerCase();
-            }*/
+            }
             sizeBef = str.length();
             words.add(new Word(str, index));
         }
@@ -98,8 +85,13 @@ public class TextAfficheur {
 
 
     private void updateScore() {
+        List<Word> wordList = new ArrayList<>();
         Set<Word> set = new HashSet<>(words);
-        List<Word> wordList = new ArrayList<>(set);
+        wordList.addAll(set);
+
+        if(pointsMax == 0){
+            pointsMax = wordList.size();
+        }
 
         int count = 0;
         for(Word w : wordList){
@@ -144,5 +136,13 @@ public class TextAfficheur {
 
     public int getPoints() {
         return points;
+    }
+
+    public List<Word> getWords() {
+        return words;
+    }
+
+    public int getPointsMax() {
+        return pointsMax;
     }
 }

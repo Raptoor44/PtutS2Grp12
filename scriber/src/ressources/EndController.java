@@ -12,9 +12,15 @@ import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
+import org.fxmisc.flowless.VirtualizedScrollPane;
+import org.fxmisc.richtext.InlineCssTextArea;
 import sample.Main;
 import sample.Score;
+import sample.Word;
+
+import org.fxmisc.richtext.StyledTextArea;
 
 import java.awt.*;
 import java.io.File;
@@ -50,10 +56,13 @@ public class EndController implements Initializable {
     HBox mark;
 
     @FXML
-    TextArea area;
+    Button save;
 
     @FXML
-    Button save;
+    AnchorPane pane;
+
+    @FXML
+    VBox vb;
 
     private Score score;
     private Main main;
@@ -65,20 +74,29 @@ public class EndController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
-        scoreLabel.setText(String.format("%d / %d", score.getPoints(),score.getNbWords()));
+        scoreLabel.setText(String.format("%d / %d", main.getTextAfficheur().getPoints(), main.getTextAfficheur().getPointsMax()));
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
-        float score20 = 20 * (float) score.getPoints() / (float) score.getNbWords();
+        float score20 = 20 * (float) score.getPoints() / (float) main.getTextAfficheur().getPointsMax();
         scoreOn20.setText(decimalFormat.format(score20) + "/ 20");
+
+        InlineCssTextArea inlineCssTextArea = new InlineCssTextArea();
 
         if(main.getExercice() instanceof Entrainement){
             mark.setVisible(false);
             save.setDisable(true);
             save.setVisible(false);
-            area.setText(main.getExercice().getScript());
-            area.setEditable(false);
+            vb.setVisible(false);
+            vb.setDisable(true);
+            inlineCssTextArea.appendText(main.getExercice().getScript());
+            inlineCssTextArea = colorTextArea(inlineCssTextArea);
+            inlineCssTextArea.setEditable(false);
+            inlineCssTextArea.setPrefSize(pane.getPrefWidth(), pane.getPrefHeight());
+            inlineCssTextArea.setStyle("-fx-border-color:  #848484; -fx-background-color:  #F6F6F6; -fx-padding: 5,5,5,5;");
+            VirtualizedScrollPane<InlineCssTextArea> vsPane = new VirtualizedScrollPane<>(inlineCssTextArea);
+            pane.getChildren().add(vsPane);
         } else {
-            area.setDisable(true);
-            area.setVisible(false);
+            inlineCssTextArea.setDisable(true);
+            inlineCssTextArea.setVisible(false);
         }
     }
 
@@ -151,5 +169,15 @@ public class EndController implements Initializable {
         }
 
 
+    }
+
+    private InlineCssTextArea colorTextArea(InlineCssTextArea inlineCssTextArea){
+        for(Word word : main.getTextAfficheur().getWords()){
+            if(word.isDiscovered()){
+                inlineCssTextArea.setStyle(word.getIndex(), word.getIndex() + word.getLength(), "-fx-fill:  #5CA4DA;" + "-fx-font-weight: bold;");
+            }
+        }
+
+        return inlineCssTextArea;
     }
 }

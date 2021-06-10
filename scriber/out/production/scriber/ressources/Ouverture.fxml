@@ -30,24 +30,24 @@
           </Menu>
         </menus>
       </MenuBar>
-      <AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0">
+      <AnchorPane fx:id="anchorPane" prefHeight="817.0" prefWidth="1335.0">
          <children>
-            <Text layoutX="40.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="55.9375">
+            <Text layoutX="40.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue" AnchorPane.leftAnchor="40.0">
                <font>
                   <Font size="64.0" />
                </font>
             </Text>
-            <Text layoutX="100.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sur" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.9375">
+            <Text layoutX="100.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sur" AnchorPane.leftAnchor="100.0">
                <font>
                   <Font size="64.0" />
                </font>
             </Text>
-            <Text fill="#5ca4da" layoutX="195.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scriber" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="134.9375">
+            <Text fill="#5ca4da" layoutX="195.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scriber" AnchorPane.leftAnchor="195.0">
                <font>
                   <Font size="64.0" />
                </font>
             </Text>
-            <Button fx:id="openFile" alignment="CENTER" mnemonicParsing="false" onAction="#OnLoadExerciceButtonCLick" prefHeight="168.0" prefWidth="775.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Importer ou ouvrir votre exercice" textFill="WHITE" AnchorPane.leftAnchor="322.0" AnchorPane.topAnchor="428.0">
+            <Button fx:id="openFile" alignment="CENTER" layoutX="280.0" layoutY="428.0" mnemonicParsing="false" onAction="#OnLoadExerciceButtonCLick" prefHeight="168.0" prefWidth="775.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Importer ou ouvrir votre exercice" textFill="WHITE" AnchorPane.bottomAnchor="220.0" AnchorPane.leftAnchor="280.0" AnchorPane.rightAnchor="280.0" AnchorPane.topAnchor="428.0">
                <font>
                   <Font size="48.0" />
                </font>

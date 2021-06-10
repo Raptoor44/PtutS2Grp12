@@ -3,7 +3,6 @@ package sample;
 public class Score {
 
     private int points;
-    private int nbWords;
     private long startTime;
     private long totalTimePased;
     private String answer;
@@ -29,16 +28,8 @@ public class Score {
         return totalTimePased;
     }
 
-    public int getNbWords() {
-        return nbWords;
-    }
-
     public void setPoints(int points) {
         this.points = points;
-    }
-
-    public void setNbWords(int nbWords) {
-        this.nbWords = nbWords;
     }
 
     public void setAnswer(String answer) {

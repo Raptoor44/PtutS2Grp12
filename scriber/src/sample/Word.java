@@ -1,5 +1,7 @@
 package sample;
 
+import java.util.Objects;
+
 public class Word {
 
     private boolean discovered;
@@ -53,5 +55,18 @@ public class Word {
 
     public void setPartialLength(int partialLength){
         this.partialLength = partialLength;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Word word = (Word) o;
+        return value.equals(word.value);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(value);
     }
 }
