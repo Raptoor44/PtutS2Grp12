@@ -60,6 +60,7 @@
             <Font size="26.0" />
          </font>
       </Button>
+      <TextArea fx:id="area" layoutX="498.0" layoutY="151.0" prefHeight="389.0" prefWidth="493.0" />
       <VBox layoutX="563.0" layoutY="245.0" spacing="18.0">
          <children>
             <HBox>
@@ -72,7 +73,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="surname">
+                  <TextField fx:id="surname" promptText="Votre nom ici..." style="-fx-background-radius: 32; -fx-border-radius: 32; -fx-border-color: #5CA4DA;">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -89,7 +90,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="name">
+                  <TextField fx:id="name" promptText="Votre prénom ici..." style="-fx-background-radius: 32; -fx-border-radius: 32; -fx-border-color: #5CA4DA;">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -106,7 +107,7 @@
                         <Insets right="10.0" />
                      </HBox.margin>
                   </Label>
-                  <TextField fx:id="group">
+                  <TextField fx:id="group" promptText="Votre classe ici..." style="-fx-border-color: #5CA4DA; -fx-background-radius: 32; -fx-border-radius: 32;">
                      <font>
                         <Font size="22.0" />
                      </font>
@@ -115,6 +116,5 @@
             </HBox>
          </children>
       </VBox>
-      <TextArea fx:id="area" layoutX="498.0" layoutY="151.0" prefHeight="389.0" prefWidth="493.0" />
    </children>
 </AnchorPane>
