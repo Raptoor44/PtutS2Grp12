@@ -36,8 +36,6 @@ public class Controller implements Initializable {
         main = Main.getInstance();
         exerciceLoader = main.getExerciceLoader();
         if(exerciceLoader == null) System.err.println("wtf dude");
-
-
     }
 
     @Override

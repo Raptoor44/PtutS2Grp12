@@ -21,7 +21,7 @@
                         <Font size="34.0" />
                      </font>
                   </Label>
-                  <Button fx:id="save" layoutX="327.0" layoutY="571.0" mnemonicParsing="false" onAction="#onExportClick" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Sauvegarder vos informations" textFill="WHITE">
+                  <Button fx:id="save" layoutX="327.0" layoutY="573.0" mnemonicParsing="false" onAction="#onExportClick" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Sauvegarder vos informations" textFill="WHITE">
                      <font>
                         <Font size="26.0" />
                      </font>
@@ -120,6 +120,11 @@
                         </HBox>
                      </children>
                   </VBox>
+                  <Button layoutX="882.0" layoutY="573.0" mnemonicParsing="false" onAction="#exit" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Quitter" textFill="WHITE">
+                     <font>
+                        <Font size="26.0" />
+                     </font>
+                  </Button>
                </children>
             </AnchorPane>
          </children>

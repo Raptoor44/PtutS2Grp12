@@ -1,6 +1,7 @@
 package ressources;
 
 import exercice.Entrainement;
+import javafx.application.Platform;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
@@ -105,6 +106,15 @@ public class EndController implements Initializable {
         }
     }
 
+    private InlineCssTextArea colorTextArea(InlineCssTextArea inlineCssTextArea){
+        for(Word word : main.getTextAfficheur().getWords()){
+            if(word.isDiscovered()){
+                inlineCssTextArea.setStyle(word.getIndex(), word.getIndex() + word.getLength(), "-fx-fill:  #5CA4DA;" + "-fx-font-weight: bold;");
+            }
+        }
+
+        return inlineCssTextArea;
+    }
 
     @FXML
     void onExportClick(ActionEvent event){
@@ -176,13 +186,9 @@ public class EndController implements Initializable {
 
     }
 
-    private InlineCssTextArea colorTextArea(InlineCssTextArea inlineCssTextArea){
-        for(Word word : main.getTextAfficheur().getWords()){
-            if(word.isDiscovered()){
-                inlineCssTextArea.setStyle(word.getIndex(), word.getIndex() + word.getLength(), "-fx-fill:  #5CA4DA;" + "-fx-font-weight: bold;");
-            }
-        }
-
-        return inlineCssTextArea;
+    @FXML
+    private void exit(ActionEvent actionEvent){
+        Platform.exit();
     }
+
 }
