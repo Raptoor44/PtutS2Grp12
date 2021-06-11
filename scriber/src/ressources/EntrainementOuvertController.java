@@ -9,17 +9,23 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import sample.*;
+import sun.plugin.javascript.navig.Anchor;
 
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
 
 public class EntrainementOuvertController implements Initializable {
+
+    @FXML
+    AnchorPane anchorPane;
+
 
     @FXML
     Label exerciseTitle;
@@ -77,6 +83,11 @@ public class EntrainementOuvertController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        AnchorPane.setTopAnchor(anchorPane,.0);
+        AnchorPane.setRightAnchor(anchorPane,.0);
+        AnchorPane.setLeftAnchor(anchorPane,.0);
+        AnchorPane.setBottomAnchor(anchorPane,.0);
+
         displayFile(exercice);
     }
 

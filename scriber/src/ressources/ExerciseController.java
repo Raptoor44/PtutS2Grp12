@@ -16,6 +16,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
+import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -84,6 +85,9 @@ public class ExerciseController implements Initializable {
     @FXML
     ImageView speakerimgView;
 
+    @FXML
+    AnchorPane anchorPane;
+
     private double previousVolume;
 
 
@@ -118,6 +122,12 @@ public class ExerciseController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        AnchorPane.setTopAnchor(anchorPane,.0);
+        AnchorPane.setRightAnchor(anchorPane,.0);
+        AnchorPane.setLeftAnchor(anchorPane,.0);
+        AnchorPane.setBottomAnchor(anchorPane,.0);
+
+
         mediaAfficheur.setMediaView(mediaView);
         displayFile(exercice);
 
