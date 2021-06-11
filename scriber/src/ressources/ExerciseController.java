@@ -4,10 +4,7 @@ import exercice.Entrainement;
 import exercice.Evaluation;
 import exercice.Exercice;
 import javafx.application.Platform;
-import javafx.beans.InvalidationListener;
-import javafx.beans.Observable;
 import javafx.event.ActionEvent;
-import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
@@ -17,6 +14,7 @@ import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
@@ -50,12 +48,6 @@ public class ExerciseController implements Initializable {
     MediaView mediaView;
 
     @FXML
-    Button pause;
-
-    @FXML
-    Button start;
-
-    @FXML
     Button validate;
 
     @FXML
@@ -79,8 +71,8 @@ public class ExerciseController implements Initializable {
     @FXML
     Button help;
 
-    private static final Image SPEAKERIMG = new Image("ressources/img/speaker.png");
-    private static final Image SPEAKERMUTEIMG = new Image("ressources/img/muteSpeaker.png");
+    @FXML
+    ImageView playImg;
 
     @FXML
     ImageView speakerimgView;
@@ -90,7 +82,12 @@ public class ExerciseController implements Initializable {
 
     private double previousVolume;
 
+    private static final Image SPEAKER_IMG = new Image("ressources/img/speaker.png");
+    private static final Image SPEAKER_MUTE_IMG = new Image("ressources/img/muteSpeaker.png");
+    private static final Image PLAY_IMG = new Image("ressources/img/play.png");
+    private static final Image PAUSE_IMG = new Image("ressources/img/pause-button.png");
 
+    private double previousVolume;
 
     private ExerciceLoader exerciceLoader;
     private Main main;
@@ -219,8 +216,6 @@ public class ExerciseController implements Initializable {
             help.setVisible(false);
             help.setDisable(true);
         }
-
-
 
     }
 
@@ -397,9 +392,9 @@ public class ExerciseController implements Initializable {
     void onSliderVolumeClick(MouseEvent event){
         mediaAfficheur.getMediaPlayer().setVolume(volumeSlider.getValue());
         if(volumeSlider.getValue() > 0){
-            speakerimgView.setImage(SPEAKERIMG);
+            speakerimgView.setImage(SPEAKER_IMG);
         }else{
-            speakerimgView.setImage(SPEAKERMUTEIMG);
+            speakerimgView.setImage(SPEAKER_MUTE_IMG);
 
         }
     }
@@ -408,15 +403,32 @@ public class ExerciseController implements Initializable {
     void onImageViewClick(MouseEvent event){
         if(volumeSlider.getValue() > 0){
             previousVolume = volumeSlider.getValue();
-            speakerimgView.setImage(SPEAKERMUTEIMG);
+            speakerimgView.setImage(SPEAKER_MUTE_IMG);
             volumeSlider.setValue(.0);
         }else{
-            speakerimgView.setImage(SPEAKERIMG);
+            speakerimgView.setImage(SPEAKER_IMG);
             volumeSlider.setValue(previousVolume);
 
         }
         mediaAfficheur.getMediaPlayer().setVolume(volumeSlider.getValue());
 
+    }
+
+    @FXML
+    void onPauseClick(MouseEvent event){
+        MediaPlayer.Status status = mediaAfficheur.getMediaPlayer().getStatus();
+
+        if(status == MediaPlayer.Status.UNKNOWN || status == MediaPlayer.Status.HALTED){
+            return;
+        }
+
+        if ( status == MediaPlayer.Status.PAUSED || status == MediaPlayer.Status.READY || status == MediaPlayer.Status.STOPPED) {
+            mediaAfficheur.playMedia();
+            playImg.setImage(PAUSE_IMG);
+        } else {
+            mediaAfficheur.pauseMedia();
+            playImg.setImage(PLAY_IMG);
+        }
     }
 
 }

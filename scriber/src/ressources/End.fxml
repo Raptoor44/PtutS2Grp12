@@ -16,7 +16,7 @@
             <Font size="34.0" />
          </font>
       </Label>
-      <VBox layoutX="163.0" layoutY="245.0" prefHeight="200.0" AnchorPane.bottomAnchor="245.0" AnchorPane.leftAnchor="163.0" AnchorPane.rightAnchor="752.0" AnchorPane.topAnchor="245.0">
+      <VBox layoutX="163.0" layoutY="245.0" prefHeight="200.0">
          <children>
             <HBox alignment="CENTER" spacing="10.0">
                <children>
