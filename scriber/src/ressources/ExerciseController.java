@@ -80,7 +80,6 @@ public class ExerciseController implements Initializable {
     @FXML
     AnchorPane anchorPane;
 
-    private double previousVolume;
 
     private static final Image SPEAKER_IMG = new Image("ressources/img/speaker.png");
     private static final Image SPEAKER_MUTE_IMG = new Image("ressources/img/muteSpeaker.png");

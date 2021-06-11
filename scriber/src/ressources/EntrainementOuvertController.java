@@ -15,8 +15,6 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import sample.*;
-import sun.plugin.javascript.navig.Anchor;
-
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -25,7 +23,6 @@ public class EntrainementOuvertController implements Initializable {
 
     @FXML
     AnchorPane anchorPane;
-
 
     @FXML
     Label exerciseTitle;
