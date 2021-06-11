@@ -20,8 +20,6 @@ import sample.Main;
 import sample.Score;
 import sample.Word;
 
-import org.fxmisc.richtext.StyledTextArea;
-
 import java.awt.*;
 import java.io.File;
 import java.io.FileWriter;
@@ -79,9 +77,8 @@ public class EndController implements Initializable {
         float score20 = 20 * (float) score.getPoints() / (float) main.getTextAfficheur().getPointsMax();
         scoreOn20.setText(decimalFormat.format(score20) + "/ 20");
 
-        InlineCssTextArea inlineCssTextArea = new InlineCssTextArea();
-
         if(main.getExercice() instanceof Entrainement){
+            InlineCssTextArea inlineCssTextArea = new InlineCssTextArea();
             mark.setVisible(false);
             save.setDisable(true);
             save.setVisible(false);
@@ -95,8 +92,8 @@ public class EndController implements Initializable {
             VirtualizedScrollPane<InlineCssTextArea> vsPane = new VirtualizedScrollPane<>(inlineCssTextArea);
             pane.getChildren().add(vsPane);
         } else {
-            inlineCssTextArea.setDisable(true);
-            inlineCssTextArea.setVisible(false);
+            pane.setDisable(true);
+            pane.setVisible(false);
         }
     }
 
