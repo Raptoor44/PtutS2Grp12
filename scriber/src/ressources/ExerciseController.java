@@ -11,6 +11,7 @@ import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.*;
+import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyCode;
 import javafx.scene.input.KeyEvent;
@@ -66,6 +67,9 @@ public class ExerciseController implements Initializable {
     Slider timeSlider;
 
     @FXML
+    Slider volumeSlider;
+
+    @FXML
     Button end;
 
     @FXML
@@ -73,6 +77,14 @@ public class ExerciseController implements Initializable {
 
     @FXML
     Button help;
+
+    private static final Image SPEAKERIMG = new Image("ressources/img/speaker.png");
+    private static final Image SPEAKERMUTEIMG = new Image("ressources/img/muteSpeaker.png");
+
+    @FXML
+    ImageView speakerimgView;
+
+    private double previousVolume;
 
 
 
@@ -99,6 +111,8 @@ public class ExerciseController implements Initializable {
 
         scoreEtudiant = main.getScore();
         scoreEtudiant.startExercice();
+
+        previousVolume = 1;
     }
 
 
@@ -167,6 +181,11 @@ public class ExerciseController implements Initializable {
             }
         }, 0, 50);
 
+        // init du slider du volume
+
+        volumeSlider.setValue(mediaAfficheur.getMediaPlayer().getVolume());
+
+        //init de l'aide
         if(exercice instanceof Entrainement){
             Entrainement entrainement = (Entrainement) exercice;
             if(entrainement.isAllowDisplayingSolution()){
@@ -362,4 +381,32 @@ public class ExerciseController implements Initializable {
             alert.showAndWait();
         }
     }
+
+
+    @FXML
+    void onSliderVolumeClick(MouseEvent event){
+        mediaAfficheur.getMediaPlayer().setVolume(volumeSlider.getValue());
+        if(volumeSlider.getValue() > 0){
+            speakerimgView.setImage(SPEAKERIMG);
+        }else{
+            speakerimgView.setImage(SPEAKERMUTEIMG);
+
+        }
+    }
+
+    @FXML
+    void onImageViewClick(MouseEvent event){
+        if(volumeSlider.getValue() > 0){
+            previousVolume = volumeSlider.getValue();
+            speakerimgView.setImage(SPEAKERMUTEIMG);
+            volumeSlider.setValue(.0);
+        }else{
+            speakerimgView.setImage(SPEAKERIMG);
+            volumeSlider.setValue(previousVolume);
+
+        }
+        mediaAfficheur.getMediaPlayer().setVolume(volumeSlider.getValue());
+
+    }
+
 }

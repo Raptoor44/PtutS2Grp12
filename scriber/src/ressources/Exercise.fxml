@@ -7,6 +7,7 @@
 <?import javafx.scene.control.Slider?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
@@ -53,8 +54,8 @@
       <Button fx:id="start" layoutX="114.0" layoutY="528.0" mnemonicParsing="false" onAction="#start" prefHeight="25.0" prefWidth="53.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Start" />
       <ImageView fx:id="imageView" fitHeight="225.0" fitWidth="400.0" layoutX="141.0" layoutY="303.0" pickOnBounds="true" preserveRatio="true" />
       <MediaView fx:id="mediaView" fitHeight="225.0" fitWidth="400.0" layoutX="141.0" layoutY="303.0" />
-      <Slider fx:id="timeSlider" layoutX="177.0" layoutY="534.0" prefHeight="14.0" prefWidth="400.0" />
-      <Label fx:id="mediaTime" layoutX="590.0" layoutY="533.0">
+      <Slider fx:id="timeSlider" layoutX="177.0" layoutY="534.0" prefHeight="14.0" prefWidth="341.0" />
+      <Label fx:id="mediaTime" layoutX="514.0" layoutY="533.0" prefHeight="20.0" prefWidth="88.0">
          <font>
             <Font size="14.0" />
          </font>
@@ -91,5 +92,11 @@
             </Button>
          </children>
       </FlowPane>
+      <ImageView fx:id="speakerimgView" fitHeight="39.0" fitWidth="26.0" layoutX="604.0" layoutY="528.0" onMouseClicked="#onImageViewClick" pickOnBounds="true" preserveRatio="true">
+         <image>
+            <Image url="@img/speaker.png" />
+         </image>
+      </ImageView>
+      <Slider fx:id="volumeSlider" blockIncrement="0.1" layoutX="633.0" layoutY="534.0" max="1.0" onMouseClicked="#onSliderVolumeClick" onMouseDragged="#onSliderVolumeClick" prefHeight="14.0" prefWidth="62.0" />
    </children>
 </AnchorPane>
