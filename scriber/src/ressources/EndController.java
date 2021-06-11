@@ -62,6 +62,9 @@ public class EndController implements Initializable {
     @FXML
     VBox vb;
 
+    @FXML
+    AnchorPane anchorPane;
+
     private Score score;
     private Main main;
 
@@ -72,6 +75,11 @@ public class EndController implements Initializable {
 
     @Override
     public void initialize(URL location, ResourceBundle resources) {
+        AnchorPane.setTopAnchor(anchorPane,.0);
+        AnchorPane.setRightAnchor(anchorPane,.0);
+        AnchorPane.setLeftAnchor(anchorPane,.0);
+        AnchorPane.setBottomAnchor(anchorPane,.0);
+
         scoreLabel.setText(String.format("%d / %d", main.getTextAfficheur().getPoints(), main.getTextAfficheur().getPointsMax()));
         DecimalFormat decimalFormat = new DecimalFormat("#.##");
         float score20 = 20 * (float) score.getPoints() / (float) main.getTextAfficheur().getPointsMax();
