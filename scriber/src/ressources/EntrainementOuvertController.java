@@ -9,10 +9,12 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.image.ImageView;
+import javafx.scene.media.Media;
+import javafx.scene.media.MediaPlayer;
+import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
 import sample.*;
 
-import javax.print.attribute.standard.Media;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -51,6 +53,9 @@ public class EntrainementOuvertController implements Initializable {
 
     @FXML
     Button startExercise;
+
+    @FXML
+    MediaView mediaView;
 
     private ExerciceLoader exerciceLoader;
     private File fileExercice;
@@ -110,9 +115,16 @@ public class EntrainementOuvertController implements Initializable {
 
         if(mediaAfficheur.isAudio(fileExercice)){
             imageView.setImage(exerciceLoader.chargerImageDepuisExercice(fileExercice.getPath()));
+            mediaView.setDisable(true);
         } else {
             imageView.setDisable(true);
             imageView.setVisible(false);
+
+            javafx.scene.media.Media media = new Media(exerciceLoader.chargerMediaDepuisExercice(fileExercice.getPath()).toURI().toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+            mediaView.setMediaPlayer(mediaPlayer);
+
         }
 
     }
