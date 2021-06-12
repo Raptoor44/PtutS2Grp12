@@ -59,10 +59,10 @@ public class TestController implements Initializable {
     private static final boolean DEFAULT_EST_UNE_EVALUATION_VALUE = true;
 
     private static final String[] PAGEPATHS = {
-            "page1.fxml",
-            "page2.fxml",
-            "page3.fxml",
-            "page4.fxml"
+            "page1TitreEtConsigne.fxml",
+            "page2Media.fxml",
+            "page3Script.fxml",
+            "page4OptionEtExport.fxml"
     };
 
     private int pageIndex;

@@ -13,10 +13,10 @@ import java.io.IOException;
 public class PageLoader {
 
     private static final String INDEXPATH = "Index.fxml";
-    public static final String PAG1PATH = "page1.fxml";
-    public static final String PAG2PATH = "page2.fxml";
-    public static final String PAG3PATH = "page3.fxml";
-    public static final String PAG4PATH = "page4.fxml";
+    public static final String PAG1PATH = "page1TitreEtConsigne.fxml";
+    public static final String PAG2PATH = "page2Media.fxml";
+    public static final String PAG3PATH = "page3Script.fxml";
+    public static final String PAG4PATH = "page4OptionEtExport.fxml";
     private static final String INTERFACEDETEST = "testInterface.fxml";
     private static final String PROGRESSBAR = "partial/progressHeader.fxml";
 

@@ -12,7 +12,7 @@
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.VBox?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="593.0" prefWidth="920.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerIndex">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="678.0" prefWidth="1104.0" stylesheets="@style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.ControllerIndex">
    <children>
       <VBox prefHeight="200.0" prefWidth="100.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
@@ -32,34 +32,34 @@
             </MenuBar>
             <AnchorPane fx:id="anchorPane" prefHeight="472.0" prefWidth="600.0" VBox.vgrow="ALWAYS">
                <children>
-                  <AnchorPane prefHeight="200.0" prefWidth="600.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+                  <AnchorPane prefHeight="233.0" prefWidth="1104.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
                      <children>
-                        <Label alignment="CENTER" layoutX="44.0" layoutY="100.0" prefHeight="51.0" prefWidth="163.0" stylesheets="@style.css" text="sur Scriber Editor" textAlignment="CENTER" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="100.0" />
+                        <Label alignment="CENTER" layoutX="44.0" layoutY="100.0" prefHeight="51.0" prefWidth="169.0" stylesheets="@style.css" text="sur Scriber Editor" textAlignment="CENTER" AnchorPane.bottomAnchor="49.0" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="100.0" />
                         <Label alignment="CENTER" layoutX="44.0" layoutY="35.0" prefHeight="51.0" prefWidth="114.0" text="Bienvenue" textAlignment="CENTER" AnchorPane.bottomAnchor="114.0" AnchorPane.leftAnchor="44.0" AnchorPane.topAnchor="35.0" />
                         <FlowPane alignment="CENTER" layoutX="22.0" layoutY="188.0" prefHeight="74.0" prefWidth="568.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#voirLeDepot" text="voir la page du projet">
+                              <Button mnemonicParsing="false" onAction="#voirLeDepot" styleClass="button18px" text="voir la page du projet">
                                  <FlowPane.margin>
-                                    <Insets right="100.0" />
+                                    <Insets right="80.0" />
                                  </FlowPane.margin>
                               </Button>
-                              <Button mnemonicParsing="false" onAction="#voirLeTuto" text="voir le tutoriel">
+                              <Button mnemonicParsing="false" onAction="#voirLeTuto" styleClass="button18px" text="voir le tutoriel">
                                  <FlowPane.margin>
-                                    <Insets left="100.0" right="100.0" />
+                                    <Insets left="80.0" right="80.0" />
                                  </FlowPane.margin>
                               </Button>
-                              <Button layoutX="53.0" layoutY="30.0" mnemonicParsing="false" onAction="#onModifierUnExerciceClick" text="modifier un exercice">
+                              <Button layoutX="53.0" layoutY="30.0" mnemonicParsing="false" onAction="#onModifierUnExerciceClick" styleClass="button18px" text="modifier un exercice">
                                  <FlowPane.margin>
-                                    <Insets left="100.0" />
+                                    <Insets left="80.0" />
                                  </FlowPane.margin>
                               </Button>
                            </children>
                         </FlowPane>
                      </children>
                   </AnchorPane>
-                  <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutY="192.0" prefHeight="200.0" prefWidth="600.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="198.0">
+                  <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutX="-6.0" layoutY="200.0" prefHeight="200.0" prefWidth="600.0" AnchorPane.bottomAnchor="-2.0" AnchorPane.leftAnchor="-6.0" AnchorPane.rightAnchor="6.0" AnchorPane.topAnchor="200.0">
                      <children>
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="25.0" prefWidth="289.0" text="Démarrer la création d'exercice" />
+                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="90.0" prefWidth="842.0" styleClass="button48px" text="Démarrer la création d'exercice" />
                      </children>
                   </FlowPane>
                </children>

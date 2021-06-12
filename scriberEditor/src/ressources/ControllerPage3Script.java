@@ -12,7 +12,7 @@ import sample.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerPage3 extends  SuperController implements Initializable {
+public class ControllerPage3Script extends  SuperController implements Initializable {
 
 
     @FXML

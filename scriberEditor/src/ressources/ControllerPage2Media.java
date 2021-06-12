@@ -20,7 +20,7 @@ import java.net.URL;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ControllerPage2 extends SuperController implements Initializable {
+public class ControllerPage2Media extends SuperController implements Initializable {
 
     @FXML
     private MediaView mediaView;

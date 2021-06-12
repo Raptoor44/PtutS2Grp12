@@ -13,7 +13,7 @@ import sample.Main;
 import java.net.URL;
 import java.util.ResourceBundle;
 
-public class ControllerPage1 extends SuperController implements Initializable {
+public class ControllerPage1TitreEtConsigne extends SuperController implements Initializable {
 
     @FXML
     private TextField titre;

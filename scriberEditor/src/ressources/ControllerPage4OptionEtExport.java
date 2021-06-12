@@ -28,7 +28,7 @@ import java.util.Arrays;
 import java.util.List;
 import java.util.ResourceBundle;
 
-public class ControllerPage4 extends SuperController implements Initializable {
+public class ControllerPage4OptionEtExport extends SuperController implements Initializable {
 
     @FXML
     private AnchorPane entrainementAnchorPane;
