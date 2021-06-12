@@ -4,14 +4,14 @@
   <headerType>gui</headerType>
   <jar>D:\Document\GitHub\PtutS2Grp12\scriber\out\artifacts\scriber_jar\scriber.jar</jar>
   <outfile>D:\Document\GitHub\PtutS2Grp12\release\Scriber.exe</outfile>
-  <errTitle></errTitle>
+  <errTitle>Télécharge java</errTitle>
   <cmdLine></cmdLine>
   <chdir>.</chdir>
   <priority>normal</priority>
   <downloadUrl>http://java.com/download</downloadUrl>
   <supportUrl></supportUrl>
   <stayAlive>false</stayAlive>
-  <restartOnCrash>true</restartOnCrash>
+  <restartOnCrash>false</restartOnCrash>
   <manifest></manifest>
   <icon>D:\Document\GitHub\PtutS2Grp12\release\logoAppPen.ico</icon>
   <jre>
@@ -23,4 +23,11 @@
     <jdkPreference>preferJre</jdkPreference>
     <runtimeBits>64/32</runtimeBits>
   </jre>
+  <messages>
+    <startupErr>An error occurred while starting the application.</startupErr>
+    <bundledJreErr>This application requires a Java Runtime Environment.</bundledJreErr>
+    <jreVersionErr>assurez vous de posséder une version de java à jour. Java est disponible sur le site https://www.java.com/fr/ </jreVersionErr>
+    <launcherErr>The registry refers to a nonexistent Java Runtime Environment installation or the runtime is corrupted.</launcherErr>
+    <instanceAlreadyExistsMsg>An application instance is already running.</instanceAlreadyExistsMsg>
+  </messages>
 </launch4jConfig>
