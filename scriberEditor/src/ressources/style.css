@@ -219,3 +219,24 @@
     -fx-border-color: #9D9D9D;
     -fx-border-radius: 8;
 }
+
+.spinner{
+    -fx-font-family: "Work Sans";
+    -fx-background-color: #f0eded;
+    -fx-border-color: #848484;
+    -fx-border-radius: 32;
+    -fx-background-radius: 32;
+}
+
+.spinner .text-field {
+    -fx-background-radius: 32;
+    -fx-border-radius: 32;
+}
+
+.spinner .increment-arrow-button,
+.spinner .decrement-arrow-button {
+    -fx-body-color: #f0eded;
+    -fx-background-color: TRANSPARENT;
+    -fx-border-radius: 32;
+    -fx-background-radius: 32;
+}
