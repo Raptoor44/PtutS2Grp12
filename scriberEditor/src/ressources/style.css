@@ -8,6 +8,7 @@
     -fx-font-size: 1.5em;
 }
 
+
 .button18px{
     -fx-font-family: "Work Sans";
     -fx-background-color :  #5CA4DA;
@@ -153,4 +154,69 @@
     -fx-background-color : #5CA4DA;
     -fx-background-insets : 2.0, 0.0, 0.0;
     -fx-background-radius : 2.0em;
+}
+
+/*
+spinner
+ */
+
+
+.spinner {
+    -fx-background-color: transparent;
+    -fx-font-size: 1.5em;
+}
+
+.spinner:focused,
+.spinner:contains-focus {
+    -fx-background-color: transparent;
+}
+
+.spinner .increment-arrow-button .increment-arrow {
+    -fx-background-color: #5CA4DA;
+    -fx-shape: "M 0 4 h 7 l -3.5 -4 z";
+    -fx-padding: 0.166667em 0.333333em 0.166667em 0.333333em;  /* 2 4 2 4 */
+}
+
+.spinner .decrement-arrow-button .decrement-arrow {
+    /* The default Modena styling */
+    -fx-background-color: #5CA4DA;
+    -fx-background-insets: 0 0 -1 0, 0;
+    -fx-padding: 0.166667em 0.333333em 0.166667em 0.333333em; /* 2 4 2 4 */
+    -fx-shape: "M 0 0 h 7 l -3.5 4 z";
+}
+
+/*
+
+CheckBox
+ */
+
+.check-box .text {
+    -fx-font-family: "Work Sans";
+    -fx-font-size: 1.5em;
+}
+
+
+/*
+ChoiceBox
+ */
+
+
+.choice-box{
+    -fx-background-color: #5CA4DA;
+}
+
+.choice-box .text{
+    -fx-font-family: "Work Sans";
+    -fx-font-size: 1.5em;
+
+}
+
+/*
+Text Area
+ */
+
+.text-area{
+    -fx-font-family: "Work Sans";
+    -fx-font-size: 1.5em;
+
 }
