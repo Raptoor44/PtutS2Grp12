@@ -7,7 +7,7 @@
 <?import javafx.scene.layout.HBox?>
 <?import javafx.scene.shape.Line?>
 
-<AnchorPane prefHeight="120.0" prefWidth="576.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.partial.progressController">
+<AnchorPane prefHeight="120.0" prefWidth="690.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.partial.progressController">
    <children>
       <ImageView fitHeight="68.0" fitWidth="50.0" layoutX="267.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="267.0" AnchorPane.rightAnchor="265.0">
          <image>
