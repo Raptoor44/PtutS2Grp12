@@ -1,4 +1,4 @@
-package ressources;
+package controller;
 
 import exercice.Entrainement;
 import exercice.Evaluation;
@@ -14,7 +14,13 @@ import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
-import sample.*;
+import view.Layout;
+import view.PageLoader;
+import model.ExerciceLoader;
+import model.Main;
+import model.MediaAfficheur;
+import model.TextAfficheur;
+
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
@@ -47,9 +53,6 @@ public class EntrainementOuvertController implements Initializable {
 
     @FXML
     ImageView imageView;
-
-    @FXML
-    Label image;
 
     @FXML
     Label help;

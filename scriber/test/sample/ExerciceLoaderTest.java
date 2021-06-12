@@ -1,15 +1,12 @@
 package sample;
 
 import exercice.Exercice;
+import model.ExerciceLoader;
 import org.junit.jupiter.api.Test;
 
-import java.awt.*;
-import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.ObjectInputStream;
-
-import static org.junit.jupiter.api.Assertions.*;
 
 class ExerciceLoaderTest {
 

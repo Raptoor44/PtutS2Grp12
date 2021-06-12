@@ -1,9 +1,8 @@
-package ressources;
+package view;
 
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
 import javafx.scene.layout.AnchorPane;
-import sample.Layout;
 
 import java.io.IOException;
 

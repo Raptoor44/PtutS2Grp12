@@ -1,4 +1,4 @@
-package ressources;
+package controller;
 
 import exercice.Entrainement;
 import javafx.application.Platform;
@@ -8,8 +8,6 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
-import javafx.scene.control.ScrollPane;
-import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.HBox;
@@ -17,9 +15,9 @@ import javafx.scene.layout.VBox;
 import javafx.stage.FileChooser;
 import org.fxmisc.flowless.VirtualizedScrollPane;
 import org.fxmisc.richtext.InlineCssTextArea;
-import sample.Main;
-import sample.Score;
-import sample.Word;
+import model.Main;
+import model.Score;
+import model.Word;
 
 import java.awt.*;
 import java.io.File;
@@ -97,7 +95,7 @@ public class EndController implements Initializable {
             inlineCssTextArea = colorTextArea(inlineCssTextArea);
             inlineCssTextArea.setEditable(false);
             inlineCssTextArea.setPrefSize(pane.getPrefWidth(), pane.getPrefHeight());
-            inlineCssTextArea.setStyle("-fx-border-color:  #848484; -fx-background-color:  #F6F6F6; -fx-padding: 5,5,5,5;");
+            inlineCssTextArea.setWrapText(true);
             VirtualizedScrollPane<InlineCssTextArea> vsPane = new VirtualizedScrollPane<>(inlineCssTextArea);
             pane.getChildren().add(vsPane);
         } else {

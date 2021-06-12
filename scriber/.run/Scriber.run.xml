@@ -1,8 +1,8 @@
 <component name="ProjectRunConfigurationManager">
   <configuration default="false" name="Scriber" type="Application" factoryName="Application">
-    <option name="ALTERNATIVE_JRE_PATH" value="11" />
+    <option name="ALTERNATIVE_JRE_PATH" value="adopt-openjdk-1.8" />
     <option name="ALTERNATIVE_JRE_PATH_ENABLED" value="true" />
-    <option name="MAIN_CLASS_NAME" value="sample.Main" />
+    <option name="MAIN_CLASS_NAME" value="model.Main" />
     <module name="scriber" />
     <option name="VM_PARAMETERS" value="--module-path ../.jdk/javafx-sdk-16/lib --add-modules javafx.controls,javafx.fxml,javafx.base,javafx.media" />
     <method v="2">
