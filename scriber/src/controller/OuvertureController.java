@@ -1,4 +1,4 @@
-package ressources;
+package controller;
 
 import exercice.Entrainement;
 import exercice.Evaluation;
@@ -9,10 +9,10 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.FileChooser;
-import sample.ExerciceLoader;
-import sample.Layout;
-import sample.Main;
-import sample.MediaAfficheur;
+import view.PageLoader;
+import model.ExerciceLoader;
+import view.Layout;
+import model.Main;
 
 import java.awt.*;
 import java.io.File;

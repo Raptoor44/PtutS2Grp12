@@ -1,4 +1,4 @@
-package sample;
+package model;
 
 import exercice.Exercice;
 import javafx.scene.image.Image;

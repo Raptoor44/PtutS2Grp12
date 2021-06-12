@@ -1,4 +1,4 @@
-package sample;
+package view;
 
 public enum Layout {
 

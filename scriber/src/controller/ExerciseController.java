@@ -1,4 +1,4 @@
-package ressources;
+package controller;
 
 import exercice.Entrainement;
 import exercice.Evaluation;
@@ -18,7 +18,9 @@ import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.scene.text.Text;
 import javafx.util.Duration;
-import sample.*;
+import model.*;
+import view.Layout;
+import view.PageLoader;
 
 import java.io.File;
 import java.net.URL;
@@ -33,13 +35,13 @@ public class ExerciseController implements Initializable {
     Label exerciseName;
 
     @FXML
-    Text consigne;
+    Label consigne;
 
     @FXML
-    Text time;
+    Label time;
 
     @FXML
-    Text score;
+    Label score;
 
     @FXML
     TextArea script;

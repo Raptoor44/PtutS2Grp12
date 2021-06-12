@@ -1,17 +1,15 @@
-package ressources;
+package controller;
 
 import exercice.Exercice;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
-import javafx.scene.control.Label;
-import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.text.Text;
 import javafx.scene.text.TextFlow;
 import javafx.stage.FileChooser;
-import sample.ExerciceLoader;
-import sample.Main;
+import model.ExerciceLoader;
+import model.Main;
 
 import java.awt.*;
 import java.io.File;

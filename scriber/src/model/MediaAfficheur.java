@@ -1,10 +1,9 @@
-package sample;
+package model;
 
 import javafx.scene.image.Image;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
-import javafx.util.Duration;
 
 import java.io.File;
 import java.util.Optional;
