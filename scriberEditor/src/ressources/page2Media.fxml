@@ -68,9 +68,9 @@
                         <Insets right="50.0" />
                      </FlowPane.margin>
                   </AnchorPane>
-                  <AnchorPane prefHeight="250.0" prefWidth="400.0">
+                  <AnchorPane prefHeight="250.0" prefWidth="400.0" styleClass="greyContainer">
                      <children>
-                        <VBox alignment="CENTER" layoutX="4.0" spacing="10.0">
+                        <VBox alignment="CENTER" layoutX="17.0" layoutY="17.0" spacing="10.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" spacing="15.0">
                                  <children>
