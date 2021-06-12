@@ -71,7 +71,7 @@
                                     <Font size="22.0" />
                                  </font>
                               </TextField>
-                              <Button fx:id="validate" mnemonicParsing="false" onAction="#enterFXML" prefHeight="39.0" prefWidth="87.0" styleClass="button18px" stylesheets="@../ressources/Style.css" text="Valider" textFill="WHITE">
+                              <Button fx:id="validate" mnemonicParsing="false" onAction="#enterFXML" styleClass="button18em" stylesheets="@../ressources/Style.css" text="Valider" textFill="WHITE">
                                  <font>
                                     <Font size="16.0" />
                                  </font>
@@ -85,7 +85,7 @@
                   </VBox>
                   <HBox alignment="CENTER" layoutX="42.0" layoutY="14.0" spacing="300.0">
                      <children>
-                        <Button fx:id="help" mnemonicParsing="false" onAction="#onButtonAideClick" styleClass="button18px" stylesheets="@../ressources/Style.css" text="Aide" textFill="WHITE">
+                        <Button fx:id="help" mnemonicParsing="false" onAction="#onButtonAideClick" styleClass="button18em" stylesheets="@../ressources/Style.css" text="Aide" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>
@@ -98,7 +98,7 @@
                               <Font size="34.0" />
                            </font>
                         </Label>
-                        <Button fx:id="end" mnemonicParsing="false" onAction="#endButton" styleClass="button18px" stylesheets="@../ressources/Style.css" text="Fin" textFill="WHITE">
+                        <Button fx:id="end" mnemonicParsing="false" onAction="#endButton" styleClass="button18em" stylesheets="@../ressources/Style.css" text="Fin" textFill="WHITE">
                            <font>
                               <Font size="16.0" />
                            </font>

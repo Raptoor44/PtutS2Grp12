@@ -173,7 +173,7 @@
                         <Insets top="10.0" />
                      </VBox.margin>
                   </HBox>
-                  <Button fx:id="startExercise" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#changePage" styleClass="button48px" stylesheets="@../ressources/Style.css" textFill="WHITE">
+                  <Button fx:id="startExercise" alignment="CENTER" contentDisplay="CENTER" mnemonicParsing="false" onMouseClicked="#changePage" styleClass="button32em" stylesheets="@../ressources/Style.css" textFill="WHITE">
                      <font>
                         <Font size="36.0" />
                      </font>

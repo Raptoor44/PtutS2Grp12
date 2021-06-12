@@ -24,7 +24,7 @@
                         <Insets bottom="10.0" left="20.0" right="20.0" top="10.0" />
                      </padding>
                   </Label>
-                  <Button fx:id="save" layoutX="461.0" layoutY="666.0" mnemonicParsing="false" onAction="#onExportClick" styleClass="button26px" stylesheets="@../ressources/Style.css" text="Sauvegarder vos informations" textFill="WHITE">
+                  <Button fx:id="save" layoutX="461.0" layoutY="666.0" mnemonicParsing="false" onAction="#onExportClick" styleClass="button22em" stylesheets="@../ressources/Style.css" text="Sauvegarder vos informations" textFill="WHITE">
                      <font>
                         <Font size="26.0" />
                      </font>
@@ -129,7 +129,7 @@
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
                   </VBox>
-                  <Button layoutX="1105.0" layoutY="666.0" mnemonicParsing="false" onAction="#exit" styleClass="button26px" stylesheets="@../ressources/Style.css" text="Quitter" textFill="WHITE">
+                  <Button layoutX="1105.0" layoutY="666.0" mnemonicParsing="false" onAction="#exit" styleClass="button22em" stylesheets="@../ressources/Style.css" text="Quitter" textFill="WHITE">
                      <font>
                         <Font size="26.0" />
                      </font>

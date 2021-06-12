@@ -7,59 +7,61 @@
     -fx-font-family: "Work Sans";
 }
 
-.button18px{
+.button18em{
     -fx-font-family: "Work Sans";
     -fx-background-color :  #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
-    -fx-font-size: 18px;
+    -fx-font-size: 1.8em;
+    -fx-padding: 1em, 2em, 1em, 2em;
 }
 
-.button18px:hover{
+.button18em:hover{
     -fx-font-family: "Work Sans";
     -fx-background-color :  #F6F6F6;
     -fx-text-fill: #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
-    -fx-font-size: 18px;
+    -fx-font-size: 1.8em;
     -fx-border-color: #848484;
     -fx-border-radius: 32;
 }
 
-.button26px {
+.button22em {
     -fx-font-family: "Work Sans";
     -fx-background-color :  #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
-    -fx-font-size: 26px;
+    -fx-font-size: 2.2em;
+    -fx-padding: 1em, 3em, 1em, 3em;
 }
 
-.button26px:hover {
+.button22em:hover {
     -fx-font-family: "Work Sans";
     -fx-background-color :  #F6F6F6;
     -fx-text-fill: #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
-    -fx-font-size: 26px;
+    -fx-font-size: 2.2em;
     -fx-border-color: #848484;
     -fx-border-radius: 32;
 }
 
-.button48px {
+.button32em {
     -fx-font-family: "Work Sans";
     -fx-background-color :  #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
-    -fx-font-size: 48px;
+    -fx-font-size: 3.2em;
 }
 
-.button48px:hover {
+.button32em:hover {
     -fx-font-family: "Work Sans";
     -fx-background-color :  #F6F6F6;
     -fx-text-fill: #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
-    -fx-font-size: 48px;
+    -fx-font-size: 3.2em;
     -fx-border-color: #848484;
     -fx-border-radius: 32;
 }
@@ -68,7 +70,7 @@
     -fx-border-radius: 32;
     -fx-border-color: #5CA4DA;
     -fx-border-width: 1.5px;
-    -fx-font-size: 48px;
+    -fx-font-size: 3.2em;
     -fx-font-family: "Work Sans";
 }
 
@@ -77,7 +79,7 @@
     -fx-border-radius : 32;
     -fx-border-color :  #5CA4DA;
     -fx-font-family: "Work Sans";
-    -fx-font-size: 22px;
+    -fx-font-size: 1.8em;
 }
 
 .labelContainer {
@@ -86,7 +88,7 @@
     -fx-background-radius: 32;
     -fx-border-color:  #848484;
     -fx-border-radius: 32;
-    -fx-font-size: 22px;
+    -fx-font-size: 1.8em;
 }
 
 .greyContainer{
@@ -95,7 +97,7 @@
 }
 
 .myText-area {
-    -fx-font-size: 14px;
+    -fx-font-size: 1.2em;
     -fx-font-family: "Work Sans";
     -fx-border-color: #848484;
 }

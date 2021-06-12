@@ -39,7 +39,7 @@
          <children>
             <FlowPane alignment="CENTER" prefHeight="584.0" prefWidth="1335.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="232.0">
                <children>
-                  <Button fx:id="openFile" alignment="CENTER" mnemonicParsing="false" onAction="#OnLoadExerciceButtonCLick" styleClass="button48px" stylesheets="@../ressources/Style.css" text="Importer ou ouvrir votre exercice" textFill="WHITE">
+                  <Button fx:id="openFile" alignment="CENTER" mnemonicParsing="false" onAction="#OnLoadExerciceButtonCLick" styleClass="button32em" stylesheets="@../ressources/Style.css" text="Importer ou ouvrir votre exercice" textFill="WHITE">
                      <font>
                         <Font size="48.0" />
                      </font>

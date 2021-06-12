@@ -96,6 +96,7 @@ public class EndController implements Initializable {
             inlineCssTextArea.setEditable(false);
             inlineCssTextArea.setPrefSize(pane.getPrefWidth(), pane.getPrefHeight());
             inlineCssTextArea.setWrapText(true);
+            inlineCssTextArea.setStyle("-fx-border-color: #848484");
             VirtualizedScrollPane<InlineCssTextArea> vsPane = new VirtualizedScrollPane<>(inlineCssTextArea);
             pane.getChildren().add(vsPane);
         } else {
