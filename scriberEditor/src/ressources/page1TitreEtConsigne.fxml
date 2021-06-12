@@ -28,7 +28,7 @@
                <children>
                   <AnchorPane prefHeight="316.0" prefWidth="690.0">
                      <children>
-                        <Button layoutX="284.0" layoutY="267.0" mnemonicParsing="false" onAction="#onNextPageClick" styleClass="button26px" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="0.0" />
+                        <Button layoutX="284.0" layoutY="267.0" mnemonicParsing="false" onAction="#onNextPageClick" styleClass="button22em" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="0.0" />
                         <VBox layoutX="51.0" layoutY="28.0" spacing="25.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="28.0">
                            <children>
                               <HBox alignment="CENTER_LEFT" spacing="15.0">

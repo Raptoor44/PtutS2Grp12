@@ -22,7 +22,7 @@
                   <AnchorPane prefHeight="192.0" prefWidth="788.0">
                      <children>
                         <AnchorPane fx:id="ProgressAnchorPane" layoutX="94.0" prefHeight="136.0" prefWidth="496.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
-                        <Button layoutX="5.0" layoutY="69.0" mnemonicParsing="false" onAction="#onRetourClick" prefHeight="35.0" prefWidth="96.0" styleClass="button18px" text="Retour" textFill="WHITE" />
+                        <Button layoutX="5.0" layoutY="69.0" mnemonicParsing="false" onAction="#onRetourClick" prefHeight="35.0" prefWidth="96.0" styleClass="button18em" text="Retour" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                </children>
@@ -32,7 +32,7 @@
                <children>
                   <AnchorPane prefHeight="268.0" prefWidth="396.0">
                      <children>
-                        <VBox alignment="CENTER" layoutY="2.0" spacing="10.0">
+                        <VBox alignment="CENTER" layoutY="2.0" spacing="10.0" styleClass="greyContainer">
                            <children>
                               <HBox alignment="CENTER" spacing="15.0">
                                  <children>
@@ -59,6 +59,9 @@
                                  </font>
                               </Label>
                            </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
                         </VBox>
                      </children>
                      <FlowPane.margin>
@@ -104,7 +107,7 @@
             </FlowPane>
             <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="NEVER">
                <children>
-                  <Button mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="49.0" prefWidth="288.0" styleClass="button26px" text="Valider" textFill="WHITE" />
+                  <Button mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="49.0" prefWidth="288.0" styleClass="button22em" text="Valider" textFill="WHITE" />
                </children>
             </FlowPane>
             <Pane layoutX="10.0" layoutY="116.0" prefHeight="133.0" prefWidth="1239.0" VBox.vgrow="ALWAYS" />

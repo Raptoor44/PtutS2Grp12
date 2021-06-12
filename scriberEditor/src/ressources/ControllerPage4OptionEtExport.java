@@ -51,7 +51,6 @@ public class ControllerPage4OptionEtExport extends SuperController implements In
     @FXML
     private TextField tempAlouer;
 
-
     @FXML
     private CheckBox allowHelpCheckBox;
 

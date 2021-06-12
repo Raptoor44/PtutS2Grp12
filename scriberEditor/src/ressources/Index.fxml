@@ -38,12 +38,12 @@
                      <children>
                         <FlowPane alignment="CENTER" layoutX="145.0" layoutY="159.0" prefHeight="74.0" prefWidth="814.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="145.0" AnchorPane.rightAnchor="145.0">
                            <children>
-                              <Button mnemonicParsing="false" onAction="#voirLeTuto" styleClass="button18px" text="Accéder au tutoriel" textFill="WHITE">
+                              <Button mnemonicParsing="false" onAction="#voirLeTuto" styleClass="button18em" text="Accéder au tutoriel" textFill="WHITE">
                                  <FlowPane.margin>
                                     <Insets right="80.0" />
                                  </FlowPane.margin>
                               </Button>
-                              <Button layoutX="53.0" layoutY="30.0" mnemonicParsing="false" onAction="#onModifierUnExerciceClick" styleClass="button18px" text="Modifier un exercice" textFill="WHITE">
+                              <Button layoutX="53.0" layoutY="30.0" mnemonicParsing="false" onAction="#onModifierUnExerciceClick" styleClass="button18em" text="Modifier un exercice" textFill="WHITE">
                                  <FlowPane.margin>
                                     <Insets left="80.0" />
                                  </FlowPane.margin>
@@ -52,21 +52,21 @@
                         </FlowPane>
                         <VBox layoutX="42.0" layoutY="29.0" styleClass="greyContainer" AnchorPane.leftAnchor="42.0" AnchorPane.topAnchor="29.0">
                            <children>
-                              <Label alignment="CENTER" text="Bienvenue" textAlignment="CENTER">
+                              <Label alignment="CENTER" styleClass="welcome" text="Bienvenue" textAlignment="CENTER">
                                  <font>
                                     <Font size="28.0" />
                                  </font>
                               </Label>
-                              <HBox spacing="10.0">
+                              <HBox spacing="5.0">
                                  <children>
-                                    <Label alignment="CENTER" stylesheets="@style.css" text="sur" textAlignment="CENTER">
+                                    <Label alignment="CENTER" styleClass="welcome" stylesheets="@style.css" text="sur" textAlignment="CENTER">
                                        <font>
                                           <Font size="28.0" />
                                        </font>
                                     </Label>
-                                    <Label alignment="CENTER" stylesheets="@style.css" text="Scriber Editor" textAlignment="CENTER" textFill="#5ca4da">
+                                    <Label alignment="CENTER" styleClass="welcome" stylesheets="@style.css" text="Scriber Editor" textAlignment="CENTER" textFill="#5ca4da">
                                        <font>
-                                          <Font size="28.0" />
+                                          <Font size="32.0" />
                                        </font>
                                     </Label>
                                     <ImageView fitHeight="33.0" fitWidth="33.0" pickOnBounds="true" preserveRatio="true">
@@ -85,7 +85,7 @@
                   </AnchorPane>
                   <FlowPane alignment="CENTER" columnHalignment="CENTER" layoutX="-8.0" layoutY="226.0" prefHeight="200.0" prefWidth="600.0" AnchorPane.bottomAnchor="-28.0" AnchorPane.leftAnchor="-8.0" AnchorPane.rightAnchor="8.0" AnchorPane.topAnchor="226.0">
                      <children>
-                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onNextPageClick" styleClass="button32px" text="Démarrer la création d'exercice" textFill="WHITE">
+                        <Button contentDisplay="CENTER" mnemonicParsing="false" onAction="#onNextPageClick" styleClass="button28em" text="Démarrer la création d'exercice" textFill="WHITE">
                            <padding>
                               <Insets bottom="15.0" left="20.0" right="20.0" top="15.0" />
                            </padding>

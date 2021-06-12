@@ -19,7 +19,7 @@
                   <AnchorPane prefHeight="192.0" prefWidth="788.0">
                      <children>
                         <AnchorPane fx:id="ProgressAnchorPane" layoutX="94.0" prefHeight="136.0" prefWidth="496.0" AnchorPane.bottomAnchor="10.0" AnchorPane.leftAnchor="100.0" AnchorPane.rightAnchor="100.0" AnchorPane.topAnchor="10.0" />
-                        <Button layoutX="6.0" layoutY="68.0" mnemonicParsing="false" onAction="#onRetourClick" prefHeight="35.0" prefWidth="84.0" styleClass="button18px" text="Retour" textFill="WHITE" />
+                        <Button layoutX="6.0" layoutY="68.0" mnemonicParsing="false" onAction="#onRetourClick" styleClass="button18em" text="Retour" textFill="WHITE" />
                      </children>
                   </AnchorPane>
                </children>
@@ -28,8 +28,8 @@
                <children>
                   <AnchorPane prefHeight="251.0" prefWidth="636.0">
                      <children>
-                        <Button layoutX="251.0" layoutY="176.0" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="35.0" prefWidth="101.0" styleClass="button18px" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="250.0" />
-                        <HBox layoutX="2.0" spacing="15.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer">
+                        <Button layoutX="251.0" layoutY="176.0" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="35.0" prefWidth="101.0" styleClass="button18em" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="250.0" />
+                        <HBox layoutX="21.0" layoutY="-20.0" spacing="15.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer">
                            <children>
                               <Label text="Script du média :">
                                  <font>
