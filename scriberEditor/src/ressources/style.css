@@ -1,50 +1,14 @@
 @font-face {
     font-family: 'Work Sans';
-    src : url("font/Montserrat-Black.ttf");
+    src : url("font/WorkSans-VariableFont_wght.ttf");
 }
 
-.label {
-    -fx-font-family: "Work Sans";
-    -fx-font-size: 1.5em;
-}
-
-.button18px{
-    -fx-font-family: "Work Sans";
-    -fx-background-color :  #5CA4DA;
-    -fx-background-radius: 32;
-    -fx-cursor: hand;
-    -fx-font-size: 18px;
-}
-
-.button18px:hover{
-    -fx-font-family: "Work Sans";
-    -fx-background-color :  #F6F6F6;
-    -fx-text-fill: #5CA4DA;
-    -fx-background-radius: 32;
-    -fx-cursor: hand;
-    -fx-font-size: 18px;
-    -fx-border-color: #848484;
-    -fx-border-radius: 32;
-}
-
-.button26px {
-    -fx-font-family: "Work Sans";
-    -fx-background-color :  #5CA4DA;
-    -fx-background-radius: 32;
-    -fx-cursor: hand;
-    -fx-font-size: 26px;
-}
-
-<<<<<<< Updated upstream
-.button26px:hover {
-    -fx-font-family: "Work Sans";
-=======
 .label{
-    -fx-font-family: 'Montserrat-Regular';
+    -fx-font-family: 'Work Sans';
 }
 
 .button18px{
-    -fx-font-family: "Montserrat-Regular";
+    -fx-font-family: "Work Sans";
     -fx-background-color :  #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
@@ -52,7 +16,7 @@
 }
 
 .button18px:hover{
-    -fx-font-family: "Montserrat-Regular";
+    -fx-font-family: "Work Sans";
     -fx-background-color :  #F6F6F6;
     -fx-text-fill: #5CA4DA;
     -fx-background-radius: 32;
@@ -63,7 +27,7 @@
 }
 
 .button26px {
-    -fx-font-family: "Montserrat-Regular";
+    -fx-font-family: "Work Sans";
     -fx-background-color :  #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
@@ -71,23 +35,37 @@
 }
 
 .button26px:hover {
-    -fx-font-family: "Montserrat-Regular";
->>>>>>> Stashed changes
+    -fx-font-family: "Work Sans";
     -fx-background-color :  #F6F6F6;
     -fx-text-fill: #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
     -fx-font-size: 26px;
+    -fx-border-color: #848484;
+    -fx-border-radius: 32;
+}
+
+.button32px {
+    -fx-font-family: "Work Sans";
+    -fx-background-color :  #5CA4DA;
+    -fx-background-radius: 32;
+    -fx-cursor: hand;
+    -fx-font-size: 32px;
+}
+
+.button32px:hover {
+    -fx-font-family: "Work Sans";
+    -fx-background-color :  #F6F6F6;
+    -fx-text-fill: #5CA4DA;
+    -fx-background-radius: 32;
+    -fx-cursor: hand;
+    -fx-font-size: 32px;
     -fx-border-color: #848484;
     -fx-border-radius: 32;
 }
 
 .button48px {
-<<<<<<< Updated upstream
     -fx-font-family: "Work Sans";
-=======
-    -fx-font-family: "Montserrat-Regular";
->>>>>>> Stashed changes
     -fx-background-color :  #5CA4DA;
     -fx-background-radius: 32;
     -fx-cursor: hand;
@@ -95,11 +73,7 @@
 }
 
 .button48px:hover {
-<<<<<<< Updated upstream
     -fx-font-family: "Work Sans";
-=======
-    -fx-font-family: "Montserrat-Regular";
->>>>>>> Stashed changes
     -fx-background-color :  #F6F6F6;
     -fx-text-fill: #5CA4DA;
     -fx-background-radius: 32;
@@ -109,14 +83,8 @@
     -fx-border-radius: 32;
 }
 
-<<<<<<< Updated upstream
-.title{
-    -fx-border-radius: 32;
-    -fx-border-color: #5CA4DA;
-    -fx-border-width: 1.5px;
-=======
 .importButton{
-    -fx-font-family: "Montserrat-Regular";
+    -fx-font-family: "Work Sans";
     -fx-background-color :  #F6F6F6;
     -fx-background-radius: 32;
     -fx-border-radius: 32;
@@ -130,34 +98,18 @@
     -fx-border-radius: 32;
     -fx-border-color: #5CA4DA;
     -fx-border-width: 1px;
->>>>>>> Stashed changes
-    -fx-font-size: 48px;
-    -fx-font-family: "Work Sans";
 }
 
-<<<<<<< Updated upstream
-.text-field {
-    -fx-background-radius : 32;
-    -fx-border-radius : 32;
-    -fx-border-color :  #5CA4DA;
-    -fx-font-family: "Work Sans";
-    -fx-font-size: 22px;
-}
-
-.labelContainer {
-    -fx-font-family: "Work Sans";
-=======
 .MyText-field {
     -fx-background-radius : 32;
     -fx-border-radius : 32;
     -fx-border-color :  #5CA4DA;
-    -fx-font-family: "Montserrat-Regular";
+    -fx-font-family: "Work Sans";
     -fx-font-size: 14px;
 }
 
 .labelContainer {
-    -fx-font-family: "Montserrat-Regular";
->>>>>>> Stashed changes
+    -fx-font-family: "Work Sans";
     -fx-background-color: #F6F6F6;
     -fx-background-radius: 32;
     -fx-border-color:  #848484;
@@ -172,13 +124,8 @@
 
 .myText-area {
     -fx-font-size: 14px;
-<<<<<<< Updated upstream
     -fx-font-family: "Work Sans";
-    -fx-border-color: #848484;
-=======
-    -fx-font-family: "Montserrat-Regular";
     -fx-border-color: #5CA4DA;
->>>>>>> Stashed changes
 }
 
 .myText-area .scroll-bar:horizontal .track,
@@ -226,15 +173,14 @@
     -fx-background-radius : 2.0em;
     -fx-border-radius: 2.0em;
 }
-<<<<<<< Updated upstream
 
 .myText-area .scroll-bar:horizontal .thumb:hover,
 .myText-area .scroll-bar:vertical .thumb:hover {
     -fx-cursor: hand;
-    -fx-background-color : #5CA4DA;
-    -fx-background-insets : 2.0, 0.0, 0.0;
-    -fx-background-radius : 2.0em;
-=======
+    -fx-background-color: #5CA4DA;
+    -fx-background-insets: 2.0, 0.0, 0.0;
+    -fx-background-radius: 2.0em;
+}
 
 .myText-area .scroll-bar:horizontal .thumb:hover,
 .myText-area .scroll-bar:vertical .thumb:hover {
@@ -253,5 +199,23 @@
 
 .choice-box > .label{
     -fx-text-fill: #848484;
->>>>>>> Stashed changes
+}
+
+.check-box {
+    -fx-font-family: "Work Sans";
+    -fx-font-size: 16px;
+}
+
+.check-box .box{
+    -fx-background-color: Transparent;
+    -fx-background-radius: 8;
+    -fx-border-radius: 8;
+    -fx-border-color: #848484;
+}
+
+.check-box .box:selected{
+    -fx-background-color: #848484;
+    -fx-background-radius: 8;
+    -fx-border-color: #9D9D9D;
+    -fx-border-radius: 8;
 }
