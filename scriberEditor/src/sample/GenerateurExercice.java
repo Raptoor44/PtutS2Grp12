@@ -19,8 +19,6 @@ public class GenerateurExercice {
     public static final File savedir = new File(new File(System.getProperty("user.home")), ".scriberEditor");
 
     private static final char DEFAULTOCULTATIONCHARACTER = '#';
-    private static final String DEFAULTAIDETEXT = "texte d'aide par défault";
-
     private Main main;
     public String mediaFilePath;
     public String imageFilePath;
@@ -53,8 +51,6 @@ public class GenerateurExercice {
 
 
         occultationCharacter = DEFAULTOCULTATIONCHARACTER;
-        aideText = DEFAULTAIDETEXT;
-
     }
 
     public void nouveauFichierEvaluation(String cheminEnregistrement){
