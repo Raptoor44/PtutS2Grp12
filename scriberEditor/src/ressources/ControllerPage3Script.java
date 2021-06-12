@@ -5,6 +5,8 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.GenerateurExercice;
 import sample.Main;
@@ -17,6 +19,9 @@ public class ControllerPage3Script extends  SuperController implements Initializ
 
     @FXML
     private TextArea scriptTextArea;
+
+    @FXML
+    ImageView scriptMark;
 
     @FXML
     void onRetourClick(ActionEvent event){
@@ -51,7 +56,11 @@ public class ControllerPage3Script extends  SuperController implements Initializ
 
     }
 
-
+    @FXML
+    public void scriptTip(){
+        Tooltip tooltip = new Tooltip("Ici, entrez la transcription de votre média.");
+        Tooltip.install(scriptMark, tooltip);
+    }
 
 
 }

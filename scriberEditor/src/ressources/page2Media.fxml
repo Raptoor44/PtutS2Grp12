@@ -50,6 +50,14 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
+                                    <ImageView fx:id="mediaMark" fitHeight="21.0" fitWidth="21.0" onMouseEntered="#mediaTip" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/question-mark%201.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
                                  </children>
                               </HBox>
                               <MediaView fx:id="mediaView" fitHeight="200.0" fitWidth="300.0" />
@@ -70,7 +78,7 @@
                   </AnchorPane>
                   <AnchorPane prefHeight="250.0" prefWidth="400.0">
                      <children>
-                        <VBox alignment="CENTER" layoutX="4.0" spacing="10.0">
+                        <VBox alignment="CENTER" layoutX="4.0" spacing="10.0" styleClass="greyContainer">
                            <children>
                               <HBox alignment="CENTER_LEFT" spacing="15.0">
                                  <children>
@@ -88,6 +96,14 @@
                                           </ImageView>
                                        </graphic>
                                     </Button>
+                                    <ImageView fx:id="imageMark" fitHeight="21.0" fitWidth="21.0" onMouseEntered="#imageTip" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/question-mark%201.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
                                  </children>
                               </HBox>
                               <ImageView fx:id="imageView" fitHeight="200.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
@@ -97,6 +113,9 @@
                                  </font>
                               </Label>
                            </children>
+                           <padding>
+                              <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
+                           </padding>
                         </VBox>
                      </children>
                      <FlowPane.margin>

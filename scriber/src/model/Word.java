@@ -1,5 +1,6 @@
 package model;
 
+import java.util.Locale;
 import java.util.Objects;
 
 public class Word {
@@ -7,12 +8,14 @@ public class Word {
     private boolean discovered;
     private boolean partiallyDiscovered;
     private String value;
+    private String sensitiveValue;
     private int index;
     private int length;
     private int partialLength;
 
     public Word(String word, int index){
         this.value = word;
+        this.sensitiveValue = value.toLowerCase();
         this.index = index;
         length = word.length();
     }
@@ -55,6 +58,10 @@ public class Word {
 
     public void setPartialLength(int partialLength){
         this.partialLength = partialLength;
+    }
+
+    public String getSensitiveValue() {
+        return sensitiveValue;
     }
 
     @Override

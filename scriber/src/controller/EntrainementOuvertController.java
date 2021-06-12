@@ -8,6 +8,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.Media;
@@ -24,6 +25,7 @@ import model.TextAfficheur;
 import java.io.File;
 import java.net.URL;
 import java.util.ResourceBundle;
+import java.util.concurrent.TimeUnit;
 
 public class EntrainementOuvertController implements Initializable {
 
@@ -62,6 +64,24 @@ public class EntrainementOuvertController implements Initializable {
 
     @FXML
     MediaView mediaView;
+
+    @FXML
+    ImageView consigneMark;
+
+    @FXML
+    ImageView imageMark;
+
+    @FXML
+    ImageView nbMotsMark;
+
+    @FXML
+    ImageView timeOrPartialMark;
+
+    @FXML
+    ImageView sensitiveMark;
+
+    @FXML
+    ImageView helpMark;
 
     private ExerciceLoader exerciceLoader;
     private File fileExercice;
@@ -144,9 +164,16 @@ public class EntrainementOuvertController implements Initializable {
         Evaluation evaluation = (Evaluation) exercice;
         timeOrPartial.setText("Temps :");
         startExercise.setText("Débuter l'exercice évalué");
-        partialDiscoveringEnableOrTime.setText(((Integer) evaluation.getTemps()).toString());
+        long tempAlouerEnms = TimeUnit.SECONDS.toMillis(((Evaluation) exercice).getTemps());
+        partialDiscoveringEnableOrTime.setText(String.format("%d min, %d sec",
+                TimeUnit.MILLISECONDS.toMinutes(tempAlouerEnms),
+                TimeUnit.MILLISECONDS.toSeconds( tempAlouerEnms) -
+                        TimeUnit.MINUTES.toSeconds(TimeUnit.MILLISECONDS.toMinutes(tempAlouerEnms))
+        ));
         help.setVisible(false);
         helpEnable.setVisible(false);
+        helpMark.setDisable(true);
+        helpMark.setVisible(false);
     }
 
     private void displayTraining(Exercice exercice){
@@ -163,4 +190,63 @@ public class EntrainementOuvertController implements Initializable {
         pageLoader.loadSubPage(Layout.REALISATION_EXERCICE.getPathToFile());
     }
 
+    @FXML
+    public void tipConsigne(){
+        Tooltip tooltip = new Tooltip("Consigne donnée par le professeur");
+        Tooltip.install(consigneMark, tooltip);
+    }
+
+    @FXML
+    public void tipImage(){
+        Tooltip tooltip = new Tooltip("Image représentant le média que vous allez écouter");
+        Tooltip.install(imageMark, tooltip);
+    }
+
+    @FXML
+    public void tipNbMots(){
+        Tooltip tooltip = new Tooltip("Nombre de mots dans le script");
+        Tooltip.install(nbMotsMark, tooltip);
+    }
+
+    @FXML
+    public void tipTimeOrPartial(){
+        Tooltip tooltip = new Tooltip();
+        if (exercice instanceof Entrainement){
+            Entrainement entrainement = (Entrainement) exercice;
+            if(entrainement.isAllowReplacement()){
+                tooltip.setText("Vous pourrez entrer des débuts de mots (" + entrainement.getNbLetterMinimum() + " lettres minimum)");
+            } else if(!entrainement.isAllowReplacement()){
+                tooltip.setText("Vous ne pourrez entrer que des mots entiers");
+            }
+        } else if (exercice instanceof Evaluation){
+            tooltip.setText("Durée de l'exercice");
+        }
+
+        Tooltip.install(timeOrPartialMark, tooltip);
+    }
+
+    @FXML
+    public void tipSensitive(){
+        Tooltip tooltip = new Tooltip();
+        if(exercice.isCaseSensitive()){
+            tooltip.setText("Vous serez obligé de mettre des majuscules à vos mots");
+        } else if (!exercice.isCaseSensitive()){
+            tooltip.setText("Vous pourrez écrire sans majuscule");
+        }
+        Tooltip.install(sensitiveMark, tooltip);
+    }
+
+    @FXML
+    public void tipHelp(){
+        if(exercice instanceof Entrainement){
+            Tooltip tooltip = new Tooltip();
+            Entrainement entrainement = (Entrainement) exercice;
+            if(entrainement.isHelpAllowed()){
+                tooltip.setText("L'aide est autorisé, vous aurez un bouton où cliquer.");
+            } else {
+                tooltip.setText("L'aide est désactivé, malheureusement...");
+            }
+            Tooltip.install(helpMark, tooltip);
+        }
+    }
 }

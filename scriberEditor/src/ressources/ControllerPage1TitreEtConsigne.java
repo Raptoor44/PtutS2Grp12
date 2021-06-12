@@ -6,6 +6,8 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.control.Tooltip;
+import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import sample.GenerateurExercice;
 import sample.Main;
@@ -25,7 +27,11 @@ public class ControllerPage1TitreEtConsigne extends SuperController implements I
     @FXML
     protected AnchorPane ProgressAnchorPane;
 
+    @FXML
+    ImageView titleMark;
 
+    @FXML
+    ImageView consignMark;
 
 
     @Override
@@ -71,7 +77,15 @@ public class ControllerPage1TitreEtConsigne extends SuperController implements I
         pageLoader.loadSubPage(PageLoader.PAG2PATH);
     }
 
+    @FXML
+    public void titleTip(){
+        Tooltip tooltip = new Tooltip("Ici, vous rentrerez le titre que vous souhaitez donner à votre exercice.");
+        Tooltip.install(titleMark, tooltip);
+    }
 
-
-
+    @FXML
+    public void consignTip(){
+        Tooltip tooltip = new Tooltip("Ici, vous rentrerez les consignes que vous voulez donner à vos élèves.");
+        Tooltip.install(consignMark, tooltip);
+    }
 }

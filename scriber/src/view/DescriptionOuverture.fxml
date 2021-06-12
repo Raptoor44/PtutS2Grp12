@@ -3,6 +3,7 @@
 <?import javafx.geometry.Insets?>
 <?import javafx.scene.control.Button?>
 <?import javafx.scene.control.Label?>
+<?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
@@ -31,14 +32,14 @@
                   </Label>
                   <HBox spacing="100.0">
                      <children>
-                        <HBox>
+                        <HBox spacing="10.0">
                            <children>
                               <Label text="Consigne :">
                                  <font>
                                     <Font size="24.0" />
                                  </font>
                                  <HBox.margin>
-                                    <Insets right="15.0" />
+                                    <Insets right="5.0" />
                                  </HBox.margin>
                               </Label>
                               <Label fx:id="exerciseInstruction" alignment="TOP_CENTER" prefWidth="329.0" styleClass="labelContainer" stylesheets="@../ressources/Style.css" wrapText="true">
@@ -49,6 +50,11 @@
                                     <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                                  </padding>
                               </Label>
+                              <ImageView fx:id="consigneMark" fitHeight="20.0" fitWidth="20.0" onMouseMoved="#tipConsigne" pickOnBounds="true" preserveRatio="true">
+                                 <image>
+                                    <Image url="@../ressources/img/question-mark%201.png" />
+                                 </image>
+                              </ImageView>
                            </children>
                         </HBox>
                         <VBox styleClass="greyContainer" stylesheets="@../ressources/Style.css">
@@ -70,7 +76,18 @@
                                        <padding>
                                           <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                        </padding>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
                                     </Label>
+                                    <ImageView fx:id="nbMotsMark" fitHeight="20.0" fitWidth="20.0" onMouseMoved="#tipNbMots" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../ressources/img/question-mark%201.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
                                  </children>
                                  <VBox.margin>
                                     <Insets bottom="15.0" />
@@ -93,7 +110,18 @@
                                        <padding>
                                           <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                        </padding>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
                                     </Label>
+                                    <ImageView fx:id="timeOrPartialMark" fitHeight="20.0" fitWidth="20.0" onMouseMoved="#tipTimeOrPartial" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../ressources/img/question-mark%201.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
                                  </children>
                                  <VBox.margin>
                                     <Insets bottom="15.0" />
@@ -116,7 +144,18 @@
                                        <padding>
                                           <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                        </padding>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
                                     </Label>
+                                    <ImageView fx:id="sensitiveMark" fitHeight="20.0" fitWidth="20.0" onMouseMoved="#tipSensitive" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../ressources/img/question-mark%201.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
                                  </children>
                                  <VBox.margin>
                                     <Insets bottom="15.0" />
@@ -139,7 +178,18 @@
                                        <padding>
                                           <Insets bottom="5.0" left="10.0" right="10.0" top="5.0" />
                                        </padding>
+                                       <HBox.margin>
+                                          <Insets right="10.0" />
+                                       </HBox.margin>
                                     </Label>
+                                    <ImageView fx:id="helpMark" fitHeight="20.0" fitWidth="20.0" onMouseMoved="#tipHelp" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../ressources/img/question-mark%201.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="15.0" />
+                                       </HBox.margin>
+                                    </ImageView>
                                  </children>
                                  <VBox.margin>
                                     <Insets />
@@ -159,13 +209,24 @@
                               <Font size="24.0" />
                            </font>
                            <HBox.margin>
-                              <Insets right="15.0" />
+                              <Insets />
                            </HBox.margin>
                         </Label>
+                        <ImageView fx:id="imageMark" fitHeight="20.0" fitWidth="20.0" onMouseMoved="#tipImage" pickOnBounds="true" preserveRatio="true">
+                           <image>
+                              <Image url="@../ressources/img/question-mark%201.png" />
+                           </image>
+                        </ImageView>
                         <StackPane>
                            <children>
-                              <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true" />
-                              <MediaView fx:id="mediaView" fitHeight="300.0" fitWidth="300.0" />
+                              <ImageView fx:id="imageView" fitHeight="300.0" fitWidth="300.0" pickOnBounds="true" preserveRatio="true">
+                                 <StackPane.margin>
+                                    <Insets left="15.0" />
+                                 </StackPane.margin></ImageView>
+                              <MediaView fx:id="mediaView" fitHeight="300.0" fitWidth="300.0">
+                                 <StackPane.margin>
+                                    <Insets left="15.0" />
+                                 </StackPane.margin></MediaView>
                            </children>
                         </StackPane>
                      </children>

@@ -53,6 +53,7 @@
     -fx-background-radius: 32;
     -fx-cursor: hand;
     -fx-font-size: 3.2em;
+    -fx-padding: 1em, 3em, 1em, 3em;
 }
 
 .button32em:hover {
@@ -64,6 +65,7 @@
     -fx-font-size: 3.2em;
     -fx-border-color: #848484;
     -fx-border-radius: 32;
+    -fx-padding: 1em, 3em, 1em, 3em;
 }
 
 .title{

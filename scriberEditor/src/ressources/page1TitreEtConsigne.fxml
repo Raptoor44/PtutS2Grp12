@@ -5,6 +5,8 @@
 <?import javafx.scene.control.Label?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -26,10 +28,10 @@
             </HBox>
             <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="200.0" prefWidth="200.0" VBox.vgrow="ALWAYS">
                <children>
-                  <AnchorPane prefHeight="316.0" prefWidth="690.0">
+                  <AnchorPane prefHeight="316.0">
                      <children>
                         <Button layoutX="284.0" layoutY="267.0" mnemonicParsing="false" onAction="#onNextPageClick" styleClass="button22em" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="0.0" />
-                        <VBox layoutX="51.0" layoutY="28.0" spacing="25.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer" AnchorPane.bottomAnchor="68.0" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="47.0" AnchorPane.topAnchor="28.0">
+                        <VBox layoutX="51.0" layoutY="28.0" spacing="25.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer" AnchorPane.leftAnchor="51.0" AnchorPane.rightAnchor="30.600000000000023">
                            <children>
                               <HBox alignment="CENTER_LEFT" spacing="15.0">
                                  <children>
@@ -39,9 +41,17 @@
                                        </font>
                                     </Label>
                                     <TextField fx:id="titre" prefHeight="45.0" prefWidth="303.0" promptText="Ecrivez le titre ici..." styleClass="MyText-field" />
+                                    <ImageView fx:id="titleMark" fitHeight="20.0" fitWidth="20.0" onMouseEntered="#titleTip" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/question-mark%201.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets bottom="20.0" left="-3.0" />
+                                       </HBox.margin>
+                                    </ImageView>
                                  </children>
                               </HBox>
-                              <HBox spacing="15.0">
+                              <HBox prefHeight="108.0" prefWidth="567.0" spacing="15.0">
                                  <children>
                                     <Label stylesheets="@style.css" text="Consignes :">
                                        <font>
@@ -53,6 +63,14 @@
                                           <Font size="22.0" />
                                        </font>
                                     </TextArea>
+                                    <ImageView fx:id="consignMark" fitHeight="20.0" fitWidth="20.0" onMouseEntered="#consignTip" pickOnBounds="true" preserveRatio="true">
+                                       <image>
+                                          <Image url="@../images/question-mark%201.png" />
+                                       </image>
+                                       <HBox.margin>
+                                          <Insets />
+                                       </HBox.margin>
+                                    </ImageView>
                                  </children>
                               </HBox>
                            </children>

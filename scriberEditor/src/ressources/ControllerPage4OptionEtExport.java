@@ -11,6 +11,7 @@ import javafx.scene.Scene;
 import javafx.scene.control.*;
 import javafx.scene.control.TextArea;
 import javafx.scene.control.TextField;
+import javafx.scene.image.ImageView;
 import javafx.scene.input.KeyEvent;
 import javafx.scene.input.MouseEvent;
 import javafx.scene.layout.AnchorPane;
@@ -59,15 +60,33 @@ public class ControllerPage4OptionEtExport extends SuperController implements In
 
     @FXML
     private CheckBox remplacementPartielCheckBox;
+
     @FXML
     private CheckBox displayNbWordDiscoverCheckBox;
-
 
     @FXML
     private Spinner spinnerNbLetter;
 
     @FXML
     private CheckBox autoriserAffichageSolutionCheckBox;
+
+    @FXML
+    ImageView occulMark;
+
+    @FXML
+    ImageView sensitiveMark;
+
+    @FXML
+    ImageView partialMark;
+
+    @FXML
+    ImageView helpMark;
+
+    @FXML
+    ImageView wordDiscoveredMark;
+
+    @FXML
+    ImageView solutionMark;
 
     private static final boolean DEFAULT_EST_UNE_EVALUATION_VALUE = false;
     private static final String CHARACTEROCULTATIONDISPO[] = {"&","#","|","%","=","+","¤","§","~"};
@@ -282,7 +301,41 @@ public class ControllerPage4OptionEtExport extends SuperController implements In
         pageLoader.loadSubPage(PageLoader.PAG3PATH);
     }
 
+    @FXML
+    public void occultTip(){
+        Tooltip tooltip = new Tooltip("Dans cette liste, vous avez le choix entre différents caractères pour remplacer les lettres");
+        Tooltip.install(occulMark, tooltip);
+    }
 
+    @FXML
+    public void sensitiveTip(){
+        Tooltip tooltip = new Tooltip("En sélectionnant cette case, vous activez la sensibilité à la casse");
+        Tooltip.install(sensitiveMark, tooltip);
+    }
+
+    @FXML
+    public void partialTip(){
+        Tooltip tooltip = new Tooltip("En sélectionnant cette case, vous permettez à vos élèves de découvrir le début de certains mots en tapant un nombre minimum de lettres.");
+        Tooltip.install(partialMark, tooltip);
+    }
+
+    @FXML
+    public void helpTip(){
+        Tooltip tooltip = new Tooltip("En sélectionnant cette case, vous permettez à vos élèves d'avoir accès à une aide. Cette aide sera remplie par vos soins plus bas.");
+        Tooltip.install(helpMark, tooltip);
+    }
+
+    @FXML
+    public void wordTip(){
+        Tooltip tooltip = new Tooltip("En sélectionnant cette case, vous permettez à vos élèves de voir leur score en temps réel");
+        Tooltip.install(wordDiscoveredMark, tooltip);
+    }
+
+    @FXML
+    public void solutionTip(){
+        Tooltip tooltip = new Tooltip("En sélectionnant cette case, vous permettez à vos élèves de visualiser la solution à la fin de leur exercice.");
+        Tooltip.install(solutionMark, tooltip);
+    }
 
 
 }

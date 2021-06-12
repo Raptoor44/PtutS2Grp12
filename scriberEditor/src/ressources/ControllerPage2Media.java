@@ -5,6 +5,7 @@ import javafx.fxml.FXML;
 import javafx.fxml.Initializable;
 import javafx.scene.control.Alert;
 import javafx.scene.control.Label;
+import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
@@ -39,6 +40,12 @@ public class ControllerPage2Media extends SuperController implements Initializab
 
     @FXML
     private Label imageSucessLabel;
+
+    @FXML
+    ImageView mediaMark;
+
+    @FXML
+    ImageView imageMark;
 
 
     @FXML
@@ -125,7 +132,17 @@ public class ControllerPage2Media extends SuperController implements Initializab
 
     }
 
+    @FXML
+    public void mediaTip(){
+        Tooltip tooltip = new Tooltip("Cliquez sur le bouton pour importer un fichier audio ou vidéo.");
+        Tooltip.install(mediaMark, tooltip);
+    }
 
+    @FXML
+    public void imageTip(){
+        Tooltip tooltip = new Tooltip("Cliquez sur le bouton pour importer une image si votre fichier est un audio");
+        Tooltip.install(imageMark, tooltip);
+    }
 
 
 }

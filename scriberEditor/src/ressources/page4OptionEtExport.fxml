@@ -8,6 +8,8 @@
 <?import javafx.scene.control.Spinner?>
 <?import javafx.scene.control.TextArea?>
 <?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
 <?import javafx.scene.layout.FlowPane?>
 <?import javafx.scene.layout.HBox?>
@@ -32,11 +34,11 @@
                   </AnchorPane>
                </children>
             </HBox>
-            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="321.0" prefWidth="912.0" VBox.vgrow="ALWAYS">
+            <FlowPane alignment="CENTER" columnHalignment="CENTER" prefHeight="606.0" prefWidth="1262.0" VBox.vgrow="ALWAYS">
                <children>
                   <AnchorPane prefHeight="344.0" prefWidth="998.0" stylesheets="@style.css">
                      <children>
-                        <Button layoutX="432.0" layoutY="341.0" mnemonicParsing="false" onAction="#OnCreateExerciceClick" prefHeight="25.0" prefWidth="121.0" styleClass="button18em" text="Exporter" textFill="WHITE">
+                        <Button layoutX="493.0" layoutY="396.0" mnemonicParsing="false" onAction="#OnCreateExerciceClick" styleClass="button18em" text="Exporter" textFill="WHITE">
                            <padding>
                               <Insets bottom="10.0" left="15.0" right="15.0" top="10.0" />
                            </padding></Button>
@@ -52,6 +54,14 @@
                                              </font>
                                           </Label>
                                           <ChoiceBox fx:id="characterChoiceBox" prefHeight="30.0" prefWidth="76.0" />
+                                          <ImageView fx:id="occulMark" fitHeight="21.0" fitWidth="21.0" onMouseEntered="#occultTip" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/question-mark%201.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </HBox.margin>
+                                          </ImageView>
                                        </children>
                                     </HBox>
                                     <HBox alignment="CENTER_LEFT" spacing="5.0">
@@ -61,6 +71,14 @@
                                                 <Font size="16.0" />
                                              </font>
                                           </CheckBox>
+                                          <ImageView fx:id="sensitiveMark" fitHeight="21.0" fitWidth="21.0" onMouseEntered="#sensitiveTip" pickOnBounds="true" preserveRatio="true">
+                                             <image>
+                                                <Image url="@../images/question-mark%201.png" />
+                                             </image>
+                                             <HBox.margin>
+                                                <Insets bottom="15.0" />
+                                             </HBox.margin>
+                                          </ImageView>
                                        </children>
                                     </HBox>
                                     <StackPane prefHeight="217.0" prefWidth="414.0">
@@ -77,14 +95,22 @@
                                                    <children>
                                                       <HBox alignment="CENTER_LEFT" spacing="5.0">
                                                          <children>
-                                                            <CheckBox fx:id="remplacementPartielCheckBox" mnemonicParsing="false" text="Autoriser le remplacement partiel.">
+                                                            <CheckBox fx:id="remplacementPartielCheckBox" mnemonicParsing="false" text="Autoriser le remplacement partiel">
                                                                <HBox.margin>
-                                                                  <Insets right="35.0" />
+                                                                  <Insets />
                                                                </HBox.margin>
                                                                <font>
                                                                   <Font size="16.0" />
                                                                </font>
                                                             </CheckBox>
+                                                            <ImageView fx:id="partialMark" fitHeight="21.0" fitWidth="21.0" onMouseMoved="#partialTip" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../images/question-mark%201.png" />
+                                                               </image>
+                                                               <HBox.margin>
+                                                                  <Insets bottom="15.0" right="15.0" />
+                                                               </HBox.margin>
+                                                            </ImageView>
                                                             <Label text="Lettres minimums :">
                                                                <font>
                                                                   <Font size="16.0" />
@@ -100,6 +126,14 @@
                                                                   <Font size="16.0" />
                                                                </font>
                                                             </CheckBox>
+                                                            <ImageView fx:id="helpMark" fitHeight="21.0" fitWidth="21.0" onMouseMoved="#helpTip" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../images/question-mark%201.png" />
+                                                               </image>
+                                                               <HBox.margin>
+                                                                  <Insets bottom="15.0" />
+                                                               </HBox.margin>
+                                                            </ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER_LEFT" spacing="5.0">
@@ -109,6 +143,14 @@
                                                                   <Font size="16.0" />
                                                                </font>
                                                             </CheckBox>
+                                                            <ImageView fx:id="wordDiscoveredMark" fitHeight="21.0" fitWidth="21.0" onMouseEntered="#wordTip" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../images/question-mark%201.png" />
+                                                               </image>
+                                                               <HBox.margin>
+                                                                  <Insets bottom="15.0" />
+                                                               </HBox.margin>
+                                                            </ImageView>
                                                          </children>
                                                       </HBox>
                                                       <HBox alignment="CENTER_LEFT" spacing="5.0">
@@ -118,6 +160,14 @@
                                                                   <Font size="16.0" />
                                                                </font>
                                                             </CheckBox>
+                                                            <ImageView fx:id="solutionMark" fitHeight="21.0" fitWidth="21.0" onMouseEntered="#solutionTip" pickOnBounds="true" preserveRatio="true">
+                                                               <image>
+                                                                  <Image url="@../images/question-mark%201.png" />
+                                                               </image>
+                                                               <HBox.margin>
+                                                                  <Insets bottom="15.0" />
+                                                               </HBox.margin>
+                                                            </ImageView>
                                                          </children>
                                                       </HBox>
                                                       <Label text="Texte pour l'aide :">

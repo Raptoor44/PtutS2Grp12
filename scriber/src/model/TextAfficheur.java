@@ -32,9 +32,6 @@ public class TextAfficheur {
 
         for (String str : script2.split("\\s+")) {
             index = script2.indexOf(str, index + sizeBef);
-            if(!exercice.isCaseSensitive()){
-                str = str.toLowerCase();
-            }
             sizeBef = str.length();
             words.add(new Word(str, index));
         }
@@ -43,11 +40,13 @@ public class TextAfficheur {
     public void discoverWord(String str, int numLett){
         for(Word w : words){
             if(str.length() == w.getLength()){
-                System.out.println("Here");
                 discoverWord(str);
-            } else if(w.getValue().startsWith(str) && w.getLength() >= 4 && str.length() > numLett){
+            } else if(!exercice.isCaseSensitive() && w.getSensitiveValue().startsWith(str.toLowerCase()) && w.getLength() >= 4 && str.length() > numLett){
                     w.setPartialLength(str.length());
                     w.setPartiallyDiscovered();
+            } else if(exercice.isCaseSensitive() && w.getValue().startsWith(str) && w.getLength() >= 4 && str.length() > numLett){
+                w.setPartialLength(str.length());
+                w.setPartiallyDiscovered();
             }
         }
 
@@ -56,14 +55,16 @@ public class TextAfficheur {
 
     public void discoverWord(String str) {
         for(Word w : words){
-            if(w.getValue().equals(str)){
+            if(!exercice.isCaseSensitive() && w.getSensitiveValue().equals(str.toLowerCase())){
+                    w.setDiscovered();
+                    System.out.println(w.isDiscovered());
+            } else if(exercice.isCaseSensitive() && w.getValue().equals(str)){
                 w.setDiscovered();
-                System.out.println(w.getValue() + "  " + w.getIndex() + "  " + w.isDiscovered());
-                System.out.println(str);
             }
         }
         updateScore();
     }
+
 
 
     private String format(String str) {
