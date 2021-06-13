@@ -37,8 +37,10 @@ public class OuvertureController implements Initializable {
     public OuvertureController(){
         main = Main.getInstance();
         exerciceLoader = main.getExerciceLoader();
+        main.setOuvertureController(this);
         if(exerciceLoader == null) System.err.println("wtf dude");
         pageLoader = main.getPageLoader();
+
     }
 
     @Override
@@ -53,7 +55,17 @@ public class OuvertureController implements Initializable {
         fileExercice = chooser.showOpenDialog(null);
         main.setExerciseFile(fileExercice);
 
-        Exercice exercice = exerciceLoader.chargerUnExercice(fileExercice.getPath());
+        loadExercice(fileExercice);
+
+    }
+
+
+    public void  loadExercice(File exercieFile){
+
+        fileExercice = exercieFile;
+        main.setExerciseFile(exercieFile);
+
+        Exercice exercice = exerciceLoader.chargerUnExercice(exercieFile.getPath());
 
         if(exercice instanceof Entrainement){
             main.setExercice((Entrainement) exercice);

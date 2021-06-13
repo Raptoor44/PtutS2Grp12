@@ -3,6 +3,7 @@ package model;
 import controller.Controller;
 import controller.EntrainementOuvertController;
 import controller.ExerciseController;
+import controller.OuvertureController;
 import exercice.Entrainement;
 import exercice.Evaluation;
 import exercice.Exercice;
@@ -27,8 +28,7 @@ public final class Main extends Application {
     private ExerciceLoader exerciceLoader;
     private Parent parent;
     private Scene scene;
-    private Controller controller;
-    private EntrainementOuvertController ouvertureController;
+    private OuvertureController ouvertureController;
     private ExerciseController exerciseController;
     private PageLoader pageLoader;
     private MediaAfficheur mediaAfficheur;
@@ -57,7 +57,9 @@ public final class Main extends Application {
 
         if(path != null){
             File exerciceFile = new File(path);
-            controller.displayFile(exerciceFile);
+
+            ouvertureController.loadExercice(exerciceFile);
+
         }
 
         primaryStage.setOnCloseRequest(event -> {
@@ -81,14 +83,6 @@ public final class Main extends Application {
         }
 
         launch(args);
-    }
-
-    public Controller getController() {
-        return controller;
-    }
-
-    public EntrainementOuvertController getOuvertureController() {
-        return ouvertureController;
     }
 
     public ExerciceLoader getExerciceLoader() {
@@ -141,5 +135,9 @@ public final class Main extends Application {
 
     public TextAfficheur getTextAfficheur() {
         return textAfficheur;
+    }
+
+    public void setOuvertureController(OuvertureController ouvertureController) {
+        this.ouvertureController = ouvertureController;
     }
 }
