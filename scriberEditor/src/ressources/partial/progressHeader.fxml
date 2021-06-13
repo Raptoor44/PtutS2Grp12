@@ -9,19 +9,19 @@
 
 <AnchorPane prefHeight="120.0" prefWidth="690.0" stylesheets="@../style.css" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.partial.progressController">
    <children>
-      <ImageView fitHeight="68.0" fitWidth="50.0" layoutX="267.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="267.0" AnchorPane.rightAnchor="265.0">
+      <ImageView fitHeight="60.0" fitWidth="60.0" layoutX="321.0" layoutY="11.0" pickOnBounds="true" preserveRatio="true" AnchorPane.leftAnchor="321.0" AnchorPane.rightAnchor="319.0">
          <image>
             <Image url="@../../images/logoAppPen.png" />
          </image>
       </ImageView>
-      <HBox layoutX="40.0" layoutY="89.0" prefHeight="50.0" prefWidth="497.0" AnchorPane.leftAnchor="40.0" AnchorPane.rightAnchor="39.0">
+      <HBox layoutX="92.0" layoutY="89.0" AnchorPane.leftAnchor="92.0" AnchorPane.rightAnchor="91.0">
          <children>
             <ImageView fx:id="imageViewArrow1" fitHeight="50.0" fitWidth="50.0" onMouseEntered="#startAnimation" onMouseExited="#endAnimation" onMousePressed="#onClick" pickOnBounds="true" preserveRatio="true">
                <image>
                   <Image url="@../../images/arrowFull.png" />
                </image>
             </ImageView>
-            <AnchorPane prefHeight="105.0" prefWidth="96.0">
+            <AnchorPane>
                <children>
                   <Line endX="100.0" endY="25.0" startY="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
@@ -31,7 +31,7 @@
                   <Image url="@../../images/arrow.png" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="810.0" layoutY="10.0" prefHeight="130.0" prefWidth="46.0">
+            <AnchorPane layoutX="810.0" layoutY="10.0">
                <children>
                   <Line endX="100.0" endY="25.0" startY="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
@@ -41,7 +41,7 @@
                   <Image url="@../../images/arrow.png" />
                </image>
             </ImageView>
-            <AnchorPane layoutX="456.0" layoutY="10.0" prefHeight="105.0" prefWidth="91.0">
+            <AnchorPane layoutX="456.0" layoutY="10.0">
                <children>
                   <Line endX="100.0" endY="25.0" startY="25.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" />
                </children>
@@ -53,9 +53,9 @@
             </ImageView>
          </children>
       </HBox>
-      <Label fx:id="labelEtap1" layoutX="14.0" layoutY="61.0" text="Titre et consignes " />
-      <Label fx:id="labelEtap2" layoutX="197.0" layoutY="61.0" text="Media" />
-      <Label fx:id="labelEtap3" layoutX="350.0" layoutY="61.0" text="Script" />
-      <Label fx:id="labelEtap4" layoutX="471.0" layoutY="61.0" text="Option et export" />
+      <Label fx:id="labelEtap1" layoutX="33.0" layoutY="61.0" text="Titre et consignes " />
+      <Label fx:id="labelEtap2" layoutX="239.0" layoutY="61.0" text="Media" />
+      <Label fx:id="labelEtap3" layoutX="394.0" layoutY="61.0" text="Script" />
+      <Label fx:id="labelEtap4" layoutX="502.0" layoutY="61.0" text="Option et export" />
    </children>
 </AnchorPane>
