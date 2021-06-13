@@ -85,7 +85,7 @@
                                        <children>
                                           <AnchorPane fx:id="evaluationAnchorPane" disable="true" opacity="0.0" prefHeight="200.0" prefWidth="200.0">
                                              <children>
-                                                <TextField fx:id="tempAlouer" layoutX="234.0" layoutY="33.0" onKeyPressed="#OnTempAlouerEvent" onKeyReleased="#OnTempAlouerEvent" onKeyTyped="#OnTempAlouerEvent" prefHeight="25.0" prefWidth="131.0" />
+                                                <TextField fx:id="tempAlouer" layoutX="234.0" layoutY="33.0" onKeyPressed="#OnTempAlouerEvent" onKeyReleased="#OnTempAlouerEvent" onKeyTyped="#OnTempAlouerEvent" prefHeight="25.0" prefWidth="131.0" styleClass="MyText-field" />
                                                 <Label layoutY="34.0" text="Limite de temps (sec) :" />
                                              </children>
                                           </AnchorPane>

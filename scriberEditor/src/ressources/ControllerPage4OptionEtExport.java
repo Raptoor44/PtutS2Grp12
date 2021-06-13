@@ -166,7 +166,6 @@ public class ControllerPage4OptionEtExport extends SuperController implements In
     void OnModeExerciceClick(ActionEvent event) {
         //série de if et else pour s'asurer que une des checkbox est toujours coché
         if (!modeEntrainementCheckBox.isSelected() && !modeEvaluationCheckBox.isSelected()) {
-            //TODO sélectionner une checkbox par défault
             if (estUneEvaluation) {
                 estUneEvaluation = false;
                 modeEntrainementCheckBox.setSelected(true);
@@ -222,11 +221,9 @@ public class ControllerPage4OptionEtExport extends SuperController implements In
 
             stringBuilder.append("il manque les élément suivant : ");
 
-            for (String string: generateurExercice.canGenerateExercice()
-                 ) {
+            for (String string: generateurExercice.canGenerateExercice()) {
                 stringBuilder.append( string + " , ");
             }
-
 
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Attention !!");
@@ -235,9 +232,6 @@ public class ControllerPage4OptionEtExport extends SuperController implements In
 
             alert.showAndWait();
             return;
-
-
-
         }
 
         FileChooser fileChooser = new FileChooser();
