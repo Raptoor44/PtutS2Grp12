@@ -10,9 +10,7 @@ import javafx.fxml.Initializable;
 import javafx.scene.control.*;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
-import javafx.scene.input.KeyCode;
-import javafx.scene.input.KeyEvent;
-import javafx.scene.input.MouseEvent;
+import javafx.scene.input.*;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -415,8 +413,7 @@ public class ExerciseController implements Initializable {
 
     }
 
-    @FXML
-    void onPauseClick(MouseEvent event){
+    void pause(){
         MediaPlayer.Status status = mediaAfficheur.getMediaPlayer().getStatus();
 
         if(status == MediaPlayer.Status.UNKNOWN || status == MediaPlayer.Status.HALTED){
@@ -432,4 +429,16 @@ public class ExerciseController implements Initializable {
         }
     }
 
+    @FXML
+    void onPauseClick(MouseEvent event){
+        pause();
+    }
+
+    @FXML
+    void onSpace(KeyEvent keyEvent){
+        if(keyEvent.getCode().equals(KeyCode.SPACE)){
+            pause();
+            keyEvent.consume();
+        }
+    }
 }
