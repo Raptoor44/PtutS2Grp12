@@ -51,7 +51,7 @@
                         </HBox>
                         <HBox fx:id="mark" alignment="CENTER_RIGHT" spacing="10.0">
                            <children>
-                              <Label stylesheets="@../ressources/Style.css" text="Soit">
+                              <Label stylesheets="@../ressources/Style.css" text="Environ">
                                  <font>
                                     <Font size="26.0" />
                                  </font>

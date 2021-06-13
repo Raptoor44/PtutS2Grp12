@@ -80,7 +80,7 @@ public class OuvertureController implements Initializable {
     @FXML
     public void voirLeTuto(ActionEvent event){
         try {
-            Desktop.getDesktop().browse(new URL("https://github.com/TLBail/PtutS2Grp12/wiki/Cr%C3%A9er-un-exercice").toURI());
+            Desktop.getDesktop().browse(new URL("https://docs.google.com/document/d/1-OjNuWAS2copCwwIWMe2kaXcoCqudW-ebRbnKVDwimM/edit?usp=sharing").toURI());
         } catch (IOException e) {
             e.printStackTrace();
         } catch (URISyntaxException e) {

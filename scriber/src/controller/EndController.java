@@ -30,10 +30,6 @@ import java.util.concurrent.TimeUnit;
 
 public class EndController implements Initializable {
 
-
-    public static final File saveDir = new File(new File(System.getProperty("user.home")), ".scriber");
-
-
     @FXML
     Label scoreLabel;
 
@@ -120,7 +116,7 @@ public class EndController implements Initializable {
 
         Score score = main.getScore();
 
-        System.out.println("export du score ...");
+        System.out.println("Export du score..");
 
         FileChooser fileChooser = new FileChooser();
 

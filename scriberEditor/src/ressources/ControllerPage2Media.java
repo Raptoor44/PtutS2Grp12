@@ -53,8 +53,8 @@ public class ControllerPage2Media extends SuperController implements Initializab
     @FXML
     VBox imageBox;
 
-    private static final String[] VIDEO_EXTENSION_SUPPORTE = {"mp4","avi"};
-    private static final String[] AUDIO_EXTENSION_SUPPORTE = {"mp3","wav"};
+    private static final String[] VIDEO_EXTENSION_SUPPORTE = {"mp4","MP4","avi","AVI"};
+    private static final String[] AUDIO_EXTENSION_SUPPORTE = {"mp3","MP3","wav","WAV"};
 
 
     @FXML
@@ -113,19 +113,7 @@ public class ControllerPage2Media extends SuperController implements Initializab
             MediaPlayer mediaPlayer = new MediaPlayer(media);
 
             mediaView.setMediaPlayer(mediaPlayer);
-            mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " a été chargé avec succès");
-
-            List list =  media.getTracks();
-            for (Object objet : list
-            ) {
-                System.out.println(objet.toString());
-            }
-
-            if(list.isEmpty()){
-                System.out.println("elle est vide ");
-            }
-
-            System.out.println(isAudio(new File(mediafilePath)));
+            mediaSucessLabel.setText("Le media " + new File(mediafilePath).getName() + " a été chargé avec succès");
 
             if(isAudio(new File(mediafilePath))){
                 imageBox.setVisible(true);
@@ -152,7 +140,7 @@ public class ControllerPage2Media extends SuperController implements Initializab
 
             imagefilePath = tempimagefilePath;
             imageView.setImage(image);
-            imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " a été chargé avec succès");
+            imageSucessLabel.setText("L'image " + new File(imagefilePath).getName() + " a été chargée avec succès");
 
         }else{
             imageSucessLabel.setText("Erreur avec l'image " + new File(tempimagefilePath).getName());

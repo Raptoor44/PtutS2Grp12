@@ -219,7 +219,7 @@ public class ControllerPage4OptionEtExport extends SuperController implements In
 
             StringBuilder stringBuilder = new StringBuilder();
 
-            stringBuilder.append("il manque les élément suivant : ");
+            stringBuilder.append("il manque les éléments suivants : ");
 
             for (String string: generateurExercice.canGenerateExercice()) {
                 stringBuilder.append( string + " , ");

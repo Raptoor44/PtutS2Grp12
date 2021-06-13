@@ -18,8 +18,8 @@ public class MediaAfficheur {
     private MediaView mediaView;
     private Image image;
 
-    private static final String[] VIDEO_EXTENSION_SUPPORTE = {"mp4","avi"};
-    private static final String[] AUDIO_EXTENSION_SUPPORTE = {"mp3","wav"};
+    private static final String[] VIDEO_EXTENSION_SUPPORTE = {"mp4","MP4","avi","AVI"};
+    private static final String[] AUDIO_EXTENSION_SUPPORTE = {"mp3","MP3","wav","WAV"};
 
     public void setMedia(Media media) {
         this.media = media;

@@ -53,7 +53,7 @@ public class ControllerPage1TitreEtConsigne extends SuperController implements I
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Attention !!");
 
-            alert.setContentText("Un titre est obligatoire !!");
+            alert.setContentText("Un titre est obligatoire.");
 
             alert.showAndWait();
             return;
@@ -62,7 +62,7 @@ public class ControllerPage1TitreEtConsigne extends SuperController implements I
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Attention !!");
 
-            alert.setContentText("Une consigne est obligatoire !!");
+            alert.setContentText("Une consigne est obligatoire.");
 
             alert.showAndWait();
             return;

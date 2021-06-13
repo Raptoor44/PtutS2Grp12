@@ -45,7 +45,7 @@ public class ControllerPage3Script extends  SuperController implements Initializ
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Attention !!");
 
-            alert.setContentText("le script est vide  !!");
+            alert.setContentText("Le script est vide.");
 
             alert.showAndWait();
             return;
