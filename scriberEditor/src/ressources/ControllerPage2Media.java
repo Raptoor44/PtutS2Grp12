@@ -9,6 +9,7 @@ import javafx.scene.control.Tooltip;
 import javafx.scene.image.Image;
 import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
+import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
@@ -19,6 +20,7 @@ import sample.Main;
 import java.io.File;
 import java.net.URL;
 import java.util.List;
+import java.util.Optional;
 import java.util.ResourceBundle;
 
 public class ControllerPage2Media extends SuperController implements Initializable {
@@ -47,6 +49,12 @@ public class ControllerPage2Media extends SuperController implements Initializab
     @FXML
     ImageView imageMark;
 
+    @FXML
+    VBox imageBox;
+
+    private static final String[] VIDEO_EXTENSION_SUPPORTE = {"mp4","avi"};
+    private static final String[] AUDIO_EXTENSION_SUPPORTE = {"mp3","wav"};
+
 
     @FXML
     void onRetourClick(ActionEvent event){
@@ -57,6 +65,10 @@ public class ControllerPage2Media extends SuperController implements Initializab
     @Override
     public void initialize(URL location, ResourceBundle resources) {
         super.initialize(location, resources);
+
+        imageBox.setDisable(true);
+        imageBox.setVisible(false);
+
         if(generateurExercice.mediaFilePath != null){
             mediafilePath = generateurExercice.mediaFilePath;
             Media media = new Media(new File(mediafilePath).toURI().toString());
@@ -64,8 +76,8 @@ public class ControllerPage2Media extends SuperController implements Initializab
 
             mediaView.setMediaPlayer(mediaPlayer);
             mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " a été chargé avec succès");
-
         }
+
         if(generateurExercice.imageFilePath != null) {
             imagefilePath = generateurExercice.imageFilePath;
             imageView.setImage(new Image(new File(imagefilePath).toURI().toString()));
@@ -96,6 +108,13 @@ public class ControllerPage2Media extends SuperController implements Initializab
         if(list.isEmpty()){
             System.out.println("elle est vide ");
         }
+
+        System.out.println(isAudio(new File(mediafilePath)));
+
+        if(isAudio(new File(mediafilePath))){
+            imageBox.setVisible(true);
+            imageBox.setDisable(false);
+        }
     }
 
     @FXML
@@ -116,7 +135,7 @@ public class ControllerPage2Media extends SuperController implements Initializab
             Alert alert = new Alert(Alert.AlertType.WARNING);
             alert.setTitle("Attention !!");
 
-            alert.setContentText("tu as selectionner aucun media !!");
+            alert.setContentText("Tu n'as selectionné aucun media.");
 
             alert.showAndWait();
             return;
@@ -144,5 +163,29 @@ public class ControllerPage2Media extends SuperController implements Initializab
         Tooltip.install(imageMark, tooltip);
     }
 
+    private boolean isMedia(File fileExercice, String[] audioExtensionSupporte) {
+        for(String extension : audioExtensionSupporte){
+            System.out.println(getExtensionByStringHandling(fileExercice.toURI().toString()));
+            if (getExtensionByStringHandling(fileExercice.getPath()).toString().equals("Optional["+extension+"]")){
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public boolean isVideo(File file){
+        return isMedia(file, VIDEO_EXTENSION_SUPPORTE);
+    }
+
+
+    private boolean isAudio(File file){
+        return isMedia(file, AUDIO_EXTENSION_SUPPORTE);
+    }
+
+    private Optional<String> getExtensionByStringHandling(String filename) {
+        return Optional.ofNullable(filename)
+                .filter(f -> f.contains("."))
+                .map(f -> f.substring(filename.lastIndexOf(".") + 1));
+    }
 
 }
