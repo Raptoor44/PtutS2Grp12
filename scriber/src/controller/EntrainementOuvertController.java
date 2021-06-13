@@ -136,7 +136,7 @@ public class EntrainementOuvertController implements Initializable {
 
         exerciseInstruction.setText(exercice.getConsigne());
         exerciseTitle.setText(exercice.getTitre());
-        caseSensitive.setText(exercice.isCaseSensitive() ? "Activé" : "Désactivé");
+        caseSensitive.setText(exercice.isCaseSensitive() ? "Activée" : "Désactivée");
 
         if(exercice instanceof Entrainement){
             displayTraining(exercice);
@@ -180,9 +180,9 @@ public class EntrainementOuvertController implements Initializable {
         Entrainement entrainement = (Entrainement) exercice;
         startExercise.setText("Débuter l'exercice d'entrainement");
         timeOrPartial.setText("Remplacement partiel :");
-        partialDiscoveringEnableOrTime.setText(entrainement.isAllowReplacement() ? "Oui" : "Non");
+        partialDiscoveringEnableOrTime.setText(entrainement.isAllowReplacement() ? "Activé" : "Désactivé");
         help.setText("Aide :");
-        helpEnable.setText(entrainement.isHelpAllowed() ? "Activé" : "Désactivé");
+        helpEnable.setText(entrainement.isHelpAllowed() ? "Activée" : "Désactivée");
     }
 
     @FXML
@@ -192,19 +192,19 @@ public class EntrainementOuvertController implements Initializable {
 
     @FXML
     public void tipConsigne(){
-        Tooltip tooltip = new Tooltip("Consigne donnée par le professeur");
+        Tooltip tooltip = new Tooltip("Consigne donnée par le professeur.");
         Tooltip.install(consigneMark, tooltip);
     }
 
     @FXML
     public void tipImage(){
-        Tooltip tooltip = new Tooltip("Image représentant le média que vous allez écouter");
+        Tooltip tooltip = new Tooltip("Image représentant le média que vous allez écouter.");
         Tooltip.install(imageMark, tooltip);
     }
 
     @FXML
     public void tipNbMots(){
-        Tooltip tooltip = new Tooltip("Nombre de mots dans le script");
+        Tooltip tooltip = new Tooltip("Nombre de mots dans le script.");
         Tooltip.install(nbMotsMark, tooltip);
     }
 
@@ -214,12 +214,12 @@ public class EntrainementOuvertController implements Initializable {
         if (exercice instanceof Entrainement){
             Entrainement entrainement = (Entrainement) exercice;
             if(entrainement.isAllowReplacement()){
-                tooltip.setText("Vous pourrez entrer des débuts de mots (" + entrainement.getNbLetterMinimum() + " lettres minimum)");
+                tooltip.setText("Vous pourrez entrer des débuts de mots (" + entrainement.getNbLetterMinimum() + " lettres minimum).");
             } else if(!entrainement.isAllowReplacement()){
-                tooltip.setText("Vous ne pourrez entrer que des mots entiers");
+                tooltip.setText("Vous ne pourrez entrer que des mots entiers.");
             }
         } else if (exercice instanceof Evaluation){
-            tooltip.setText("Durée de l'exercice");
+            tooltip.setText("Durée de l'évaluation.");
         }
 
         Tooltip.install(timeOrPartialMark, tooltip);
@@ -229,9 +229,9 @@ public class EntrainementOuvertController implements Initializable {
     public void tipSensitive(){
         Tooltip tooltip = new Tooltip();
         if(exercice.isCaseSensitive()){
-            tooltip.setText("Vous serez obligé de mettre des majuscules à vos mots");
+            tooltip.setText("Vous serez obligé de mettre des majuscules à vos mots.");
         } else if (!exercice.isCaseSensitive()){
-            tooltip.setText("Vous pourrez écrire sans majuscule");
+            tooltip.setText("Vous pourrez écrire sans majuscule.");
         }
         Tooltip.install(sensitiveMark, tooltip);
     }
@@ -242,9 +242,9 @@ public class EntrainementOuvertController implements Initializable {
             Tooltip tooltip = new Tooltip();
             Entrainement entrainement = (Entrainement) exercice;
             if(entrainement.isHelpAllowed()){
-                tooltip.setText("L'aide est autorisé, vous aurez un bouton où cliquer.");
+                tooltip.setText("L'aide est autorisée, vous aurez un bouton où cliquer.");
             } else {
-                tooltip.setText("L'aide est désactivé, malheureusement...");
+                tooltip.setText("L'aide est désactivée, malheureusement...");
             }
             Tooltip.install(helpMark, tooltip);
         }

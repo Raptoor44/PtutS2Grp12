@@ -83,6 +83,9 @@ public class ControllerPage2Media extends SuperController implements Initializab
             if(isAudio(new File((mediafilePath)))){
                 imageBox.setDisable(false);
                 imageBox.setVisible(true);
+            } else if(isVideo(new File(mediafilePath))){
+                imageBox.setDisable(true);
+                imageBox.setVisible(false);
             }
 
         }
@@ -127,6 +130,9 @@ public class ControllerPage2Media extends SuperController implements Initializab
             if(isAudio(new File(mediafilePath))){
                 imageBox.setVisible(true);
                 imageBox.setDisable(false);
+            } else if(isVideo(new File(mediafilePath))){
+                imageBox.setVisible(false);
+                imageBox.setDisable(true);
             }
 
         }catch (MediaException exception){
