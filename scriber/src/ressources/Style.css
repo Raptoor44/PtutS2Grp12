@@ -3,6 +3,11 @@
     src : url("font/WorkSans-VariableFont_wght.ttf");
 }
 
+@font-face{
+    font-family : 'Work Sans Bold';
+    src : url("font/WorkSans-Bold.ttf ");
+}
+
 .label {
     -fx-font-family: "Work Sans";
 }
