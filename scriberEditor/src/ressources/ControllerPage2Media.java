@@ -11,6 +11,7 @@ import javafx.scene.image.ImageView;
 import javafx.scene.layout.AnchorPane;
 import javafx.scene.layout.VBox;
 import javafx.scene.media.Media;
+import javafx.scene.media.MediaException;
 import javafx.scene.media.MediaPlayer;
 import javafx.scene.media.MediaView;
 import javafx.stage.FileChooser;
@@ -66,6 +67,8 @@ public class ControllerPage2Media extends SuperController implements Initializab
     public void initialize(URL location, ResourceBundle resources) {
         super.initialize(location, resources);
 
+
+
         imageBox.setDisable(true);
         imageBox.setVisible(false);
 
@@ -76,9 +79,16 @@ public class ControllerPage2Media extends SuperController implements Initializab
 
             mediaView.setMediaPlayer(mediaPlayer);
             mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " a été chargé avec succès");
+
+            if(isAudio(new File((mediafilePath)))){
+                imageBox.setDisable(false);
+                imageBox.setVisible(true);
+            }
+
         }
 
         if(generateurExercice.imageFilePath != null) {
+
             imagefilePath = generateurExercice.imageFilePath;
             imageView.setImage(new Image(new File(imagefilePath).toURI().toString()));
             imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " a été chargé avec succès");
@@ -90,41 +100,60 @@ public class ControllerPage2Media extends SuperController implements Initializab
     @FXML
     void OnImportMediaClick(ActionEvent event){
         FileChooser chooser = new FileChooser();
-        mediafilePath = chooser.showOpenDialog(null).getAbsolutePath();
-        //TODO indiquer que le media est bien charger sur l'interface  et faire une vérif que le chemin obtenue est pas null
+        String tempmediafilePath = chooser.showOpenDialog(null).getAbsolutePath();
 
-        Media media = new Media(new File(mediafilePath).toURI().toString());
-        MediaPlayer mediaPlayer = new MediaPlayer(media);
+        try {
+            Media media = new Media(new File(tempmediafilePath).toURI().toString());
 
-        mediaView.setMediaPlayer(mediaPlayer);
-        mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " a été chargé avec succès");
+            mediafilePath = tempmediafilePath;
 
-         List list =  media.getTracks();
-        for (Object objet : list
-                ) {
-            System.out.println(objet.toString());
+            MediaPlayer mediaPlayer = new MediaPlayer(media);
+
+            mediaView.setMediaPlayer(mediaPlayer);
+            mediaSucessLabel.setText("le media " + new File(mediafilePath).getName() + " a été chargé avec succès");
+
+            List list =  media.getTracks();
+            for (Object objet : list
+            ) {
+                System.out.println(objet.toString());
+            }
+
+            if(list.isEmpty()){
+                System.out.println("elle est vide ");
+            }
+
+            System.out.println(isAudio(new File(mediafilePath)));
+
+            if(isAudio(new File(mediafilePath))){
+                imageBox.setVisible(true);
+                imageBox.setDisable(false);
+            }
+
+        }catch (MediaException exception){
+            mediaSucessLabel.setText("Erreur avec le media " + new File(tempmediafilePath).getName());
+            //Todo mettre une alert box ?
+
         }
 
-        if(list.isEmpty()){
-            System.out.println("elle est vide ");
-        }
-
-        System.out.println(isAudio(new File(mediafilePath)));
-
-        if(isAudio(new File(mediafilePath))){
-            imageBox.setVisible(true);
-            imageBox.setDisable(false);
-        }
     }
 
     @FXML
     void OnImportImageClick(ActionEvent event){
         FileChooser chooser = new FileChooser();
-        imagefilePath = chooser.showOpenDialog(null).getAbsolutePath();
-        //TODO indiquer que le media est bien charger sur l'interface  et faire une vérif que le chemin obtenue est pas null
+        String tempimagefilePath = chooser.showOpenDialog(null).getAbsolutePath();
+        Image image = new Image(new File(tempimagefilePath).toURI().toString());
+        if(image != null && image.getWidth() != 0){
 
-        imageView.setImage(new Image(new File(imagefilePath).toURI().toString()));
-        imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " a été chargé avec succès");
+            imagefilePath = tempimagefilePath;
+            imageView.setImage(image);
+            imageSucessLabel.setText("l'image " + new File(imagefilePath).getName() + " a été chargé avec succès");
+
+        }else{
+            imageSucessLabel.setText("Erreur avec l'image " + new File(tempimagefilePath).getName());
+            //Todo mettre une alert box ?
+
+        }
+
 
     }
 
@@ -141,6 +170,16 @@ public class ControllerPage2Media extends SuperController implements Initializab
             return;
         }
 
+        if(isAudio(new File(mediafilePath)) && (imagefilePath == null || imagefilePath.isEmpty()) ){
+            Alert alert = new Alert(Alert.AlertType.WARNING);
+            alert.setTitle("Attention !!");
+
+            alert.setContentText("Tu n'as selectionné aucune image avec ton audio.");
+
+            alert.showAndWait();
+            return;
+
+        }
 
         generateurExercice.mediaFilePath  = mediafilePath;
         if(imagefilePath != null && !imagefilePath.isEmpty()){
