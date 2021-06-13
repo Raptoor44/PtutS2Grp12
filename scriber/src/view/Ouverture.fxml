@@ -91,7 +91,7 @@
                   <Image url="@../ressources/img/logoIut.png" />
                </image>
             </ImageView>
-            <VBox alignment="CENTER" layoutX="1128.0" layoutY="70.0" spacing="5.0" styleClass="greyContainer" stylesheets="@../ressources/Style.css">
+            <VBox alignment="CENTER" layoutX="1128.0" layoutY="70.0" spacing="5.0" styleClass="greyContainer" stylesheets="@../ressources/Style.css" AnchorPane.rightAnchor="14.0" AnchorPane.topAnchor="70.0">
                <children>
                   <Label style="-fx-font-size: 1.6em; -fx-font-weight: bold;" text="G12" />
                   <Label style="-fx-font-size: 1.6em;" text="Théo LE BAIL" />
