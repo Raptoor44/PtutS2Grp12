@@ -82,7 +82,7 @@ public class ExerciseController implements Initializable {
 
 
     private static final Image SPEAKER_IMG = new Image("ressources/img/speaker.png");
-    private static final Image SPEAKER_MUTE_IMG = new Image("ressources/img/muteSpeaker.png");
+    private static final Image SPEAKER_MUTE_IMG = new Image("ressources/img/mutespeaker.png");
     private static final Image PLAY_IMG = new Image("ressources/img/play.png");
     private static final Image PAUSE_IMG = new Image("ressources/img/pause-button.png");
 

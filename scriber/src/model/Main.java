@@ -47,10 +47,12 @@ public final class Main extends Application {
 
         parent = pageLoader.loadIndex();
         primaryStage.setTitle("Scriber");
-        primaryStage.getIcons().add(new Image(new File("ressources/img/scriberIcon.png").toURI().toString()));
         scene = new Scene(parent);
         scene.getStylesheets().add("ressources/Style.css");
         primaryStage.setScene(scene);
+        primaryStage.getIcons().add(
+                new Image(Main.class.getResourceAsStream( "/ressources/img/scriberIcon.png" )));
+
         primaryStage.setMaximized(true);
 
         if(path != null){
