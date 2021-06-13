@@ -74,8 +74,6 @@ public final class Main extends Application {
     private static String path;
 
     public static void main(String[] args) {
-
-        //TODO faire une verif que le premier argument est bien un chemin vers un exercice genre il finit par .exer
         if (args.length > 0) {
 
             path = args[0];

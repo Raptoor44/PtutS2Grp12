@@ -23,7 +23,7 @@ class ExerciceLoaderTest {
 
 
     }
-    /* //TODO Changer le test
+    /*
     @org.junit.jupiter.api.Test
     void chargerMediaDepuisExercice() {
 

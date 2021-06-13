@@ -15,9 +15,7 @@ public class ExerciceLoader {
 
     public static final File saveDir = new File(new File(System.getProperty("user.home")), ".scriber");
 
-    //TODO rajouter les extension supporter par MediaView
     private static final String[] MEDIA_EXTENSION_SUPPORTE = {".mp3", ".MP3",".mp4", ".MP4",".avi", ".AVI",".wav", ".WAV"};
-    //TODO rajouter les extension supporter par ImageView
     private static final String[] IMAGE_EXTENSION_SUPPORTE = {".jpg", ".JPG",".png", ".PNG",".bmp", ".BMP"};
 
 
