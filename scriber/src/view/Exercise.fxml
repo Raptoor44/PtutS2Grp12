@@ -16,13 +16,13 @@
 <?import javafx.scene.media.MediaView?>
 <?import javafx.scene.text.Font?>
 
-<AnchorPane fx:id="anchorPane" prefHeight="817.0" prefWidth="1335.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ExerciseController">
+<AnchorPane fx:id="anchorPane" prefHeight="817.0" prefWidth="1200.0" xmlns="http://javafx.com/javafx/16" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controller.ExerciseController">
    <children>
       <FlowPane alignment="CENTER" prefHeight="200.0" prefWidth="200.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
          <children>
-            <AnchorPane onKeyPressed="#onSpace" prefHeight="818.0" prefWidth="1338.0">
+            <AnchorPane onKeyPressed="#onSpace" prefHeight="818.0" prefWidth="1250.0">
                <children>
-                  <VBox layoutX="39.0" layoutY="675.0" prefHeight="110.0" prefWidth="790.0" spacing="15.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer" stylesheets="@../ressources/Style.css">
+                  <VBox layoutX="29.0" layoutY="669.0" prefHeight="110.0" prefWidth="768.0" spacing="15.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer" stylesheets="@../ressources/Style.css">
                      <children>
                         <Label fx:id="time" stylesheets="@../ressources/Style.css">
                            <font>
@@ -39,26 +39,26 @@
                         <Insets bottom="15.0" left="15.0" right="15.0" top="15.0" />
                      </padding>
                   </VBox>
-                  <Slider fx:id="volumeSlider" blockIncrement="0.1" layoutX="679.0" layoutY="642.0" max="1.0" onMouseClicked="#onSliderVolumeClick" onMouseDragged="#onSliderVolumeClick" prefHeight="14.0" prefWidth="69.0" />
-                  <ImageView fx:id="speakerimgView" fitHeight="40.0" fitWidth="40.0" layoutX="627.0" layoutY="629.0" onMouseClicked="#onImageViewClick" pickOnBounds="true" preserveRatio="true">
+                  <Slider fx:id="volumeSlider" blockIncrement="0.1" layoutX="670.0" layoutY="642.0" max="1.0" onMouseClicked="#onSliderVolumeClick" onMouseDragged="#onSliderVolumeClick" prefHeight="14.0" prefWidth="69.0" />
+                  <ImageView fx:id="speakerimgView" fitHeight="40.0" fitWidth="40.0" layoutX="618.0" layoutY="629.0" onMouseClicked="#onImageViewClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../ressources/img/speaker.png" />
                      </image>
                   </ImageView>
-                  <Label fx:id="mediaTime" layoutX="496.0" layoutY="636.0">
+                  <Label fx:id="mediaTime" layoutX="487.0" layoutY="636.0">
                      <font>
                         <Font size="16.0" />
                      </font>
                   </Label>
-                  <Slider fx:id="timeSlider" layoutX="148.0" layoutY="642.0" prefHeight="14.0" prefWidth="341.0" />
-                  <MediaView fx:id="mediaView" fitHeight="320.0" fitWidth="553.33" layoutX="160.0" layoutY="283.0" />
-                  <ImageView fx:id="imageView" fitHeight="320.0" fitWidth="553.33" layoutX="160.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true" />
-                  <ImageView fx:id="playImg" fitHeight="40.0" fitWidth="40.0" layoutX="97.0" layoutY="628.0" onMouseClicked="#onPauseClick" pickOnBounds="true" preserveRatio="true">
+                  <Slider fx:id="timeSlider" layoutX="139.0" layoutY="642.0" prefHeight="14.0" prefWidth="341.0" />
+                  <MediaView fx:id="mediaView" fitHeight="320.0" fitWidth="553.33" layoutX="151.0" layoutY="283.0" />
+                  <ImageView fx:id="imageView" fitHeight="320.0" fitWidth="553.33" layoutX="151.0" layoutY="283.0" pickOnBounds="true" preserveRatio="true" />
+                  <ImageView fx:id="playImg" fitHeight="40.0" fitWidth="40.0" layoutX="88.0" layoutY="628.0" onMouseClicked="#onPauseClick" pickOnBounds="true" preserveRatio="true">
                      <image>
                         <Image url="@../ressources/img/pause-button.png" />
                      </image>
                   </ImageView>
-                  <VBox layoutX="904.0" layoutY="133.0" prefWidth="403.0" spacing="60.0">
+                  <VBox layoutX="825.0" layoutY="133.0" prefWidth="403.0" spacing="60.0">
                      <children>
                         <TextArea fx:id="script" prefHeight="480.0" prefWidth="403.0" styleClass="myText-area" stylesheets="@../ressources/Style.css" wrapText="true" />
                         <HBox alignment="CENTER" prefHeight="110.0" prefWidth="370.0" spacing="25.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer" stylesheets="@../ressources/Style.css">
@@ -83,7 +83,7 @@
                         </HBox>
                      </children>
                   </VBox>
-                  <HBox alignment="CENTER" layoutX="42.0" layoutY="14.0" spacing="300.0">
+                  <HBox alignment="CENTER" layoutX="42.0" layoutY="14.0" spacing="250.0">
                      <children>
                         <Button fx:id="help" mnemonicParsing="false" onAction="#onButtonAideClick" styleClass="button18em" stylesheets="@../ressources/Style.css" text="Aide" textFill="WHITE">
                            <font>
@@ -108,7 +108,7 @@
                         </Button>
                      </children>
                   </HBox>
-                  <VBox layoutX="39.0" layoutY="133.0" prefHeight="110.0" prefWidth="790.0" spacing="15.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer" stylesheets="@../ressources/Style.css">
+                  <VBox layoutX="29.0" layoutY="133.0" prefHeight="110.0" prefWidth="768.0" spacing="15.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer" stylesheets="@../ressources/Style.css">
                      <children>
                         <Label text="Consignes : ">
                            <font>
