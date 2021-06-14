@@ -33,7 +33,7 @@
                         <Button layoutX="251.0" layoutY="176.0" mnemonicParsing="false" onAction="#onNextPageClick" prefHeight="35.0" prefWidth="101.0" styleClass="button18em" text="Valider" textFill="WHITE" AnchorPane.bottomAnchor="-4.0" AnchorPane.leftAnchor="251.0" AnchorPane.rightAnchor="250.0" />
                         <HBox layoutX="21.0" layoutY="-20.0" spacing="15.0" style="-fx-background-color: #f0eded; -fx-background-radius: 32;" styleClass="greyContainer">
                            <children>
-                              <Label text="Script du média :">
+                              <Label text="Transcription du média :">
                                  <font>
                                     <Font size="24.0" />
                                  </font>

@@ -23,6 +23,12 @@
     <jdkPreference>preferJre</jdkPreference>
     <runtimeBits>64/32</runtimeBits>
   </jre>
+  <splash>
+    <file>D:\Document\GitHub\PtutS2Grp12\release\splashScreen.bmp</file>
+    <waitForWindow>true</waitForWindow>
+    <timeout>60</timeout>
+    <timeoutErr>true</timeoutErr>
+  </splash>
   <messages>
     <startupErr>An error occurred while starting the application.</startupErr>
     <bundledJreErr>This application requires a Java Runtime Environment.</bundledJreErr>
