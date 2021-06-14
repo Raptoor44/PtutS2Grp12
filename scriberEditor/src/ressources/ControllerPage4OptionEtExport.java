@@ -94,6 +94,11 @@ public class ControllerPage4OptionEtExport extends SuperController implements In
 
     private boolean estUneEvaluation;
 
+    //juste pour reload la page de fin
+    private Stage stage;
+    private Scene scene;
+    private Parent root;
+
 
 
     @Override
@@ -287,8 +292,15 @@ public class ControllerPage4OptionEtExport extends SuperController implements In
             e.printStackTrace();
         }
 
+        root = pageLoader.loadIndex();
+        stage = (Stage)((Node)event.getSource()).getScene().getWindow();
+        scene = new Scene(root);
+        stage.setScene(scene);
+        stage.setMaximized(true);
+        stage.show();
 
     }
+
 
     @FXML
     void onRetourClick(ActionEvent event){
