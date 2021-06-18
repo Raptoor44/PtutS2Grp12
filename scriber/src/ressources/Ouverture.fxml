@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.text.*?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1024.0" style="-fx-background-color: #ffffff;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="ressources.OuvertureController">
+   <children>
+      <ToolBar prefHeight="41.0" prefWidth="1440.0" style="-fx-background-color: EAEAEA;">
+         <items>
+            <Button mnemonicParsing="false" pickOnBounds="false" text="Tutorial">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Help">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Solution">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" onAction="#OnLoadExerciceButtonCLick" text="Ouvrir">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Enregistrer sous">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Enregistrer">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+            <Button mnemonicParsing="false" text="Fermer">
+               <font>
+                  <Font size="18.0" />
+               </font>
+            </Button>
+         </items>
+      </ToolBar>
+      <AnchorPane fx:id="anchorPane" prefHeight="200.0" prefWidth="200.0">
+         <children>
+            <Text layoutX="40.0" layoutY="125.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Bienvenue" AnchorPane.leftAnchor="40.0" AnchorPane.topAnchor="55.9375">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <Text layoutX="100.0" layoutY="205.0" strokeType="OUTSIDE" strokeWidth="0.0" text="sur" AnchorPane.leftAnchor="100.0" AnchorPane.topAnchor="135.9375">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <Text fill="#5ca4da" layoutX="195.0" layoutY="204.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Scriber" AnchorPane.leftAnchor="195.0" AnchorPane.topAnchor="134.9375">
+               <font>
+                  <Font size="64.0" />
+               </font>
+            </Text>
+            <Button fx:id="openFile" alignment="CENTER" mnemonicParsing="false" onAction="#OnLoadExerciceButtonCLick" prefHeight="168.0" prefWidth="775.0" style="-fx-background-color: #5CA4DA; -fx-background-radius: 32;" text="Importer ou ouvrir votre exercice" textFill="WHITE" AnchorPane.leftAnchor="322.0" AnchorPane.topAnchor="428.0">
+               <font>
+                  <Font size="48.0" />
+               </font>
+            </Button>
+         </children>
+      </AnchorPane>
+   </children>
+</VBox>
